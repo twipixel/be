@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tween</title>
+</head>
+
+<body>
+
+<script type="text/javascript" src="./../../external/lib/test.common.js"></script>
+<script type="text/javascript" src="/src/es5/tween/Tweener.js"></script>
+<script>
+    (function(){
+
+        addScriptToBodySync('./../../external/vendor/dat.gui.js');
+
+        if (navigator.userAgent.indexOf('Electron') >= 0) {
+            // Install babel hooks to the browser process
+            require('babel-core/register')();
+            require('./index');
+        } else {
+            // commons 은 build 할 때 생성합니다.
+            addScriptToHeadSync('./../bundle/commons.js');
+            addScriptToBodySync('./../bundle/tween.js');
+        }
+
+
+    })();
+
+</script>
+
+</body>
+</html>

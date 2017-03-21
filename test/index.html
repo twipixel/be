@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <link rel="stylesheet" href="../asset/css/style.css"/>
+    <link rel="icon" href="../asset/favicon.ico" type="image/x-icon"/>
+
+    <title>Library</title>
+</head>
+
+<body class="fullscreen">
+<nav name="nav">
+    <h1><a href="/">Library</a></h1>
+    <ul>
+        <li><a href="create/index.html" target="canvas">Create</a></li>
+        <li><a href="tween/index.html" target="canvas">Tween</a></li>
+        <li class="spacer"></li>
+        <li><a href="https://github.com/twipixel/library" target="_blank">Watch on Github</a></li>
+    </ul>
+</nav>
+
+<article>
+    <div class="canvas">
+        <!--<iframe name="canvas" src="" width="100%" height="100%" frameborder="no" scrolling="yes"></iframe>-->
+        <!--<webview name="canvas" src="" width="100%" height="100%" frameborder="no" scrolling="yes"nodeintegration></webview>-->
+    </div>
+</article>
+
+<script>
+
+    (function () {
+
+        function getFrameWidth() {
+            var nav = document.getElementsByName('nav')[0];
+            return window.innerWidth - nav;
+        }
+
+        var frame, parent = document.getElementsByClassName('canvas')[0];
+
+        if (navigator.userAgent.indexOf('Electron') >= 0) {
+            frame = document.createElement('webview');
+        } else {
+            frame = document.createElement('iframe');
+        }
+
+        window.frame = frame;
+        frame.name = 'canvas';
+        frame.width = '100%';
+        frame.height = '100%';
+        frame.frameBorder = 0;
+        frame.scrolling = 'no';
+        parent.appendChild(frame);
+
+    }());
+
+
+</script>
+</body>
+</html>
