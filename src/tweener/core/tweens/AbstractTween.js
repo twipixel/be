@@ -522,9 +522,10 @@ export default class AbstractTween extends TickerListener
     }
 
     /**
-     * @inheritDoc
+     * @param type {string}
+     * @return {boolean}
      */
-    public function hasEventListener(type:String):Boolean
+    hasEventListener(type)
     {
         if (this._dispatcher != null) {
             return this._dispatcher.hasEventListener(type);
@@ -533,20 +534,23 @@ export default class AbstractTween extends TickerListener
     }
 
     /**
-     * @inheritDoc
+     * @param type {string}
+     * @param listener {Function}
+     * @param useCapture {boolean}
      */
-    public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void
+    removeEventListener(type, listener, useCapture = false)
     {
         if (this._dispatcher != null) {
             this._dispatcher.removeEventListener(type, listener, useCapture);
-            updateWillTriggerFlags();
+            this.updateWillTriggerFlags();
         }
     }
 
     /**
-     * @inheritDoc
+     * @param type {string}
+     * @returns {boolean}
      */
-    public function willTrigger(type:String):Boolean
+    willTrigger(type)
     {
         if (this._dispatcher != null) {
             return this._dispatcher.willTrigger(type);
@@ -554,7 +558,7 @@ export default class AbstractTween extends TickerListener
         return false;
     }
 
-    protected function updateWillTriggerFlags():void
+    updateWillTriggerFlags()
     {
         if (this._dispatcher.willTrigger(TweenEvent.PLAY)) {
             this._willTriggerFlags |= 0x01;

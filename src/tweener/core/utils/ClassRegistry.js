@@ -31,8 +31,17 @@ export default class ClassRegistry
 {
     constructor()
     {
-        this._classes = new Dictionary();
-        this._subclasses = new Dictionary();
+        /**
+         * @type {Dictionary}
+         * @private
+         */
+        this._classes = {};
+
+        /**
+         * @type {Dictionary}
+         * @private
+         */
+        this._subclasses = {};
     }
 
 
@@ -48,18 +57,19 @@ export default class ClassRegistry
             this.buildCacheFor(targetClass);
         }
 
-        var classes:Dictionary = this._classes;
-        var oldClass:Class = classes[targetClass][propertyName] as Class;
+        var classes = this._classes;
+        var oldClass = classes[targetClass][propertyName];
 
         classes[targetClass][propertyName] = klass;
 
-        // サブクラスへ新しい値を伝播
-
-        var subclasses:Vector.<Class> = this._subclasses[targetClass] as Vector.<Class>;
+        /**
+         * @type {Vector.<Class>}
+         */
+        var subclasses = this._subclasses[targetClass];
         if (subclasses != null) {
-            var l:uint = subclasses.length;
-            for (var i:uint = 0; i < l; ++i) {
-                var subclass:Class = subclasses[i];
+            var l = subclasses.length;
+            for (var i = 0; i < l; ++i) {
+                var subclass = subclasses[i];
                 if (classes[subclass][propertyName] == oldClass) {
                     classes[subclass][propertyName] = klass;
                 }
@@ -74,10 +84,10 @@ export default class ClassRegistry
      * @param targetClass {Class}
      * @param propertyNames {Array<string>}
      */
-    registerClassWithTargetClassAndPropertyNames(klass:Class, targetClass:Class, propertyNames:Array)
+    registerClassWithTargetClassAndPropertyNames(klass, targetClass, propertyNames)
     {
-        var l:uint = propertyNames.length;
-        for (var i:uint = 0; i < l; ++i) {
+        var l = propertyNames.length;
+        for (var i = 0; i < l; ++i) {
             this.registerClassWithTargetClassAndPropertyName(klass, targetClass, propertyNames[i]);
         }
     }
@@ -87,17 +97,17 @@ export default class ClassRegistry
      *
      * @param targetClass {Class}
      * @param propertyName {string}
-     * @returns {*}
+     * @returns {Class}
      */
-    getClassByTargetClassAndPropertyName(targetClass:Class, propertyName:String):Class
+    getClassByTargetClassAndPropertyName(targetClass, propertyName)
     {
-        var properties:* = this._classes[targetClass], c:*;
+        var properties = this._classes[targetClass], c;
         if (properties != null) {
             if ((c = properties[propertyName]) != null) {
-                return c as Class;
+                return c;
             }
             if ((c = properties['*']) != null) {
-                return c as Class;
+                return c;
             }
         }
         else {
@@ -110,15 +120,22 @@ export default class ClassRegistry
 
 
     /**
-     *
      * @param targetClass {Class}
      */
-    buildCacheFor(targetClass:Class):void
+    buildCacheFor(targetClass)
     {
-        var classes:Dictionary = this._classes;
-        var subclasses:Dictionary = this._subclasses;
-        var dict:Dictionary = new Dictionary();
-        var tree:Vector.<Class> = this.getClassTree(targetClass);
+        var classes = this._classes;
+        var subclasses = this._subclasses;
+
+        /**
+         * @type {Dictionary}
+         */
+        var dict = {};
+
+        /**
+         * @type {Vector.<Class>}
+         */
+        var tree = this.getClassTree(targetClass);
         var l:uint = tree.length;
         var i:int = l;
         while (--i >= 0) {
@@ -173,11 +190,11 @@ export default class ClassRegistry
      * @param klass {Class}
      * @returns {Vector.<Class>}
      */
-    getClassTree(klass:Class):Vector.<Class>
+    getClassTree(klass)
     {
-        var tree:Vector.<Class> = new Vector.<Class>();
-        var superClassName:String;
-        var c:Class = klass;
+        var tree = [];
+        var superClassName;
+        var c = klass;
 
         while (c != null) {
             tree.push(c);

@@ -8,7 +8,7 @@ import {
 import global from '../../src/global/getTimer';
 //import requestAnimationFrame from '../../src/polyfill/requestAnimationFrame';
 import Ticker from '../../src/ticker/Ticker';
-import TickerListener from '../../src/tweener/core/ticker/TickerListener.as';
+import TickerListener from '../../src/tweener/core/ticker/TickerListener.js';
 
 
 /**
