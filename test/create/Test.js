@@ -5,7 +5,10 @@ import {
     Easing
 } from './../../external/lib/animation';
 
-
+import global from '../../src/global/getTimer';
+//import requestAnimationFrame from '../../src/polyfill/requestAnimationFrame';
+import Ticker from '../../src/ticker/Ticker';
+import TickerListener from '../../src/tweener/core/ticker/TickerListener.as';
 
 
 /**
@@ -31,151 +34,29 @@ export default class Test{
 
 
     initialize() {
-        this.figureFunction();
-        // this.createClass();
+        //this.createTicker();
+        this.createSomething();
     }
 
 
-    figureFunction() {
-        var f = (function() {
-            return (function e(t, n, r) {
-                function s(o, u) {
+    createTicker() {
+        console.log('ticker');
 
-                }
-            })({}, {}, [183])(183)
-        });
-    }
+        this.ticker = new Ticker();
 
-
-    createClass() {
-
-
-
-
-        var _createClass = function () {
-            function defineProperties(target, props) {
-                for (var i = 0; i < props.length; i++) {
-                    var descriptor = props[i];
-                    descriptor.enumerable = descriptor.enumerable || false;
-                    descriptor.configurable = true;
-                    if ("value" in descriptor) descriptor.writable = true;
-                    Object.defineProperty(target, descriptor.key, descriptor);
-                }
-            }
-
-            return function (Constructor, protoProps, staticProps) {
-                if (protoProps) defineProperties(Constructor.prototype, protoProps);
-                if (staticProps) defineProperties(Constructor, staticProps);
-                return Constructor;
-            };
-        }();
-
-
-        function _interopRequireDefault(obj) {
-            return obj && obj.__esModule ? obj : {default: obj};
-        }
-
-        function _classCallCheck(instance, Constructor) {
-            if (!(instance instanceof Constructor)) {
-                throw new TypeError("Cannot call a class as a function");
-            }
-        }
-
-        function _possibleConstructorReturn(self, call) {
-            if (!self) {
-                throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-            }
-            return call && (typeof call === "object" || typeof call === "function") ? call : self;
-        }
-
-        function _inherits(subClass, superClass) {
-            if (typeof superClass !== "function" && superClass !== null) {
-                throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-            }
-            subClass.prototype = Object.create(superClass && superClass.prototype, {
-                constructor: {
-                    value: subClass,
-                    enumerable: false,
-                    writable: true,
-                    configurable: true
-                }
-            });
-            if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-        }
-
-
-        function _interopRequireDefault(obj) {
-            return obj && obj.__esModule ? obj : {default: obj};
-        }
-
-
-
-        return;
-
-        var TestClass = function(_EventEmitter) {
-            _inherits(TestClass, _EventEmitter);
-
-            function TestClass() {
-                _classCallCheck(this, TestClass);
-
-                var _this = _possibleConstructorReturn(this, result.EventEmitter.call(this));
-                _this._x = 0;
-                _this._y = 0;
-                return _this;
-            }
-
-
-            TestClass.prototype.emitRandomNumber = function() {
-                this.emit('EMIT_RANDOM_NUMBER', Math.random());
-            };
-
-            _createClass(TestClass, [{
-                key: 'x',
-                get: function get() {
-                    return this._x;
-                },
-                set: function set(value)
-                {
-                    this._x = value;
-                }
-
-            }, {
-                key: 'y',
-                get: function get() {
-                    return this._y;
-                },
-                set: function set(value)
-                {
-                    this._y = value;
-                }
-            }]);
-
-            return TestClass;
-        }(result.EventEmitter);
-
-
-
-        var a = new TestClass();
-        console.log('x', a.x);
-        console.log('y', a.y);
-
-
-        a.on('EMIT_RANDOM_NUMBER', number => {
-            console.log('number:', number);
+        this.ticker.add((ms) => {
+            console.log(ms, getTimer());
         });
 
-
-        a.emitRandomNumber();
+        this.ticker.start();
     }
 
 
-    inspect(obj) {
-        console.log('inspect -----------');
-        for(var prop in obj) {
-            console.log(prop + ':' + obj[prop]);
-        }
-        console.log('inspect -----------');
+    createSomething() {
+        console.log('tickerListener');
+        var tickerLisneneter = new TickerListener();
     }
+
 
 
     initializeGUI() {
@@ -226,9 +107,7 @@ export default class Test{
 
 
     update(ms) {
-        this.drawTest(this.ctx);
-        this.drawCircle(this.ctx);
-        this.drawGrid(this.canvas, this.ctx);
+
     }
 
 
@@ -278,67 +157,6 @@ export default class Test{
 
     log() {
         console.log('r', this.config.rotation);
-    }
-
-
-    drawGrid(canvas, context) {
-        context.save();
-
-        var w = canvas.width;
-        var h = canvas.height;
-
-        for (var x = 0.5; x < w; x += 10) {
-            context.beginPath();
-            context.moveTo(x, 0);
-            context.lineTo(x, h);
-
-            if ((x - 0.5) % 50 === 0) {
-                context.strokeStyle = "#999999";
-            } else {
-                context.strokeStyle = "#dddddd";
-            }
-
-            context.stroke();
-        }
-
-        for (var y = 0.5; y < h; y += 10) {
-            context.beginPath();
-            context.moveTo(0, y);
-            context.lineTo(w, y);
-
-            if ((y - 0.5) % 50 === 0) {
-                context.strokeStyle = "#999999";
-            } else {
-                context.strokeStyle = "#dddddd";
-            }
-
-            context.stroke();
-        }
-    }
-
-
-    drawTest(context) {
-        context.beginPath();
-        context.lineTo(0.5, 0);
-        context.lineTo(0.5, 600);
-        context.strokeStyle = "red";
-        context.stroke();
-
-        context.beginPath();
-        context.lineTo(10.5, 0);
-        context.lineTo(10.5, 600);
-        context.strokeStyle = "black";
-        context.stroke();
-    }
-
-
-    drawCircle(context) {
-        context.save();
-        context.beginPath();
-        context.arc(10, 10, 10, 0, 2 * Math.PI);
-        context.strokeStyle = 'RED';
-        context.stroke();
-        context.restore();
     }
 
 
