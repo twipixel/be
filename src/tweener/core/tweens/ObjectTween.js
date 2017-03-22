@@ -28,6 +28,10 @@
 
 import AbstractTween from './AbstractTween';
 
+
+/**
+ * @author  choi sungryeol:twipixel
+ */
 export default class ObjectTween extends AbstractTween
 {
     /**

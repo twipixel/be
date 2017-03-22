@@ -1,0 +1,2 @@
+import './getPrototypeOf';
+import './requestAnimationFrame';

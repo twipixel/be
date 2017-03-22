@@ -28,12 +28,15 @@
 
 
 import Ticker from '../../ticker/Ticker';
-import getTimer from '../../';
-import TickerListener from '../core/ticker/TickerListener.as';
+import TickerListener from '../core/ticker/TickerListener.js';
 
 
 const _ticker = new Ticker();
 
+
+/**
+ * @author  choi sungryeol:twipixel
+ */
 export default class EnterFrameTicker
 {
     constructor()
@@ -81,7 +84,7 @@ export default class EnterFrameTicker
             this._tickerListenerPaddings[i] = listener;
         }
 
-        this._ticker.add(this.update, this);
+        _ticker.add(this.update, this);
     }
 
     /**
@@ -157,7 +160,7 @@ export default class EnterFrameTicker
     start()
     {
         this._time = getTimer() / 1000;
-        this._ticker.start();
+        _ticker.start();
     }
 
     /**
@@ -165,7 +168,7 @@ export default class EnterFrameTicker
      */
     stop()
     {
-        this._ticker.stop();
+        _ticker.stop();
     }
 
     // internal なのはテストのため

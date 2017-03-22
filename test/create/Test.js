@@ -5,10 +5,16 @@ import {
     Easing
 } from './../../external/lib/animation';
 
-import global from '../../src/global/getTimer';
+import global from '../../src/global/index';
+import polyfill from '../../src/polyfill/index';
 //import requestAnimationFrame from '../../src/polyfill/requestAnimationFrame';
-import Ticker from '../../src/ticker/Ticker';
-import TickerListener from '../../src/tweener/core/ticker/TickerListener.js';
+
+//import Tweener from '../../src/tweener/Tweener';
+//import Ticker from '../../src/ticker/Ticker';
+//import TickerListener from '../../src/tweener/core/ticker/TickerListener.js';
+//import EnterFrameTicker from '../../src/tweener/tickers/EnterFrameTicker';
+//import ClassRegistry from '../../src/tweener/core/utils/ClassRegistry';
+
 
 
 /**
@@ -35,7 +41,11 @@ export default class Test{
 
     initialize() {
         //this.createTicker();
-        this.createSomething();
+        //this.createSomething();
+        this.createTweener();
+
+        //this.testClass();
+        this.testCollection();
     }
 
 
@@ -56,6 +66,75 @@ export default class Test{
         console.log('tickerListener');
         var tickerLisneneter = new TickerListener();
     }
+
+
+    createTweener() {
+        console.log('createTwenner');
+
+        //var ticker = new EnterFrameTicker();
+        //var classRegistry = new ClassRegistry();
+    }
+
+
+    testClass() {
+        const cp = new ColorPoint(25, 8, 'green');
+        cp.toString();
+        console.log(cp instanceof ColorPoint);
+        console.log(cp instanceof Point);
+        console.log(cp.getClass().name);
+        console.log(cp.getSuper().name);
+
+        const p = new Point(10, 10);
+        const copyp = p.getClass();
+        const copysuperp = p.getSuper();
+        const insp = new copyp();
+
+        console.log('class instance -----------------------');
+        console.log(copyp.name);
+        console.log(copysuperp.name);
+        console.log(insp instanceof Point);
+        console.log('class name -----------------------');
+        console.log(Point.name);
+        console.log(ColorPoint.name);
+        console.log('getPrototypeOf with instance -----------------------');
+        var prototype = Object.getPrototypeOf(cp);
+        var prototype1 = Object.getPrototypeOf(prototype);
+        var prototype2 = Object.getPrototypeOf(prototype1);
+        var prototype3 = Object.getPrototypeOf(prototype2);
+        console.log(prototype.constructor.name);
+        console.log(prototype1.constructor.name);
+        console.log(prototype2.constructor.name);
+        console.log(prototype3 === null);
+        console.log('getPrototypeOf with class -----------------------');
+        var prototype = Object.getPrototypeOf(ColorPoint);
+        var prototype1 = Object.getPrototypeOf(prototype);
+        var prototype2 = Object.getPrototypeOf(prototype1);
+        var prototype3 = Object.getPrototypeOf(prototype2);
+        console.log(prototype.constructor.name);
+        console.log(prototype1.constructor.name);
+        console.log(prototype2.constructor.name);
+        console.log(prototype3 === null);
+    }
+
+
+    testCollection() {
+        console.log('testCollection');
+
+        var dic = {};
+        var col = Object.create(null);
+
+        for(var prop in dic)
+        {
+            console.log(prop + ':' + dic[prop]);
+        }
+
+
+        for(var prop in col)
+        {
+            console.log(prop + ':' + col[prop]);
+        }
+    }
+
 
 
 
@@ -160,4 +239,44 @@ export default class Test{
     }
 
 
+}
+
+
+class Point {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    getClass() {
+        return this.constructor;
+    }
+
+    getSuper() {
+        return super.constructor;
+    }
+
+    toString() {
+        return `(${this.x}, ${this.y})`;
+    }
+}
+
+
+class ColorPoint extends Point {
+    constructor(x, y, color) {
+        super(x, y);
+        this.color = color;
+    }
+
+    getClass() {
+        return this.constructor;
+    }
+
+    getSuper() {
+        return super.constructor;
+    }
+
+    toString() {
+        return super.toString() + ' in ' + this.color;
+    }
 }

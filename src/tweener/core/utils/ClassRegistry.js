@@ -27,10 +27,14 @@
  */
 
 
+/**
+ * @author  choi sungryeol:twipixel
+ */
 export default class ClassRegistry
 {
     constructor()
     {
+        console.log('ClassRegistry');
         /**
          * @type {Dictionary}
          * @private
@@ -136,44 +140,43 @@ export default class ClassRegistry
          * @type {Vector.<Class>}
          */
         var tree = this.getClassTree(targetClass);
-        var l:uint = tree.length;
-        var i:int = l;
+        var l = tree.length;
+        var i = l;
         while (--i >= 0) {
-            var c:Class = tree[i];
-            var d:Dictionary = classes[c] as Dictionary;
-            var p:String;
+            var c = tree[i];
+            var d = classes[c];
+            var p;
             if (d != null) {
-                var newDict:Dictionary = new Dictionary();
-                // 祖先からの継承
+                var newDict = {};
+
                 if (dict != null) {
                     for (p in dict) {
                         newDict[p] = dict[p];
-                        // 祖先からこのクラスへ
+
                         if (!(p in d)) {
                             d[p] = dict[p];
                         }
                     }
                 }
-                // このクラスからの継承
+
                 for (p in d) {
                     newDict[p] = d[p];
                 }
                 dict = newDict;
             }
             else {
-                var dictClone:Dictionary = new Dictionary();
+                var dictClone = {};
                 for (p in dict) {
                     dictClone[p] = dict[p];
                 }
                 classes[c] = dictClone;
             }
 
-            // このクラス (c) のサブクラスのリストを保存
 
             if (subclasses[c] != undefined) {
-                var sub:Vector.<Class> = subclasses[c] as Vector.<Class>;
-                for (var j:int = i - 1; j >= 0; --j) {
-                    var subC:Class = tree[j];
+                var sub = subclasses[c];
+                for (var j = i - 1; j >= 0; --j) {
+                    var subC = tree[j];
                     if (sub.indexOf(subC) == -1) {
                         sub.push(subC);
                     }
@@ -195,14 +198,17 @@ export default class ClassRegistry
         var tree = [];
         var superClassName;
         var c = klass;
+        var prototype = Object.getPrototypeOf(new c());
 
         while (c != null) {
             tree.push(c);
-            if ((superClassName = getQualifiedSuperclassName(c)) != null) {
+            prototype = Object.getPrototypeOf(prototype);
+
+            if (prototype != null) {
                 try {
-                    c = getDefinitionByName(superClassName) as Class;
+                    c = prototype.constructor;
                 }
-                catch (e:ReferenceError) {
+                catch (error) {
                     c = Object;
                 }
             }

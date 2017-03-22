@@ -1,21 +1,21 @@
-﻿/*
+/*
  * BetweenAS3
- * 
+ *
  * Licensed under the MIT License
- * 
+ *
  * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
  *                    Spark project  (www.libspark.org)
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,34 +23,84 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
+ *
  */
+
+
+import IUpdater from './IUpdater';
 
 
 /**
  * @author  choi sungryeol:twipixel
  */
-export default class TickerListener
+export default class AbstractUpdater extends IUpdater
 {
+    constructor()
+    {
+        super();
 
-	/**
-	 * @param type {string} 이벤트 타입
-	 * @param data {Object} 전달할 데이타
-	 */
-	constructor(type, data)
-	{
-		this._type = type;
-		this._date = data;
-	}
+        /**
+         * @type {boolean}
+         * @private
+         */
+        this._isResolved = false;
+    }
+
+    /**
+     * @param factor {number}
+     */
+    update(factor)
+    {
+        if (!this._isResolved) {
+            this.resolveValues();
+            this._isResolved = true;
+        }
+        this.updateObject(factor);
+    }
+
+    resolveValues()
+    {
+
+    }
 
 
-	/**
-	 *
-	 * @param time {number}
-	 * @return {boolean}
-	 */
-	tick(time)
-	{
-		return false;
-	}
+    /**
+     * @param factor {number}
+     */
+    updateObject(factor)
+    {
+
+    }
+
+    /**
+     * @returns {IUpdater}
+     */
+    clone()
+    {
+        var instance = this.newInstance();
+        if (instance != null) {
+            instance.copyFrom(this);
+        }
+        return instance;
+    }
+
+    /**
+     * @return {AbstractUpdater}
+     */
+    newInstance()
+    {
+        return null;
+    }
+
+
+    /**
+     * @param source {AbstractUpdater}
+     */
+    copyFrom(source)
+    {
+        // Do NOT copy _isResolved property.
+    }
+
 }
+
+

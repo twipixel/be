@@ -28,7 +28,11 @@
 
 
 import EventEmiiter from 'eventemitter3';
-import EnterFrameTicker from 'tickers/EnterFrameTicker';
+
+import EnterFrameTicker from './tickers/EnterFrameTicker';
+
+import ClassRegistry from './core/utils/ClassRegistry';
+import UpdaterFactory from './core/updaters/UpdaterFactory';
 
 
 /**
@@ -36,21 +40,25 @@ import EnterFrameTicker from 'tickers/EnterFrameTicker';
  * @private
  */
 let _ticker = new EnterFrameTicker();
+_ticker.start();
 
 /**
  *
  */
-let _updaterClassRegistry;
+let _updaterClassRegistry = new ClassRegistry();
 
 /**
  *
  */
-let _updaterFactory;
+let _updaterFactory = new UpdaterFactory();
 
 
+/**
+ * @author  choi sungryeol:twipixel
+ */
 export default class Tweener
 {
-    static get VERSION() { return '0.2 (Alpha)' }
+    //static get VERSION() { return '0.2 (Alpha)' }
 
     /**
      *
@@ -60,11 +68,6 @@ export default class Tweener
         //
     }
 
-
-    static initailize()
-    {
-
-    }
 
 
 }

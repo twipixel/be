@@ -28,6 +28,10 @@
 
 import EventEmitter from 'eventemitter3';
 
+
+/**
+ * @author  choi sungryeol:twipixel
+ */
 export default class ClonableEventDispatcher extends EventEmitter
 {
     constructor(target = null)
