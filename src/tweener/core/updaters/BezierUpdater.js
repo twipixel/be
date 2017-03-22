@@ -241,10 +241,10 @@ export default class BezierUpdater extends AbstractUpdater
         var obj = source;
 
         this._target = obj._target;
-        copyObject(this._source, obj._source);
-        copyObject(this._destination, obj._destination);
-        copyObject(this._controlPoint, obj._controlPoint);
-        copyObject(this._relativeMap, obj._relativeMap);
+        this.copyObject(this._source, obj._source);
+        this.copyObject(this._destination, obj._destination);
+        this.copyObject(this._controlPoint, obj._controlPoint);
+        this.copyObject(this._relativeMap, obj._relativeMap);
     }
 
 
