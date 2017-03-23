@@ -32,9 +32,6 @@ import TickerListener from '../ticker/TickerListener';
 import ClonableEventDispatcher from '../utils/ClonableEventDispatcher';
 
 
-/**
- * @author  choi sungryeol:twipixel
- */
 export default class AbstractTween extends TickerListener
 {
     /**

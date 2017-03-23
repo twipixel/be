@@ -29,16 +29,13 @@
 import EventEmitter from 'eventemitter3';
 
 
-/**
- * @author  choi sungryeol:twipixel
- */
 export default class ClonableEventDispatcher extends EventEmitter
 {
     constructor(target = null)
     {
         super();
 
-        this.target = target;
+        this.target = target || this;
 
         /**
          * Dictionary 에 Vector.<ListenerData> 형태
@@ -57,7 +54,7 @@ export default class ClonableEventDispatcher extends EventEmitter
      */
     addEventListener(type , listener, useCapture = false, priority = 0, useWeakReference = false)
     {
-        super.on(type, listener, this.target);
+        this.on(type, listener, this.target);
 
         var data = new ListenerData();
         data.listener = listener;
@@ -75,7 +72,7 @@ export default class ClonableEventDispatcher extends EventEmitter
      */
     removeEventListener(type, listener, useCapture = false)
     {
-        super.off(type, listener, this.target);
+        this.off(type, listener, this.target);
 
         var listeners = this._listeners[type];
         if (listeners != null) {

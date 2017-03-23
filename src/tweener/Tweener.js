@@ -27,12 +27,15 @@
  */
 
 
+import Linear from './easing/Linear';
 import EventEmiiter from 'eventemitter3';
-
 import EnterFrameTicker from './tickers/EnterFrameTicker';
-
 import ClassRegistry from './core/utils/ClassRegistry';
 import UpdaterFactory from './core/updaters/UpdaterFactory';
+import ObjectTween from './core/tweens/ObjectTween';
+import ObjectUpdater from './core/updaters/ObjectUpdater';
+
+
 
 
 /**
@@ -42,23 +45,15 @@ import UpdaterFactory from './core/updaters/UpdaterFactory';
 let _ticker = new EnterFrameTicker();
 _ticker.start();
 
-/**
- *
- */
 let _updaterClassRegistry = new ClassRegistry();
+let _updaterFactory = new UpdaterFactory(_updaterClassRegistry);
 
-/**
- *
- */
-let _updaterFactory = new UpdaterFactory();
+ObjectUpdater.register(_updaterClassRegistry);
 
 
-/**
- * @author  choi sungryeol:twipixel
- */
 export default class Tweener
 {
-    //static get VERSION() { return '0.2 (Alpha)' }
+    static get VERSION() { return '0.2 (Alpha)' }
 
     /**
      *
@@ -69,6 +64,27 @@ export default class Tweener
     }
 
 
+    /**
+     *
+     * @param target {Object}
+     * @param to {Object}
+     * @param from {Object}
+     * @param time {number}
+     * @param easing {IEasing}
+     * @returns {IObjectTween}
+     */
+    static tween(target, to, from = null, time = 1.0, easing = null)
+    {
+        console.log('\n\n');
+        console.log('==================================================');
+        console.log('tween(', target, to, from, time, easing, ')');
+        console.log('==================================================');
+        var tween = new ObjectTween(_ticker);
+        tween.updater = _updaterFactory.create(target, to, from);
+        tween.time = time;
+        tween.easing = easing || Linear.easeNone;
+        return tween;
+    }
 
 }
 

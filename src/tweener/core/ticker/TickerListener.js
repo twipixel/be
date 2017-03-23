@@ -27,20 +27,22 @@
  */
 
 
-/**
- * @author  choi sungryeol:twipixel
- */
 export default class TickerListener
 {
 
-	/**
-	 * @param type {string} 이벤트 타입
-	 * @param data {Object} 전달할 데이타
-	 */
-	constructor(type, data)
+	constructor()
 	{
-		this._type = type;
-		this._date = data;
+		/**
+		 *
+		 * @type {TickerListener}
+         */
+		this.prevListener = null;
+
+		/**
+		 *
+		 * @type {TickerListener}
+         */
+		this.nextListener = null;
 	}
 
 

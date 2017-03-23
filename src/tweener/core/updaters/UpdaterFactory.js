@@ -28,16 +28,15 @@
 
 
 import UpdaterLadder from './UpdaterLadder';
-import CompositeUpdater from './CompositeUpdater';
 import BezierUpdater from './BezierUpdater';
+import PhysicalUpdater from './PhysicalUpdater';
+import CompositeUpdater from './CompositeUpdater';
+import PhysicalUpdaterLadder from './PhysicalUpdaterLadder';
+import CompositePhysicalUpdater from './CompositePhysicalUpdater';
 
 import ClassRegistry from '../utils/ClassRegistry';
 
 
-
-/**
- * @author  choi sungryeol:twipixel
- */
 export default class UpdaterFactory
 {
     /**
@@ -182,6 +181,8 @@ export default class UpdaterFactory
     {
         console.log('getUpdaterFor(', target, propertyName, map, list, ')');
 
+        console.log(this._registry);
+
         var updaterClass = this._registry.getClassByTargetClassAndPropertyName(target.constructor, propertyName);
 
         console.log('updaterClass:', updaterClass);
@@ -214,9 +215,7 @@ export default class UpdaterFactory
      */
     createBezier(target, dest, source, controlPoint)
     {
-        var map = {},
-            updaters = [],
-            bezierUpdater:BezierUpdater = new BezierUpdater(), name:String, value:Object, isRelative:Boolean, cp:Array, l:uint, i:uint, child:IUpdater, updater:IUpdater;
+        var map = {}, updaters = [], bezierUpdater = new BezierUpdater(), name, value, isRelative, cp, l, i, child, updater;
 
         bezierUpdater.target = target;
 
@@ -224,7 +223,7 @@ export default class UpdaterFactory
 
         if (source != null) {
             for (name in source) {
-                if ((value = source[name]) is Number) {
+                if (typeof (value = source[name]) === 'number') {
                     if ((isRelative = /^\$/.test(name))) {
                         name = name.substr(1);
                     }
@@ -241,7 +240,7 @@ export default class UpdaterFactory
         }
         if (dest != null) {
             for (name in dest) {
-                if ((value = dest[name]) is Number) {
+                if (typeof (value = dest[name]) === 'number') {
                     if ((isRelative = /^\$/.test(name))) {
                         name = name.substr(1);
                     }
@@ -258,14 +257,14 @@ export default class UpdaterFactory
         }
         if (controlPoint != null) {
             for (name in controlPoint) {
-                if ((value = controlPoint[name]) is Number) {
+                if (typeof (value = controlPoint[name]) === 'number') {
                     value = [value];
                 }
-                if (value is Array) {
+                if (Array.isArray(value)) {
                     if ((isRelative = /^\$/.test(name))) {
                         name = name.substr(1);
                     }
-                    cp = value as Array;
+                    cp = value;
                     l = cp.length;
                     for (i = 0; i < l; ++i) {
                         bezierUpdater.addControlPoint(name, cp[i], isRelative);
@@ -291,9 +290,18 @@ export default class UpdaterFactory
         return updater;
     }
 
-    public function createPhysical(target:Object, dest:Object, source:Object, easing:IPhysicalEasing):IPhysicalUpdater
+
+    /**
+     *
+     * @param target {Object}
+     * @param dest {Object}
+     * @param source {Object}
+     * @param easing {IPhysicalEasing}
+     * @returns {IPhysicalUpdater}
+     */
+    createPhysical(target, dest, source, easing)
     {
-        var map:Dictionary = new Dictionary(), updaters:Vector.<IPhysicalUpdater> = new Vector.<IPhysicalUpdater>, physicalUpdater:PhysicalUpdater = new PhysicalUpdater(), name:String, value:Object, isRelative:Boolean, child:IPhysicalUpdater, updater:IPhysicalUpdater;
+        var map = {}, updaters = [], physicalUpdater = new PhysicalUpdater(), name, value, isRelative, child, updater;
 
         physicalUpdater.target = target;
         physicalUpdater.easing = easing;
@@ -302,7 +310,7 @@ export default class UpdaterFactory
 
         if (source != null) {
             for (name in source) {
-                if ((value = source[name]) is Number) {
+                if (typeof (value = source[name]) === 'number') {
                     if ((isRelative = /^\$/.test(name))) {
                         name = name.substr(1);
                     }
@@ -319,7 +327,7 @@ export default class UpdaterFactory
         }
         if (dest != null) {
             for (name in dest) {
-                if ((value = dest[name]) is Number) {
+                if (typeof (value = dest[name]) === 'number') {
                     if ((isRelative = /^\$/.test(name))) {
                         name = name.substr(1);
                     }

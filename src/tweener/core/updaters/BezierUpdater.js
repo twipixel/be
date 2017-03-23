@@ -30,9 +30,6 @@
 import AbstractUpdater from './AbstractUpdater';
 
 
-/**
- * @author  choi sungryeol:twipixel
- */
 export default class BezierUpdater extends AbstractUpdater
 {
     constructor()

@@ -30,20 +30,76 @@
 import IUpdater from './IUpdater';
 
 
-/**
- * @author  choi sungryeol:twipixel
- */
 export default class AbstractUpdater extends IUpdater
 {
     constructor()
     {
         super();
-
         /**
          * @type {boolean}
          * @private
          */
         this._isResolved = false;
+    }
+
+    /**
+     *
+     * @returns {Object}
+     */
+    get target()
+    {
+        return null;
+    }
+
+    /**
+     *
+     * @param value {Object}
+     */
+    set target(value)
+    {
+
+    }
+
+    /**
+     *
+     * @param propertyName {string}
+     * @param value {number}
+     * @param isRelative {boolean}
+     */
+    setSourceValue(propertyName, value, isRelative = false)
+    {
+
+    }
+
+    /**
+     *
+     * @param propertyName {string}
+     * @param value {number}
+     * @param isRelative {boolean}
+     */
+    setDestinationValue(propertyName, value, isRelative = false)
+    {
+
+    }
+
+    /**
+     *
+     * @param propertyName {string}
+     * @returns {Object}
+     */
+    getObject(propertyName)
+    {
+        return null;
+    }
+
+    /**
+     *
+     * @param propertyName {string}
+     * @param value {Object}
+     */
+    setObject(propertyName, value)
+    {
+
     }
 
     /**

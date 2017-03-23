@@ -34,9 +34,6 @@ import TickerListener from '../core/ticker/TickerListener.js';
 const _ticker = new Ticker();
 
 
-/**
- * @author  choi sungryeol:twipixel
- */
 export default class EnterFrameTicker
 {
     constructor()

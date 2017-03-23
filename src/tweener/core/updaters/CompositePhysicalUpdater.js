@@ -30,10 +30,7 @@
 import IPhysicalUpdater from './IPhysicalUpdater';
 
 
-/**
- * @author  choi sungryeol:twipixel
- */
-export default class CompositePhysicalUpdater extends  IPhysicalUpdater
+export default class CompositePhysicalUpdater extends IPhysicalUpdater
 {
     /**
      *
@@ -92,38 +89,38 @@ export default class CompositePhysicalUpdater extends  IPhysicalUpdater
          * @type {IPhysicalUpdater}
          * @private
          */
-        this._updater = null;
+        this._updaters = null;
 
 
         var l = updaters.length;
 
         if (l >= 1) {
-            _a = updaters[0];
-            if (_duration < _a.duration) {
-                _duration = _a.duration;
+            this._a = updaters[0];
+            if (this._duration < this._a.duration) {
+                this._duration = this._a.duration;
             }
             if (l >= 2) {
-                _b = updaters[1];
-                if (_duration < _b.duration) {
-                    _duration = _b.duration;
+                this._b = updaters[1];
+                if (this._duration < this._b.duration) {
+                    this._duration = this._b.duration;
                 }
                 if (l >= 3) {
-                    _c = updaters[2];
-                    if (_duration < _c.duration) {
-                        _duration = _c.duration;
+                    this._c = updaters[2];
+                    if (this._duration < this._c.duration) {
+                        this._duration = this._c.duration;
                     }
                     if (l >= 4) {
-                        _d = updaters[3];
-                        if (_duration < _d.duration) {
-                            _duration = _d.duration;
+                        this._d = updaters[3];
+                        if (this._duration < this._d.duration) {
+                            this._duration = this._d.duration;
                         }
                         if (l >= 5) {
-                            _updaters = new Vector.<IPhysicalUpdater>(l - 4, true);
-                            for (var i:uint = 4; i < l; ++i) {
-                                var updater:IPhysicalUpdater = updaters[i];
-                                _updaters[i - 4] = updater;
-                                if (_duration < updater.duration) {
-                                    _duration = updater.duration;
+                            this._updaters = [];
+                            for (var i = 4; i < l; ++i) {
+                                var updater = updaters[i];
+                                this._updaters[i - 4] = updater;
+                                if (this._duration < updater.duration) {
+                                    this._duration = updater.duration;
                                 }
                             }
                         }
@@ -142,18 +139,18 @@ export default class CompositePhysicalUpdater extends  IPhysicalUpdater
     getUpdaterAt(index)
     {
         if (index == 0) {
-            return _a;
+            return this._a;
         }
         if (index == 1) {
-            return _b;
+            return this._b;
         }
         if (index == 2) {
-            return _c;
+            return this._c;
         }
         if (index == 3) {
-            return _d;
+            return this._d;
         }
-        return _updaters[index - 4];
+        return this._updaters[index - 4];
     }
 
     /**
@@ -162,7 +159,7 @@ export default class CompositePhysicalUpdater extends  IPhysicalUpdater
      */
     get target()
     {
-        return _target;
+        return this._target;
     }
 
     /**
@@ -171,82 +168,35 @@ export default class CompositePhysicalUpdater extends  IPhysicalUpdater
      */
     set target(value)
     {
-        _target = value;
+        this._target = value;
     }
 
     /**
-     * @returns {IPhysicalEasing}
+     * @returns {number}
      */
-    easing()
+    get duration()
     {
-        return null;
+        return this._duration;
     }
 
     /**
-     * @private
+     *
+     * @param factor {number}
      */
-    public function set easing(value:IPhysicalEasing):void
+    update(factor)
     {
-
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function get duration():Number
-    {
-        return _duration;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function setSourceValue(propertyName:String, value:Number, isRelative:Boolean = false):void
-    {
-
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function setDestinationValue(propertyName:String, value:Number, isRelative:Boolean = false):void
-    {
-
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getObject(propertyName:String):Object
-    {
-        return null;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function setObject(propertyName:String, value:Object):void
-    {
-
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function update(factor:Number):void
-    {
-        if (_a != null) {
-            _a.update(factor);
-            if (_b != null) {
-                _b.update(factor);
-                if (_c != null) {
-                    _c.update(factor);
-                    if (_d != null) {
-                        _d.update(factor);
-                        if (_updaters != null) {
-                            var updaters:Vector.<IPhysicalUpdater> = _updaters;
-                            var l:uint = updaters.length;
-                            for (var i:uint = 0; i < l; ++i) {
+        if (this._a != null) {
+            this._a.update(factor);
+            if (this._b != null) {
+                this._b.update(factor);
+                if (this._c != null) {
+                    this._c.update(factor);
+                    if (this._d != null) {
+                        this._d.update(factor);
+                        if (this._updaters != null) {
+                            var updaters = this._updaters;
+                            var l = updaters.length;
+                            for (var i = 0; i < l; ++i) {
                                 updaters[i].update(factor);
                             }
                         }
@@ -257,24 +207,25 @@ export default class CompositePhysicalUpdater extends  IPhysicalUpdater
     }
 
     /**
-     * @inheritDoc
+     *
+     * @returns {IUpdater}
      */
-    public function clone():IUpdater
+    clone()
     {
-        var updaters:Vector.<IPhysicalUpdater> = new Vector.<IPhysicalUpdater>();
+        var updaters = [];
 
-        if (_a != null) {
-            updaters.push(_a.clone());
-            if (_b != null) {
-                updaters.push(_b.clone());
-                if (_c != null) {
-                    updaters.push(_c.clone());
-                    if (_d != null) {
-                        updaters.push(_d.clone());
-                        if (_updaters != null) {
-                            var u:Vector.<IPhysicalUpdater> = _updaters;
-                            var l:uint = u.length;
-                            for (var i:uint = 0; i < l; ++i) {
+        if (this._a != null) {
+            updaters.push(this._a.clone());
+            if (this._b != null) {
+                updaters.push(this._b.clone());
+                if (this._c != null) {
+                    updaters.push(this._c.clone());
+                    if (this._d != null) {
+                        updaters.push(this._d.clone());
+                        if (this._updaters != null) {
+                            var u = this._updaters;
+                            var l = u.length;
+                            for (var i = 0; i < l; ++i) {
                                 updaters.push(u[i].clone());
                             }
                         }
@@ -283,7 +234,7 @@ export default class CompositePhysicalUpdater extends  IPhysicalUpdater
             }
         }
 
-        return new CompositePhysicalUpdater(_target, updaters);
+        return new CompositePhysicalUpdater(this._target, updaters);
     }
 }
 

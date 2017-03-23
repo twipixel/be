@@ -29,9 +29,6 @@
 import IUpdater from './IUpdater';
 
 
-/**
- * @author  choi sungryeol:twipixel
- */
 export default class UpdaterLadder extends IUpdater
 {
     /**

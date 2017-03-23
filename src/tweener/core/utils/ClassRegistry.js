@@ -27,9 +27,6 @@
  */
 
 
-/**
- * @author  choi sungryeol:twipixel
- */
 export default class ClassRegistry
 {
     constructor()

@@ -9,11 +9,12 @@ import global from '../../src/global/index';
 import polyfill from '../../src/polyfill/index';
 //import requestAnimationFrame from '../../src/polyfill/requestAnimationFrame';
 
-//import Tweener from '../../src/tweener/Tweener';
+import Tweener from '../../src/tweener/Tweener';
 //import Ticker from '../../src/ticker/Ticker';
 //import TickerListener from '../../src/tweener/core/ticker/TickerListener.js';
 //import EnterFrameTicker from '../../src/tweener/tickers/EnterFrameTicker';
 //import ClassRegistry from '../../src/tweener/core/utils/ClassRegistry';
+//import UpdateFactory from '../../src/tweener/core/updaters/UpdaterFactory';
 
 
 
@@ -45,7 +46,7 @@ export default class Test{
         this.createTweener();
 
         //this.testClass();
-        this.testCollection();
+        //this.testCollection();
     }
 
 
@@ -73,10 +74,31 @@ export default class Test{
 
         //var ticker = new EnterFrameTicker();
         //var classRegistry = new ClassRegistry();
+
+        //var updaterFactory = new UpdateFactory();
+
+        var obj = {
+            x:0,
+            y:0,
+        };
+
+        var tween = Tweener.tween(obj, {x:100}, {x:0}, 1);
+        tween.onUpdate = () => {
+            console.log('onUpdate', obj.x, obj.y);
+        };
+        tween.play();
+
+
     }
 
 
     testClass() {
+        var n = new NoContructor();
+        n.sayHello();
+        console.log(n.getClass());
+
+        return;
+
         const cp = new ColorPoint(25, 8, 'green');
         cp.toString();
         console.log(cp instanceof ColorPoint);
@@ -279,4 +301,12 @@ class ColorPoint extends Point {
     toString() {
         return super.toString() + ' in ' + this.color;
     }
+}
+
+
+class NoContructor extends Point{
+    sayHello() {
+        console.log('say hello');
+    }
+
 }
