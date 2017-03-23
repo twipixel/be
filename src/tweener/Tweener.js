@@ -43,12 +43,12 @@ import ObjectUpdater from './core/updaters/ObjectUpdater';
  * @private
  */
 let _ticker = new EnterFrameTicker();
-_ticker.start();
-
 let _updaterClassRegistry = new ClassRegistry();
 let _updaterFactory = new UpdaterFactory(_updaterClassRegistry);
 
 ObjectUpdater.register(_updaterClassRegistry);
+
+_ticker.start();
 
 
 export default class Tweener
