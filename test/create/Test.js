@@ -35,18 +35,21 @@ export default class Test{
 
         this.initialize();
         this.initializeGUI();
-        this.update();
-        //this.render();
+        //this.update();
+        this.render();
     }
 
 
     initialize() {
         //this.createTicker();
         //this.createSomething();
-        this.createTweener();
+        //this.createTweener();
 
         //this.testClass();
         //this.testCollection();
+
+        this.testBit();
+        this.testSkew();
     }
 
 
@@ -72,6 +75,7 @@ export default class Test{
     createTweener() {
         console.log('createTwenner');
 
+
         //var ticker = new EnterFrameTicker();
         //var classRegistry = new ClassRegistry();
 
@@ -80,7 +84,9 @@ export default class Test{
         var obj = {
             x:0,
             y:0,
+            //scale:{},
         };
+
 
         var tween = Tweener.tween(obj, {x:100}, {x:0}, 1);
         tween.onUpdate = () => {
@@ -158,6 +164,41 @@ export default class Test{
     }
 
 
+    testBit() {
+
+        var f = 0;
+        //f |= 0x0001;
+        f |= 0x0020;
+        //f |= 0x0040;
+        console.log('-------------------');
+        console.log(0x0004 + 0x008 + 0x0010, 0x001c);
+        console.log(0x0040 + 0x0080 + 0x0100, 0x01c0);
+        console.log(0x0200 + 0x0400 + 0x0800, 0x0e00);
+        console.log('-------------------');
+
+    }
+
+
+
+    testSkew() {
+
+        this.renderer = new PIXI.CanvasRenderer(this.canvas.width, this.canvas.height, {
+            view: this.canvas,
+            autoResize: true,
+            backgroundColor: 0xFFFFFF,
+        });
+
+        var stage = this.stage = new PIXI.Container();
+
+
+        var display = this.display = new PIXI.Container();
+        var rect = new PIXI.Graphics();
+        rect.beginFill(0xFF3300);
+        rect.drawRect(0, 0, 100, 100);
+        rect.endFill();
+        display.addChild(rect);
+        stage.addChild(display);
+    }
 
 
     initializeGUI() {
@@ -168,7 +209,9 @@ export default class Test{
             y: 0,
             scaleX: 1,
             scaleY: 1,
-            rotation: 0
+            rotation: 0,
+            skewX: 0,
+            skewY: 0,
         };
 
         this.config.log = this.log.bind(this);
@@ -198,6 +241,24 @@ export default class Test{
             this.config.rotation = value;
         });
 
+        this.gui.add(this.config, 'skewX').min(0).max(1).step(0.1).onChange((value) => {
+            this.config.skewX = value;
+
+            console.log('this.display', this.display, value);
+
+            if(this.display)
+                this.display.skew.x = value;
+        });
+
+        this.gui.add(this.config, 'skewY').min(0).max(1).step(0.1).onChange((value) => {
+            this.config.skewY = value;
+
+            console.log('this.display', this.display, value);
+
+            if(this.display)
+                this.display.skew.y = value;
+        });
+
         this.gui.add(this.config, 'log');
         this.gui.add(this.config, 'plus');
         this.gui.add(this.config, 'minus');
@@ -208,7 +269,7 @@ export default class Test{
 
 
     update(ms) {
-
+        this.renderer.render(this.stage);
     }
 
 
