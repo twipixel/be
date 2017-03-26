@@ -33,6 +33,7 @@ export default class Test{
         this.canvas = canvas;
         this.context = this.ctx = context;
 
+        this.createStage();
         this.initialize();
         this.initializeGUI();
         //this.update();
@@ -41,6 +42,7 @@ export default class Test{
 
 
     initialize() {
+
         //this.createTicker();
         //this.createSomething();
         //this.createTweener();
@@ -50,6 +52,18 @@ export default class Test{
 
         this.testBit();
         this.testSkew();
+        this.testFilter();
+    }
+
+
+    createStage() {
+        this.app = new PIXI.CanvasRenderer(this.canvas.width, this.canvas.height, {
+            view: this.canvas,
+            autoResize: true,
+            backgroundColor: 0xFFFFFF,
+        });
+
+        this.stage = new PIXI.Container();
     }
 
 
@@ -93,8 +107,6 @@ export default class Test{
             console.log('onUpdate', obj.x, obj.y);
         };
         tween.play();
-
-
     }
 
 
@@ -175,29 +187,37 @@ export default class Test{
         console.log(0x0040 + 0x0080 + 0x0100, 0x01c0);
         console.log(0x0200 + 0x0400 + 0x0800, 0x0e00);
         console.log('-------------------');
+    }
 
+
+    testFilter() {
+        var blurFilter = new PIXI.filters.BlurFilter();
+        blurFilter.blur = 20;
+
+        console.log('blurFilter:', blurFilter);
+
+        var panda = new PIXI.Sprite.fromImage('../../asset/image/icon/panda.png');
+        this.stage.addChild(panda);
+
+        panda.filters = [blurFilter];
+
+        var tween = Tweener.tween(panda, {_blurFilter:{blurX:16, blurY:16}});
+        tween.onUpdate = () => {
+            console.log(panda.filters);
+        };
+        tween.play();
     }
 
 
 
     testSkew() {
-
-        this.renderer = new PIXI.CanvasRenderer(this.canvas.width, this.canvas.height, {
-            view: this.canvas,
-            autoResize: true,
-            backgroundColor: 0xFFFFFF,
-        });
-
-        var stage = this.stage = new PIXI.Container();
-
-
         var display = this.display = new PIXI.Container();
         var rect = new PIXI.Graphics();
         rect.beginFill(0xFF3300);
         rect.drawRect(0, 0, 100, 100);
         rect.endFill();
         display.addChild(rect);
-        stage.addChild(display);
+        this.stage.addChild(display);
     }
 
 
@@ -269,7 +289,7 @@ export default class Test{
 
 
     update(ms) {
-        this.renderer.render(this.stage);
+        this.app.render(this.stage);
     }
 
 
