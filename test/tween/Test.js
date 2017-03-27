@@ -5,6 +5,28 @@ import {
     Easing
 } from './../../external/lib/animation';
 
+import global from '../../src/global/index';
+import polyfill from '../../src/polyfill/index';
+import Tweener from '../../src/tweener/Tweener';
+
+import Back from '../../src/tweener/easing/Back';
+import Bounce from '../../src/tweener/easing/Bounce';
+import Circ from '../../src/tweener/easing/Circ';
+import Circular from '../../src/tweener/easing/Circular';
+import Cubic from '../../src/tweener/easing/Cubic';
+import Custom from '../../src/tweener/easing/Custom';
+import Elastic from '../../src/tweener/easing/Elastic';
+import Expo from '../../src/tweener/easing/Expo';
+import Exponential from '../../src/tweener/easing/Exponential';
+import Linear from '../../src/tweener/easing/Linear';
+import Physical from '../../src/tweener/easing/Physical';
+import Quad from '../../src/tweener/easing/Quad';
+import Quadratic from '../../src/tweener/easing/Quadratic';
+import Quart from '../../src/tweener/easing/Quart';
+import Quartic from '../../src/tweener/easing/Quartic';
+import Quint from '../../src/tweener/easing/Quint';
+import Quintic from '../../src/tweener/easing/Quintic';
+import Sine from '../../src/tweener/easing/Sine';
 
 
 
@@ -14,14 +36,15 @@ import {
 export default class Test{
 
     constructor() {
-        var canvas = document.createElement('canvas');
-        canvas.width = 800;
-        canvas.height = 600;
-        var context = canvas.getContext('2d');
-        document.body.appendChild(canvas);
 
-        this.canvas = canvas;
-        this.context = this.ctx = context;
+        this.app = new PIXI.Application(800, 600, {backgroundColor : 0x1099bb});
+        document.body.appendChild(this.app.view);
+
+        this.canvas = this.app.renderer.canvas;
+        this.context = this.ctx = this.app.renderer.context;
+        this.stage = this.app.stage;
+
+        console.log('canvas:', this.canvas, 'context:', this.context, 'stage:', this.stage);
 
         this.initialize();
         this.initializeGUI();
@@ -30,7 +53,8 @@ export default class Test{
 
 
     initialize() {
-
+        this.icon = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
+        this.stage.addChild(this.icon);
     }
 
 
@@ -45,47 +69,53 @@ export default class Test{
             rotation: 0
         };
 
-        this.config.log = this.log.bind(this);
-        this.config.plus = this.plus.bind(this);
-        this.config.minus = this.minus.bind(this);
-        this.config.renderStart = this.renderStart.bind(this);
-        this.config.renderStop = this.renderStop.bind(this);
-        this.config.animation = this.animation.bind(this);
+        // 기본 함수 테스트
+        this.config.tween = this.tween.bind(this);
+        this.config.to = this.to.bind(this);
+        this.config.from = this.from.bind(this);
+        this.config.apply = this.apply.bind(this);
+        this.config.bezier = this.bezier.bind(this);
+        this.config.bezierTo = this.bezierTo.bind(this);
+        this.config.bezierFrom = this.bezierFrom.bind(this);
+        this.config.physical = this.physical.bind(this);
+        this.config.physicalTo = this.physicalTo.bind(this);
+        this.config.physicalFrom = this.physicalFrom.bind(this);
+        this.config.physicalApply = this.physicalApply.bind(this);
+        this.config.parallel = this.parallel.bind(this);
+        this.config.parallelTweens = this.parallelTweens.bind(this);
+        this.config.serial = this.serial.bind(this);
+        this.config.serialTweens = this.serialTweens.bind(this);
+        this.config.reverse = this.reverse.bind(this);
+        this.config.repeat = this.repeat.bind(this);
+        this.config.scale = this.scale.bind(this);
+        this.config.slice = this.slice.bind(this);
+        this.config.delay = this.delay.bind(this);
 
-        this.gui.add(this.config, 'x').min(0).max(200).step(1).onChange((value) => {
-            this.config.x = value;
-        });
-
-        this.gui.add(this.config, 'y').min(0).max(200).step(1).onChange((value) => {
-            this.config.y = value;
-        });
-
-        this.gui.add(this.config, 'scaleX').min(0).max(4).step(0.1).onChange((value) => {
-            this.config.scaleX = value;
-        });
-
-        this.gui.add(this.config, 'scaleY').min(0).max(4).step(0.1).onChange((value) => {
-            this.config.scaleY = value;
-        });
-
-        this.gui.add(this.config, 'rotation').min(0).max(360).step(1).onChange((value) => {
-            this.config.rotation = value;
-        });
-
-        this.gui.add(this.config, 'log');
-        this.gui.add(this.config, 'plus');
-        this.gui.add(this.config, 'minus');
-        this.gui.add(this.config, 'renderStart');
-        this.gui.add(this.config, 'renderStop');
-        this.gui.add(this.config, 'animation');
+        this.gui.add(this.config, 'tween');
+        this.gui.add(this.config, 'to');
+        this.gui.add(this.config, 'from');
+        this.gui.add(this.config, 'apply');
+        this.gui.add(this.config, 'bezier');
+        this.gui.add(this.config, 'bezierTo');
+        this.gui.add(this.config, 'bezierFrom');
+        this.gui.add(this.config, 'physical');
+        this.gui.add(this.config, 'physicalTo');
+        this.gui.add(this.config, 'physicalFrom');
+        this.gui.add(this.config, 'physicalApply');
+        this.gui.add(this.config, 'parallel');
+        this.gui.add(this.config, 'parallelTweens');
+        this.gui.add(this.config, 'serial');
+        this.gui.add(this.config, 'serialTweens');
+        this.gui.add(this.config, 'reverse');
+        this.gui.add(this.config, 'repeat');
+        this.gui.add(this.config, 'scale');
+        this.gui.add(this.config, 'slice');
+        this.gui.add(this.config, 'delay');
     }
 
 
     update(ms) {
-        console.log(performance.now);
-        this.drawTest(this.ctx);
-        this.drawCircle(this.ctx);
-        this.drawGrid(this.canvas, this.ctx);
+
     }
 
 
@@ -95,108 +125,149 @@ export default class Test{
     }
 
 
-    renderStart() {
-        this.render();
+
+
+    tween() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
     }
 
 
-    renderStop() {
-        cancelAnimationFrame(this.requestId);
+    to() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
     }
 
 
-    animation() {
-        animation(this, this.onAnimation, 60, Easing.easeOutQuad);
-        // animation(null, this.onAnimation.bind(this), 60, Easing.easeOutQuad);
+    from() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
     }
 
 
-    onAnimation(ease, step, currentStep) {
-        console.log('ease: %s, step: %s, currentStep: %s', ease, step, currentStep);
+    apply() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
     }
 
 
-    onComplete() {
-        console.log('onComplete');
+    bezier() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
     }
 
 
-    plus() {
-        this.config.rotation++;
-        this.log();
+    bezierTo() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
     }
 
 
-    minus() {
-        this.config.rotation--;
-        this.log();
+    bezierFrom() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
     }
 
 
-    log() {
-        console.log('r', this.config.rotation);
+    physical() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
     }
 
 
-    drawGrid(canvas, context) {
-        context.save();
+    physicalTo() {
 
-        var w = canvas.width;
-        var h = canvas.height;
-
-        for (var x = 0.5; x < w; x += 10) {
-            context.beginPath();
-            context.moveTo(x, 0);
-            context.lineTo(x, h);
-
-            if ((x - 0.5) % 50 === 0) {
-                context.strokeStyle = "#999999";
-            } else {
-                context.strokeStyle = "#dddddd";
-            }
-
-            context.stroke();
-        }
-
-        for (var y = 0.5; y < h; y += 10) {
-            context.beginPath();
-            context.moveTo(0, y);
-            context.lineTo(w, y);
-
-            if ((y - 0.5) % 50 === 0) {
-                context.strokeStyle = "#999999";
-            } else {
-                context.strokeStyle = "#dddddd";
-            }
-
-            context.stroke();
-        }
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
     }
 
 
-    drawTest(context) {
-        context.beginPath();
-        context.lineTo(0.5, 0);
-        context.lineTo(0.5, 600);
-        context.strokeStyle = "red";
-        context.stroke();
+    physicalFrom() {
 
-        context.beginPath();
-        context.lineTo(10.5, 0);
-        context.lineTo(10.5, 600);
-        context.strokeStyle = "black";
-        context.stroke();
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
     }
 
 
-    drawCircle(context) {
-        context.save();
-        context.beginPath();
-        context.arc(10, 10, 10, 0, 2 * Math.PI);
-        context.strokeStyle = 'RED';
-        context.stroke();
-        context.restore();
+    physicalApply() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
     }
+
+
+    parallel() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
+    }
+
+
+    parallelTweens() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
+    }
+
+
+    serial() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
+    }
+
+
+    serialTweens() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
+    }
+
+
+    reverse() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
+    }
+
+
+    repeat() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
+    }
+
+
+    scale() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
+    }
+
+
+    slice() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
+    }
+
+
+    delay() {
+
+        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        tween.play();
+    }
+
+
+
 
 
 }
