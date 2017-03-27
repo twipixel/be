@@ -126,7 +126,7 @@ node_modules
 .LSOverride
 
 # Icon must end with two \r
-Icon
+# Icon
 
 # Thumbnails
 ._*
@@ -148,7 +148,7 @@ Temporary Items
 .LSOverride
 
 # Icon must end with two \r
-Icon
+# Icon
 
 # Thumbnails
 ._*
