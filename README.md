@@ -42,11 +42,11 @@ tween(target:Object, to:Object, from:Object = null, time:Number = 1.0, easing:IE
       - internalUpdate(t); (ObjectTween.internalUpdate)
         - factor = _easing.calculate(time, 0.0, 1.0, _duration);
         - _updater.update(factor);
-            
+
 <br>
 
 ### Filter 처리
-- '_blurFilter', '_colorMatrixFilter' 같은 속성이 들어오면 UpdaterLadder 를 생성합니다. UpdaterLadder는 부모로 DisplayObjectUpdater를 자식으로 ObjectUpdater를 가지면서 update 때 자식의 객체 값을 업데이트하고 부모에게 그 값을 셋팅하는 구조입니다. 
+- '_blurFilter', '_colorMatrixFilter' 같은 속성이 들어오면 UpdaterLadder 를 생성합니다. UpdaterLadder는 부모로 DisplayObjectUpdater를 자식으로 ObjectUpdater를 가지면서 update 때 자식의 객체 값을 업데이트하고 부모에게 그 값을 set 하도록 되어있습니다. 
 
 <br>
 

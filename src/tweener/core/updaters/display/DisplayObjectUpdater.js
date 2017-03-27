@@ -67,7 +67,7 @@ export default class DisplayObjectUpdater extends AbstractUpdater
      */
     static register(registry)
     {
-        registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, DisplayObject, TARGET_PROPERTIES);
+        registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, PIXI.DisplayObject, TARGET_PROPERTIES);
     }
 
 
@@ -109,7 +109,7 @@ export default class DisplayObjectUpdater extends AbstractUpdater
      *
      * @returns {Object}
      */
-    get target():Object
+    get target()
     {
         return this._target;
     }
@@ -269,31 +269,35 @@ export default class DisplayObjectUpdater extends AbstractUpdater
      * @param propertyName {string}
      * @returns {Object}
      */
-    getObject(propertyName):Object
+    getObject(propertyName)
     {
+        console.log('-------------------------------');
+        console.log('getObject(', propertyName, ')');
+        console.log('-------------------------------');
+
         if (propertyName == '_blurFilter') {
-            return getFilterByClass(BlurFilter);
+            return this.getFilterByClass(PIXI.filters.BlurFilter);
         }
         if (propertyName == '_blurXFilter') {
-            return getFilterByClass(GlowFilter);
+            return this.getFilterByClass(PIXI.filters.BlurFilter);
         }
         if (propertyName == '_blurYFilter') {
-            return getFilterByClass(DropShadowFilter);
+            return this.getFilterByClass(PIXI.filters.BlurFilter);
         }
         if (propertyName == '_colorMatrixFilter') {
-            return getFilterByClass(ColorMatrixFilter);
+            return this.getFilterByClass(new PIXI.filters.ColorMatrixFilter);
         }
         if (propertyName == '_displacementMapFilter') {
-            return getFilterByClass(BevelFilter);
+            return this.getFilterByClass(new PIXI.filters.DisplacementFilter);
         }
         if (propertyName == '_fxaaFilter') {
-            return getFilterByClass(GradientGlowFilter);
+            return this.getFilterByClass(new PIXI.filters.FXAAFilter);
         }
         if (propertyName == '_noiseFilter') {
-            return getFilterByClass(GradientBevelFilter);
+            return this.getFilterByClass(new PIXI.filters.NoiseFilter);
         }
         if (propertyName == '_voidFilter') {
-            return getFilterByClass(ConvolutionFilter);
+            return this.getFilterByClass(new PIXI.filters.VoidFilter);
         }
         return null;
     }
@@ -307,9 +311,13 @@ export default class DisplayObjectUpdater extends AbstractUpdater
     {
         var filter = null;
         var filters = this._target.filters;
+
+        console.log('this._target:', this._target);
+        console.log('this._target.filters:', this._target.filters);
+
         var l = filters.length;
         for (var i = 0; i < l; ++i) {
-            if ((filter = filters[i]) is klass) {
+            if ((filter = filters[i]) instanceof klass) {
                 return filter;
             }
         }
@@ -325,46 +333,38 @@ export default class DisplayObjectUpdater extends AbstractUpdater
      * @param propertyName {string}
      * @param value {Object}
      */
-    setObject(propertyName, value:Object)
+    setObject(propertyName, value)
     {
         if (propertyName == '_blurFilter') {
-            setFilterByClass(value, BlurFilter);
+            this.setFilterByClass(value, PIXI.filters.BlurFilter);
             return;
         }
-        if (propertyName == '_glowFilter') {
-            setFilterByClass(value, GlowFilter);
+        if (propertyName == '_blurXFilter') {
+            this.setFilterByClass(value, PIXI.filters.BlurFilter);
             return;
         }
-        if (propertyName == '_dropShadowFilter') {
-            setFilterByClass(value, DropShadowFilter);
+        if (propertyName == '_blurYFilter') {
+            this.setFilterByClass(value, PIXI.filters.BlurFilter);
             return;
         }
         if (propertyName == '_colorMatrixFilter') {
-            setFilterByClass(value, ColorMatrixFilter);
-            return;
-        }
-        if (propertyName == '_bevelFilter') {
-            setFilterByClass(value, BevelFilter);
-            return;
-        }
-        if (propertyName == '_gradientGlowFilter') {
-            setFilterByClass(value, GradientGlowFilter);
-            return;
-        }
-        if (propertyName == '_gradientBevelFilter') {
-            setFilterByClass(value, GradientBevelFilter);
-            return;
-        }
-        if (propertyName == '_convolutionFilter') {
-            setFilterByClass(value, ConvolutionFilter);
+            this.setFilterByClass(value, PIXI.filters.ColorMatrixFilter);
             return;
         }
         if (propertyName == '_displacementMapFilter') {
-            setFilterByClass(value, DisplacementMapFilter);
+            this.setFilterByClass(value, PIXI.filters.DisplacementFilter);
             return;
         }
-        if (propertyName == '_shaderFilter') {
-            setFilterByClass(value, ShaderFilter);
+        if (propertyName == '_fxaaFilter') {
+            this.setFilterByClass(value, PIXI.filters.FXAAFilter);
+            return;
+        }
+        if (propertyName == '_noiseFilter') {
+            this.setFilterByClass(value, PIXI.filters.NoiseFilter);
+            return;
+        }
+        if (propertyName == '_voidFilter') {
+            this.setFilterByClass(value, PIXI.filters.VoidFilter);
             return;
         }
     }
@@ -379,7 +379,7 @@ export default class DisplayObjectUpdater extends AbstractUpdater
         var filters = this._target.filters;
         var l = filters.length;
         for (var i = 0; i < l; ++i) {
-            if (filters[i] is klass) {
+            if (filters[i] instanceof klass) {
                 filters[i] = filter;
                 this._target.filters = filters;
                 return;

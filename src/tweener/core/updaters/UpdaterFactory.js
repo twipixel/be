@@ -110,7 +110,7 @@ export default class UpdaterFactory
                 console.log('/^\$/.test(name):', /^\$/.test(name));
 
                 if (typeof (value = source[name]) === 'number') {
-
+                    console.log('> Properties case');
                     // $로 시작하는 변수의 경우
                     if ((isRelative = /^\$/.test(name))) {
                         name = name.substr(1);
@@ -121,8 +121,11 @@ export default class UpdaterFactory
                     this.getUpdaterFor(target, name, map, updaters).setSourceValue(name, Number(value), isRelative);
                 }
             else {
+                    console.log('> Filter case');
                     parent = this.getUpdaterFor(target, name, map, updaters);
+                    console.log('parent:', parent);
                     child = this.create(parent.getObject(name), dest != null ? dest[name] : null, value);
+                    console.log('child:', child);
                     updaters.push(new UpdaterLadder(parent, child, name));
                 }
             }
@@ -136,12 +139,17 @@ export default class UpdaterFactory
                     if ((isRelative = /^\$/.test(name))) {
                         name = name.substr(1);
                     }
+
                     this.getUpdaterFor(target, name, map, updaters).setDestinationValue(name, Number(value), isRelative);
                 }
             else {
                     if (!(source != null && name in source)) {
+                        console.log('> Filter case');
                         parent = this.getUpdaterFor(target, name, map, updaters);
+                        console.log('parent:', parent);
+                        console.log('* parent.getObject(', name, '):', parent.getObject(name));
                         child = this.create(parent.getObject(name), value, source != null ? source[name] : null);
+                        console.log('child:', child);
                         updaters.push(new UpdaterLadder(parent, child, name));
                     }
                 }
@@ -179,18 +187,20 @@ export default class UpdaterFactory
      */
     getUpdaterFor(target, propertyName, map, list)
     {
+        console.log('');
+        console.log('====================================================');
         console.log('getUpdaterFor(', target, propertyName, map, list, ')');
-
-        console.log(this._registry);
+        console.log(target.constructor);
+        console.log('====================================================');
 
         var updaterClass = this._registry.getClassByTargetClassAndPropertyName(target.constructor, propertyName);
 
-        console.log('updaterClass:', updaterClass);
+        console.log('* updaterClass:', updaterClass);
 
         if (updaterClass != null) {
             var updater = map[updaterClass];
 
-            console.log('!! updater:', updater);
+            console.log('* updater:', updater);
 
             if (updater == null) {
                 updater = new updaterClass();

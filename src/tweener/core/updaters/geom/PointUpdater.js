@@ -44,7 +44,7 @@ export default class PointUpdater extends AbstractUpdater
      */
     static register(registry)
     {
-        registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, Point, TARGET_PROPERTIES);
+        registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, PIXI.Point, TARGET_PROPERTIES);
     }
 
 

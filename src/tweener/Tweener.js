@@ -34,6 +34,8 @@ import ClassRegistry from './core/utils/ClassRegistry';
 import UpdaterFactory from './core/updaters/UpdaterFactory';
 import ObjectTween from './core/tweens/ObjectTween';
 import ObjectUpdater from './core/updaters/ObjectUpdater';
+import DisplayObjectUpdater from './core/updaters/display/DisplayObjectUpdater';
+import PointUpdater from './core/updaters/geom/PointUpdater';
 
 
 
@@ -47,6 +49,10 @@ let _updaterClassRegistry = new ClassRegistry();
 let _updaterFactory = new UpdaterFactory(_updaterClassRegistry);
 
 ObjectUpdater.register(_updaterClassRegistry);
+DisplayObjectUpdater.register(_updaterClassRegistry);
+PointUpdater.register(_updaterClassRegistry);
+
+
 
 _ticker.start();
 

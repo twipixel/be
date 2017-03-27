@@ -53,6 +53,7 @@ export default class Test{
         this.testBit();
         this.testSkew();
         this.testFilter();
+        this.testPoint();
     }
 
 
@@ -176,6 +177,17 @@ export default class Test{
     }
 
 
+    testSkew() {
+        var display = this.display = new PIXI.Container();
+        var rect = new PIXI.Graphics();
+        rect.beginFill(0xFF3300);
+        rect.drawRect(0, 0, 100, 100);
+        rect.endFill();
+        display.addChild(rect);
+        this.stage.addChild(display);
+    }
+
+
     testBit() {
 
         var f = 0;
@@ -192,33 +204,38 @@ export default class Test{
 
     testFilter() {
         var blurFilter = new PIXI.filters.BlurFilter();
-        blurFilter.blur = 20;
+        blurFilter.blur = 0;
 
         console.log('blurFilter:', blurFilter);
 
-        var panda = new PIXI.Sprite.fromImage('../../asset/image/icon/panda.png');
-        this.stage.addChild(panda);
+        var icon = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
+        this.stage.addChild(icon);
 
-        panda.filters = [blurFilter];
+        icon.filters = [blurFilter];
 
-        var tween = Tweener.tween(panda, {_blurFilter:{blurX:16, blurY:16}});
+        var tween = Tweener.tween(icon, {
+            x: 100,
+            _blurFilter:{
+                blurX:20, blurY:20
+            }
+        });
         tween.onUpdate = () => {
-            console.log(panda.filters);
+            console.log(icon.x, icon.filters[0].blurX);
         };
         tween.play();
     }
 
 
+    testPoint() {
+        var point = new PIXI.Point();
 
-    testSkew() {
-        var display = this.display = new PIXI.Container();
-        var rect = new PIXI.Graphics();
-        rect.beginFill(0xFF3300);
-        rect.drawRect(0, 0, 100, 100);
-        rect.endFill();
-        display.addChild(rect);
-        this.stage.addChild(display);
+        var tween = Tweener.tween(point, {y:200});
+        tween.onUpdate = () => {
+            console.log('point[%s, %s]', point.x, point.y);
+        };
+        tween.play();
     }
+
 
 
     initializeGUI() {
