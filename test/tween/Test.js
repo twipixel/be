@@ -29,7 +29,6 @@ import Quintic from '../../src/tweener/easing/Quintic';
 import Sine from '../../src/tweener/easing/Sine';
 
 
-
 /**
  *
  */
@@ -37,14 +36,11 @@ export default class Test{
 
     constructor() {
 
-        this.app = new PIXI.Application(800, 600, {backgroundColor : 0x1099bb});
+        this.app = new PIXI.Application(800, 600, {backgroundColor : 0x8BC34A});
         document.body.appendChild(this.app.view);
 
-        this.canvas = this.app.renderer.canvas;
-        this.context = this.ctx = this.app.renderer.context;
+        this.canvas = this.app.renderer.view;
         this.stage = this.app.stage;
-
-        console.log('canvas:', this.canvas, 'context:', this.context, 'stage:', this.stage);
 
         this.initialize();
         this.initializeGUI();
@@ -55,6 +51,17 @@ export default class Test{
     initialize() {
         this.icon = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
         this.stage.addChild(this.icon);
+
+        this.path = new PIXI.Graphics();
+        this.stage.addChild(this.path);
+
+        this.controlPointColor = 0x4CAF50;
+        this.controlPointSize = 5;
+        this.controlPoint = new PIXI.Graphics();
+        this.controlPoint.beginFill(this.controlPointColor);
+        this.controlPoint.drawRect(0, 0, this.controlPointSize, this.controlPointSize);
+        this.controlPoint.endFill();
+        this.stage.addChild(this.controlPoint);
     }
 
 
@@ -128,140 +135,353 @@ export default class Test{
 
 
     tween() {
+        this.path.clear();
 
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        var tween = Tweener.tween(this.icon, {x:250, y:250}, {x:0}, 2, Quad.easeInOut);
         tween.play();
     }
 
 
     to() {
+        this.path.clear();
 
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        var tween = Tweener.to(this.icon, {x: 300, y: 250}, 2, Elastic.easeInOut);
         tween.play();
     }
 
 
     from() {
+        this.path.clear();
 
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        var tween = Tweener.from(this.icon, {x:800, y:600}, 2, Bounce.easeOut);
         tween.play();
     }
 
 
     apply() {
+        this.path.clear();
 
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        var tween = Tweener.apply(this.icon, {x:250, y:250}, {x:0}, 2, 0.5, Sine.easeOut);
         tween.play();
     }
 
 
     bezier() {
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
 
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        path.clear();
+
+        controlPoint.x = 0;
+        controlPoint.y = 200;
+
+        var tween = Tweener.bezier(this.icon, {x: 400, y: 400}, {x:icon.x, y:icon.y}, {x:controlPoint.x, y:controlPoint.y}, 2, Quad.easeOut);
+
+        tween.onPlay = () => { console.log('onPlay'); };
+        tween.onUpdate = () => {
+            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            path.beginFill(controlPointColor);
+            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.endFill();
+        };
+        tween.onComplete = () => { console.log('onComplete'); };
         tween.play();
     }
 
 
     bezierTo() {
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
 
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        path.clear();
+
+        controlPoint.x = 0;
+        controlPoint.y = 200;
+
+        var tween = Tweener.bezierTo(this.icon, {x:400, y:0}, {x:controlPoint.x, y:controlPoint.y}, 2, Quadratic.easeIn);
+
+        tween.onPlay = () => { console.log('onPlay');};
+        tween.onUpdate = () => {
+            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            path.beginFill(controlPointColor);
+            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.endFill();
+
+        };
+        tween.onComplete = () => { console.log('onComplete'); };
         tween.play();
     }
 
 
     bezierFrom() {
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
 
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
+        path.clear();
+
+        controlPoint.x = 200;
+        controlPoint.y = 0;
+
+        var tween = Tweener.bezierTo(this.icon, {x:0, y:400}, {x:controlPoint.x, y:controlPoint.y}, 2, Quadratic.easeIn);
+
+        tween.onPlay = () => { console.log('onPlay'); };
+        tween.onUpdate = () => {
+            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            path.beginFill(controlPointColor);
+            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.endFill();
+
+        };
+        tween.onComplete = () => { console.log('onComplete'); };
         tween.play();
     }
 
 
     physical() {
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
 
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        path.clear();
+
+        controlPoint.x = -10;
+        controlPoint.y = -10;
+
+        var uniform = Tweener.physical(icon, {x:400, y:100}, {x:0, y:0}, Physical.uniform(12));
+
+        uniform.onPlay = () => { console.log('onPlay'); };
+        uniform.onUpdate = () => {
+            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            path.beginFill(controlPointColor);
+            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.endFill();
+
+        };
+        uniform.onComplete = () => { console.log('onComplete'); };
+        uniform.play();
+
+        var icon1 = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
+        var icon2 = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
+        this.stage.addChild(icon1);
+        this.stage.addChild(icon2);
+
+        var accelerate = Tweener.physical(icon1, {x:400, y:200}, {x:0, y:0}, Physical.accelerate(2.0, 4.0));
+        accelerate.onComplete = () => {
+            this.stage.removeChild(icon1);
+            icon1.destroy();
+        };
+        accelerate.play();
+
+        var exponential = Tweener.physical(icon2, {x:400, y:300}, {x:0, y:0}, Physical.exponential(0.2));
+        exponential.onComplete = () => {
+            this.stage.removeChild(icon2);
+            icon2.destroy();
+        };
+        exponential.play();
     }
 
 
     physicalTo() {
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
 
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        path.clear();
+
+        controlPoint.x = -10;
+        controlPoint.y = -10;
+
+        icon.x = 0;
+        icon.y = 0;
+
+        var uniform = Tweener.physicalTo(icon, {x:400, y:100}, Physical.uniform(12));
+
+        uniform.onPlay = () => { console.log('onPlay'); };
+        uniform.onUpdate = () => {
+            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            path.beginFill(controlPointColor);
+            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.endFill();
+
+        };
+        uniform.onComplete = () => { console.log('onComplete'); };
+        uniform.play();
+
+        var icon1 = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
+        var icon2 = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
+        this.stage.addChild(icon1);
+        this.stage.addChild(icon2);
+
+        var accelerate = Tweener.physicalTo(icon1, {x:400, y:200}, Physical.accelerate(2.0, 4.0));
+        accelerate.onComplete = () => {
+            this.stage.removeChild(icon1);
+            icon1.destroy();
+        };
+        accelerate.play();
+
+        var exponential = Tweener.physicalTo(icon2, {x:400, y:300}, Physical.exponential(0.2));
+        exponential.onComplete = () => {
+            this.stage.removeChild(icon2);
+            icon2.destroy();
+        };
+        exponential.play();
     }
 
 
     physicalFrom() {
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
 
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        path.clear();
+
+        controlPoint.x = -10;
+        controlPoint.y = -10;
+
+        var uniform = Tweener.physicalFrom(icon, {x:0, y:0}, Physical.uniform(12));
+
+        uniform.onPlay = () => { console.log('onPlay'); };
+        uniform.onUpdate = () => {
+            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            path.beginFill(controlPointColor);
+            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.endFill();
+
+        };
+        uniform.onComplete = () => { console.log('onComplete'); };
+        uniform.play();
+
+        var icon1 = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
+        var icon2 = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
+        this.stage.addChild(icon1);
+        this.stage.addChild(icon2);
+
+        icon.x = 400;
+        icon.y = 100;
+        icon1.x = 400;
+        icon1.y = 200;
+        icon2.x = 400;
+        icon2.y = 300;
+
+        var accelerate = Tweener.physicalFrom(icon1, {x:0, y:0}, Physical.accelerate(2.0, 4.0));
+        accelerate.onComplete = () => {
+            this.stage.removeChild(icon1);
+            icon1.destroy();
+        };
+        accelerate.play();
+
+        var exponential = Tweener.physicalFrom(icon2, {x:0, y:0}, Physical.exponential(0.2));
+        exponential.onComplete = () => {
+            this.stage.removeChild(icon2);
+            icon2.destroy();
+        };
+        exponential.play();
     }
 
 
     physicalApply() {
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
 
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        controlPoint.x = -10;
+        controlPoint.y = -10;
+
+        var uniform = Tweener.physicalApply(icon, {x:400, y:100}, {x:0, y:0}, 0.5, Physical.uniform(12));
+
+        uniform.onPlay = () => { console.log('onPlay'); };
+        uniform.onUpdate = () => {
+            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            path.beginFill(controlPointColor);
+            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.endFill();
+
+        };
+        uniform.onComplete = () => { console.log('onComplete'); };
+        uniform.play();
     }
 
 
     parallel() {
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
 
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        path.clear();
+
+        controlPoint.x = -10;
+        controlPoint.y = -10;
+
+
+        var move = Tweener.tween(icon, {x:400}, {x:100}, 2, Expo.easeOut);
+        var scale = Tweener.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
+        var group = Tweener.parallel(move, scale);
+        group.play();
     }
 
 
     parallelTweens() {
-
         var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
         tween.play();
     }
 
 
     serial() {
-
         var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
         tween.play();
     }
 
 
     serialTweens() {
-
         var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
         tween.play();
     }
 
 
     reverse() {
-
         var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
         tween.play();
     }
 
 
     repeat() {
-
         var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
         tween.play();
     }
 
 
     scale() {
-
         var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
         tween.play();
     }
 
 
     slice() {
-
         var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
         tween.play();
     }
 
 
     delay() {
-
         var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
         tween.play();
     }

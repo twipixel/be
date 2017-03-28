@@ -137,7 +137,7 @@ export default class PhysicalUpdater extends IPhysicalUpdater
      */
     get duration()
     {
-        if (!this._isResolved) {
+        if (this._isResolved === false) {
             this.resolveValues();
         }
         return this._maxDuration;
@@ -152,7 +152,9 @@ export default class PhysicalUpdater extends IPhysicalUpdater
      */
     setSourceValue(propertyName, value, isRelative = false)
     {
-        this._target[propertyName] = value;
+        console.log('setSourceValue(', propertyName, value, isRelative, ')');
+
+        this._source[propertyName] = value;
         this._relativeMap['source.' + propertyName] = isRelative;
     }
 
@@ -165,6 +167,8 @@ export default class PhysicalUpdater extends IPhysicalUpdater
      */
     setDestinationValue(propertyName, value, isRelative = false)
     {
+        console.log('setDestinationValue(', propertyName, value, isRelative, ')');
+
         this._destination[propertyName] = value;
         this._relativeMap['dest.' + propertyName] = isRelative;
     }
@@ -194,7 +198,7 @@ export default class PhysicalUpdater extends IPhysicalUpdater
 
     resolveValues()
     {
-        var key, target = this._target, source = this._target, dest = this._destination, rMap = this._relativeMap, d = this._duration, duration, maxDuration = 0.0;
+        var key, target = this._target, source = this._source, dest = this._destination, rMap = this._relativeMap, d = this._duration, duration, maxDuration = 0.0;
 
         for (key in source) {
             if (dest[key] == undefined) {
@@ -230,7 +234,7 @@ export default class PhysicalUpdater extends IPhysicalUpdater
      */
     update(time)
     {
-        if (!this._isResolved) {
+        if (this._isResolved === false) {
             this.resolveValues();
         }
 
@@ -238,7 +242,7 @@ export default class PhysicalUpdater extends IPhysicalUpdater
         var t = this._target;
         var e = this._easing;
         var dest = this._destination;
-        var src = this._target;
+        var src = this._source;
         var s;
         var d = this._duration;
         var name;
@@ -289,7 +293,7 @@ export default class PhysicalUpdater extends IPhysicalUpdater
 
         this._target = obj._target;
         this._easing = obj._easing;
-        this.copyObject(this._target, obj._source);
+        this.copyObject(this._source, obj._source);
         this.copyObject(this._destination, obj._destination);
         this.copyObject(this._relativeMap, obj._relativeMap);
     }

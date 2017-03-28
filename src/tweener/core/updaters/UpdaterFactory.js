@@ -311,12 +311,16 @@ export default class UpdaterFactory
      */
     createPhysical(target, dest, source, easing)
     {
+        console.log('createPhysical(', target, dest, source, easing, ')');
+
         var map = {}, updaters = [], physicalUpdater = new PhysicalUpdater(), name, value, isRelative, child, updater;
 
         physicalUpdater.target = target;
         physicalUpdater.easing = easing;
 
         updaters.push(physicalUpdater);
+
+        console.log('\nSource -------------------------');
 
         if (source != null) {
             for (name in source) {
@@ -328,6 +332,7 @@ export default class UpdaterFactory
                 }
             else {
                     if (!map[name]) {
+                        console.log('!!!!!!!!!!!!>>>>>>>>>>>>');
                         child = this.createPhysical(physicalUpdater.getObject(name), dest != null ? dest[name] : null, value, easing);
                         updaters.push(new PhysicalUpdaterLadder(physicalUpdater, child, name));
                         map[name] = true;
@@ -335,6 +340,9 @@ export default class UpdaterFactory
                 }
             }
         }
+
+        console.log('\nDest -------------------------');
+
         if (dest != null) {
             for (name in dest) {
                 if (typeof (value = dest[name]) === 'number') {
@@ -345,6 +353,7 @@ export default class UpdaterFactory
                 }
             else {
                     if (!map[name]) {
+                        console.log('!!!!!!!!!!!!>>>>>>>>>>>>');
                         child = this.createPhysical(physicalUpdater.getObject(name), null, source != null ? source[name] : null, easing);
                         updaters.push(new PhysicalUpdaterLadder(physicalUpdater, child, name));
                         map[name] = true;
@@ -360,6 +369,7 @@ export default class UpdaterFactory
             updater = new CompositePhysicalUpdater(target, updaters);
         }
 
+        console.log('** updater:', updater);
         return updater;
     }
 }

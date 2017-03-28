@@ -21,10 +21,10 @@ tween(target:Object, to:Object, from:Object = null, time:Number = 1.0, easing:IE
 - tween.updater = _updaterFactory.create(target, to, from);
   - if(source != null)
     - for(name in source)
-      - // **속성 처리 (x, y, rotation)**
+      - // 속성 처리 (x, y, rotation)
       - if ((value = source[name]) is Number) 
         - getUpdaterFor(target, name, map, updaters).setSourceValue(name, Number(value), isRelative);
-      - // **filter 처리 (blurFilter, colorMatrixFilter)**
+      - // filter 처리 (blurFilter, colorMatrixFilter)
       - else 
         - parent = getUpdaterFor(target, name, map, updaters);
         - child = create(parent.getObject(name), dest != null ? dest[name] : null, value);

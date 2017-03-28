@@ -36,25 +36,21 @@ import ObjectTween from './core/tweens/ObjectTween';
 import ObjectUpdater from './core/updaters/ObjectUpdater';
 import DisplayObjectUpdater from './core/updaters/display/DisplayObjectUpdater';
 import PointUpdater from './core/updaters/geom/PointUpdater';
-
-
-
+import PhysicalTween from './core/tweens/PhysicalTween';
 
 /**
  * @type {EnterFrameTicker}
  * @private
  */
 let _ticker = new EnterFrameTicker();
+_ticker.start();
+
 let _updaterClassRegistry = new ClassRegistry();
 let _updaterFactory = new UpdaterFactory(_updaterClassRegistry);
 
 ObjectUpdater.register(_updaterClassRegistry);
 DisplayObjectUpdater.register(_updaterClassRegistry);
 PointUpdater.register(_updaterClassRegistry);
-
-
-
-_ticker.start();
 
 
 export default class Tweener
@@ -99,7 +95,7 @@ export default class Tweener
      */
     static to(target, to, time = 1.0, easing = null)
     {
-        var tweenTween = new ObjectTween(_ticker);
+        var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.create(target, to, null);
         tween.time = time;
         tween.easing = easing || Linear.easeNone;
@@ -117,7 +113,7 @@ export default class Tweener
      */
     static from(target, from, time = 1.0, easing = null)
     {
-        var tweenTween = new ObjectTween(_ticker);
+        var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.create(target, null, from);
         tween.time = time;
         tween.easing = easing || Linear.easeNone;
@@ -126,7 +122,7 @@ export default class Tweener
 
 
     /**
-     *
+     * 트윈을 한번 적용합니다. 원하는 시간의 모션으로 한번 적용합니다.
      * @param target {Object}
      * @param to  {Object}
      * @param from  {Object}
@@ -136,7 +132,7 @@ export default class Tweener
      */
     static apply(target, to, from = null, time = 1.0, applyTime = 1.0, easing = null)
     {
-        var tweenTween = new ObjectTween(_ticker);
+        var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.create(target, to, from);
         tween.time = time;
         tween.easing = easing || Linear.easeNone;
@@ -156,7 +152,7 @@ export default class Tweener
      */
     static bezier(target, to, from = null, controlPoint = null, time = 1.0, easing = null)
     {
-        var tweenTween = new ObjectTween(_ticker);
+        var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.createBezier(target, to, from, controlPoint);
         tween.time = time;
         tween.easing = easing || Linear.easeNone;
@@ -175,7 +171,7 @@ export default class Tweener
      */
     static bezierTo(target, to, controlPoint = null, time = 1.0, easing = null)
     {
-        var tweenTween = new ObjectTween(_ticker);
+        var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.createBezier(target, to, null, controlPoint);
         tween.time = time;
         tween.easing = easing || Linear.easeNone;
@@ -194,7 +190,7 @@ export default class Tweener
      */
     static bezierFrom(target, from, controlPoint = null, time = 1.0, easing = null)
     {
-        var tweenTween = new ObjectTween(_ticker);
+        var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.createBezier(target, null, from, controlPoint);
         tween.time = time;
         tween.easing = easing || Linear.easeNone;
@@ -212,6 +208,22 @@ export default class Tweener
      */
     static physical(target, to, from = null, easing = null)
     {
+        console.log('-----------------------------------------------------------------');
+        console.log(`phsical(${target}, ${to}, ${from}, ${easing}`);
+        console.log(to, from, easing);
+
+        console.log('to:');
+        for(var prop in to)
+        {
+            console.log(prop + ':' + to[prop]);
+        }
+
+        console.log('from:');
+        for(var prop in from)
+        {
+            console.log(prop + ':' + from[prop]);
+        }
+        console.log('-----------------------------------------------------------------');
         var tween = new PhysicalTween(_ticker);
         tween.updater = _updaterFactory.createPhysical(target, to, from, easing || Physical.exponential());
         return tween;
@@ -271,7 +283,7 @@ export default class Tweener
      */
     static parallel(...tweens)
     {
-        return parallelTweens(tweens);
+        return Tweener.parallelTweens(tweens);
     }
 
 
@@ -293,7 +305,7 @@ export default class Tweener
      */
     static serial(...tweens)
     {
-        return serialTweens(tweens);
+        return Tweener.serialTweens(tweens);
     }
 
 
@@ -333,7 +345,7 @@ export default class Tweener
      * @param repeatCount {uint}
      * @returns {ITween}
      */
-    static repeat(tween, repeatCount:uint)
+    static repeat(tween, repeatCount)
     {
         return new RepeatedTween(tween, repeatCount);
     }

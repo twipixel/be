@@ -24,47 +24,30 @@ import Tweener from '../../src/tweener/Tweener';
 export default class Test{
 
     constructor() {
-        var canvas = document.createElement('canvas');
-        canvas.width = 800;
-        canvas.height = 600;
-        var context = canvas.getContext('2d');
-        document.body.appendChild(canvas);
+        this.app = new PIXI.Application(800, 600, {backgroundColor : 0x8BC34A});
+        document.body.appendChild(this.app.view);
 
-        this.canvas = canvas;
-        this.context = this.ctx = context;
+        this.canvas = this.app.renderer.view;
+        this.stage = this.app.stage;
 
-        this.createStage();
         this.initialize();
         this.initializeGUI();
-        //this.update();
         this.render();
     }
 
 
     initialize() {
-
         //this.createTicker();
         //this.createSomething();
         //this.createTweener();
 
-        //this.testClass();
+        this.testClass();
         //this.testCollection();
 
         this.testBit();
         this.testSkew();
         this.testFilter();
         this.testPoint();
-    }
-
-
-    createStage() {
-        this.app = new PIXI.CanvasRenderer(this.canvas.width, this.canvas.height, {
-            view: this.canvas,
-            autoResize: true,
-            backgroundColor: 0xFFFFFF,
-        });
-
-        this.stage = new PIXI.Container();
     }
 
 
@@ -116,8 +99,6 @@ export default class Test{
         n.sayHello();
         console.log(n.getClass());
 
-        return;
-
         const cp = new ColorPoint(25, 8, 'green');
         cp.toString();
         console.log(cp instanceof ColorPoint);
@@ -126,6 +107,8 @@ export default class Test{
         console.log(cp.getSuper().name);
 
         const p = new Point(10, 10);
+        console.log('******** Point.toString():', p.toString());
+
         const copyp = p.getClass();
         const copysuperp = p.getSuper();
         const insp = new copyp();

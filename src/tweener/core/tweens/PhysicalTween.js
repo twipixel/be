@@ -1,21 +1,21 @@
-﻿/*
+/*
  * BetweenAS3
- * 
+ *
  * Licensed under the MIT License
- * 
+ *
  * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
  *                    Spark project  (www.libspark.org)
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,46 +23,88 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
+ *
  */
 
 
-import IPhysicalEasing from './IPhysicalEasing';
+import AbstractTween from './AbstractTween';
 
 
-export default class PhysicalUniform extends IPhysicalEasing
+export default class PhysicalTween extends AbstractTween
 {
-	constructor(v, fps)
-	{
-		console.log(`PhysicalUniform(${v}, ${fps})`);
+    constructor(ticker)
+    {
+        super(ticker, 0);
 
-		super();
-		this._v = v;
-		this._fps = fps;
-	}
+        this._updater = null;
+    }
 
 
-	/**
-	 *
-	 * @param b {number}
-	 * @param c {number}
-	 * @returns {number}
+    /**
+     *
+     * @returns {IPhysicalUpdater}
      */
-	getDuration(b, c)
-	{
-		return (c / (c < 0 ? -this._v : this._v)) * (1.0 / this._fps);
-	}
+    get updater()
+    {
+        return this._updater;
+    }
 
 
-	/**
-	 *
-	 * @param t {number}
-	 * @param b {number}
-	 * @param c {number}
-	 * @returns {number}
+    /**
+     *
+     * @param value {IPhysicalUpdater}
      */
-	calculate(t, b, c)
-	{
-		return b + (c < 0 ? -this._v : this._v) * (t / (1.0 / this._fps));
-	}
+    set updater(value)
+    {
+        this._updater = value;
+
+        if (this._updater != null) {
+            this._duration = this._updater.duration;
+        }
+    }
+
+
+    /**
+     *
+     * @returns {Object}
+     */
+    get target()
+    {
+        return this._updater != null ? this._updater.target : null;
+    }
+
+
+    /**
+     *
+     * @param time {number}
+     */
+    internalUpdate(time)
+    {
+        this._updater.update(time);
+    }
+
+
+    /**
+     *
+     * @returns {AbstractTween}
+     */
+    newInstance()
+    {
+        return new PhysicalTween(this._ticker);
+    }
+
+
+    /**
+     *
+     * @param source {AbstractTween}
+     */
+    copyFrom(source)
+    {
+        super.copyFrom(source);
+
+        var obj = source;
+
+        this._updater = obj._updater.clone();
+    }
+
 }
