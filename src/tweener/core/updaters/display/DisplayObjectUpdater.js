@@ -132,6 +132,10 @@ export default class DisplayObjectUpdater extends AbstractUpdater
      */
     setSourceValue(propertyName, value, isRelative = false)
     {
+        console.log('-----------------------------------------------------');
+        console.log('setSourceValue(', propertyName, value, isRelative, ')');
+        console.log('-----------------------------------------------------');
+
         if (propertyName == 'x') {
             this._flags |= 0x0001;
             this._source.relativeFlags |= isRelative ? 0x0001 : 0;
@@ -202,6 +206,10 @@ export default class DisplayObjectUpdater extends AbstractUpdater
      */
     setDestinationValue(propertyName, value, isRelative = false)
     {
+        console.log('-----------------------------------------------------');
+        console.log('setDestinationValue(', propertyName, value, isRelative, ')');
+        console.log('-----------------------------------------------------');
+
         if (propertyName == 'x') {
             this._flags |= 0x0001;
             this._destination.relativeFlags |= isRelative ? 0x0001 : 0;
@@ -391,10 +399,16 @@ export default class DisplayObjectUpdater extends AbstractUpdater
 
     resolveValues()
     {
+        console.log('*********************************************');
+        console.log('resolveValues')
+        console.log('*********************************************');
+
         var t = this._target,
             d = this._destination,
             s = this._source,
             f = this._flags;
+
+        console.log(this._source, 's.x:', s.x, 's.y:', s.y);
 
         if ((f & 0x0001) != 0) {
             if (isNaN(s.x)) {
@@ -661,14 +675,14 @@ class DisplayObjectParameter
     constructor()
     {
         this.relativeFlags = 0;
-        this.x = 0;
-        this.y = 0;
-        this.scale = {x:0, y:0};
-        this.rotation = 0;
-        this.alpha = 1;
-        this.width = 0;
-        this.height = 0;
-        this.skew = {x:0, y:0};
+        this.x = undefined;
+        this.y = undefined;
+        this.scale = {x:undefined, y:undefined};
+        this.rotation = undefined;
+        this.alpha = undefined;
+        this.width = undefined;
+        this.height = undefined;
+        this.skew = {x:undefined, y:undefined};
     }
 
 

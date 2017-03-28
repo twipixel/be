@@ -1,15 +1,6 @@
-import {
-    animation,
-    requestAnimationFrame,
-    cancelAnimationFrame,
-    Easing
-} from './../../external/lib/animation';
-
-import global from '../../src/global/index';
-import polyfill from '../../src/polyfill/index';
+import {animation, cancelAnimationFrame, Easing, requestAnimationFrame} from "./../../external/lib/animation";
+import Tweener from "../../src/tweener/Tweener";
 //import requestAnimationFrame from '../../src/polyfill/requestAnimationFrame';
-
-import Tweener from '../../src/tweener/Tweener';
 //import Ticker from '../../src/ticker/Ticker';
 //import TickerListener from '../../src/tweener/core/ticker/TickerListener.js';
 //import EnterFrameTicker from '../../src/tweener/tickers/EnterFrameTicker';

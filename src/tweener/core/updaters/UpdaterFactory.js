@@ -79,7 +79,9 @@ export default class UpdaterFactory
      */
     create(target, dest, source)
     {
+        console.log('-----------------------------------------------------');
         console.log('UpdaterFactory.create(', target, dest, source, ')');
+        console.log('-----------------------------------------------------');
 
         /**
          * map @type {Dictionary}
@@ -103,39 +105,42 @@ export default class UpdaterFactory
             updaters = [];
         }
 
-        console.log('source---------------------------');
+        console.log('\nSource--------------------------------------------------------');
         if (source != null) {
             for (name in source) {
+
                 console.log(name + ':' + source[name]);
-                console.log('/^\$/.test(name):', /^\$/.test(name));
 
                 if (typeof (value = source[name]) === 'number') {
-                    console.log('> Properties case');
+
+                    console.log('> Propeties');
                     // $로 시작하는 변수의 경우
                     if ((isRelative = /^\$/.test(name))) {
                         name = name.substr(1);
-                        console.log('isRelative, name:', name);
                     }
 
                     // source value 를 적용하기 위해서 업데이터를 얻어와 설정
                     this.getUpdaterFor(target, name, map, updaters).setSourceValue(name, Number(value), isRelative);
                 }
             else {
-                    console.log('> Filter case');
+
+                    console.log('> Filter');
                     parent = this.getUpdaterFor(target, name, map, updaters);
-                    console.log('parent:', parent);
                     child = this.create(parent.getObject(name), dest != null ? dest[name] : null, value);
-                    console.log('child:', child);
                     updaters.push(new UpdaterLadder(parent, child, name));
                 }
             }
         }
 
-        console.log('dest-----------------------------');
+        console.log('\nDestination--------------------------------------------------------');
         if (dest != null) {
             for (name in dest) {
 
+                console.log(name + ':' + dest[name]);
+
                 if (typeof (value = dest[name]) === 'number') {
+                    console.log('> Propeties');
+
                     if ((isRelative = /^\$/.test(name))) {
                         name = name.substr(1);
                     }
@@ -144,12 +149,10 @@ export default class UpdaterFactory
                 }
             else {
                     if (!(source != null && name in source)) {
-                        console.log('> Filter case');
+                        console.log('> Filter');
+
                         parent = this.getUpdaterFor(target, name, map, updaters);
-                        console.log('parent:', parent);
-                        console.log('* parent.getObject(', name, '):', parent.getObject(name));
                         child = this.create(parent.getObject(name), value, source != null ? source[name] : null);
-                        console.log('child:', child);
                         updaters.push(new UpdaterLadder(parent, child, name));
                     }
                 }
@@ -187,15 +190,7 @@ export default class UpdaterFactory
      */
     getUpdaterFor(target, propertyName, map, list)
     {
-        console.log('');
-        console.log('====================================================');
-        console.log('getUpdaterFor(', target, propertyName, map, list, ')');
-        console.log(target.constructor);
-        console.log('====================================================');
-
         var updaterClass = this._registry.getClassByTargetClassAndPropertyName(target.constructor, propertyName);
-
-        console.log('* updaterClass:', updaterClass);
 
         if (updaterClass != null) {
             var updater = map[updaterClass];

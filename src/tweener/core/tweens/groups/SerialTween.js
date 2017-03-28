@@ -102,10 +102,10 @@ export default class SerialTween extends AbstractTween
                         this._d = targets[3];
                         this._duration += this._d.duration;
                         if (l > 4) {
-                            _targets = [];
+                            this._targets = [];
                             for (var i = 4; i < l; ++i) {
                                 var t = targets[i];
-                                _targets[i - 4] = t;
+                                this._targets[i - 4] = t;
                                 this._duration += t.duration;
                             }
                         }
@@ -138,8 +138,8 @@ export default class SerialTween extends AbstractTween
         if (this._d == tween) {
             return true;
         }
-        if (_targets != null) {
-            return _targets.indexOf(tween) != -1;
+        if (this._targets != null) {
+            return this._targets.indexOf(tween) != -1;
         }
         return false;
     }
@@ -167,9 +167,9 @@ export default class SerialTween extends AbstractTween
         if (index == 3) {
             return this._d;
         }
-        if (_targets != null) {
-            if (index - 4 < _targets.length) {
-                return _targets[index - 4];
+        if (this._targets != null) {
+            if (index - 4 < this._targets.length) {
+                return this._targets[index - 4];
             }
         }
         return null;
@@ -198,8 +198,8 @@ export default class SerialTween extends AbstractTween
         if (this._d == tween) {
             return 3;
         }
-        if (_targets != null) {
-            var i = _targets.indexOf(tween);
+        if (this._targets != null) {
+            var i = this._targets.indexOf(tween);
             if (i != -1) {
                 return i + 4;
             }
@@ -237,10 +237,10 @@ export default class SerialTween extends AbstractTween
                                 this._d.update(time - ld);
                             }
                             ld = d;
-                            if (_targets != null) {
-                                l = _targets.length;
+                            if (this._targets != null) {
+                                l = this._targets.length;
                                 for (i = 0; i < l; ++i) {
-                                    t = _targets[i];
+                                    t = this._targets[i];
                                     if (lt <= (d += t.duration) && ld <= time) {
                                         t.update(time - ld);
                                     }
@@ -255,9 +255,9 @@ export default class SerialTween extends AbstractTween
         else {
             d = this._duration;
             ld = d;
-            if (_targets != null) {
-                for (i = _targets.length - 1; i >= 0; --i) {
-                    t = _targets[i];
+            if (this._targets != null) {
+                for (i = this._targets.length - 1; i >= 0; --i) {
+                    t = this._targets[i];
                     if (lt >= (d -= t.duration) && ld >= time) {
                         t.update(time - d);
                     }
@@ -312,8 +312,8 @@ export default class SerialTween extends AbstractTween
         if (this._d != null) {
             targets.push(this._d.clone());
         }
-        if (_targets != null) {
-            var t = _targets;
+        if (this._targets != null) {
+            var t = this._targets;
             var l = t.length;
             for (var i = 0; i < l; ++i) {
                 targets.push(t[i].clone());

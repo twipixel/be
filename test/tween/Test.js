@@ -444,26 +444,94 @@ export default class Test{
 
 
     parallelTweens() {
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
+
+        path.clear();
+
+        controlPoint.x = -10;
+        controlPoint.y = -10;
+
+
+        // 5개 이상일 경우 테스트
+        var move = Tweener.tween(icon, {x:400}, {x:100}, 2, Expo.easeOut);
+        var scale1 = Tweener.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
+        var scale2 = Tweener.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
+        var scale3 = Tweener.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
+        var scale4 = Tweener.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
+
+        var tweens = [move, scale1, scale2, scale3, scale4];
+        var group = Tweener.parallelTweens(tweens);
+        group.play();
     }
 
 
     serial() {
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
+
+        path.clear();
+
+        controlPoint.x = -10;
+        controlPoint.y = -10;
+
+
+        // 5개 이상일 경우 테스트
+        var time = 0.2;
+        var move1 = Tweener.to(icon, {x:400, y:400}, time, Back.easeOut);
+        var move2 = Tweener.to(icon, {x:0, y:0}, time, Exponential.easeOut);
+        var move3 = Tweener.to(icon, {x:300, y:300}, time, Quartic.easeOut);
+        var move4 = Tweener.to(icon, {x:100, y:100}, time, Quart.easeOut);
+        var move5 = Tweener.to(icon, {x:200, y:200}, time, Quad.easeOut);
+        var group = Tweener.serial(move1, move2, move3, move4, move5);
+        group.play();
     }
 
 
     serialTweens() {
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
+
+        path.clear();
+
+        controlPoint.x = -10;
+        controlPoint.y = -10;
+
+
+        // 5개 이상일 경우 테스트
+        var time = 0.2;
+        var move1 = Tweener.to(icon, {x:400, y:400}, time, Back.easeOut);
+        var move2 = Tweener.to(icon, {x:0, y:0}, time, Exponential.easeOut);
+        var move3 = Tweener.to(icon, {x:300, y:300}, time, Quartic.easeOut);
+        var move4 = Tweener.to(icon, {x:100, y:100}, time, Quart.easeOut);
+        var move5 = Tweener.to(icon, {x:200, y:200}, time, Quad.easeOut);
+
+        var tweens = [move1, move2, move3, move4, move5];
+        var group = Tweener.serialTweens(tweens);
+        group.play();
     }
 
 
     reverse() {
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
+
+        path.clear();
+
+        var tween = Tweener.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
+        var rtween = Tweener.reverse(tween, true);
     }
 
 
