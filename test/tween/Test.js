@@ -432,9 +432,13 @@ export default class Test{
         controlPoint.y = -10;
 
 
+        // 5개 이상일 경우 테스트
         var move = Tweener.tween(icon, {x:400}, {x:100}, 2, Expo.easeOut);
-        var scale = Tweener.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
-        var group = Tweener.parallel(move, scale);
+        var scale1 = Tweener.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
+        var scale2 = Tweener.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
+        var scale3 = Tweener.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
+        var scale4 = Tweener.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
+        var group = Tweener.parallel(move, scale1, scale2, scale3, scale4);
         group.play();
     }
 

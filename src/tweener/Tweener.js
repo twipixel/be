@@ -28,7 +28,6 @@
 
 
 import Linear from './easing/Linear';
-import EventEmiiter from 'eventemitter3';
 import EnterFrameTicker from './tickers/EnterFrameTicker';
 import ClassRegistry from './core/utils/ClassRegistry';
 import UpdaterFactory from './core/updaters/UpdaterFactory';
@@ -37,6 +36,10 @@ import ObjectUpdater from './core/updaters/ObjectUpdater';
 import DisplayObjectUpdater from './core/updaters/display/DisplayObjectUpdater';
 import PointUpdater from './core/updaters/geom/PointUpdater';
 import PhysicalTween from './core/tweens/PhysicalTween';
+import ParallelTween from './core/tweens/groups/ParallelTween';
+import SerialTween from './core/tweens/groups/SerialTween';
+
+
 
 /**
  * @type {EnterFrameTicker}
