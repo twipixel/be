@@ -67,7 +67,6 @@ export default class BezierUpdater extends AbstractUpdater
         this._relativeMap = {};
     }
 
-
     /**
      * @returns {Object}
      */
@@ -84,7 +83,6 @@ export default class BezierUpdater extends AbstractUpdater
         this._target = value;
     }
 
-
     /**
      * @param propertyName {string}
      * @param value {number}
@@ -100,7 +98,6 @@ export default class BezierUpdater extends AbstractUpdater
         this._relativeMap['cp.' + propertyName + '.' + controlPoint.length] = isRelative;
     }
 
-
     /**
      * @param propertyName {string}
      * @param value {number}
@@ -111,7 +108,6 @@ export default class BezierUpdater extends AbstractUpdater
         this._source[propertyName] = value;
         this._relativeMap['source.' + propertyName] = isRelative;
     }
-
 
     /**
      * @param propertyName {string}
@@ -124,7 +120,6 @@ export default class BezierUpdater extends AbstractUpdater
         this._relativeMap['dest.' + propertyName] = isRelative;
     }
 
-
     /**
      * @param propertyName {string}
      * @returns {Object}
@@ -133,7 +128,6 @@ export default class BezierUpdater extends AbstractUpdater
     {
         return this._target[propertyName];
     }
-
 
     /**
      * @param propertyName {string}
@@ -144,10 +138,20 @@ export default class BezierUpdater extends AbstractUpdater
         this._target[propertyName] = value;
     }
 
-
     resolveValues()
     {
-        var key, target= this._target, source = this._source, dest = this._destination, controlPoint = this._controlPoint, cpVec, l, i, rMap = this._relativeMap;
+        /**
+         * key @type {string}
+         * target @type {Objecct}
+         * source @type {Dictionary}
+         * dest @type {Dictionary}
+         * controlPoint @type {Dictionary}
+         * cpVec @type {Vector.<Number>}
+         * l @type {uint}
+         * i @type {uint}
+         * rMap @type {Dictionary}
+         */
+        var key, target = this._target, source = this._source, dest = this._destination, controlPoint = this._controlPoint, cpVec, l, i, rMap = this._relativeMap;
 
         for (key in source) {
             if (dest[key] == undefined) {
@@ -176,12 +180,26 @@ export default class BezierUpdater extends AbstractUpdater
         }
     }
 
-
     /**
      * @param factor {number}
      */
     updateObject(factor)
     {
+        /**
+         * invert @type {number}
+         * t @type {Object}
+         * d @type {Dictionary}
+         * s @type {Dictionary}
+         * b @type {number}
+         * cp @type {Dictionary}
+         * cpVec @type {Vector.<Number>}
+         * l @type {uint}
+         * ip @type {uint}
+         * it @type {number}
+         * p1 @type {number}
+         * p2 @type {number}
+         * name @type {string}
+         */
         var invert = 1.0 - factor, t = this._target, d = this._destination, s = this._source, b, cp = this._controlPoint, cpVec, l, ip, it, p1, p2, name;
 
         // Thank you, Tweener & Robert Penner!
@@ -218,7 +236,6 @@ export default class BezierUpdater extends AbstractUpdater
         }
     }
 
-
     /**
      * @returns {AbstractUpdater}
      */
@@ -226,7 +243,6 @@ export default class BezierUpdater extends AbstractUpdater
     {
         return new BezierUpdater();
     }
-
 
     /**
      * @param source {AbstractUpdater}
@@ -243,7 +259,6 @@ export default class BezierUpdater extends AbstractUpdater
         this.copyObject(this._controlPoint, obj._controlPoint);
         this.copyObject(this._relativeMap, obj._relativeMap);
     }
-
 
     /**
      * @param to {Object}

@@ -26,6 +26,7 @@
  * 
  */
 
+
 import BounceEaseIn from '../core/easing/BounceEaseIn';
 import BounceEaseInOut from '../core/easing/BounceEaseInOut';
 import BounceEaseOut from '../core/easing/BounceEaseOut';

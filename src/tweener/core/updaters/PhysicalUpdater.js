@@ -92,7 +92,6 @@ export default class PhysicalUpdater extends IPhysicalUpdater
         this._isResolved = false;
     }
 
-
     /**
      *
      * @returns {Object}
@@ -110,7 +109,6 @@ export default class PhysicalUpdater extends IPhysicalUpdater
     {
         this._target = value;
     }
-
 
     /**
      *
@@ -130,7 +128,6 @@ export default class PhysicalUpdater extends IPhysicalUpdater
         this._easing = value;
     }
 
-
     /**
      *
      * @returns {number}
@@ -143,7 +140,6 @@ export default class PhysicalUpdater extends IPhysicalUpdater
         return this._maxDuration;
     }
 
-
     /**
      *
      * @param propertyName {string}
@@ -152,12 +148,9 @@ export default class PhysicalUpdater extends IPhysicalUpdater
      */
     setSourceValue(propertyName, value, isRelative = false)
     {
-        console.log('setSourceValue(', propertyName, value, isRelative, ')');
-
         this._source[propertyName] = value;
         this._relativeMap['source.' + propertyName] = isRelative;
     }
-
 
     /**
      *
@@ -173,7 +166,6 @@ export default class PhysicalUpdater extends IPhysicalUpdater
         this._relativeMap['dest.' + propertyName] = isRelative;
     }
 
-
     /**
      *
      * @param propertyName {string}
@@ -183,7 +175,6 @@ export default class PhysicalUpdater extends IPhysicalUpdater
     {
         return this._target[propertyName];
     }
-
 
     /**
      *
@@ -195,9 +186,18 @@ export default class PhysicalUpdater extends IPhysicalUpdater
         this._target[propertyName] = value;
     }
 
-
     resolveValues()
     {
+        /**
+         * key @type {string}
+         * target @type {Object}
+         * source @type {Dictionary}
+         * dest @type {Dictionary}
+         * rMap @type {Dicitonary}
+         * d @type {Dictionary}
+         * duration @type {number}
+         * maxDuration @type {number}
+         */
         var key, target = this._target, source = this._source, dest = this._destination, rMap = this._relativeMap, d = this._duration, duration, maxDuration = 0.0;
 
         for (key in source) {
@@ -226,7 +226,6 @@ export default class PhysicalUpdater extends IPhysicalUpdater
 
         this._isResolved = true;
     }
-
 
     /**
      *
@@ -258,7 +257,6 @@ export default class PhysicalUpdater extends IPhysicalUpdater
         }
     }
 
-
     /**
      *
      * @returns {IUpdater}
@@ -272,7 +270,6 @@ export default class PhysicalUpdater extends IPhysicalUpdater
         return instance;
     }
 
-
     /**
      *
      * @returns {PhysicalUpdater}
@@ -281,7 +278,6 @@ export default class PhysicalUpdater extends IPhysicalUpdater
     {
         return new PhysicalUpdater();
     }
-
 
     /**
      *
@@ -297,7 +293,6 @@ export default class PhysicalUpdater extends IPhysicalUpdater
         this.copyObject(this._destination, obj._destination);
         this.copyObject(this._relativeMap, obj._relativeMap);
     }
-
 
     /**
      *

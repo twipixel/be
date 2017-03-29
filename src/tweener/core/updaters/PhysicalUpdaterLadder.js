@@ -72,7 +72,6 @@ export default class PhysicalUpdaterLadder extends IPhysicalUpdater
         return this._parent;
     }
 
-
     /**
      *
      * @returns {IPhysicalUpdater}
@@ -81,47 +80,6 @@ export default class PhysicalUpdaterLadder extends IPhysicalUpdater
     {
         return this._child;
     }
-
-
-    /**
-     *
-     * @returns {Object}
-     */
-    get target()
-    {
-        return null;
-    }
-
-
-    /**
-     *
-     * @param value {Object}
-     */
-    set target(value)
-    {
-
-    }
-
-
-    /**
-     *
-     * @returns {IPhysicalEasing}
-     */
-    get easing()
-    {
-        return null;
-    }
-
-
-    /**
-     *
-     * @param value {IPhysicalEasing}
-     */
-    set easing(value)
-    {
-
-    }
-
 
     /**
      *
@@ -132,59 +90,6 @@ export default class PhysicalUpdaterLadder extends IPhysicalUpdater
         return this._duration;
     }
 
-
-    /**
-     *
-     * @param propertyName {string}
-     * @param value {number}
-     * @param isRelative
-     */
-    setSourceValue(propertyName, value, isRelative = false)
-    {
-
-    }
-
-
-    /**
-     *
-     * @param propertyName {string}
-     * @param value {number}
-     * @param isRelative {boolean}
-     */
-    setDestinationValue(propertyName, value, isRelative = false)
-    {
-
-    }
-
-
-    /**
-     *
-     * @param propertyName {string}
-     * @returns {Object}
-     */
-    getObject(propertyName)
-    {
-        return null;
-    }
-
-
-    /**
-     *
-     * @param propertyName {string}
-     * @param value {Object}
-     */
-    setObject(propertyName, value)
-    {
-
-    }
-
-
-    resolveValues()
-    {
-
-    }
-
-
     /**
      *
      * @param factor {number}
@@ -194,7 +99,6 @@ export default class PhysicalUpdaterLadder extends IPhysicalUpdater
         this._child.update(factor);
         this._parent.setObject(this._propertyName, this._child.target);
     }
-
 
     /**
      *

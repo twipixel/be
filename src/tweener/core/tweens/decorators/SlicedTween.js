@@ -47,7 +47,6 @@ export default class SlicedTween extends TweenDecorator
         this._end = end;
     }
 
-
     /**
      *
      * @returns {number}

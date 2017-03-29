@@ -27,7 +27,6 @@
  */
 
 
-
 import AbstractUpdater from '../AbstractUpdater';
 
 
@@ -60,7 +59,6 @@ const TARGET_PROPERTIES = [
  */
 export default class DisplayObjectUpdater extends AbstractUpdater
 {
-
     /**
      *
      * @param registry {ClassRegistry}
@@ -69,7 +67,6 @@ export default class DisplayObjectUpdater extends AbstractUpdater
     {
         registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, PIXI.DisplayObject, TARGET_PROPERTIES);
     }
-
 
     constructor()
     {
@@ -104,7 +101,6 @@ export default class DisplayObjectUpdater extends AbstractUpdater
         this._flags = 0;
     }
 
-
     /**
      *
      * @returns {Object}
@@ -123,19 +119,16 @@ export default class DisplayObjectUpdater extends AbstractUpdater
         this._target = value;
     }
 
-
     /**
-     *
+     * 변수 앞에 $가 붙으면 자신의 위치 기준으로(상대경로) 값을 계산해주도록 옵션을 제공합니다.
+     * $를 붙히면 자신의 위치 + value 로 처리합니다.
+     * isRelative 가 $ 옵션 여부입니다.
      * @param propertyName {string}
      * @param value {number}
-     * @param isRelative {boolean}
+     * @param isRelative {boolean} $ 옵션인지 여부
      */
     setSourceValue(propertyName, value, isRelative = false)
     {
-        console.log('-----------------------------------------------------');
-        console.log('setSourceValue(', propertyName, value, isRelative, ')');
-        console.log('-----------------------------------------------------');
-
         if (propertyName == 'x') {
             this._flags |= 0x0001;
             this._source.relativeFlags |= isRelative ? 0x0001 : 0;
@@ -206,10 +199,6 @@ export default class DisplayObjectUpdater extends AbstractUpdater
      */
     setDestinationValue(propertyName, value, isRelative = false)
     {
-        console.log('-----------------------------------------------------');
-        console.log('setDestinationValue(', propertyName, value, isRelative, ')');
-        console.log('-----------------------------------------------------');
-
         if (propertyName == 'x') {
             this._flags |= 0x0001;
             this._destination.relativeFlags |= isRelative ? 0x0001 : 0;
@@ -273,16 +262,12 @@ export default class DisplayObjectUpdater extends AbstractUpdater
     }
 
     /**
-     *
+     * TODO 필터 전체 테스트가 필요합니다.
      * @param propertyName {string}
      * @returns {Object}
      */
     getObject(propertyName)
     {
-        console.log('-------------------------------');
-        console.log('getObject(', propertyName, ')');
-        console.log('-------------------------------');
-
         if (propertyName == '_blurFilter') {
             return this.getFilterByClass(PIXI.filters.BlurFilter);
         }
@@ -311,7 +296,7 @@ export default class DisplayObjectUpdater extends AbstractUpdater
     }
 
     /**
-     * 
+     * TODO 필터 전체 테스트가 필요합니다.
      * @param klass {Class}
      * @returns {BitmapFilter}
      */
@@ -319,9 +304,6 @@ export default class DisplayObjectUpdater extends AbstractUpdater
     {
         var filter = null;
         var filters = this._target.filters;
-
-        console.log('this._target:', this._target);
-        console.log('this._target.filters:', this._target.filters);
 
         var l = filters.length;
         for (var i = 0; i < l; ++i) {
@@ -335,9 +317,8 @@ export default class DisplayObjectUpdater extends AbstractUpdater
         return filter;
     }
 
-
     /**
-     * 
+     * TODO 필터 전체 테스트가 필요합니다.
      * @param propertyName {string}
      * @param value {Object}
      */
@@ -378,7 +359,7 @@ export default class DisplayObjectUpdater extends AbstractUpdater
     }
 
     /**
-     * 
+     * TODO 필터 전체 테스트가 필요합니다.
      * @param filter {BitmapFilter}
      * @param klass {Class}
      */
@@ -399,16 +380,10 @@ export default class DisplayObjectUpdater extends AbstractUpdater
 
     resolveValues()
     {
-        console.log('*********************************************');
-        console.log('resolveValues')
-        console.log('*********************************************');
-
         var t = this._target,
             d = this._destination,
             s = this._source,
             f = this._flags;
-
-        console.log(this._source, 's.x:', s.x, 's.y:', s.y);
 
         if ((f & 0x0001) != 0) {
             if (isNaN(s.x)) {
@@ -588,8 +563,6 @@ export default class DisplayObjectUpdater extends AbstractUpdater
      */
     updateObject(factor)
     {
-        console.log('updateObject(' + factor + ')');
-
         var t = this._target,
             d = this._destination,
             s = this._source,
@@ -669,11 +642,14 @@ export default class DisplayObjectUpdater extends AbstractUpdater
     }
 }
 
-
 class DisplayObjectParameter
 {
     constructor()
     {
+        /**
+         * $ 옵션 비트 플래그
+         * @type {uint}
+         */
         this.relativeFlags = 0;
         this.x = undefined;
         this.y = undefined;
@@ -684,7 +660,6 @@ class DisplayObjectParameter
         this.height = undefined;
         this.skew = {x:undefined, y:undefined};
     }
-
 
     /**
      *

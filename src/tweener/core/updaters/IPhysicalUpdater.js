@@ -32,34 +32,18 @@ import IUpdater from './IUpdater';
 
 export default class IPhysicalUpdater extends IUpdater
 {
-    constructor()
-    {
-        super();
-    }
-
     /**
      * @return {IPhysicalEasing}
      */
-    get easing()
-    {
-        return null;
-    }
-
+    get easing() {return null;}
 
     /**
      * @param value {IPhysicalEasing}
      */
-    set easing(value)
-    {
-
-    }
-
+    set easing(value) {}
 
     /**
      * @returns {number}
      */
-    get duration()
-    {
-        return null;
-    }
+    get duration() {return null;}
 }

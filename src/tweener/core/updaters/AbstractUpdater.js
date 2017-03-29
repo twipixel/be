@@ -46,19 +46,13 @@ export default class AbstractUpdater extends IUpdater
      *
      * @returns {Object}
      */
-    get target()
-    {
-        return null;
-    }
+    get target() {return null;}
 
     /**
      *
      * @param value {Object}
      */
-    set target(value)
-    {
-
-    }
+    set target(value) {}
 
     /**
      *
@@ -66,10 +60,7 @@ export default class AbstractUpdater extends IUpdater
      * @param value {number}
      * @param isRelative {boolean}
      */
-    setSourceValue(propertyName, value, isRelative = false)
-    {
-
-    }
+    setSourceValue(propertyName, value, isRelative = false) {}
 
     /**
      *
@@ -77,56 +68,40 @@ export default class AbstractUpdater extends IUpdater
      * @param value {number}
      * @param isRelative {boolean}
      */
-    setDestinationValue(propertyName, value, isRelative = false)
-    {
-
-    }
+    setDestinationValue(propertyName, value, isRelative = false) {}
 
     /**
      *
      * @param propertyName {string}
      * @returns {Object}
      */
-    getObject(propertyName)
-    {
-        return null;
-    }
+    getObject(propertyName) {return null;}
 
     /**
      *
      * @param propertyName {string}
      * @param value {Object}
      */
-    setObject(propertyName, value)
-    {
-
-    }
+    setObject(propertyName, value) {}
 
     /**
      * @param factor {number}
      */
     update(factor)
     {
-        if (!this._isResolved) {
+        if (this._isResolved === false) {
             this.resolveValues();
             this._isResolved = true;
         }
         this.updateObject(factor);
     }
 
-    resolveValues()
-    {
-
-    }
-
+    resolveValues() {}
 
     /**
      * @param factor {number}
      */
-    updateObject(factor)
-    {
-
-    }
+    updateObject(factor) {}
 
     /**
      * @returns {IUpdater}
@@ -143,11 +118,7 @@ export default class AbstractUpdater extends IUpdater
     /**
      * @return {AbstractUpdater}
      */
-    newInstance()
-    {
-        return null;
-    }
-
+    newInstance() {return null;}
 
     /**
      * @param source {AbstractUpdater}
@@ -156,7 +127,6 @@ export default class AbstractUpdater extends IUpdater
     {
         // Do NOT copy _isResolved property.
     }
-
 }
 
 

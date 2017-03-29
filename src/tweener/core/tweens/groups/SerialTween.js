@@ -47,35 +47,35 @@ export default class SerialTween extends AbstractTween
          * @type {IITween}
          * @private
          */
-        this._a = null;
+        this._a = undefined;
 
         /**
          *
          * @type {IITween}
          * @private
          */
-        this._b = null;
+        this._b = undefined;
 
         /**
          *
          * @type {IITween}
          * @private
          */
-        this._c = null;
+        this._c = undefined;
 
         /**
          *
          * @type {IITween}
          * @private
          */
-        this._d = null;
+        this._d = undefined;
 
         /**
          *
          * @type {Vector.<IITween>}
          * @private
          */
-        this._targets = null;
+        this._targets = undefined;
 
         /**
          *
@@ -83,7 +83,6 @@ export default class SerialTween extends AbstractTween
          * @private
          */
         this._lastTime = 0;
-
 
         var l = targets.length;
 
@@ -115,7 +114,6 @@ export default class SerialTween extends AbstractTween
         }
     }
 
-
     /**
      *
      * @param tween {ITween}
@@ -143,7 +141,6 @@ export default class SerialTween extends AbstractTween
         }
         return false;
     }
-
 
     /**
      *
@@ -175,7 +172,6 @@ export default class SerialTween extends AbstractTween
         return null;
     }
 
-
     /**
      *
      * @param tween {ITween}
@@ -206,7 +202,6 @@ export default class SerialTween extends AbstractTween
         }
         return -1;
     }
-
 
     /**
      *
@@ -291,7 +286,6 @@ export default class SerialTween extends AbstractTween
         }
         this._lastTime = time;
     }
-
 
     /**
      *

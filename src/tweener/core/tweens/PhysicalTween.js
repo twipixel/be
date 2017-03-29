@@ -32,13 +32,21 @@ import AbstractTween from './AbstractTween';
 
 export default class PhysicalTween extends AbstractTween
 {
+    /**
+     *
+     * @param ticker {ITicker}
+     */
     constructor(ticker)
     {
         super(ticker, 0);
 
-        this._updater = null;
+        /**
+         *
+         * @type {IPhysicalUpdater}
+         * @private
+         */
+        this._updater = undefined;
     }
-
 
     /**
      *
@@ -48,7 +56,6 @@ export default class PhysicalTween extends AbstractTween
     {
         return this._updater;
     }
-
 
     /**
      *
@@ -63,7 +70,6 @@ export default class PhysicalTween extends AbstractTween
         }
     }
 
-
     /**
      *
      * @returns {Object}
@@ -72,7 +78,6 @@ export default class PhysicalTween extends AbstractTween
     {
         return this._updater != null ? this._updater.target : null;
     }
-
 
     /**
      *
@@ -83,7 +88,6 @@ export default class PhysicalTween extends AbstractTween
         this._updater.update(time);
     }
 
-
     /**
      *
      * @returns {AbstractTween}
@@ -92,7 +96,6 @@ export default class PhysicalTween extends AbstractTween
     {
         return new PhysicalTween(this._ticker);
     }
-
 
     /**
      *

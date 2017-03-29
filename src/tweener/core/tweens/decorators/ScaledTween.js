@@ -45,7 +45,6 @@ export default class ScaledTween extends TweenDecorator
         this._scale = scale;
     }
 
-
     /**
      *
      * @returns {number}

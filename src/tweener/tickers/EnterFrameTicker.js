@@ -45,12 +45,6 @@ export default class EnterFrameTicker
         this._first = null;
 
         /**
-         * @type {TickerListener}
-         * @private
-         */
-        this._last = null;
-
-        /**
          * @type {uint}
          * @private
          */
@@ -58,11 +52,11 @@ export default class EnterFrameTicker
 
         /**
          * AS3에서는 {Vector.<TickerListener>}
-         * 10개만 생성합니다.
+         * 10개만 생성합니다. new Vector.<TickerListener>(10, true)
          * @type {Array}
          * @private
          */
-        this._tickerListenerPaddings = undefined;
+        this._tickerListenerPaddings = [];
 
         /**
          * @type {number}
@@ -101,20 +95,16 @@ export default class EnterFrameTicker
             return;
         }
 
-        if (this._last != null) {
-            if (this._last.nextListener != null) {
-                this._last.nextListener.prevListener = listener;
-                listener.nextListener = this._last.nextListener;
+        if (this._first != null) {
+            if (this._first.prevListener != null) {
+                this._first.prevListener.nextListener = listener;
+                listener.prevListener = this._first.prevListener;
             }
-            listener.prevListener = this._last;
-            this._last.nextListener = listener;
+            listener.nextListener = this._first;
+            this._first.prevListener = listener;
         }
 
-        this._last = listener;
-
-        if (this._first == null) {
-            this._first = listener;
-        }
+        this._first = listener;
 
         ++this._numListeners;
     }
@@ -141,9 +131,6 @@ export default class EnterFrameTicker
                     l.nextListener.prevListener = l.prevListener;
                     l.prevListener = null;
                 }
-                else {
-                    this._last = l.prevListener;
-                }
                 --this._numListeners;
             }
 
@@ -168,39 +155,24 @@ export default class EnterFrameTicker
         _ticker.stop();
     }
 
-    // internal なのはテストのため
-
     /**
      * @private
      */
     update(currentTime)
     {
-        // リスナの数を 8 の倍数になるようにパディングして 8 個ずつ一気にループさせる
-        var t = this._time = getTimer() / 1000,
-            i = (this._numListeners / 8 + 1) | 0,
-            n = i * 8 - this._numListeners,
-            listener = this._tickerListenerPaddings[0],
-            l = this._tickerListenerPaddings[n],
-            ll = null;
+        var t = this._time = getTimer() / 1000, n = 8 - (this._numListeners % 8), listener = this._tickerListenerPaddings[0], l = this._tickerListenerPaddings[n], ll = null;
 
-        // このようにつなぎかえることでパディングの数を変える
         if ((l.nextListener = this._first) != null) {
             this._first.prevListener = l;
         }
 
-        while (--i >= 0) {
+        while (listener.nextListener != null) {
             if ((listener = listener.nextListener).tick(t)) {
                 if (listener.prevListener != null) {
                     listener.prevListener.nextListener = listener.nextListener;
                 }
                 if (listener.nextListener != null) {
                     listener.nextListener.prevListener = listener.prevListener;
-                }
-                if (listener == this._first) {
-                    this._first = listener.nextListener;
-                }
-                if (listener == this._last) {
-                    this._last = listener.prevListener;
                 }
                 ll = listener.prevListener;
                 listener.nextListener = null;
@@ -215,11 +187,18 @@ export default class EnterFrameTicker
                 if (listener.nextListener != null) {
                     listener.nextListener.prevListener = listener.prevListener;
                 }
-                if (listener == this._first) {
-                    this._first = listener.nextListener;
+                ll = listener.prevListener;
+                listener.nextListener = null;
+                listener.prevListener = null;
+                listener = ll;
+                --this._numListeners;
+            }
+            if ((listener = listener.nextListener).tick(t)) {
+                if (listener.prevListener != null) {
+                    listener.prevListener.nextListener = listener.nextListener;
                 }
-                if (listener == this._last) {
-                    this._last = listener.prevListener;
+                if (listener.nextListener != null) {
+                    listener.nextListener.prevListener = listener.prevListener;
                 }
                 ll = listener.prevListener;
                 listener.nextListener = null;
@@ -234,11 +213,18 @@ export default class EnterFrameTicker
                 if (listener.nextListener != null) {
                     listener.nextListener.prevListener = listener.prevListener;
                 }
-                if (listener == this._first) {
-                    this._first = listener.nextListener;
+                ll = listener.prevListener;
+                listener.nextListener = null;
+                listener.prevListener = null;
+                listener = ll;
+                --this._numListeners;
+            }
+            if ((listener = listener.nextListener).tick(t)) {
+                if (listener.prevListener != null) {
+                    listener.prevListener.nextListener = listener.nextListener;
                 }
-                if (listener == this._last) {
-                    this._last = listener.prevListener;
+                if (listener.nextListener != null) {
+                    listener.nextListener.prevListener = listener.prevListener;
                 }
                 ll = listener.prevListener;
                 listener.nextListener = null;
@@ -253,12 +239,6 @@ export default class EnterFrameTicker
                 if (listener.nextListener != null) {
                     listener.nextListener.prevListener = listener.prevListener;
                 }
-                if (listener == this._first) {
-                    this._first = listener.nextListener;
-                }
-                if (listener == this._last) {
-                    this._last = listener.prevListener;
-                }
                 ll = listener.prevListener;
                 listener.nextListener = null;
                 listener.prevListener = null;
@@ -272,12 +252,6 @@ export default class EnterFrameTicker
                 if (listener.nextListener != null) {
                     listener.nextListener.prevListener = listener.prevListener;
                 }
-                if (listener == this._first) {
-                    this._first = listener.nextListener;
-                }
-                if (listener == this._last) {
-                    this._last = listener.prevListener;
-                }
                 ll = listener.prevListener;
                 listener.nextListener = null;
                 listener.prevListener = null;
@@ -290,50 +264,6 @@ export default class EnterFrameTicker
                 }
                 if (listener.nextListener != null) {
                     listener.nextListener.prevListener = listener.prevListener;
-                }
-                if (listener == this._first) {
-                    this._first = listener.nextListener;
-                }
-                if (listener == this._last) {
-                    this._last = listener.prevListener;
-                }
-                ll = listener.prevListener;
-                listener.nextListener = null;
-                listener.prevListener = null;
-                listener = ll;
-                --this._numListeners;
-            }
-            if ((listener = listener.nextListener).tick(t)) {
-                if (listener.prevListener != null) {
-                    listener.prevListener.nextListener = listener.nextListener;
-                }
-                if (listener.nextListener != null) {
-                    listener.nextListener.prevListener = listener.prevListener;
-                }
-                if (listener == this._first) {
-                    this._first = listener.nextListener;
-                }
-                if (listener == this._last) {
-                    this._last = listener.prevListener;
-                }
-                ll = listener.prevListener;
-                listener.nextListener = null;
-                listener.prevListener = null;
-                listener = ll;
-                --this._numListeners;
-            }
-            if ((listener = listener.nextListener).tick(t)) {
-                if (listener.prevListener != null) {
-                    listener.prevListener.nextListener = listener.nextListener;
-                }
-                if (listener.nextListener != null) {
-                    listener.nextListener.prevListener = listener.prevListener;
-                }
-                if (listener == this._first) {
-                    this._first = listener.nextListener;
-                }
-                if (listener == this._last) {
-                    this._last = listener.prevListener;
                 }
                 ll = listener.prevListener;
                 listener.nextListener = null;
@@ -342,13 +272,9 @@ export default class EnterFrameTicker
                 --this._numListeners;
             }
         }
-
 
         if ((this._first = l.nextListener) != null) {
             this._first.prevListener = null;
-        }
-        else {
-            this._last = null;
         }
         l.nextListener = this._tickerListenerPaddings[n + 1];
     }

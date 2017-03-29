@@ -39,14 +39,13 @@ const TARGET_PROPERTIES = [
 export default class PointUpdater extends AbstractUpdater
 {
     /**
-     *
+     * TODO PIXI.Point 를 사용하지 말고 global 로 Point를 생성해서 처리하도록 하는 방법을 고려해봅시다.
      * @param registry {ClassRegistry}
      */
     static register(registry)
     {
         registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, PIXI.Point, TARGET_PROPERTIES);
     }
-
 
     constructor()
     {
@@ -109,7 +108,6 @@ export default class PointUpdater extends AbstractUpdater
         this._flags = 0;
     }
 
-
     /**
      * @return {Object}
      */
@@ -127,7 +125,9 @@ export default class PointUpdater extends AbstractUpdater
     }
 
     /**
-     *
+     * 변수 앞에 $가 붙으면 자신의 위치 기준으로(상대경로) 값을 계산해주도록 옵션을 제공합니다.
+     * $를 붙히면 자신의 위치 + value 로 처리합니다.
+     * isRelative 가 $ 옵션 여부입니다.
      * @param propertyName {string}
      * @param value {number}
      * @param isRelative {boolean}
@@ -145,7 +145,6 @@ export default class PointUpdater extends AbstractUpdater
             this._flags |= isRelative ? 0x004 : 0;
         }
     }
-
 
     /**
      *

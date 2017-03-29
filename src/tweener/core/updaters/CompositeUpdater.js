@@ -41,7 +41,6 @@ export default class CompositeUpdater extends IUpdater
     {
         super();
 
-
         /**
          * @type {Object}
          */
@@ -50,30 +49,31 @@ export default class CompositeUpdater extends IUpdater
         /**
          * @type {IUpdater}
          */
-        this._a = null;
+        this._a = undefined;
 
         /**
          * @type {IUpdater}
          */
-        this._b = null;
+        this._b = undefined;
 
         /**
          * @type {IUpdater}
          */
-        this._c = null;
+        this._c = undefined;
 
         /**
          * @type {IUpdater}
          */
-        this._d = null;
+        this._d = undefined;
 
         /**
          * @type {Vector.<IUpdater>}
          */
-        this._updaters = null;
+        this._updaters = undefined;
 
 
         this._target = target;
+
 
         var l = updaters.length;
 
@@ -96,7 +96,6 @@ export default class CompositeUpdater extends IUpdater
             }
         }
     }
-
 
     /**
      * @param index {uint}
@@ -135,7 +134,6 @@ export default class CompositeUpdater extends IUpdater
         this._target = value;
     }
 
-
     /**
      * @param factor {number}
      */
@@ -161,7 +159,6 @@ export default class CompositeUpdater extends IUpdater
             }
         }
     }
-
 
     /**
      * @returns {IUpdater}

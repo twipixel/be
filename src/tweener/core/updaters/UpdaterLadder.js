@@ -44,7 +44,6 @@ export default class UpdaterLadder extends IUpdater
         this._propertyName = propertyName;
     }
 
-
     /**
      * @returns {IUpdater}
      */

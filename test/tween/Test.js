@@ -167,8 +167,7 @@ export default class Test{
     apply() {
         this.path.clear();
 
-        var tween = Tweener.apply(this.icon, {x:250, y:250}, {x:0}, 2, 0.5, Sine.easeOut);
-        tween.play();
+        Tweener.apply(this.icon, {x:250, y:250}, {x:0}, 2, 0.5, Sine.easeOut);
     }
 
 
@@ -410,18 +409,7 @@ export default class Test{
         controlPoint.x = -10;
         controlPoint.y = -10;
 
-        var uniform = Tweener.physicalApply(icon, {x:400, y:100}, {x:0, y:0}, 0.5, Physical.uniform(12));
-
-        uniform.onPlay = () => { console.log('onPlay'); };
-        uniform.onUpdate = () => {
-            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
-            path.beginFill(controlPointColor);
-            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
-            path.endFill();
-
-        };
-        uniform.onComplete = () => { console.log('onComplete'); };
-        uniform.play();
+        Tweener.physicalApply(icon, {x:400, y:100}, {x:0, y:0}, 0.5, Physical.uniform(12));
     }
 
 

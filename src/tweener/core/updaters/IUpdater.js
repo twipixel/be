@@ -30,88 +30,48 @@
 export default class IUpdater
 {
     /**
-     * Interface
-     */
-    constructor()
-    {
-
-    }
-
-
-    /**
      * @return {Object}
      */
-    get target()
-    {
-        return null;
-    }
-
+    get target() {return null;}
 
     /**
      * @param value {Object}
      */
-    set target(value)
-    {
-        //
-    }
-
+    set target(value) {}
 
     /**
      * @param propertyName {string}
      * @param value {number}
      * @param isRelative {boolean}
      */
-    setSourceValue(propertyName, value, isRelative = false)
-    {
-        //
-    }
-
+    setSourceValue(propertyName, value, isRelative = false) {}
 
     /**
      * @param propertyName {string}
      * @param value {number}
      * @param isRelative {boolean}
      */
-    setDestinationValue(propertyName, value, isRelative = false)
-    {
-
-    }
-
+    setDestinationValue(propertyName, value, isRelative = false) {}
 
     /**
      * @param propertyName {string}
      * @return {Object}
      */
-    getObject(propertyName)
-    {
-        return null;
-    }
-
+    getObject(propertyName) {return null;}
 
     /**
      * @param propertyName {string}
      * @param value {Object}
      */
-    setObject(propertyName, value)
-    {
-
-    }
-
+    setObject(propertyName, value) {}
 
     /**
      * @param factor {number}
      */
-    update(factor)
-    {
-
-    }
-
+    update(factor) {}
 
     /**
      * @return {IUpdater}
      */
-    clone()
-    {
-        return null;
-    }
+    clone() {return null;}
 }

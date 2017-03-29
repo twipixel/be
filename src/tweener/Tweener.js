@@ -46,7 +46,6 @@ import SlicedTween from './core/tweens/decorators/SlicedTween';
 import DelayedTween from './core/tweens/decorators/DelayedTween';
 
 
-
 /**
  * @type {EnterFrameTicker}
  * @private
@@ -68,15 +67,6 @@ export default class Tweener
 
     /**
      *
-     */
-    constructor()
-    {
-        //
-    }
-
-
-    /**
-     *
      * @param target {Object}
      * @param to {Object}
      * @param from {Object}
@@ -92,7 +82,6 @@ export default class Tweener
         tween.easing = easing || Linear.easeNone;
         return tween;
     }
-
 
     /**
      *
@@ -111,7 +100,6 @@ export default class Tweener
         return tween;
     }
 
-
     /**
      *
      * @param target  {Object}
@@ -128,7 +116,6 @@ export default class Tweener
         tween.easing = easing || Linear.easeNone;
         return tween;
     }
-
 
     /**
      * 트윈을 한번 적용합니다. 원하는 시간의 모션으로 한번 적용합니다.
@@ -147,7 +134,6 @@ export default class Tweener
         tween.easing = easing || Linear.easeNone;
         tween.update(applyTime);
     }
-
 
     /**
      *
@@ -168,7 +154,6 @@ export default class Tweener
         return tween;
     }
 
-
     /**
      *
      * @param target {Object}
@@ -186,7 +171,6 @@ export default class Tweener
         tween.easing = easing || Linear.easeNone;
         return tween;
     }
-
 
     /**
      *
@@ -206,7 +190,6 @@ export default class Tweener
         return tween;
     }
 
-
     /**
      *
      * @param target {Object}
@@ -217,27 +200,10 @@ export default class Tweener
      */
     static physical(target, to, from = null, easing = null)
     {
-        console.log('-----------------------------------------------------------------');
-        console.log(`phsical(${target}, ${to}, ${from}, ${easing}`);
-        console.log(to, from, easing);
-
-        console.log('to:');
-        for(var prop in to)
-        {
-            console.log(prop + ':' + to[prop]);
-        }
-
-        console.log('from:');
-        for(var prop in from)
-        {
-            console.log(prop + ':' + from[prop]);
-        }
-        console.log('-----------------------------------------------------------------');
         var tween = new PhysicalTween(_ticker);
         tween.updater = _updaterFactory.createPhysical(target, to, from, easing || Physical.exponential());
         return tween;
     }
-
 
     /**
      *
@@ -253,7 +219,6 @@ export default class Tweener
         return tween;
     }
 
-
     /**
      *
      * @param target {Object}
@@ -267,7 +232,6 @@ export default class Tweener
         tween.updater = _updaterFactory.createPhysical(target, null, from, easing || Physical.exponential());
         return tween;
     }
-
 
     /**
      *
@@ -284,7 +248,6 @@ export default class Tweener
         tween.update(applyTime);
     }
 
-
     /**
      *
      * @param tweens {Array}
@@ -294,7 +257,6 @@ export default class Tweener
     {
         return Tweener.parallelTweens(tweens);
     }
-
 
     /**
      *
@@ -306,7 +268,6 @@ export default class Tweener
         return new ParallelTween(tweens, _ticker, 0);
     }
 
-
     /**
      *
      * @param tweens {Array}
@@ -317,7 +278,6 @@ export default class Tweener
         return Tweener.serialTweens(tweens);
     }
 
-
     /**
      *
      * @param tweens {Array}
@@ -327,7 +287,6 @@ export default class Tweener
     {
         return new SerialTween(tweens, _ticker, 0);
     }
-
 
     /**
      *
@@ -347,7 +306,6 @@ export default class Tweener
         return new ReversedTween(tween, pos);
     }
 
-
     /**
      *
      * @param tween {ITween}
@@ -358,7 +316,6 @@ export default class Tweener
     {
         return new RepeatedTween(tween, repeatCount);
     }
-
 
     /**
      *
@@ -371,7 +328,6 @@ export default class Tweener
         return new ScaledTween(tween, scale);
     }
 
-
     /**
      *
      * @param tween {ITween}
@@ -382,7 +338,7 @@ export default class Tweener
      */
     static slice(tween, begin, end, isPercent = false)
     {
-        if (isPercent) {
+        if (isPercent === true) {
             begin = tween.duration * begin;
             end = tween.duration * end;
         }
@@ -391,7 +347,6 @@ export default class Tweener
         }
         return new SlicedTween(tween, begin, end);
     }
-
 
     /**
      *
@@ -405,7 +360,6 @@ export default class Tweener
         return new DelayedTween(tween, delay, postDelay);
     }
 
-
     /**
      *
      * @param target {DisplayObject}
@@ -417,7 +371,6 @@ export default class Tweener
         return new AddChildAction(_ticker, target, parent);
     }
 
-
     /**
      *
      * @param target {DisplayObject}
@@ -427,7 +380,6 @@ export default class Tweener
     {
         return new RemoveFromParentAction(_ticker, target);
     }
-
 
     /**
      *
@@ -442,7 +394,6 @@ export default class Tweener
     {
         return new FunctionAction(_ticker, func, params, useRollback, rollbackFunc, rollbackParams);
     }
-
 }
 
 

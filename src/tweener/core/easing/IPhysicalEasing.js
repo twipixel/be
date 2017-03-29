@@ -33,10 +33,7 @@ export default class IPhysicalEasing
 	 * @param e {number}
 	 * @return {number}
      */
-	getDuration(b, e)
-	{
-		return null;
-	}
+	getDuration(b, e) {return null;}
 
 	/**
 	 *
@@ -45,8 +42,5 @@ export default class IPhysicalEasing
      * @param e {number}
 	 * @return {number}
      */
-	calculate(t, b, e)
-	{
-		return null;
-	}
+	calculate(t, b, e) {return null;}
 }

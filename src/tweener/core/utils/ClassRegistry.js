@@ -29,9 +29,12 @@
 
 export default class ClassRegistry
 {
+    /**
+     * classes 안에 클래스와 그 안에 속성이 저장되고 그에 맞는 업데이터가 등록됩니다.
+     * classes[Object][x] = ObjectUpadter
+     */
     constructor()
     {
-        console.log('ClassRegistry');
         /**
          * @type {Dictionary}
          * @private
@@ -45,9 +48,8 @@ export default class ClassRegistry
         this._subclasses = {};
     }
 
-
     /**
-     *
+     * 타겟 클래스의 프로퍼티로 클래스 등록
      * @param klass {Class}
      * @param targetClass {Class}
      * @param propertyName {string}
@@ -78,7 +80,6 @@ export default class ClassRegistry
         }
     }
 
-
     /**
      *
      * @param klass {Class}
@@ -93,9 +94,8 @@ export default class ClassRegistry
         }
     }
 
-
     /**
-     *
+     * 클래스와 프로퍼티이름으로 Updater 반환
      * @param targetClass {Class}
      * @param propertyName {string}
      * @returns {Class}
@@ -118,7 +118,6 @@ export default class ClassRegistry
 
         return null;
     }
-
 
     /**
      * @param targetClass {Class}

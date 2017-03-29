@@ -55,7 +55,6 @@ export default class Physical
 		_defaultFrameRate = value;
 	}
 
-
 	/**
 	 *
 	 * @param velocity {number}

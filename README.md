@@ -47,10 +47,28 @@ tween(target:Object, to:Object, from:Object = null, time:Number = 1.0, easing:IE
 
 ### Filter 처리
 - '_blurFilter', '_colorMatrixFilter' 같은 속성이 들어오면 UpdaterLadder 를 생성합니다. UpdaterLadder는 부모로 DisplayObjectUpdater를 자식으로 ObjectUpdater를 가지면서 update 때 자식의 객체 값을 업데이트하고 부모에게 그 값을 set 하도록 되어있습니다. 
+- 필터 적용 시 IUpdater에서 getObject와 setObject를 사용합니다. 
+  - IUpdater
+    - getObject
+      - if (propertyName == '_blurFilter') {
+        ​	return this.getFilterByClass(PIXI.filters.BlurFilter);
+        }
+    - setObject
+      - if (propertyName == '_blurFilter') {
+        ​	this.setFilterByClass(value, PIXI.filters.BlurFilter);
+        }
 
 <br>
 
+### EnterFrameTicker
 
+
+
+<br>
+
+### SerialTween
+
+<br>
 
 
 ### BIT FLAG

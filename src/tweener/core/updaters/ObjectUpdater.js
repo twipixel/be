@@ -92,7 +92,6 @@ export default class ObjectUpdater extends AbstractUpdater
         this._target = value;
     }
 
-
     /**
      * 
      * @param propertyName {string}
@@ -101,11 +100,9 @@ export default class ObjectUpdater extends AbstractUpdater
      */
     setSourceValue(propertyName, value, isRelative = false)
     {
-        console.log('ObjectUpdater.setSourceValue(', propertyName, value, isRelative, ')');
         this._source[propertyName] = value;
         this._relativeMap['source.' + propertyName] = isRelative;
     }
-
 
     /**
      *
@@ -119,7 +116,6 @@ export default class ObjectUpdater extends AbstractUpdater
         this._relativeMap['dest.' + propertyName] = isRelative;
     }
 
-
     /**
      *
      * @param propertyName {string}
@@ -129,7 +125,6 @@ export default class ObjectUpdater extends AbstractUpdater
     {
         return this._target[propertyName];
     }
-
 
     /**
      *
@@ -141,9 +136,15 @@ export default class ObjectUpdater extends AbstractUpdater
         this._target[propertyName] = value;
     }
 
-    
     resolveValues()
     {
+        /**
+         * key @type {string}
+         * target @type {Object}
+         * source @type {Dictionary}
+         * dest @type {Dictionary}
+         * rMpa @type {Dictionary}
+         */
         var key, target = this._target, source = this._source, dest = this._destination, rMap = this._relativeMap;
 
         for (key in source) {
@@ -164,7 +165,6 @@ export default class ObjectUpdater extends AbstractUpdater
         }
     }
 
-
     /**
      *
      * @param factor {number}
@@ -181,7 +181,6 @@ export default class ObjectUpdater extends AbstractUpdater
             t[name] = s[name] * invert + d[name] * factor;
         }
     }
-
 
     /**
      *

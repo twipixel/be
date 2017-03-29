@@ -33,7 +33,6 @@ import PhysicalUpdater from './PhysicalUpdater';
 import CompositeUpdater from './CompositeUpdater';
 import PhysicalUpdaterLadder from './PhysicalUpdaterLadder';
 import CompositePhysicalUpdater from './CompositePhysicalUpdater';
-
 import ClassRegistry from '../utils/ClassRegistry';
 
 
@@ -51,7 +50,7 @@ export default class UpdaterFactory
         this._registry = registry;
 
         /**
-         * @type {number}
+         * @type {uint}
          * @private
          */
         this._poolIndex = 0;
@@ -69,7 +68,6 @@ export default class UpdaterFactory
         this._listPool = [];
     }
 
-
     /**
      * updaterFactory.create(target, to, from);
      * @param target {Object}
@@ -79,10 +77,6 @@ export default class UpdaterFactory
      */
     create(target, dest, source)
     {
-        console.log('-----------------------------------------------------');
-        console.log('UpdaterFactory.create(', target, dest, source, ')');
-        console.log('-----------------------------------------------------');
-
         /**
          * map @type {Dictionary}
          * updaters @type {Vector.<IUpdater>}
@@ -105,52 +99,33 @@ export default class UpdaterFactory
             updaters = [];
         }
 
-        console.log('\nSource--------------------------------------------------------');
         if (source != null) {
             for (name in source) {
-
-                console.log(name + ':' + source[name]);
-
                 if (typeof (value = source[name]) === 'number') {
-
-                    console.log('> Propeties');
                     // $로 시작하는 변수의 경우
                     if ((isRelative = /^\$/.test(name))) {
                         name = name.substr(1);
                     }
-
                     // source value 를 적용하기 위해서 업데이터를 얻어와 설정
                     this.getUpdaterFor(target, name, map, updaters).setSourceValue(name, Number(value), isRelative);
                 }
             else {
-
-                    console.log('> Filter');
                     parent = this.getUpdaterFor(target, name, map, updaters);
                     child = this.create(parent.getObject(name), dest != null ? dest[name] : null, value);
                     updaters.push(new UpdaterLadder(parent, child, name));
                 }
             }
         }
-
-        console.log('\nDestination--------------------------------------------------------');
         if (dest != null) {
             for (name in dest) {
-
-                console.log(name + ':' + dest[name]);
-
                 if (typeof (value = dest[name]) === 'number') {
-                    console.log('> Propeties');
-
                     if ((isRelative = /^\$/.test(name))) {
                         name = name.substr(1);
                     }
-
                     this.getUpdaterFor(target, name, map, updaters).setDestinationValue(name, Number(value), isRelative);
                 }
             else {
                     if (!(source != null && name in source)) {
-                        console.log('> Filter');
-
                         parent = this.getUpdaterFor(target, name, map, updaters);
                         child = this.create(parent.getObject(name), value, source != null ? source[name] : null);
                         updaters.push(new UpdaterLadder(parent, child, name));
@@ -178,7 +153,6 @@ export default class UpdaterFactory
         return updater;
     }
 
-
     /**
      *
      * 업데이터 반환전에 Value 설정에 사용합니다.
@@ -194,8 +168,6 @@ export default class UpdaterFactory
 
         if (updaterClass != null) {
             var updater = map[updaterClass];
-
-            console.log('* updater:', updater);
 
             if (updater == null) {
                 updater = new updaterClass();
@@ -220,6 +192,19 @@ export default class UpdaterFactory
      */
     createBezier(target, dest, source, controlPoint)
     {
+        /**
+         * map @type {Dictionary}
+         * updaters @type {Vector.<IUpdater>}
+         * bezierUpdater @type {BezierUpdater}
+         * name @type {string}
+         * value @type {Object}
+         * isRelative @type {boolean}
+         * cp @type {Array}
+         * l @type {uint}
+         * i @type {uint}
+         * child @type {IUpdater}
+         * updater @type {IUpdater}
+         */
         var map = {}, updaters = [], bezierUpdater = new BezierUpdater(), name, value, isRelative, cp, l, i, child, updater;
 
         bezierUpdater.target = target;
@@ -295,7 +280,6 @@ export default class UpdaterFactory
         return updater;
     }
 
-
     /**
      *
      * @param target {Object}
@@ -306,8 +290,16 @@ export default class UpdaterFactory
      */
     createPhysical(target, dest, source, easing)
     {
-        console.log('createPhysical(', target, dest, source, easing, ')');
-
+        /**
+         * map @type {Ditionary}
+         * updaters @type {Vector.<IPhysicalUpdater>}
+         * physicalUpdater @type PhysicalUpdater
+         * name @type {string}
+         * value @type {Object}
+         * isRelative @type {boolean}
+         * child @type {IPhysicalUpdater}
+         * updater @type {IPhysicalUpdater}
+         */
         var map = {}, updaters = [], physicalUpdater = new PhysicalUpdater(), name, value, isRelative, child, updater;
 
         physicalUpdater.target = target;
@@ -332,7 +324,6 @@ export default class UpdaterFactory
                 }
             }
         }
-
         if (dest != null) {
             for (name in dest) {
                 if (typeof (value = dest[name]) === 'number') {

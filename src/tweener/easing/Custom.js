@@ -33,7 +33,7 @@ import CustomFunctionEasing from '../core/easing/CustomFunctionEasing';
 export default class Custom
 {
 	/**
-	 *
+	 * TODO Custom Easing 테스트 필요
 	 * @param f {Function}
 	 * @returns {CustomFunctionEasing | IEasing}
      */

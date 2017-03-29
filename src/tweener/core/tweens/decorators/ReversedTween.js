@@ -44,7 +44,6 @@ import TweenDecorator from '../TweenDecorator';
          this._duration = baseTween.duration;
      }
 
-
      /**
       *
       * @param time {number}
@@ -53,7 +52,6 @@ import TweenDecorator from '../TweenDecorator';
      {
          this.baseTween.update(this._duration - time);
      }
-
 
      /**
       *

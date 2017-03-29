@@ -40,10 +40,20 @@ export default class ObjectTween extends AbstractTween
     {
         super(ticker, 0);
 
-        this._easing = null;
-        this._updater = null;
-    }
+        /**
+         *
+         * @type {IEasing}
+         * @private
+         */
+        this._easing = undefined;
 
+        /**
+         *
+         * @type {IUpdater}
+         * @private
+         */
+        this._updater = undefined;
+    }
 
     /**
      * @returns {number}
@@ -140,8 +150,6 @@ export default class ObjectTween extends AbstractTween
         this._easing = obj._easing;
         this._updater = obj._updater.clone();
     }
-
-
 }
 
 

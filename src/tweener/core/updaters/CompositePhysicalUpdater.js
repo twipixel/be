@@ -41,7 +41,6 @@ export default class CompositePhysicalUpdater extends IPhysicalUpdater
     {
         super();
 
-
         /**
          *
          * @type {Object}
@@ -61,35 +60,35 @@ export default class CompositePhysicalUpdater extends IPhysicalUpdater
          * @type {IPhysicalUpdater}
          * @private
          */
-        this._a = null;
+        this._a = undefined;
 
         /**
          *
          * @type {IPhysicalUpdater}
          * @private
          */
-        this._b = null;
+        this._b = undefined;
 
         /**
          *
          * @type {IPhysicalUpdater}
          * @private
          */
-        this._c = null;
+        this._c = undefined;
 
         /**
          *
          * @type {IPhysicalUpdater}
          * @private
          */
-        this._d = null;
+        this._d = undefined;
 
         /**
          *
-         * @type {IPhysicalUpdater}
+         * @type {Vector.<IPhysicalUpdater>}
          * @private
          */
-        this._updaters = null;
+        this._updaters = undefined;
 
 
         var l = updaters.length;
@@ -129,7 +128,6 @@ export default class CompositePhysicalUpdater extends IPhysicalUpdater
             }
         }
     }
-
 
     /**
      *

@@ -35,8 +35,5 @@ export default class IEasing
 	 * @param d {number}
 	 * @return {number}
 	 */
-	calculate(t, b, c, d)
-	{
-
-	}
+	calculate(t, b, c, d) {}
 }

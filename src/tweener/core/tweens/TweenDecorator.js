@@ -41,10 +41,20 @@ import AbstractTween from './AbstractTween';
      {
          super(baseTween.ticker, position);
 
+         /**
+          *
+          * @type {IITween}
+          * @private
+          */
          this._baseTween = baseTween;
+
+         /**
+          *
+          * @type {number}
+          * @private
+          */
          this._duration = baseTween.duration;
      }
-
 
      /**
       * 
@@ -55,7 +65,6 @@ import AbstractTween from './AbstractTween';
          return this._baseTween;
      }
 
-    
      play()
      {
          if (!this._isPlaying) {
@@ -64,29 +73,25 @@ import AbstractTween from './AbstractTween';
          }
      }
 
-    
      firePlay()
      {
          super.firePlay();
          this._baseTween.firePlay();
      }
 
-     
      stop()
      {
-         if (this._isPlaying) {
+         if (this._isPlaying === true) {
              super.stop();
              this._baseTween.fireStop();
          }
      }
 
-     
      fireStop()
      {
          super.fireStop();
          this._baseTween.fireStop();
      }
-
 
      /**
       * 

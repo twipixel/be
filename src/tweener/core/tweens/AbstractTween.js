@@ -53,7 +53,7 @@ export default class AbstractTween extends TickerListener
          * @type {number}
          * @private
          */
-        this._startTime = -1;
+        this._startTime = undefined;
 
         /**
          * @type {boolean}
@@ -71,7 +71,7 @@ export default class AbstractTween extends TickerListener
          * @type {ClonableEventDispatcher}
          * @private
          */
-        this._dispatcher = null;
+        this._dispatcher = undefined;
 
         /**
          * @type {number}
@@ -83,7 +83,7 @@ export default class AbstractTween extends TickerListener
          * @type {ClassicHandlers}
          * @private
          */
-        this._classicHandlers = null;
+        this._classicHandlers = undefined;
 
         /**
          * @type {Ticker}
@@ -97,7 +97,6 @@ export default class AbstractTween extends TickerListener
          */
         this._position = position;
     }
-
 
     /**
      * @return {Ticker}
@@ -285,10 +284,6 @@ export default class AbstractTween extends TickerListener
         return this._classicHandlers || (this._classicHandlers = new ClassicHandlers());
     }
 
-    /**
-     * TODO
-     * onPlay.apply 부분에 대상 처리가 되는지 확인 필요
-     */
     play()
     {
         if (!this._isPlaying) {
@@ -353,7 +348,6 @@ export default class AbstractTween extends TickerListener
     }
 
     /**
-     * TODO 삭제해야할 함수
      * @param position
      */
     gotoAndPlay(position)
@@ -369,7 +363,6 @@ export default class AbstractTween extends TickerListener
     }
 
     /**
-     * TODO 삭제해야할 함수
      * @param position
      */
     gotoAndStop(position)
@@ -445,7 +438,7 @@ export default class AbstractTween extends TickerListener
             this._classicHandlers.onUpdate.apply(null, this._classicHandlers.onUpdateParams);
         }
 
-        if (this._isPlaying) {
+        if (this._isPlaying === true) {
             if (t >= this._duration) {
                 this._position = this._duration;
                 if (this._stopOnComplete) {
@@ -624,42 +617,42 @@ class ClassicHandlers
         /**
          * @type {Function}
          */
-        this.onPlay = null;
+        this.onPlay = undefined;
 
         /**
          * @type {Array}
          */
-        this.onPlayParams = null;
+        this.onPlayParams = undefined;
 
         /**
          * @type {Function}
          */
-        this.onStop = null;
+        this.onStop = undefined;
 
         /**
          * @type {Array}
          */
-        this.onStopParams = null;
+        this.onStopParams = undefined;
 
         /**
          * @type {Function}
          */
-        this.onUpdate = null;
+        this.onUpdate = undefined;
 
         /**
          * @type {Array}
          */
-        this.onUpdateParams = null;
+        this.onUpdateParams = undefined;
 
         /**
          * @type {Function}
          */
-        this.onComplete = null;
+        this.onComplete = undefined;
 
         /**
          * @type {Array}
          */
-        this.onCompleteParams = null;
+        this.onCompleteParams = undefined;
     }
 
     copyFrom(source)

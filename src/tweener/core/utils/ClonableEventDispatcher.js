@@ -31,6 +31,10 @@ import EventEmitter from 'eventemitter3';
 
 export default class ClonableEventDispatcher extends EventEmitter
 {
+    /**
+     *
+     * @param target {EventEmitter}
+     */
     constructor(target = null)
     {
         super();
@@ -89,6 +93,16 @@ export default class ClonableEventDispatcher extends EventEmitter
     }
 
     /**
+     * TODO hasEventListener 체크
+     * @param type {string}
+     * @return {boolean}
+     */
+    hasEventListener(type)
+    {
+        return (this._listeners[type] != null);
+    }
+
+    /**
      * @param source {ClonableEventDispatcher}
      */
     copyFrom(source)
@@ -105,7 +119,6 @@ export default class ClonableEventDispatcher extends EventEmitter
     }
 }
 
-
 class ListenerData
 {
     constructor()
@@ -113,23 +126,22 @@ class ListenerData
         /**
          * @type {Function}
          */
-        this.listener = null;
+        this.listener = undefined;
 
         /**
          * @type {boolena}
          */
-        this.useCapture = false;
+        this.useCapture = undefined;
 
         /**
          * @type {number}
          */
-        this.priority = 0;
+        this.priority = undefined;
 
         /**
          * @type {boolean}
          */
-        this.useWeakReference = false;
+        this.useWeakReference = undefined;
     }
-
 }
 

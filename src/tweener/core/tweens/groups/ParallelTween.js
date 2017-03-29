@@ -47,37 +47,36 @@ export default class ParallelTween extends AbstractTween
          * @type {IITween}
          * @private
          */
-        this._a = null;
+        this._a = undefined;
 
         /**
          *
          * @type {IITween}
          * @private
          */
-        this._b = null;
+        this._b = undefined;
 
         /**
          *
          * @type {IITween}
          * @private
          */
-        this._c = null;
+        this._c = undefined;
 
         /**
          *
          * @type {IITween}
          * @private
          */
-        this._d = null;
+        this._d = undefined;
 
         /**
          *
          * @type {Vector.<IITween>}
          * @private
          */
-        this._targets = null;
+        this._targets = undefined;
 
-        
         var l = targets.length;
 
         this._duration = 0;
@@ -108,7 +107,6 @@ export default class ParallelTween extends AbstractTween
         }
     }
 
-
     /**
      *
      * @param tween {ITween}
@@ -136,7 +134,6 @@ export default class ParallelTween extends AbstractTween
         }
         return false;
     }
-
 
     /**
      *
@@ -167,7 +164,6 @@ export default class ParallelTween extends AbstractTween
         }
         return null;
     }
-
 
     /**
      *
@@ -200,7 +196,6 @@ export default class ParallelTween extends AbstractTween
         return -1;
     }
 
-
     /**
      *
      * @param time {number}
@@ -227,7 +222,6 @@ export default class ParallelTween extends AbstractTween
             }
         }
     }
-
 
     /**
      *
