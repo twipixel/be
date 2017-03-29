@@ -413,7 +413,6 @@ export default class AbstractTween extends TickerListener
                 this._classicHandlers.onComplete.apply(null, this._classicHandlers.onCompleteParams);
             }
         }
-
     }
 
     /**

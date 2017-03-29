@@ -1,5 +1,23 @@
 #### 할일
 
-
-
-
+- EnterFrameTicker 동작 원리 기술
+- 사용법 테스트 완성
+  - addChild
+  - removeFromParent
+  - func
+- 필터 테스트 
+  - _blurFilter
+  - _blurXFilter
+  - _blurYFilter
+  - _colorMatrixFilter
+  - _displacementMapFilter
+  - _fxaaFilter
+  - _nosieFilter
+  - _voidFilter
+- Tweener.js 함수별 @example 작성
+  - tween, to, from, bezier ...
+- PIXI.Point 가 아닌 global 에 기본 Point 생성해서 처리하도록 변경
+- ClonableEventDispatcher 에 hasEventListener 테스트
+- 배포 패키징
+- TODO, console 삭제
+- Test -> Craete 정리
