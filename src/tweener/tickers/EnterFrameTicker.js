@@ -62,12 +62,12 @@ export default class EnterFrameTicker
          * @type {Array}
          * @private
          */
-        this._tickerListenerPaddings = [];
+        this._tickerListenerPaddings = undefined;
 
         /**
          * @type {number}
          */
-        this._time = 0;
+        this._time = undefined;
 
         var prevListener = null;
 
@@ -343,7 +343,7 @@ export default class EnterFrameTicker
             }
         }
 
-        // 元に戻す
+
         if ((this._first = l.nextListener) != null) {
             this._first.prevListener = null;
         }

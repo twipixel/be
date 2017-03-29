@@ -97,6 +97,9 @@ export default class Test{
         this.config.scale = this.scale.bind(this);
         this.config.slice = this.slice.bind(this);
         this.config.delay = this.delay.bind(this);
+        this.config.addChild = this.addChild.bind(this);
+        this.config.removeFromParent = this.removeFromParent.bind(this);
+        this.config.func = this.func.bind(this);
 
         this.gui.add(this.config, 'tween');
         this.gui.add(this.config, 'to');
@@ -118,6 +121,9 @@ export default class Test{
         this.gui.add(this.config, 'scale');
         this.gui.add(this.config, 'slice');
         this.gui.add(this.config, 'delay');
+        this.gui.add(this.config, 'addChild');
+        this.gui.add(this.config, 'removeFromParent');
+        this.gui.add(this.config, 'func');
     }
 
 
@@ -530,36 +536,85 @@ export default class Test{
 
         path.clear();
 
-        var tween = Tweener.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
-        var rtween = Tweener.reverse(tween, true);
+        var tween = Tweener.tween(icon, {x:500}, {x:100}, 1, Quad.easeOut);
+        var reverse = Tweener.reverse(tween, true);
+        reverse.play();
     }
 
 
     repeat() {
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
+
+        path.clear();
+
+        var tween = Tweener.tween(icon, {x:500}, {x:100}, 1, Quad.easeOut);
+        var repeat = Tweener.repeat(tween, 3);
+        repeat.play();
     }
 
 
     scale() {
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
+
+        path.clear();
+
+        var tween = Tweener.tween(icon, {x:500}, {x:100}, 1, Quad.easeOut);
+        var scale = Tweener.scale(tween, 3);
+        scale.play();
     }
 
 
     slice() {
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
+
+        path.clear();
+
+        var tween = Tweener.tween(icon, {x:500}, {x:100}, 1, Quad.easeOut);
+        var slice = Tweener.slice(tween, 0.1, 0.6);
+        slice.play();
     }
 
 
     delay() {
-        var tween = Tweener.bezier(this.icon, {x: 500, y: 160}, {x: 100, y: 160}, {x: 300, y: 200}, 2, Quad.easeOut);
-        tween.play();
+        var path = this.path,
+            icon = this.icon,
+            controlPoint = this.controlPoint,
+            controlPointSize = this.controlPointSize,
+            controlPointColor = this.controlPointColor;
+
+        path.clear();
+
+        var tween = Tweener.tween(icon, {x:500}, {x:100}, 1, Quad.easeOut);
+        var delay = Tweener.delay(tween, 2, 1);
+        delay.play();
     }
 
 
+    addChild() {
 
+    }
+
+
+    removeFromParent() {
+
+    }
+
+
+    func() {
+
+    }
 
 
 }

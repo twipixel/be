@@ -27,73 +27,56 @@
  */
 
 
-import AbstractTween from './AbstractTween';
+import AbstractActionTween from '../AbstractActionTween';
 
 
- export default class TweenDecorator extends AbstractTween
- {
-     /**
-      *
-      * @param baseTween {IITween}
-      * @param position {number}
-      */
-     constructor(baseTween, position)
-     {
-         super(baseTween.ticker, position);
+export default class AddChildAction extends AbstractActionTween
+{
+    /**
+     *
+     * @param ticker {ITicker}
+     * @param target {DisplayObject}
+     * @param parent {DisplayObjectContainer}
+     */
+    constructor(ticker, target, parent)
+    {
+        super(ticker);
 
-         this._baseTween = baseTween;
-         this._duration = baseTween.duration;
-     }
-
-
-     /**
-      * 
-      * @returns {IITween}
-      */
-     get baseTween()
-     {
-         return this._baseTween;
-     }
-
-    
-     play()
-     {
-         if (!this._isPlaying) {
-             this._baseTween.firePlay();
-             super.play();
-         }
-     }
-
-    
-     firePlay()
-     {
-         super.firePlay();
-         this._baseTween.firePlay();
-     }
-
-     
-     stop()
-     {
-         if (this._isPlaying) {
-             super.stop();
-             this._baseTween.fireStop();
-         }
-     }
-
-     
-     fireStop()
-     {
-         super.fireStop();
-         this._baseTween.fireStop();
-     }
+        this._target = target;
+        this._parent = parent;
+    }
 
 
-     /**
-      * 
-      * @param time {number}
-      */
-     internalUpdate(time)
-     {
-         this._baseTween.update(time);
-     }
- }
+    /**
+     *
+     * @returns {DisplayObject}
+     */
+    get target()
+    {
+        return this._target;
+    }
+
+
+    /**
+     *
+     * @returns {DisplayObjectContainer}
+     */
+    get parent()
+    {
+        return this._parent;
+    }
+
+    action()
+    {
+        if (this._target != null && this._parent != null && this._target.parent != this._parent) {
+            this._parent.addChild(this._target);
+        }
+    }
+
+    rollback()
+    {
+        if (this._target != null && this._parent != null && this._target.parent == this._parent) {
+            this._parent.removeChild(this._target);
+        }
+    }
+}

@@ -27,73 +27,10 @@
  */
 
 
-import AbstractTween from './AbstractTween';
+export default class TimeUtil
+{
+    constructor()
+    {
 
-
- export default class TweenDecorator extends AbstractTween
- {
-     /**
-      *
-      * @param baseTween {IITween}
-      * @param position {number}
-      */
-     constructor(baseTween, position)
-     {
-         super(baseTween.ticker, position);
-
-         this._baseTween = baseTween;
-         this._duration = baseTween.duration;
-     }
-
-
-     /**
-      * 
-      * @returns {IITween}
-      */
-     get baseTween()
-     {
-         return this._baseTween;
-     }
-
-    
-     play()
-     {
-         if (!this._isPlaying) {
-             this._baseTween.firePlay();
-             super.play();
-         }
-     }
-
-    
-     firePlay()
-     {
-         super.firePlay();
-         this._baseTween.firePlay();
-     }
-
-     
-     stop()
-     {
-         if (this._isPlaying) {
-             super.stop();
-             this._baseTween.fireStop();
-         }
-     }
-
-     
-     fireStop()
-     {
-         super.fireStop();
-         this._baseTween.fireStop();
-     }
-
-
-     /**
-      * 
-      * @param time {number}
-      */
-     internalUpdate(time)
-     {
-         this._baseTween.update(time);
-     }
- }
+    }
+}

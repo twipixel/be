@@ -27,73 +27,51 @@
  */
 
 
-import AbstractTween from './AbstractTween';
+import AbstractActionTween from '../AbstractActionTween';
 
 
- export default class TweenDecorator extends AbstractTween
- {
-     /**
-      *
-      * @param baseTween {IITween}
-      * @param position {number}
-      */
-     constructor(baseTween, position)
-     {
-         super(baseTween.ticker, position);
+export default class FunctionAction extends AbstractActionTween
+{
+    /**
+     *
+     * @param ticker {ITicker}
+     * @param func {Function}
+     * @param params {Array}
+     * @param useRollback {Boolean}
+     * @param rollbackFunc {Function}
+     * @param rollbackParams {Array}
+     */
+    constructor(ticker, func, params = null, useRollback = false, rollbackFunc = null, rollbackParams = null)
+    {
+        super(ticker);
 
-         this._baseTween = baseTween;
-         this._duration = baseTween.duration;
-     }
+        _func = func;
+        _params = params;
 
-
-     /**
-      * 
-      * @returns {IITween}
-      */
-     get baseTween()
-     {
-         return this._baseTween;
-     }
-
-    
-     play()
-     {
-         if (!this._isPlaying) {
-             this._baseTween.firePlay();
-             super.play();
-         }
-     }
-
-    
-     firePlay()
-     {
-         super.firePlay();
-         this._baseTween.firePlay();
-     }
-
-     
-     stop()
-     {
-         if (this._isPlaying) {
-             super.stop();
-             this._baseTween.fireStop();
-         }
-     }
-
-     
-     fireStop()
-     {
-         super.fireStop();
-         this._baseTween.fireStop();
-     }
+        if (useRollback) {
+            if (rollbackFunc != null) {
+                _rollbackFunc = rollbackFunc;
+                _rollbackParams = rollbackParams;
+            }
+            else {
+                _rollbackFunc = func;
+                _rollbackParams = params;
+            }
+        }
+    }
 
 
-     /**
-      * 
-      * @param time {number}
-      */
-     internalUpdate(time)
-     {
-         this._baseTween.update(time);
-     }
- }
+    action()
+    {
+        if (_func != null) {
+            _func.apply(null, _params);
+        }
+    }
+
+    rollback()
+    {
+        if (_rollbackFunc != null) {
+            _rollbackFunc.apply(null, _rollbackParams);
+        }
+    }
+}

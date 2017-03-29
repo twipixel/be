@@ -58,13 +58,13 @@ import TweenDecorator from '../TweenDecorator';
 
 
      /**
-      *
+      * 0 ~ duration 까지 되도록 time을 빼줍니다.
       * @param time {number}
       */
      internalUpdate(time)
      {
          if (time >= 0) {
-             time -= time < this._duration ? this._baseDuration * int(time / this._baseDuration) : this._duration - this._baseDuration;
+             time -= time < this._duration ? this._baseDuration * parseInt(time / this._baseDuration) : this._duration - this._baseDuration;
          }
          this._baseTween.update(time);
      }

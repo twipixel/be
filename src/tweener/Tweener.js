@@ -38,6 +38,12 @@ import PointUpdater from './core/updaters/geom/PointUpdater';
 import PhysicalTween from './core/tweens/PhysicalTween';
 import ParallelTween from './core/tweens/groups/ParallelTween';
 import SerialTween from './core/tweens/groups/SerialTween';
+import TweenDecorator from './core/tweens/TweenDecorator';
+import ReversedTween from './core/tweens/decorators/ReversedTween';
+import RepeatedTween from './core/tweens/decorators/RepeatedTween';
+import ScaledTween from './core/tweens/decorators/ScaledTween';
+import SlicedTween from './core/tweens/decorators/SlicedTween';
+import DelayedTween from './core/tweens/decorators/DelayedTween';
 
 
 

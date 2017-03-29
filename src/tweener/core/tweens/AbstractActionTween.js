@@ -30,70 +30,44 @@
 import AbstractTween from './AbstractTween';
 
 
- export default class TweenDecorator extends AbstractTween
- {
-     /**
-      *
-      * @param baseTween {IITween}
-      * @param position {number}
-      */
-     constructor(baseTween, position)
-     {
-         super(baseTween.ticker, position);
+export default class AbstractActionTween extends AbstractTween
+{
+    /**
+     *
+     * @param ticker {ITicker}
+     */
+    constructor(ticker)
+    {
+        super(ticker, 0);
 
-         this._baseTween = baseTween;
-         this._duration = baseTween.duration;
-     }
+        this._duration = 0.01;
+        this._lastTime = -1;
+    }
 
 
-     /**
-      * 
-      * @returns {IITween}
-      */
-     get baseTween()
-     {
-         return this._baseTween;
-     }
-
-    
-     play()
-     {
-         if (!this._isPlaying) {
-             this._baseTween.firePlay();
-             super.play();
-         }
-     }
+    /**
+     * 
+     * @param time {number}
+     */
+    internalUpdate(time)
+    {
+        if (this._lastTime < 0.01 && time >= 0.01) {
+            this.action();
+        }
+        else if (this._lastTime > 0 && time <= 0) {
+            this.rollback();
+        }
+        this._lastTime = time;
+    }
 
     
-     firePlay()
-     {
-         super.firePlay();
-         this._baseTween.firePlay();
-     }
+    action()
+    {
 
-     
-     stop()
-     {
-         if (this._isPlaying) {
-             super.stop();
-             this._baseTween.fireStop();
-         }
-     }
+    }
 
-     
-     fireStop()
-     {
-         super.fireStop();
-         this._baseTween.fireStop();
-     }
+    rollback()
+    {
 
-
-     /**
-      * 
-      * @param time {number}
-      */
-     internalUpdate(time)
-     {
-         this._baseTween.update(time);
-     }
- }
+    }
+}

@@ -27,73 +27,49 @@
  */
 
 
-import AbstractTween from './AbstractTween';
+import AbstractActionTween from '../AbstractActionTween';
 
 
- export default class TweenDecorator extends AbstractTween
- {
-     /**
-      *
-      * @param baseTween {IITween}
-      * @param position {number}
-      */
-     constructor(baseTween, position)
-     {
-         super(baseTween.ticker, position);
+export default class RemoveFromParentAction extends AbstractActionTween
+{
+    /**
+     *
+     * @param ticker {ITicker}
+     * @param target {DisplayObject}
+     */
+    constructor(ticker, target)
+    {
+        super(ticker);
 
-         this._baseTween = baseTween;
-         this._duration = baseTween.duration;
-     }
+        this._parent = null;
+        this._target = target
+    }
 
 
-     /**
-      * 
-      * @returns {IITween}
-      */
-     get baseTween()
-     {
-         return this._baseTween;
-     }
-
-    
-     play()
-     {
-         if (!this._isPlaying) {
-             this._baseTween.firePlay();
-             super.play();
-         }
-     }
+    /**
+     * 
+     * @returns {DisplayObject}
+     */
+    get target()
+    {
+        return this._target;
+    }
 
     
-     firePlay()
-     {
-         super.firePlay();
-         this._baseTween.firePlay();
-     }
+    action()
+    {
+        if (this._target != null && this._target.parent != null) {
+            this._parent = this._target.parent;
+            this._parent.removeChild(this._target);
+        }
+    }
 
-     
-     stop()
-     {
-         if (this._isPlaying) {
-             super.stop();
-             this._baseTween.fireStop();
-         }
-     }
-
-     
-     fireStop()
-     {
-         super.fireStop();
-         this._baseTween.fireStop();
-     }
-
-
-     /**
-      * 
-      * @param time {number}
-      */
-     internalUpdate(time)
-     {
-         this._baseTween.update(time);
-     }
- }
+    
+    rollback()
+    {
+        if (this._target != null && this._parent != null) {
+            this._parent.addChild(this._target);
+            this._parent = null;
+        }
+    }
+}
