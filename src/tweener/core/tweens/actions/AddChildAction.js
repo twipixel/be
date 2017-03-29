@@ -46,7 +46,6 @@ export default class AddChildAction extends AbstractActionTween
         this._parent = parent;
     }
 
-
     /**
      *
      * @returns {DisplayObject}
@@ -55,7 +54,6 @@ export default class AddChildAction extends AbstractActionTween
     {
         return this._target;
     }
-
 
     /**
      *

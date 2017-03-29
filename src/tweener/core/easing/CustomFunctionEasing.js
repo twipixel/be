@@ -42,7 +42,9 @@ export default class CustomFunctionEasing extends IEasing
 		this.f = f;
 	}
 
-
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c, d)
 	{
 		return this.f(t, b, c, d);

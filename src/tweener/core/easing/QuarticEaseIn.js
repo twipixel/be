@@ -32,6 +32,9 @@ import IEasing from './IEasing';
 
 export default class QuarticEaseIn extends IEasing
 {
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c, d)
 	{
 		return c * (t /= d) * t * t * t + b;

@@ -37,7 +37,7 @@ export default class FunctionAction extends AbstractActionTween
      * @param ticker {ITicker}
      * @param func {Function}
      * @param params {Array}
-     * @param useRollback {Boolean}
+     * @param useRollback {boolean}
      * @param rollbackFunc {Function}
      * @param rollbackParams {Array}
      */
@@ -45,33 +45,34 @@ export default class FunctionAction extends AbstractActionTween
     {
         super(ticker);
 
-        _func = func;
-        _params = params;
+        this._func = func;
+        this._params = params;
+        this._rollbackFunc = undefined;
+        this._rollbackParams = undefined;
 
         if (useRollback) {
             if (rollbackFunc != null) {
-                _rollbackFunc = rollbackFunc;
-                _rollbackParams = rollbackParams;
+                this._rollbackFunc = rollbackFunc;
+                this._rollbackParams = rollbackParams;
             }
             else {
-                _rollbackFunc = func;
-                _rollbackParams = params;
+                this._rollbackFunc = func;
+                this._rollbackParams = params;
             }
         }
     }
 
-
     action()
     {
-        if (_func != null) {
-            _func.apply(null, _params);
+        if (this._func != null) {
+            this._func.apply(null, this._params);
         }
     }
 
     rollback()
     {
-        if (_rollbackFunc != null) {
-            _rollbackFunc.apply(null, _rollbackParams);
+        if (this._rollbackFunc != null) {
+            this._rollbackFunc.apply(null, this._rollbackParams);
         }
     }
 }

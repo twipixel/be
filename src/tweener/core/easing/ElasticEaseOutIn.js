@@ -34,8 +34,8 @@ export default class ElasticEaseOutIn extends IEasing
 {
 	/**
 	 *
-	 * @param	a	Specifies the amplitude of the sine wave.
-	 * @param	p	Specifies the period of the sine wave.
+	 * @param a	{number} Specifies the amplitude of the sine wave.
+	 * @param p {number} Specifies the period of the sine wave.
 	 */
 	constructor(a = 0, p = 0)
 	{
@@ -44,7 +44,9 @@ export default class ElasticEaseOutIn extends IEasing
 		this.p = p;
 	}
 
-
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c, d)
 	{
 		var s;

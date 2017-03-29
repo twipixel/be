@@ -32,6 +32,9 @@ import IEasing from './IEasing';
 
 export default class QuadraticEaseOut extends IEasing
 {
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c, d)
 	{
 		return -c * (t /= d) * (t - 2) + b;

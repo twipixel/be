@@ -32,6 +32,9 @@ import IEasing from './IEasing';
 
 export default class BounceEaseIn extends IEasing
 {
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c, d)
 	{
 		if ((t = (d - t) / d) < (1 / 2.75)) {

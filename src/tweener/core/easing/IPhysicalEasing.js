@@ -38,7 +38,6 @@ export default class IPhysicalEasing
 		return null;
 	}
 
-
 	/**
 	 *
 	 * @param t {number}

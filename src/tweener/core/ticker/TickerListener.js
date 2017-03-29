@@ -29,7 +29,6 @@
 
 export default class TickerListener
 {
-
 	constructor()
 	{
 		/**
@@ -44,7 +43,6 @@ export default class TickerListener
          */
 		this.nextListener = null;
 	}
-
 
 	/**
 	 *

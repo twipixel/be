@@ -45,7 +45,6 @@ export default class RemoveFromParentAction extends AbstractActionTween
         this._target = target
     }
 
-
     /**
      * 
      * @returns {DisplayObject}
@@ -55,7 +54,6 @@ export default class RemoveFromParentAction extends AbstractActionTween
         return this._target;
     }
 
-    
     action()
     {
         if (this._target != null && this._target.parent != null) {
@@ -64,7 +62,6 @@ export default class RemoveFromParentAction extends AbstractActionTween
         }
     }
 
-    
     rollback()
     {
         if (this._target != null && this._parent != null) {

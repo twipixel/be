@@ -32,6 +32,9 @@ import IEasing from './IEasing';
 
 export default class BackEaseIn extends IEasing
 {
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c, d)
 	{
 		if (t < d / 2.0) {

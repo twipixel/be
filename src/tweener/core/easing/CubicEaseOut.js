@@ -32,6 +32,9 @@ import IEasing from './IEasing';
 
 export default class CubicEaseOut extends IEasing
 {
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c, d)
 	{
 		return c * ((t = t / d - 1) * t * t + 1) + b;

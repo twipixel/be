@@ -28,6 +28,7 @@
 export default class IEasing
 {
 	/**
+	 *
 	 * @param t {number}
 	 * @param b {number}
 	 * @param c {number}

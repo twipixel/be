@@ -32,6 +32,9 @@ import IEasing from './IEasing';
 
 export default class SineEaseIn extends IEasing
 {
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c, d)
 	{
 		return -c * Math.cos(t / d * (Math.PI / 2)) + c + b;

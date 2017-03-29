@@ -44,7 +44,6 @@ export default class AbstractActionTween extends AbstractTween
         this._lastTime = -1;
     }
 
-
     /**
      * 
      * @param time {number}
@@ -60,7 +59,6 @@ export default class AbstractActionTween extends AbstractTween
         this._lastTime = time;
     }
 
-    
     action()
     {
 

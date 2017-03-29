@@ -32,6 +32,9 @@ import IEasing from './IEasing';
 
 export default class ExponentialEaseInOut extends IEasing
 {
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c, d)
 	{
 		if (t == 0) {

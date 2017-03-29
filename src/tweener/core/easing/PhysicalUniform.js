@@ -32,34 +32,28 @@ import IPhysicalEasing from './IPhysicalEasing';
 
 export default class PhysicalUniform extends IPhysicalEasing
 {
+    /**
+	 *
+     * @param v {number}
+     * @param fps {number}
+     */
 	constructor(v, fps)
 	{
-		console.log(`PhysicalUniform(${v}, ${fps})`);
-
 		super();
 		this._v = v;
 		this._fps = fps;
 	}
 
-
-	/**
-	 *
-	 * @param b {number}
-	 * @param c {number}
-	 * @returns {number}
+    /**
+     * @inheritDoc
      */
 	getDuration(b, c)
 	{
 		return (c / (c < 0 ? -this._v : this._v)) * (1.0 / this._fps);
 	}
 
-
-	/**
-	 *
-	 * @param t {number}
-	 * @param b {number}
-	 * @param c {number}
-	 * @returns {number}
+    /**
+     * @inheritDoc
      */
 	calculate(t, b, c)
 	{

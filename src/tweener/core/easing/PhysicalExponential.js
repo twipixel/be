@@ -32,6 +32,12 @@ import IPhysicalEasing from './IPhysicalEasing';
 
 export default class PhysicalExponential extends IPhysicalEasing
 {
+    /**
+	 *
+     * @param f {number}
+     * @param th {number}
+     * @param fps {number}
+     */
 	constructor(f, th, fps)
 	{
 		super();
@@ -40,13 +46,17 @@ export default class PhysicalExponential extends IPhysicalEasing
 		this._fps = fps;
 	}
 
-
+    /**
+     * @inheritDoc
+     */
 	getDuration(b, c)
 	{
 		return (Math.log(this._th / c) / Math.log(1 - this._f) + 1) * (1.0 / this._fps);
 	}
 
-
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c)
 	{
 		return -c * Math.pow(1 - this._f, (t / (1.0 / this._fps)) - 1) + (b + c);

@@ -32,6 +32,9 @@ import IEasing from './IEasing';
 
 export default class CircularEaseIn extends IEasing
 {
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c, d)
 	{
 		return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;

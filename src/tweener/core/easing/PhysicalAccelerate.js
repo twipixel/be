@@ -32,6 +32,12 @@ import IPhysicalEasing from './IPhysicalEasing';
 
 export default class PhysicalAccelerate extends IPhysicalEasing
 {
+    /**
+	 *
+     * @param iv {number}
+     * @param a {number}
+     * @param fps {number}
+     */
 	constructor(iv, a, fps)
 	{
 		super();
@@ -40,6 +46,9 @@ export default class PhysicalAccelerate extends IPhysicalEasing
 		this._fps = fps;
 	}
 
+    /**
+     * @inheritDoc
+     */
 	getDuration(b, c)
 	{
 		var iv = c < 0 ? -this._iv : this._iv;
@@ -47,6 +56,9 @@ export default class PhysicalAccelerate extends IPhysicalEasing
 		return ((-iv + Math.sqrt(iv * iv - 4 * (a / 2.0) * -c)) / (2 * (a / 2.0))) * (1.0 / this._fps);
 	}
 
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c)
 	{
 		var f = c < 0 ? -1 : 1;

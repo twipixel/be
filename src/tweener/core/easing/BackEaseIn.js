@@ -32,17 +32,19 @@ import IEasing from './IEasing';
 
 export default class BackEaseIn extends IEasing
 {
-	/**
+    /**
 	 *
-	 * @param	s	Specifies the amount of overshoot, where the higher the value, the greater the overshoot.
-	 */
+     * @param s {number} Specifies the amount of overshoot, where the higher the value, the greater the overshoot.
+     */
 	constructor(s = 1.70158)
 	{
 		super();
 		this.s = s;
 	}
 
-
+    /**
+     * @inheritDoc
+     */
 	calculate(t, b, c, d)
 	{
 		return c * (t /= d) * t * ((this.s + 1) * t - this.s) + b;

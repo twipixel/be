@@ -46,7 +46,6 @@ import TweenDecorator from '../TweenDecorator';
          this._duration = this._baseDuration * repeatCount;
      }
 
-
      /**
       *
       * @returns {uint}
@@ -55,7 +54,6 @@ import TweenDecorator from '../TweenDecorator';
      {
          return this._repeatCount;
      }
-
 
      /**
       * 0 ~ duration 까지 되도록 time을 빼줍니다.

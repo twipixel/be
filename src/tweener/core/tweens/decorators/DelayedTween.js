@@ -38,15 +38,14 @@ import TweenDecorator from '../TweenDecorator';
       * @param preDelay {number}
       * @param postDelay {number}
       */
-    constructor(baseTween, preDelay, postDelay)
-    {
-        super(baseTween, 0);
+     constructor(baseTween, preDelay, postDelay)
+     {
+         super(baseTween, 0);
 
         this._duration = preDelay + baseTween.duration + postDelay;
         this._preDelay = preDelay;
         this._postDelay = postDelay;
-    }
-
+     }
 
      /**
       *
@@ -74,7 +73,6 @@ import TweenDecorator from '../TweenDecorator';
      {
          this._baseTween.update(time - this._preDelay);
      }
-
 
      /**
       *
