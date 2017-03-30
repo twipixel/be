@@ -1,6 +1,6 @@
 #### 할일
 
-- EnterFrameTicker 동작 원리 기술
+- EnterFrameTicker 동작 원리 기술 (v)
 - 사용법 테스트 완성
   - addChild
   - removeFromParent
@@ -19,5 +19,5 @@
 - PIXI.Point 가 아닌 global 에 기본 Point 생성해서 처리하도록 변경
 - ClonableEventDispatcher 에 hasEventListener 테스트
 - 배포 패키징
-- TODO, console 삭제
+- TODO, console 삭제 (v)
 - Test -> Craete 정리

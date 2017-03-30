@@ -44,6 +44,9 @@ import RepeatedTween from './core/tweens/decorators/RepeatedTween';
 import ScaledTween from './core/tweens/decorators/ScaledTween';
 import SlicedTween from './core/tweens/decorators/SlicedTween';
 import DelayedTween from './core/tweens/decorators/DelayedTween';
+import AddChildAction from './core/tweens/actions/AddChildAction';
+import RemoveFromParentAction from './core/tweens/actions/RemoveFromParentAction';
+import FunctionAction from './core/tweens/actions/FunctionAction';
 
 
 /**
@@ -61,7 +64,7 @@ DisplayObjectUpdater.register(_updaterClassRegistry);
 PointUpdater.register(_updaterClassRegistry);
 
 
-export default class Tweener
+export default class Be
 {
     static get VERSION() { return '0.2 (Alpha)' }
 
@@ -255,7 +258,7 @@ export default class Tweener
      */
     static parallel(...tweens)
     {
-        return Tweener.parallelTweens(tweens);
+        return Be.parallelTweens(tweens);
     }
 
     /**
@@ -275,7 +278,7 @@ export default class Tweener
      */
     static serial(...tweens)
     {
-        return Tweener.serialTweens(tweens);
+        return Be.serialTweens(tweens);
     }
 
     /**
@@ -366,7 +369,7 @@ export default class Tweener
      * @param parent {DisplayObjectContainer}
      * @returns {ITween}
      */
-    static addChild(target, parentContainer)
+    static addChild(target, parent)
     {
         return new AddChildAction(_ticker, target, parent);
     }

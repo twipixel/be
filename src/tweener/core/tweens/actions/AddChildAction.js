@@ -33,7 +33,7 @@ import AbstractActionTween from '../AbstractActionTween';
 export default class AddChildAction extends AbstractActionTween
 {
     /**
-     *
+     * TODO parent 가 없어서 바로 사용이 힘듭니다.
      * @param ticker {ITicker}
      * @param target {DisplayObject}
      * @param parent {DisplayObjectContainer}

@@ -33,14 +33,12 @@ import AbstractUpdater from '../AbstractUpdater';
 const TARGET_PROPERTIES = [
     'x',
     'y',
-    'scale',
     'scaleX',
     'scaleY',
     'rotation',
     'alpha',
     'width',
     'height',
-    'skew',
     'skewX',
     'skewY',
     '_blurFilter',
@@ -139,55 +137,45 @@ export default class DisplayObjectUpdater extends AbstractUpdater
             this._source.relativeFlags |= isRelative ? 0x0002 : 0;
             this._source.y = value;
         }
-        else if (propertyName == 'scale') {
-            this._flags |= 0x0004;
-            this._source.relativeFlags |= isRelative ? 0x0004 : 0;
-            this._source.scale = value;
-        }
         else if (propertyName == 'scaleX') {
-            this._flags |= 0x0008;
+            this._flags |= 0x0004;
             this._source.relativeFlags |= isRelative ? 0x0008 : 0;
-            this._source.scale.x = value;
+            this._source.scaleX = value;
         }
         else if (propertyName == 'scaleY') {
-            this._flags |= 0x0010;
+            this._flags |= 0x0008;
             this._source.relativeFlags |= isRelative ? 0x0010 : 0;
-            this._source.scale.y = value;
+            this._source.scaleY = value;
         }
         else if (propertyName == 'rotation') {
-            this._flags |= 0x0020;
+            this._flags |= 0x0010;
             this._source.relativeFlags |= isRelative ? 0x0020 : 0;
             this._source.rotation = value;
         }
         else if (propertyName == 'alpha') {
-            this._flags |= 0x0040;
+            this._flags |= 0x0020;
             this._source.relativeFlags |= isRelative ? 0x0040 : 0;
             this._source.alpha = value;
         }
         else if (propertyName == 'width') {
-            this._flags |= 0x0080;
+            this._flags |= 0x0040;
             this._source.relativeFlags |= isRelative ? 0x0080 : 0;
             this._source.width = value;
         }
         else if (propertyName == 'height') {
-            this._flags |= 0x0100;
+            this._flags |= 0x0080;
             this._source.relativeFlags |= isRelative ? 0x0100 : 0;
             this._source.height = value;
         }
-        else if (propertyName == 'skew') {
-            this._flags |= 0x0200;
-            this._source.relativeFlags |= isRelative ? 0x0200 : 0;
-            this._source.skew = value;
-        }
         else if (propertyName == 'skewX') {
-            this._flags |= 0x0400;
+            this._flags |= 0x0100;
             this._source.relativeFlags |= isRelative ? 0x0400 : 0;
-            this._source.skew.x = value;
+            this._source.skewX = value;
         }
         else if (propertyName == 'skewY') {
-            this._flags |= 0x0800;
+            this._flags |= 0x0200;
             this._source.relativeFlags |= isRelative ? 0x0800 : 0;
-            this._source.skew.y = value;
+            this._source.skewY = value;
         }
     }
 
@@ -209,55 +197,45 @@ export default class DisplayObjectUpdater extends AbstractUpdater
             this._destination.relativeFlags |= isRelative ? 0x0002 : 0;
             this._destination.y = value;
         }
-        else if (propertyName == 'scale') {
-            this._flags |= 0x0004;
-            this._destination.relativeFlags |= isRelative ? 0x0004 : 0;
-            this._destination.scale = value;
-        }
         else if (propertyName == 'scaleX') {
-            this._flags |= 0x0008;
+            this._flags |= 0x0004;
             this._destination.relativeFlags |= isRelative ? 0x0008 : 0;
-            this._destination.scale.x = value;
+            this._destination.scaleX = value;
         }
         else if (propertyName == 'scaleY') {
-            this._flags |= 0x0010;
+            this._flags |= 0x0008;
             this._destination.relativeFlags |= isRelative ? 0x0010 : 0;
-            this._destination.scale.y = value;
+            this._destination.scaleY = value;
         }
         else if (propertyName == 'rotation') {
-            this._flags |= 0x0020;
+            this._flags |= 0x0010;
             this._destination.relativeFlags |= isRelative ? 0x0020 : 0;
             this._destination.rotation = value;
         }
         else if (propertyName == 'alpha') {
-            this._flags |= 0x0040;
+            this._flags |= 0x0020;
             this._destination.relativeFlags |= isRelative ? 0x0040 : 0;
             this._destination.alpha = value;
         }
         else if (propertyName == 'width') {
-            this._flags |= 0x0080;
+            this._flags |= 0x0040;
             this._destination.relativeFlags |= isRelative ? 0x0080 : 0;
             this._destination.width = value;
         }
         else if (propertyName == 'height') {
-            this._flags |= 0x0100;
+            this._flags |= 0x0080;
             this._destination.relativeFlags |= isRelative ? 0x0100 : 0;
             this._destination.height = value;
         }
-        else if (propertyName == 'skew') {
-            this._flags |= 0x0200;
-            this._destination.relativeFlags |= isRelative ? 0x0200 : 0;
-            this._destination.skew = value;
-        }
         else if (propertyName == 'skewX') {
-            this._flags |= 0x0400;
+            this._flags |= 0x0100;
             this._destination.relativeFlags |= isRelative ? 0x0400 : 0;
-            this._destination.skew.x = value;
+            this._destination.skewX = value;
         }
         else if (propertyName == 'skewY') {
-            this._flags |= 0x0800;
+            this._flags |= 0x0200;
             this._destination.relativeFlags |= isRelative ? 0x0800 : 0;
-            this._destination.skew.y = value;
+            this._destination.skewY = value;
         }
     }
 
@@ -303,7 +281,7 @@ export default class DisplayObjectUpdater extends AbstractUpdater
     getFilterByClass(klass)
     {
         var filter = null;
-        var filters = this._target.filters;
+        var filters = (this._target.filters) ? this._target.filters : (this._target.filters = []);
 
         var l = filters.length;
         for (var i = 0; i < l; ++i) {
@@ -414,50 +392,34 @@ export default class DisplayObjectUpdater extends AbstractUpdater
             }
         }
         if ((f & 0x0004) != 0) {
-            if (isNaN(s.scale.x) || isNaN(s.scale.y)) {
-                s.scale = t.scale;
+            if (isNaN(s.scaleX)) {
+                s.scaleX = t.scale.x;
             }
-            else if ((s.relativeFlags & 0x0004) != 0) {
-                s.scale.x += t.scale.x;
-                s.scale.y += t.scale.y;
+            else if ((s.relativeFlags & 0x0008) != 0) {
+                s.scaleX += t.scale.x;
             }
-            if (isNaN(d.z)) {
-                d.scale = t.scale;
+            if (isNaN(d.scaleX)) {
+                d.scaleX = t.scale.x;
             }
-            else if ((d.relativeFlags & 0x0004) != 0) {
-                d.scale.x += t.scale.x;
-                d.scale.y += t.scale.y;
+            else if ((d.relativeFlags & 0x0008) != 0) {
+                d.scaleX += t.scale.x;
             }
         }
         if ((f & 0x0008) != 0) {
-            if (isNaN(s.scaleX)) {
-                s.scaleX = t.scaleX;
+            if (isNaN(s.scaleY)) {
+                s.scaleY = t.scale.y;
             }
-            else if ((s.relativeFlags & 0x0008) != 0) {
-                s.scaleX += t.scaleX;
+            else if ((s.relativeFlags & 0x0010) != 0) {
+                s.scaleY += t.scale.y;
             }
-            if (isNaN(d.scaleX)) {
-                d.scaleX = t.scaleX;
+            if (isNaN(d.scaleY)) {
+                d.scaleY = t.scale.y;
             }
-            else if ((d.relativeFlags & 0x0008) != 0) {
-                d.scaleX += t.scaleX;
+            else if ((d.relativeFlags & 0x0010) != 0) {
+                d.scaleY += t.scale.y;
             }
         }
         if ((f & 0x0010) != 0) {
-            if (isNaN(s.scaleY)) {
-                s.scaleY = t.scaleY;
-            }
-            else if ((s.relativeFlags & 0x0010) != 0) {
-                s.scaleY += t.scaleY;
-            }
-            if (isNaN(d.scaleY)) {
-                d.scaleY = t.scaleY;
-            }
-            else if ((d.relativeFlags & 0x0010) != 0) {
-                d.scaleY += t.scaleY;
-            }
-        }
-        if ((f & 0x0020) != 0) {
             if (isNaN(s.rotation)) {
                 s.rotation = t.rotation;
             }
@@ -471,7 +433,7 @@ export default class DisplayObjectUpdater extends AbstractUpdater
                 d.rotation += t.rotation;
             }
         }
-        if ((f & 0x0040) != 0) {
+        if ((f & 0x0020) != 0) {
             if (isNaN(s.alpha)) {
                 s.alpha = t.alpha;
             }
@@ -485,7 +447,7 @@ export default class DisplayObjectUpdater extends AbstractUpdater
                 d.alpha += t.alpha;
             }
         }
-        if ((f & 0x0080) != 0) {
+        if ((f & 0x0040) != 0) {
             if (isNaN(s.width)) {
                 s.width = t.width;
             }
@@ -499,7 +461,7 @@ export default class DisplayObjectUpdater extends AbstractUpdater
                 d.width += t.width;
             }
         }
-        if ((f & 0x0100) != 0) {
+        if ((f & 0x0080) != 0) {
             if (isNaN(s.height)) {
                 s.height = t.height;
             }
@@ -513,46 +475,32 @@ export default class DisplayObjectUpdater extends AbstractUpdater
                 d.height += t.height;
             }
         }
-        if ((f & 0x0200) != 0) {
-            if (isNaN(s.skew)) {
-                s.skew = t.skew;
-            }
-            else if ((s.relativeFlags & 0x0200) != 0) {
-                s.skew += t.skew;
-            }
-            if (isNaN(d.skew)) {
-                d.skew = t.skew;
-            }
-            else if ((d.relativeFlags & 0x0200) != 0) {
-                d.skew += t.skew;
-            }
-        }
-        if ((f & 0x0400) != 0) {
-            if (isNaN(s.skew.x)) {
-                s.skew.x = t.skew.x;
+        if ((f & 0x0100) != 0) {
+            if (isNaN(s.skewX)) {
+                s.skewX = t.skew.x;
             }
             else if ((s.relativeFlags & 0x0400) != 0) {
-                s.skew.x += t.skew.x;
+                s.skewX += t.skew.x;
             }
-            if (isNaN(d.skew)) {
-                d.skew.x = t.skew.x;
+            if (isNaN(d.skewX)) {
+                d.skewX = t.skew.x;
             }
             else if ((d.relativeFlags & 0x0400) != 0) {
-                d.skew.x += t.skew.x;
+                d.skewX += t.skew.x;
             }
         }
-        if ((f & 0x0800) != 0) {
-            if (isNaN(s.skew.y)) {
-                s.skew.y = t.skew.y;
+        if ((f & 0x0200) != 0) {
+            if (isNaN(s.skewY)) {
+                s.skewY = t.skew.y;
             }
             else if ((s.relativeFlags & 0x0800) != 0) {
-                s.skew.y += t.skew.y;
+                s.skewY += t.skew.y;
             }
-            if (isNaN(d.skew.y)) {
-                d.skew.y = t.skew.y;
+            if (isNaN(d.skewY)) {
+                d.skewY = t.skew.y;
             }
             else if ((d.relativeFlags & 0x0800) != 0) {
-                d.skew.y += t.skew.y;
+                d.skewY += t.skew.y;
             }
         }
     }
@@ -576,42 +524,34 @@ export default class DisplayObjectUpdater extends AbstractUpdater
         if ((f & 0x0002) != 0) {
             t.y = s.y * invert + d.y * factor;
         }
-        if ((f & 0x001c) != 0) {
+        if ((f & 0x000C) != 0) {
             if ((f & 0x0004) != 0) {
-                t.scale.x = s.scale.x * invert + d.scale.x * factor;
-                t.scale.y = s.scale.y * invert + d.scale.y * factor;
+                t.scale.x = s.scaleX * invert + d.scaleX * factor;
             }
             if ((f & 0x0008) != 0) {
-                t.scale.x = s.scale.x * invert + d.scale.x * factor;
-            }
-            if ((f & 0x0010) != 0) {
-                t.scale.y = s.scale.y * invert + d.scale.y * factor;
+                t.scale.y = s.scaleY * invert + d.scaleY * factor;
             }
         }
-        if ((f & 0x0020) != 0) {
+        if ((f & 0x0010) != 0) {
             t.rotation = s.rotation * invert + d.rotation * factor;
         }
-        if ((f & 0x01c0) != 0) {
-            if ((f & 0x0040) != 0) {
+        if ((f & 0x00E0) != 0) {
+            if ((f & 0x0020) != 0) {
                 t.alpha = s.alpha * invert + d.alpha * factor;
             }
-            if ((f & 0x0080) != 0) {
+            if ((f & 0x0040) != 0) {
                 t.width = s.width * invert + d.width * factor;
             }
-            if ((f & 0x0100) != 0) {
+            if ((f & 0x0080) != 0) {
                 t.height = s.height * invert + d.height * factor;
             }
         }
-        if ((f & 0x0e00) != 0) {
+        if ((f & 0x0300) != 0) {
+            if ((f & 0x0100) != 0) {
+                t.skew.x = s.skewX * invert + d.skewX * factor;
+            }
             if ((f & 0x0200) != 0) {
-                t.skew.x = s.skew.x * invert + d.skew.x * factor;
-                t.skew.y = s.skew.y * invert + d.skew.y * factor;
-            }
-            if ((f & 0x0400) != 0) {
-                t.skew.x = s.skew.x * invert + d.skew.x * factor;
-            }
-            if ((f & 0x0800) != 0) {
-                t.skew.y = s.skew.y * invert + d.skew.y * factor;
+                t.skew.y = s.skewY * invert + d.skewY * factor;
             }
         }
     }
@@ -653,12 +593,14 @@ class DisplayObjectParameter
         this.relativeFlags = 0;
         this.x = undefined;
         this.y = undefined;
-        this.scale = {x:undefined, y:undefined};
+        this.scale = undefined;
+        this.scaleY = undefined;
         this.rotation = undefined;
         this.alpha = undefined;
         this.width = undefined;
         this.height = undefined;
-        this.skew = {x:undefined, y:undefined};
+        this.skewX = undefined;
+        this.skewY = undefined;
     }
 
     /**
@@ -670,11 +612,13 @@ class DisplayObjectParameter
         this.relativeFlags = obj.relativeFlags;
         this.x = obj.x;
         this.y = obj.y;
-        this.scale = {x: obj.scale.x, y: obj.scale.y};
+        this.scaleX = obj.scaleX;
+        this.scaleY = obj.scaleY;
         this.rotation = obj.rotation;
         this.alpha = obj.alpha;
         this.width = obj.width;
         this.height = obj.height;
-        this.skew = {x: obj.skew.x, y: obj.skew.y};
+        this.skewX = obj.skewX;
+        this.skeyY = obj.skeyY;
     }
 }

@@ -160,8 +160,6 @@ export default class PhysicalUpdater extends IPhysicalUpdater
      */
     setDestinationValue(propertyName, value, isRelative = false)
     {
-        console.log('setDestinationValue(', propertyName, value, isRelative, ')');
-
         this._destination[propertyName] = value;
         this._relativeMap['dest.' + propertyName] = isRelative;
     }

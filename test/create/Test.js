@@ -1,5 +1,13 @@
-import {animation, cancelAnimationFrame, Easing, requestAnimationFrame} from "./../../external/lib/animation";
-import Tweener from "../../src/tweener/Tweener";
+import {
+    animation,
+    requestAnimationFrame,
+    cancelAnimationFrame,
+    Easing
+} from './../../external/lib/animation';
+
+import global from '../../src/global/index';
+import polyfill from '../../src/polyfill/index';
+import Be from "../../src/tweener/Be";
 //import requestAnimationFrame from '../../src/polyfill/requestAnimationFrame';
 //import Ticker from '../../src/ticker/Ticker';
 //import TickerListener from '../../src/tweener/core/ticker/TickerListener.js';
@@ -39,6 +47,8 @@ export default class Test{
         this.testSkew();
         this.testFilter();
         this.testPoint();
+
+        this.testObject();
     }
 
 
@@ -77,7 +87,7 @@ export default class Test{
         };
 
 
-        var tween = Tweener.tween(obj, {x:100}, {x:0}, 1);
+        var tween = Be.tween(obj, {x:100}, {x:0}, 1);
         tween.onUpdate = () => {
             console.log('onUpdate', obj.x, obj.y);
         };
@@ -164,14 +174,21 @@ export default class Test{
 
     testBit() {
 
+        console.log('testBit');
         var f = 0;
         //f |= 0x0001;
         f |= 0x0020;
         //f |= 0x0040;
         console.log('-------------------');
-        console.log(0x0004 + 0x008 + 0x0010, 0x001c);
+        console.log(0x0004 + 0x0008 + 0x0010, 0x001c);
         console.log(0x0040 + 0x0080 + 0x0100, 0x01c0);
         console.log(0x0200 + 0x0400 + 0x0800, 0x0e00);
+        console.log('-------------------');
+
+        console.log('-------------------');
+        console.log(0x0004 + 0x0008, 0x000C);
+        console.log(0x0020 + 0x0040 + 0x0080, 0x00E0);
+        console.log(0x0100 + 0x0200, 0x0300);
         console.log('-------------------');
     }
 
@@ -187,7 +204,7 @@ export default class Test{
 
         icon.filters = [blurFilter];
 
-        var tween = Tweener.tween(icon, {
+        var tween = Be.tween(icon, {
             x: 100,
             _blurFilter:{
                 blurX:20, blurY:20
@@ -203,13 +220,20 @@ export default class Test{
     testPoint() {
         var point = new PIXI.Point();
 
-        var tween = Tweener.tween(point, {y:200});
+        var tween = Be.tween(point, {y:200});
         tween.onUpdate = () => {
             console.log('point[%s, %s]', point.x, point.y);
         };
         tween.play();
     }
 
+
+    testObject() {
+        var assign = {scale:{x:100}};
+        Object.assign(assign, {x:10, y:20, scale:{x:10, y:20}});
+        console.log('testObject');
+        console.log(assign);
+    }
 
 
     initializeGUI() {
