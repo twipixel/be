@@ -5,9 +5,9 @@ import {
     Easing
 } from './../../external/lib/animation';
 
-import global from '../../src/global/index';
-import polyfill from '../../src/polyfill/index';
-import Be from "../../src/tweener/Be";
+import global from '../../src/global/';
+import polyfill from '../../src/polyfill/';
+import Be from '../../src/tweener/Be';
 //import requestAnimationFrame from '../../src/polyfill/requestAnimationFrame';
 //import Ticker from '../../src/ticker/Ticker';
 //import TickerListener from '../../src/tweener/core/ticker/TickerListener.js';

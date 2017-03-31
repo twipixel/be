@@ -27,7 +27,7 @@
  */
 
 
-import Ticker from '../../ticker/Ticker';
+import Ticker from './../core/ticker/Ticker';
 import TickerListener from '../core/ticker/TickerListener.js';
 
 

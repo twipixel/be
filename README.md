@@ -1,4 +1,6 @@
-#### Be 트위너는 PIXI 라이브러리 기준으로 작성되어 있습니다.
+#### [BetweenAS3](https://github.com/hyoshida/BetweenAS3) 를 JavaScript 버전으로 변환하였습니다. 
+
+##### DisplayObjectUpdater, PointUpdater 는 PIXI 라이브러리 기준으로 작성되어 있습니다.
 
 <br>
 

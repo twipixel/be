@@ -5,8 +5,8 @@ import {
     Easing
 } from './../../external/lib/animation';
 
-import global from '../../src/global/index';
-import polyfill from '../../src/polyfill/index';
+import global from '../../src/global/';
+import polyfill from '../../src/polyfill/';
 import Be from '../../src/tweener/Be';
 import Back from '../../src/tweener/easing/Back';
 import Bounce from '../../src/tweener/easing/Bounce';
