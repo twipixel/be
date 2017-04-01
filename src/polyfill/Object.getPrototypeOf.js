@@ -7,7 +7,8 @@ if (typeof Object.getPrototypeOf !== "function") {
         Object.getPrototypeOf = function (object) {
             return object.__proto__;
         };
-    } else {
+    }
+    else {
         Object.getPrototypeOf = function (object) {
             // May break if the constructor has been tampered with
             return object.constructor.prototype;

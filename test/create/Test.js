@@ -16,13 +16,10 @@ import Be from '../../src/tweener/Be';
 //import UpdateFactory from '../../src/tweener/core/updaters/UpdaterFactory';
 
 
-
-/**
- *
- */
-export default class Test{
-
-    constructor() {
+export default class Test
+{
+    constructor()
+    {
         this.app = new PIXI.Application(800, 600, {backgroundColor : 0x8BC34A});
         document.body.appendChild(this.app.view);
 
@@ -34,8 +31,8 @@ export default class Test{
         this.render();
     }
 
-
-    initialize() {
+    initialize()
+    {
         //this.createTicker();
         //this.createSomething();
         //this.createTweener();
@@ -51,8 +48,8 @@ export default class Test{
         this.testObject();
     }
 
-
-    createTicker() {
+    createTicker()
+    {
         console.log('ticker');
 
         this.ticker = new Ticker();
@@ -64,20 +61,17 @@ export default class Test{
         this.ticker.start();
     }
 
-
-    createSomething() {
+    createSomething()
+    {
         console.log('tickerListener');
         var tickerLisneneter = new TickerListener();
     }
 
-
-    createTweener() {
+    createTweener()
+    {
         console.log('createTwenner');
-
-
         //var ticker = new EnterFrameTicker();
         //var classRegistry = new ClassRegistry();
-
         //var updaterFactory = new UpdateFactory();
 
         var obj = {
@@ -86,7 +80,6 @@ export default class Test{
             //scale:{},
         };
 
-
         var tween = Be.tween(obj, {x:100}, {x:0}, 1);
         tween.onUpdate = () => {
             console.log('onUpdate', obj.x, obj.y);
@@ -94,8 +87,8 @@ export default class Test{
         tween.play();
     }
 
-
-    testClass() {
+    testClass()
+    {
         var n = new NoContructor();
         n.sayHello();
         console.log(n.getClass());
@@ -141,27 +134,24 @@ export default class Test{
         console.log(prototype3 === null);
     }
 
-
-    testCollection() {
+    testCollection()
+    {
         console.log('testCollection');
 
         var dic = {};
         var col = Object.create(null);
 
-        for(var prop in dic)
-        {
+        for(var prop in dic) {
             console.log(prop + ':' + dic[prop]);
         }
 
-
-        for(var prop in col)
-        {
+        for(var prop in col) {
             console.log(prop + ':' + col[prop]);
         }
     }
 
-
-    testSkew() {
+    testSkew()
+    {
         var display = this.display = new PIXI.Container();
         var rect = new PIXI.Graphics();
         rect.beginFill(0xFF3300);
@@ -171,9 +161,8 @@ export default class Test{
         this.stage.addChild(display);
     }
 
-
-    testBit() {
-
+    testBit()
+    {
         console.log('testBit');
         var f = 0;
         //f |= 0x0001;
@@ -192,8 +181,8 @@ export default class Test{
         console.log('-------------------');
     }
 
-
-    testFilter() {
+    testFilter()
+    {
         var blurFilter = new PIXI.filters.BlurFilter();
         blurFilter.blur = 0;
 
@@ -216,8 +205,8 @@ export default class Test{
         tween.play();
     }
 
-
-    testPoint() {
+    testPoint()
+    {
         var point = new PIXI.Point();
 
         var tween = Be.tween(point, {y:200});
@@ -227,16 +216,16 @@ export default class Test{
         tween.play();
     }
 
-
-    testObject() {
+    testObject()
+    {
         var assign = {scale:{x:100}};
         Object.assign(assign, {x:10, y:20, scale:{x:10, y:20}});
         console.log('testObject');
         console.log(assign);
     }
 
-
-    initializeGUI() {
+    initializeGUI()
+    {
         this.gui = new dat.GUI();
 
         this.config = {
@@ -302,107 +291,119 @@ export default class Test{
         this.gui.add(this.config, 'animation');
     }
 
-
-    update(ms) {
+    update(ms)
+    {
         this.app.render(this.stage);
     }
 
-
-    render(ms) {
+    render(ms)
+    {
         this.update(ms);
         this.requestId = requestAnimationFrame(this.render.bind(this));
     }
 
-
-    renderStart() {
+    renderStart()
+    {
         this.render();
     }
 
-
-    renderStop() {
+    renderStop()
+    {
         cancelAnimationFrame(this.requestId);
     }
 
-
-    animation() {
+    animation()
+    {
         animation(this, this.onAnimation, 60, Easing.easeOutQuad);
         // animation(null, this.onAnimation.bind(this), 60, Easing.easeOutQuad);
     }
 
-
-    onAnimation(ease, step, currentStep) {
+    onAnimation(ease, step, currentStep)
+    {
         console.log('ease: %s, step: %s, currentStep: %s', ease, step, currentStep);
     }
 
-
-    onComplete() {
+    onComplete()
+    {
         console.log('onComplete');
     }
 
-
-    plus() {
+    plus()
+    {
         this.config.rotation++;
         this.log();
     }
 
-
-    minus() {
+    minus()
+    {
         this.config.rotation--;
         this.log();
     }
 
-
-    log() {
+    log()
+    {
         console.log('r', this.config.rotation);
     }
-
-
 }
 
+/////////////////////////////////////////////////////////////////////////////
+//
+// Class
+//
+/////////////////////////////////////////////////////////////////////////////
 
-class Point {
-    constructor(x, y) {
+class Point
+{
+    constructor(x, y)
+    {
         this.x = x;
         this.y = y;
     }
 
-    getClass() {
+    getClass()
+    {
         return this.constructor;
     }
 
-    getSuper() {
+    getSuper()
+    {
         return super.constructor;
     }
 
-    toString() {
+    toString()
+    {
         return `(${this.x}, ${this.y})`;
     }
 }
 
-
-class ColorPoint extends Point {
-    constructor(x, y, color) {
+class ColorPoint extends Point
+{
+    constructor(x, y, color)
+    {
         super(x, y);
         this.color = color;
     }
 
-    getClass() {
+    getClass()
+    {
         return this.constructor;
     }
 
-    getSuper() {
+    getSuper()
+    {
         return super.constructor;
     }
 
-    toString() {
+    toString()
+    {
         return super.toString() + ' in ' + this.color;
     }
 }
 
-
-class NoContructor extends Point{
-    sayHello() {
+class NoContructor extends Point
+{
+    sayHello()
+    {
         console.log('say hello');
     }
-
 }

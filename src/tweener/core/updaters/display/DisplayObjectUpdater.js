@@ -52,9 +52,6 @@ const TARGET_PROPERTIES = [
 ];
 
 
-/**
- * PIXI V4 기준으로 작성 되었습니다.
- */
 export default class DisplayObjectUpdater extends AbstractUpdater
 {
     /**
@@ -63,7 +60,12 @@ export default class DisplayObjectUpdater extends AbstractUpdater
      */
     static register(registry)
     {
-        registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, PIXI.DisplayObject, TARGET_PROPERTIES);
+        if(typeof PIXI === 'undefined' || PIXI === null) {
+            registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, DisplayObject, TARGET_PROPERTIES);
+        }
+        else {
+            registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, PIXI.DisplayObject, TARGET_PROPERTIES);
+        }
     }
 
     constructor()
@@ -620,5 +622,13 @@ class DisplayObjectParameter
         this.height = obj.height;
         this.skewX = obj.skewX;
         this.skeyY = obj.skeyY;
+    }
+}
+
+class DisplayObject
+{
+    constructor()
+    {
+
     }
 }

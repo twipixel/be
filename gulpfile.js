@@ -16,18 +16,34 @@ const gulp = require('gulp'),
 
 const defaults =
 {
-    cli: true,
     dest: 'dist',
     source: './src/',
     watch: false,
     minify: false,
-    external: true,
     compress: false,
-    transform: 'babelify',
-    outputName: 'be',
+    external: true,
     output: 'be.min.js',
-    license: 'LICENSE',
+    transform: 'babelify',
 };
+
+var license, packageInfo;
+
+try {
+    license = fs.readFileSync('LICENSE', 'utf8');
+}
+catch(e) {
+    done(new Error('License file not found: LICENSE'));
+    return;
+}
+
+try {
+    packageInfo = require(path.resolve(process.cwd(), 'package.json'));
+}
+catch(e) {
+    done(new Error('No package.json found in the current directory'));
+    return;
+}
+
 
 gulp.task('clean', () => {
     return gulp
@@ -35,13 +51,32 @@ gulp.task('clean', () => {
         .pipe(clean());
 });
 
-gulp.task('dist', () => {
-
+gulp.task('build:development', () => {
     const options = Object.assign(defaults, {
-
+        minify: false,
+        compress: false,
+        output:'be.js'
     });
 
-    var bundler = browserify(
+    return rebundle(getBundler(options), options);
+});
+
+gulp.task('build:production', () => {
+    const options = Object.assign(defaults, {
+        minify: true,
+        compress: true,
+        output:'be.min.js'
+    });
+
+    return rebundle(getBundler(options), options);
+});
+
+gulp.task('build', ['clean', 'build:production']);
+gulp.task('build:all', ['clean', 'build:development', 'build:production']);
+
+
+function getBundler(options) {
+    const bundler = browserify(
         {
             entries: options.source,
             bundleExternal: options.external,
@@ -51,68 +86,11 @@ gulp.task('dist', () => {
         }
     );
 
-    var license, packageInfo;
-
-    try {
-        license = fs.readFileSync(options.license, 'utf8');
-    }
-    catch(e) {
-        done(new Error('License file not found: ' + options.license));
-        return;
-    }
-
-    try {
-        packageInfo = require(path.resolve(process.cwd(), 'package.json'));
-    }
-    catch(e) {
-        done(new Error('No package.json found in the current directory'));
-        return;
-    }
-
-    function done(err) {
-        if (err) {
-            if (options.cli) {
-                console.log(chalk.red('> ERROR: %s'), err.message);
-            }
-            else {
-                console.error(err.message);
-            }
-        }
-    }
-
-    function rebundle() {
-        return bundler
-            .transform(options.transform, { presets: ['es2015'], compact:false })
-            .bundle()
-            .on('error', done)
-            .pipe(source(options.output))
-            .pipe(buffer())
-            .pipe(sourcemaps.init({loadMaps: true}))
-            .pipe(preprocess({
-                context: {
-                    DEBUG: !options.compress,
-                    RELEASE: !!options.compress,
-                    VERSION: packageInfo.version
-                }
-            }))
-            .pipe(gulpif(options.compress, uglify()))
-            .pipe(header(license, {
-                date: (new Date()).toUTCString().replace(/GMT/g, "UTC"),
-                name: packageInfo.name,
-                version: packageInfo.version,
-                pkg: packageInfo,
-                options: options
-            }))
-            .pipe(sourcemaps.write('./', { sourceRoot: '' }))
-            .pipe(vfs.dest(options.dest))
-            .on('end', done);
-    }
-
     if (options.watch) {
         bundler.plugin(watchify);
     }
 
-    bundler.on('update', rebundle);
+    bundler.on('update', rebundle.bind(null, bundler, options));
     bundler.on('log', function(message) {
         if (options.cli) {
             console.log('>', message);
@@ -122,5 +100,40 @@ gulp.task('dist', () => {
         }
     });
 
-    return rebundle();
-});
+    return bundler;
+}
+
+function rebundle(bundler, options) {
+
+    return bundler
+        .transform(options.transform, { presets: ['es2015'], compact:false })
+        .bundle()
+        .on('error', done)
+        .pipe(source(options.output))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(preprocess({
+            context: {
+                DEBUG: !options.compress,
+                RELEASE: !!options.compress,
+                VERSION: packageInfo.version
+            }
+        }))
+        .pipe(gulpif(options.compress, uglify()))
+        .pipe(header(license, {
+            date: (new Date()).toUTCString().replace(/GMT/g, "UTC"),
+            name: packageInfo.name,
+            version: packageInfo.version,
+            pkg: packageInfo,
+            options: options
+        }))
+        .pipe(sourcemaps.write('./', { sourceRoot: '' }))
+        .pipe(vfs.dest(options.dest))
+        .on('end', done);
+}
+
+function done(err) {
+    if (err) {
+        console.log(chalk.red('> ERROR: %s'), err.message);
+    }
+}

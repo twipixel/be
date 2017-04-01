@@ -1,10 +1,8 @@
-
-
-export default class Test{
-
-    constructor() {
-
-        this.app = new PIXI.Application(800, 600, {backgroundColor : 0x8BC34A});
+export default class Test
+{
+    constructor()
+    {
+        this.app = new PIXI.Application(800, 600, {backgroundColor:0x8BC34A});
         document.body.appendChild(this.app.view);
 
         this.canvas = this.app.renderer.view;
@@ -15,37 +13,44 @@ export default class Test{
         this.render();
     }
 
-
-    initialize() {
-
+    initialize()
+    {
         console.log('**************************************');
         console.log(window);
         console.log('**************************************');
-        console.log(window['Be']);
+        if (typeof Be === 'undefined' || Be === null) {
+            console.log('Be Not Found');
+        }
+        else {
+            console.log('Be Found');
+        }
         console.log('**************************************');
 
+        setTimeout(this.testTween, 100);
+    }
+
+    testTween()
+    {
         var obj = {x:0, y:0};
         var tween = Be.tween(obj, {x:100, y:100}, null, 1);
         tween.onUpdate = function() {
             console.log(obj.x, obj.y);
         };
-
         tween.play();
-
     }
 
-
-    initializeGUI() {
+    initializeGUI()
+    {
         this.gui = new dat.GUI();
     }
 
-
-    update(ms) {
+    update(ms)
+    {
 
     }
 
-
-    render(ms) {
+    render(ms)
+    {
         this.update(ms);
         this.requestId = requestAnimationFrame(this.render.bind(this));
     }

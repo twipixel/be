@@ -39,12 +39,17 @@ const TARGET_PROPERTIES = [
 export default class PointUpdater extends AbstractUpdater
 {
     /**
-     * TODO PIXI.Point 를 사용하지 말고 global 로 Point를 생성해서 처리하도록 하는 방법을 고려해봅시다.
+     *
      * @param registry {ClassRegistry}
      */
     static register(registry)
     {
-        registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, PIXI.Point, TARGET_PROPERTIES);
+        if(typeof PIXI === 'undefined' || PIXI === null) {
+            registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, Point, TARGET_PROPERTIES);
+        }
+        else {
+            registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, PIXI.Point, TARGET_PROPERTIES);
+        }
     }
 
     constructor()
@@ -246,4 +251,9 @@ export default class PointUpdater extends AbstractUpdater
         this._fy = obj._fy;
         this._flags = obj._flags;
     }
+}
+
+class Point
+{
+
 }

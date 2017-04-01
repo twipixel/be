@@ -3,40 +3,40 @@ import Test from './Test';
 import KeyCode from '../../src/consts/KeyCode';
 
 
-
-
-(function () {
+(function ()
+{
     window.onload = function () {
         var main = new Main();
     }
 }());
 
-
-class Main {
-    constructor() {
+class Main
+{
+    constructor()
+    {
         this.init();
         this.addEvent();
         this.onResize();
     }
 
-
-    init() {
+    init()
+    {
         this.test = new Test();
     }
 
-
-    addEvent() {
+    addEvent()
+    {
         window.onresize = this.onResize.bind(this);
         window.addEventListener('keyup', this.onKeyUp.bind(this));
     }
 
-
-    onResize() {
+    onResize()
+    {
 
     }
 
-
-    onKeyUp (e) {
+    onKeyUp (e)
+    {
         switch (e.keyCode) {
             case KeyCode.BACKQUOTE:
                 break;
@@ -64,6 +64,4 @@ class Main {
                 break;
         }
     };
-
-
 }

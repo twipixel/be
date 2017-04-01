@@ -31,10 +31,10 @@ import Sine from '../../src/tweener/easing/Sine';
 let path, icon, controlPoint, controlPointSize, controlPointColor;
 
 
-export default class Test{
-
-    constructor() {
-
+export default class Test
+{
+    constructor()
+    {
         this.app = new PIXI.Application(800, 600, {backgroundColor : 0x8BC34A});
         document.body.appendChild(this.app.view);
 
@@ -46,8 +46,8 @@ export default class Test{
         this.render();
     }
 
-
-    initialize() {
+    initialize()
+    {
         icon = this.icon = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
         this.stage.addChild(this.icon);
 
@@ -63,8 +63,8 @@ export default class Test{
         this.stage.addChild(this.controlPoint);
     }
 
-
-    initializeGUI() {
+    initializeGUI()
+    {
         this.gui = new dat.GUI();
 
         this.config = {
@@ -125,59 +125,51 @@ export default class Test{
         this.gui.add(this.config, 'func');
     }
 
-
-    update(ms) {
+    update(ms)
+    {
 
     }
 
-
-    render(ms) {
+    render(ms)
+    {
         this.update(ms);
         this.requestId = requestAnimationFrame(this.render.bind(this));
     }
 
-
-
-
-    tween() {
+    tween()
+    {
         path.clear();
-
         var tween = Be.tween(this.icon, {x:250, y:250}, {x:0}, 2, Quad.easeInOut);
         tween.play();
     }
 
-
-    to() {
+    to()
+    {
         path.clear();
-
         var tween = Be.to(this.icon, {x: 300, y: 250}, 2, Elastic.easeInOut);
         tween.play();
     }
 
-
-    from() {
+    from()
+    {
         path.clear();
-
         var tween = Be.from(this.icon, {x:800, y:600}, 2, Bounce.easeOut);
         tween.play();
     }
 
-
-    apply() {
+    apply()
+    {
         path.clear();
-
         Be.apply(this.icon, {x:250, y:250}, {x:0}, 2, 0.5, Sine.easeOut);
     }
 
-
-    bezier() {
+    bezier()
+    {
         path.clear();
-
         controlPoint.x = 0;
         controlPoint.y = 200;
 
         var tween = Be.bezier(this.icon, {x: 400, y: 400}, {x:icon.x, y:icon.y}, {x:controlPoint.x, y:controlPoint.y}, 2, Quad.easeOut);
-
         tween.onPlay = () => { console.log('onPlay'); };
         tween.onUpdate = () => {
             console.log(`onUpdate (${icon.x}, ${icon.y} )`);
@@ -189,15 +181,13 @@ export default class Test{
         tween.play();
     }
 
-
-    bezierTo() {
+    bezierTo()
+    {
         path.clear();
-
         controlPoint.x = 0;
         controlPoint.y = 200;
 
         var tween = Be.bezierTo(this.icon, {x:400, y:0}, {x:controlPoint.x, y:controlPoint.y}, 2, Quadratic.easeIn);
-
         tween.onPlay = () => { console.log('onPlay');};
         tween.onUpdate = () => {
             console.log(`onUpdate (${icon.x}, ${icon.y} )`);
@@ -210,15 +200,13 @@ export default class Test{
         tween.play();
     }
 
-
-    bezierFrom() {
+    bezierFrom()
+    {
         path.clear();
-
         controlPoint.x = 200;
         controlPoint.y = 0;
 
         var tween = Be.bezierTo(this.icon, {x:0, y:400}, {x:controlPoint.x, y:controlPoint.y}, 2, Quadratic.easeIn);
-
         tween.onPlay = () => { console.log('onPlay'); };
         tween.onUpdate = () => {
             console.log(`onUpdate (${icon.x}, ${icon.y} )`);
@@ -231,22 +219,19 @@ export default class Test{
         tween.play();
     }
 
-
-    physical() {
+    physical()
+    {
         path.clear();
-
         controlPoint.x = -10;
         controlPoint.y = -10;
 
         var uniform = Be.physical(icon, {x:400, y:100}, {x:0, y:0}, Physical.uniform(12));
-
         uniform.onPlay = () => { console.log('onPlay'); };
         uniform.onUpdate = () => {
             console.log(`onUpdate (${icon.x}, ${icon.y} )`);
             path.beginFill(controlPointColor);
             path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
             path.endFill();
-
         };
         uniform.onComplete = () => { console.log('onComplete'); };
         uniform.play();
@@ -271,18 +256,15 @@ export default class Test{
         exponential.play();
     }
 
-
-    physicalTo() {
+    physicalTo()
+    {
         path.clear();
-
         controlPoint.x = -10;
         controlPoint.y = -10;
-
         icon.x = 0;
         icon.y = 0;
 
         var uniform = Be.physicalTo(icon, {x:400, y:100}, Physical.uniform(12));
-
         uniform.onPlay = () => { console.log('onPlay'); };
         uniform.onUpdate = () => {
             console.log(`onUpdate (${icon.x}, ${icon.y} )`);
@@ -314,15 +296,13 @@ export default class Test{
         exponential.play();
     }
 
-
-    physicalFrom() {
+    physicalFrom()
+    {
         path.clear();
-
         controlPoint.x = -10;
         controlPoint.y = -10;
 
         var uniform = Be.physicalFrom(icon, {x:0, y:0}, Physical.uniform(12));
-
         uniform.onPlay = () => { console.log('onPlay'); };
         uniform.onUpdate = () => {
             console.log(`onUpdate (${icon.x}, ${icon.y} )`);
@@ -361,21 +341,18 @@ export default class Test{
         exponential.play();
     }
 
-
-    physicalApply() {
+    physicalApply()
+    {
         controlPoint.x = -10;
         controlPoint.y = -10;
-
         Be.physicalApply(icon, {x:400, y:100}, {x:0, y:0}, 0.5, Physical.uniform(12));
     }
 
-
-    parallel() {
+    parallel()
+    {
         path.clear();
-
         controlPoint.x = -10;
         controlPoint.y = -10;
-
 
         // 5개 이상일 경우 테스트
         var move = Be.tween(icon, {x:400}, {x:100}, 2, Expo.easeOut);
@@ -387,13 +364,11 @@ export default class Test{
         group.play();
     }
 
-
-    parallelTweens() {
+    parallelTweens()
+    {
         path.clear();
-
         controlPoint.x = -10;
         controlPoint.y = -10;
-
 
         // 5개 이상일 경우 테스트
         var move = Be.tween(icon, {x:400}, {x:100}, 2, Expo.easeOut);
@@ -401,19 +376,16 @@ export default class Test{
         var scale2 = Be.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
         var scale3 = Be.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
         var scale4 = Be.tween(icon, {scaleX:1, scaleY:1}, {scaleX:0.2, scaleY:0.2}, 2, Elastic.easeOut);
-
         var tweens = [move, scale1, scale2, scale3, scale4];
         var group = Be.parallelTweens(tweens);
         group.play();
     }
 
-
-    serial() {
+    serial()
+    {
         path.clear();
-
         controlPoint.x = -10;
         controlPoint.y = -10;
-
 
         // 5개 이상일 경우 테스트
         var time = 0.2;
@@ -426,13 +398,11 @@ export default class Test{
         group.play();
     }
 
-
-    serialTweens() {
+    serialTweens()
+    {
         path.clear();
-
         controlPoint.x = -10;
         controlPoint.y = -10;
-
 
         // 5개 이상일 경우 테스트
         var time = 0.2;
@@ -441,61 +411,54 @@ export default class Test{
         var move3 = Be.to(icon, {x:300, y:300}, time, Quartic.easeOut);
         var move4 = Be.to(icon, {x:100, y:100}, time, Quart.easeOut);
         var move5 = Be.to(icon, {x:200, y:200}, time, Quad.easeOut);
-
         var tweens = [move1, move2, move3, move4, move5];
         var group = Be.serialTweens(tweens);
         group.play();
     }
 
-
-    reverse() {
+    reverse()
+    {
         path.clear();
-
         var tween = Be.tween(icon, {x:500}, {x:100}, 1, Quad.easeOut);
         var reverse = Be.reverse(tween, true);
         reverse.play();
     }
 
-
-    repeat() {
+    repeat()
+    {
         path.clear();
-
         var tween = Be.tween(icon, {x:500}, {x:100}, 1, Quad.easeOut);
         var repeat = Be.repeat(tween, 3);
         repeat.play();
     }
 
-
-    scale() {
+    scale()
+    {
         path.clear();
-
         var tween = Be.tween(icon, {x:500}, {x:100}, 1, Quad.easeOut);
         var scale = Be.scale(tween, 3);
         scale.play();
     }
 
-
-    slice() {
+    slice()
+    {
         path.clear();
-
         var tween = Be.tween(icon, {x:500}, {x:100}, 1, Quad.easeOut);
         var slice = Be.slice(tween, 0.1, 0.6);
         slice.play();
     }
 
-
-    delay() {
+    delay()
+    {
         path.clear();
-
         var tween = Be.tween(icon, {x:500}, {x:100}, 1, Quad.easeOut);
         var delay = Be.delay(tween, 2, 1);
         delay.play();
     }
 
-
-    addChildAction() {
+    addChildAction()
+    {
         path.clear();
-
         let panda = new PIXI.Sprite.fromImage('../../asset/image/icon/panda.png');
         var addChildAction = Be.addChild(panda, this.stage);
         var to = Be.to(panda, {x:400, y:400, scaleX:2, scaleY:2, skewX:2, skewY:2}, 2, Bounce.easeOut);
@@ -504,8 +467,8 @@ export default class Test{
         serial.play();
     }
 
-
-    removeFromParent() {
+    removeFromParent()
+    {
         var p, w = this.canvas.width, h = this.canvas.height;
 
         for(var i = 0; i < 200; i++){
@@ -537,15 +500,12 @@ export default class Test{
             );
 
             //t.stopOnComplete = false;
-
             t.play();
         }
     }
 
-
-    func() {
+    func()
+    {
 
     }
-
-
 }

@@ -398,6 +398,3 @@ export default class Be
         return new FunctionAction(_ticker, func, params, useRollback, rollbackFunc, rollbackParams);
     }
 }
-
-
-

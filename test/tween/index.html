@@ -19,22 +19,19 @@
 <script type="text/javascript" src="./../../external/vendor/pixi.js"></script>
 <script>
     (function(){
-
         addScriptToBodySync('./../../external/vendor/dat.gui.js');
 
         if (navigator.userAgent.indexOf('Electron') >= 0) {
             // Install babel hooks to the browser process
             require('babel-core/register')();
             require('./index');
-        } else {
+        }
+        else {
             // commons 은 build 할 때 생성합니다.
             addScriptToHeadSync('./../bundle/commons.js');
             addScriptToBodySync('./../bundle/tween.js');
         }
-
-
     })();
-
 </script>
 
 </body>
