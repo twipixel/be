@@ -15,28 +15,12 @@ export default class Test
 
     initialize()
     {
-        console.log('**************************************');
-        console.log(window);
-        console.log('**************************************');
         if (typeof Be === 'undefined' || Be === null) {
             console.log('Be Not Found');
         }
         else {
             console.log('Be Found');
         }
-        console.log('**************************************');
-
-        setTimeout(this.testTween, 100);
-    }
-
-    testTween()
-    {
-        var obj = {x:0, y:0};
-        var tween = Be.tween(obj, {x:100, y:100}, null, 1);
-        tween.onUpdate = function() {
-            console.log(obj.x, obj.y);
-        };
-        tween.play();
     }
 
     initializeGUI()

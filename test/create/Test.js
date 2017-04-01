@@ -8,12 +8,11 @@ import {
 import global from '../../src/global/';
 import polyfill from '../../src/polyfill/';
 import Be from '../../src/tweener/Be';
-//import requestAnimationFrame from '../../src/polyfill/requestAnimationFrame';
-//import Ticker from '../../src/ticker/Ticker';
-//import TickerListener from '../../src/tweener/core/ticker/TickerListener.js';
-//import EnterFrameTicker from '../../src/tweener/tickers/EnterFrameTicker';
-//import ClassRegistry from '../../src/tweener/core/utils/ClassRegistry';
-//import UpdateFactory from '../../src/tweener/core/updaters/UpdaterFactory';
+import Ticker from '../../src/tweener/core/ticker/Ticker';
+import TickerListener from '../../src/tweener/core/ticker/TickerListener.js';
+import EnterFrameTicker from '../../src/tweener/tickers/EnterFrameTicker';
+import ClassRegistry from '../../src/tweener/core/utils/ClassRegistry';
+import UpdateFactory from '../../src/tweener/core/updaters/UpdaterFactory';
 
 
 export default class Test
@@ -37,27 +36,22 @@ export default class Test
         //this.createSomething();
         //this.createTweener();
 
+        this.testPixi();
         this.testClass();
         //this.testCollection();
-
         this.testBit();
-        this.testSkew();
         this.testFilter();
         this.testPoint();
-
         this.testObject();
     }
 
     createTicker()
     {
         console.log('ticker');
-
         this.ticker = new Ticker();
-
         this.ticker.add((ms) => {
             console.log(ms, getTimer());
         });
-
         this.ticker.start();
     }
 
@@ -70,25 +64,26 @@ export default class Test
     createTweener()
     {
         console.log('createTwenner');
-        //var ticker = new EnterFrameTicker();
-        //var classRegistry = new ClassRegistry();
-        //var updaterFactory = new UpdateFactory();
-
-        var obj = {
-            x:0,
-            y:0,
-            //scale:{},
-        };
-
-        var tween = Be.tween(obj, {x:100}, {x:0}, 1);
+        var tween = Be.tween({x:0, y:0}, {x:100}, {x:0}, 1);
         tween.onUpdate = () => {
             console.log('onUpdate', obj.x, obj.y);
         };
         tween.play();
     }
 
+    testPixi()
+    {
+        if(typeof PIXI === 'undefined' || PIXI === null) {
+            console.log('PIXI Not Found');
+        }
+        else {
+            console.log('PIXI Found');
+        }
+    }
+
     testClass()
     {
+        console.log('testClass');
         var n = new NoContructor();
         n.sayHello();
         console.log(n.getClass());
@@ -137,28 +132,14 @@ export default class Test
     testCollection()
     {
         console.log('testCollection');
-
         var dic = {};
         var col = Object.create(null);
-
         for(var prop in dic) {
             console.log(prop + ':' + dic[prop]);
         }
-
         for(var prop in col) {
             console.log(prop + ':' + col[prop]);
         }
-    }
-
-    testSkew()
-    {
-        var display = this.display = new PIXI.Container();
-        var rect = new PIXI.Graphics();
-        rect.beginFill(0xFF3300);
-        rect.drawRect(0, 0, 100, 100);
-        rect.endFill();
-        display.addChild(rect);
-        this.stage.addChild(display);
     }
 
     testBit()
@@ -183,6 +164,7 @@ export default class Test
 
     testFilter()
     {
+        console.log('testFilter');
         var blurFilter = new PIXI.filters.BlurFilter();
         blurFilter.blur = 0;
 
@@ -194,9 +176,9 @@ export default class Test
         icon.filters = [blurFilter];
 
         var tween = Be.tween(icon, {
-            x: 100,
+            x: 400,
             _blurFilter:{
-                blurX:20, blurY:20
+                blurX:4, blurY:0
             }
         });
         tween.onUpdate = () => {
@@ -207,6 +189,7 @@ export default class Test
 
     testPoint()
     {
+        console.log('testPoint');
         var point = new PIXI.Point();
 
         var tween = Be.tween(point, {y:200});
@@ -218,76 +201,17 @@ export default class Test
 
     testObject()
     {
+        console.log('testObject');
         var assign = {scale:{x:100}};
         Object.assign(assign, {x:10, y:20, scale:{x:10, y:20}});
-        console.log('testObject');
         console.log(assign);
     }
 
     initializeGUI()
     {
         this.gui = new dat.GUI();
-
-        this.config = {
-            x: 0,
-            y: 0,
-            scaleX: 1,
-            scaleY: 1,
-            rotation: 0,
-            skewX: 0,
-            skewY: 0,
-        };
-
-        this.config.log = this.log.bind(this);
-        this.config.plus = this.plus.bind(this);
-        this.config.minus = this.minus.bind(this);
-        this.config.renderStart = this.renderStart.bind(this);
-        this.config.renderStop = this.renderStop.bind(this);
+        this.config = {};
         this.config.animation = this.animation.bind(this);
-
-        this.gui.add(this.config, 'x').min(0).max(200).step(1).onChange((value) => {
-            this.config.x = value;
-        });
-
-        this.gui.add(this.config, 'y').min(0).max(200).step(1).onChange((value) => {
-            this.config.y = value;
-        });
-
-        this.gui.add(this.config, 'scaleX').min(0).max(4).step(0.1).onChange((value) => {
-            this.config.scaleX = value;
-        });
-
-        this.gui.add(this.config, 'scaleY').min(0).max(4).step(0.1).onChange((value) => {
-            this.config.scaleY = value;
-        });
-
-        this.gui.add(this.config, 'rotation').min(0).max(360).step(1).onChange((value) => {
-            this.config.rotation = value;
-        });
-
-        this.gui.add(this.config, 'skewX').min(0).max(1).step(0.1).onChange((value) => {
-            this.config.skewX = value;
-
-            console.log('this.display', this.display, value);
-
-            if(this.display)
-                this.display.skew.x = value;
-        });
-
-        this.gui.add(this.config, 'skewY').min(0).max(1).step(0.1).onChange((value) => {
-            this.config.skewY = value;
-
-            console.log('this.display', this.display, value);
-
-            if(this.display)
-                this.display.skew.y = value;
-        });
-
-        this.gui.add(this.config, 'log');
-        this.gui.add(this.config, 'plus');
-        this.gui.add(this.config, 'minus');
-        this.gui.add(this.config, 'renderStart');
-        this.gui.add(this.config, 'renderStop');
         this.gui.add(this.config, 'animation');
     }
 
@@ -302,16 +226,6 @@ export default class Test
         this.requestId = requestAnimationFrame(this.render.bind(this));
     }
 
-    renderStart()
-    {
-        this.render();
-    }
-
-    renderStop()
-    {
-        cancelAnimationFrame(this.requestId);
-    }
-
     animation()
     {
         animation(this, this.onAnimation, 60, Easing.easeOutQuad);
@@ -321,28 +235,6 @@ export default class Test
     onAnimation(ease, step, currentStep)
     {
         console.log('ease: %s, step: %s, currentStep: %s', ease, step, currentStep);
-    }
-
-    onComplete()
-    {
-        console.log('onComplete');
-    }
-
-    plus()
-    {
-        this.config.rotation++;
-        this.log();
-    }
-
-    minus()
-    {
-        this.config.rotation--;
-        this.log();
-    }
-
-    log()
-    {
-        console.log('r', this.config.rotation);
     }
 }
 

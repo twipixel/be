@@ -1,6 +1,5 @@
-(function (global) {
-
-
+(function (global)
+{
     //--Animation methods
     //Easing functions adapted from Robert Penner's easing equations
     //http://www.robertpenner.com/easing/
@@ -153,9 +152,9 @@
         }
     };
 
-
     //Request animation polyfill - http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-    var requestAnimationFrame = (function () {
+    var requestAnimationFrame = (function ()
+    {
         return window.requestAnimationFrame ||
             window.webkitRequestAnimationFrame ||
             window.mozRequestAnimationFrame ||
@@ -166,8 +165,8 @@
             };
     })();
 
-
-    var cancelAnimationFrame = (function () {
+    var cancelAnimationFrame = (function ()
+    {
         return window.cancelAnimationFrame ||
             window.webkitCancelAnimationFrame ||
             window.mozCancelAnimationFrame ||
@@ -178,8 +177,8 @@
             };
     })();
 
-
-    var animation = function (thisArg, onAnimation, totalStep, easing, onComplete) {
+    var animation = function (thisArg, onAnimation, totalStep, easing, onComplete)
+    {
         if(typeof onAnimation !== 'function')
             throw Error('onAnimation must be function');
 
@@ -210,18 +209,16 @@
         requestAnimationFrame(animationFrame);
     };
 
-
     if (typeof exports === "object" && typeof module !== "undefined") {
         module.exports.Easing = Easing;
         module.exports.requestAnimationFrame = requestAnimationFrame;
         module.exports.cancelAnimationFrame = cancelAnimationFrame;
         module.exports.animation = animation;
-    } else {
+    }
+    else {
         global.Easing = Easing;
         global.requestAnimationFrame = requestAnimationFrame;
         global.cancelAnimationFrame = cancelAnimationFrame;
         global.animation = animation;
     }
-
-
 })(this);

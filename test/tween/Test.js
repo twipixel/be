@@ -471,7 +471,7 @@ export default class Test
     {
         var p, w = this.canvas.width, h = this.canvas.height;
 
-        for(var i = 0; i < 200; i++){
+        for (var i = 0; i < 200; i++){
             p = new PIXI.Graphics();
             p.beginFill(0xFFFFFF*Math.random());
             p.drawCircle(0, 0, Math.random()*5+1);
@@ -506,6 +506,59 @@ export default class Test
 
     func()
     {
+        path.clear();
 
+        var stage = this.stage,
+            canvas = this.canvas,
+            points = getPoint(100);
+
+        var to = Be.func(toPoint, [points]);
+        var scale = Be.func(scalePoint, [points]);
+        var skew = Be.func(skewPoint, [points]);
+        var serial = Be.serialTweens([to, scale, skew]);
+        serial.play();
+
+        function toPoint(list) {
+            var l = list.length;
+            for (var i = 0; i < l; i++) {
+                Be.to(list[i], {
+                    x:Math.random() * canvas.width,
+                    y:Math.random() * canvas.height,
+                }, 0.5 + Math.random() * 1, Bounce.easeOut).play();
+            }
+        }
+
+        function scalePoint(list) {
+            var l = list.length;
+            for (var i = 0; i < l; i++) {
+                Be.to(list[i], {
+                    scaleX:Math.random() * 3,
+                    scaleY:Math.random() * 3,
+                }, 0.5 + Math.random() * 1, Elastic.easeOut).play();
+            }
+        }
+
+        function skewPoint(list) {
+            var l = list.length;
+            for (var i = 0; i < l; i++) {
+                Be.to(list[i], {
+                    skewX:Math.random() * 10,
+                    skewY:Math.random() * 10,
+                }, 0.5 + Math.random() * 1, Back.easeOut).play();
+            }
+        }
+
+        function getPoint(num) {
+            var list = [];
+            for (var i = 0; i < num; i++) {
+                var point = new PIXI.Graphics();
+                point.beginFill(0xFFFFFF * Math.random());
+                point.drawRect(0, 0, 5, 5);
+                point.endFill();
+                stage.addChild(point);
+                list.push(point);
+            }
+            return list;
+        }
     }
 }
