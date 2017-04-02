@@ -166,7 +166,6 @@ Temporary Items
 
 # Project Setting
 dist
-build
 *.min.js
 *.bundle.js
 
