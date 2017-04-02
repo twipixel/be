@@ -168,7 +168,6 @@ export default class ClassRegistry
                 classes[c] = dictClone;
             }
 
-
             if (subclasses[c] != undefined) {
                 var sub = subclasses[c];
                 for (var j = i - 1; j >= 0; --j) {
@@ -191,11 +190,23 @@ export default class ClassRegistry
      */
     getClassTree(klass)
     {
-        var tree = [];
-        var superClassName;
         var c = klass;
-        var prototype = Object.getPrototypeOf(new c());
+        var prototype;
 
+        /**
+         * TODO 객체 생성 시 인자가 필요한 경우 클래스 트리 생성 시 오류 처리
+         * 클래스 생성자에 인자가 필요한 경우 객체 생성 시 오류가 발생합니다.
+         * 커스텀 클래스의 경우 ObjectUpdater 가 반환하도록 처리합니다.
+         * 현재로서는 다른 대안이 없습니다.
+         */
+        try {
+            prototype = Object.getPrototypeOf(new c());
+        }
+        catch (error) {
+            return [klass, Object];
+        }
+
+        var tree = [];
         while (c != null) {
             tree.push(c);
             prototype = Object.getPrototypeOf(prototype);
