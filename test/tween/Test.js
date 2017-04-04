@@ -459,7 +459,7 @@ export default class Test
     addChildAction()
     {
         path.clear();
-        let panda = new PIXI.Sprite.fromImage('../../asset/image/icon/panda.png');
+        var panda = new PIXI.Sprite.fromImage('../../asset/image/icon/panda.png');
         var addChildAction = Be.addChild(panda, this.stage);
         var to = Be.to(panda, {x:400, y:400, scaleX:2, scaleY:2, skewX:2, skewY:2}, 2, Bounce.easeOut);
         var removeFromParent = Be.removeFromParent(panda);
