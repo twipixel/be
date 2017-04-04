@@ -477,9 +477,9 @@ tween(target:Object, to:Object, from:Object = null, time:Number = 1.0, easing:IE
   }
   ld = duration;
 
-< br>
+<br>
 
-< br>
+<br>
 
 #### RepeatedTween duration 계산
 
