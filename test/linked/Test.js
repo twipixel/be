@@ -92,9 +92,14 @@ export default class Test
         this.changeUpdateMethode(!this.widthPadding);
     }
 
+    /**
+     * 업데이트 함수 변경
+     * {true: 패딩과 함께 업데이트, fals: 패딩 없이 업데이트}
+     * @param withPadding
+     */
     changeUpdateMethode(withPadding = true)
     {
-        console.log('changeUpdate(' + withPadding + '), option:' + ((withPadding) ? 'widthPadding' : 'widthOutPadding') + ')');
+        console.log('changeUpdate(' + withPadding + '), option:' + ((withPadding) ? 'widthPadding' : 'widthOutPadding'));
         this.widthPadding = withPadding;
 
         if (this.widthPadding) {
@@ -107,10 +112,6 @@ export default class Test
 
     /**
      * 리스너 등록
-     *
-     * 0이 _first 이고
-     * 1을 등록하면
-     *
      * @param listener {Listener}
      */
     addListener(listener)
@@ -132,7 +133,7 @@ export default class Test
     }
 
     /**
-     *
+     * 리스너 삭제
      * @param listener {Listener}
      */
     removeListener(listener)
@@ -181,7 +182,11 @@ export default class Test
     }
 
     /**
+     * 패딩과 함께 업데이트 하기
+     * 패딩이 있어야 Listener 의 모든 tick 함수를 호출할 수 있습니다.
      *
+     * 호출 관계 참고
+     * https://github.com/twipixel/be/blob/master/test/linked/README.md
      */
     updateWithPadding()
     {
@@ -337,8 +342,11 @@ export default class Test
     }
 
     /**
+     * 패딩 없이 업데이트 하기
+     * 패딩이 없는 경우 마지막에 등록된 Listener 는 호출되지 않습니다.
      *
-     * @param ms
+     * 호출 관계 참고
+     * https://github.com/twipixel/be/blob/master/test/linked/README.md
      */
     updateWithOutPadding()
     {

@@ -4,13 +4,13 @@
 
 ###### _tickerListenerPaddings 생성과 연결 상태
 
-| 생성 순서 | prevListener | nextListener |
+| 생성 순서 | nextListener | prevListener |
 | ----- | ------------ | ------------ |
-| [0]   | null         | 1            |
-| [1]   | 0            | 2            |
-| [2]   | 1            | 3            |
-| [n]   | n - 1        | n + 1        |
-| [9]   | 8            | null         |
+| [0]   | 1            | null         |
+| [1]   | 2            | 0            |
+| [2]   | 3            | 1            |
+| [n]   | n + 1        | n - 1        |
+| [9]   | null         | 8            |
 
 
 
