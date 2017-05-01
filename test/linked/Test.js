@@ -11,12 +11,6 @@ export default class Test
 {
     constructor()
     {
-        this.app = new PIXI.Application(800, 600, {backgroundColor : 0x8BC34A});
-        document.body.appendChild(this.app.view);
-
-        this.canvas = this.app.renderer.view;
-        this.stage = this.app.stage;
-
         this.initialize();
         this.initializeGUI();
         this.render();
@@ -28,9 +22,8 @@ export default class Test
         window.listenerId = 0;
 
         this._first = null;
-        this._numListeners = 0;
         this._listeners = [];
-
+        this._numListeners = 0;
         this._tickerListenerPaddings = [];
 
         var prevListener = null;
@@ -56,38 +49,54 @@ export default class Test
         this.config.addListener = this.testAddListener.bind(this);
         this.config.removeListener = this.testRemoveListener.bind(this);
         this.config.displayListeners = this.displayListeners.bind(this);
-        this.config.changeUpdateMethode = this.changeUpdateMethode.bind(this, !this.widthPadding);
+        this.config.changeUpdate = this.toggleUpdateFunction.bind(this);
 
         this.gui.add(this.config, 'addListener');
         this.gui.add(this.config, 'removeListener');
         this.gui.add(this.config, 'displayListeners');
-        this.gui.add(this.config, 'changeUpdateMethode');
+        this.gui.add(this.config, 'changeUpdate');
     }
 
     testAddListener()
     {
-        this.addListener(new Listener());
+        var listener = new Listener();
+        console.log('\ntestAddListener(', listener.id, ')');
+
+        this._listeners.push(listener);
+
+        this.addListener(listener);
     }
 
     testRemoveListener()
     {
+        if (this._listeners.length <= 0) return;
+
         var listener = this._listeners.pop();
-        console.log('\ntestRmoveListener, id:', listener.id);
+        console.log('\ntestRmoveListener(', listener.id, ')');
+
         this.removeListener(listener);
     }
 
     displayListeners()
     {
-        console.log('total listener:', this._listeners.length);
-        for (var i = 0; i < this._listeners.length; i++) {
+        var total = this._listeners.length;
+        console.log('total listeners:', total);
+        for (var i = 0; i < total; i++) {
             var listener = this._listeners[i];
             console.log(listener.id);
         }
     }
 
+    toggleUpdateFunction()
+    {
+        this.changeUpdateMethode(!this.widthPadding);
+    }
+
     changeUpdateMethode(withPadding = true)
     {
+        console.log('changeUpdate(' + withPadding + '), option:' + ((withPadding) ? 'widthPadding' : 'widthOutPadding') + ')');
         this.widthPadding = withPadding;
+
         if (this.widthPadding) {
             this.update = this.updateWithPadding.bind(this);
         }
@@ -110,6 +119,8 @@ export default class Test
             return;
         }
 
+        console.log('** addListener(', listener.id,'), numListeners:', this._numListeners);
+
         if (this._first != null) {
             listener.nextListener = this._first;
             this._first.prevListener = listener;
@@ -118,11 +129,6 @@ export default class Test
         this._first = listener;
 
         ++this._numListeners;
-
-
-        // Test Code: 디버그를 위해 리스트에 넣고 뺍니다.
-        this._listeners.push(listener);
-        console.log('       ** addListener(' + listener.id + '), numListener:', this._numListeners);
     }
 
     /**
@@ -131,7 +137,7 @@ export default class Test
      */
     removeListener(listener)
     {
-        console.log('       ** removeListener(', listener.id, ')');
+        console.log('** removeListener(', listener.id, '), numListeners:', this._numListeners);
 
         var l = this._first;
 
@@ -150,27 +156,28 @@ export default class Test
                     l.prevListener = null;
                 }
                 --this._numListeners;
-
-                // Test Code: 디버그를 위해 리스트에 넣고 뺍니다.
-                var total = this._listeners.length;
-                for (var i = 0; i < total; i++) {
-                    var member = this._listeners[i];
-
-                    if (member.id == listener.id) {
-                        this._listeners.splice(i, 1);
-
-                        if (member === this._first) {
-                            console.log('is this problem?');
-                            this._first = null;
-                        }
-                        break;
-                    }
-                }
             }
 
             l = l.nextListener;
         }
-        console.log('removeListener(' + listener.id + '), numListener:', this._numListeners, ', total:', this._listeners.length);
+    }
+
+    /**
+     * Test Code
+     * 디버그를 위한 코드
+     * @param listener
+     */
+    removeFromListeners(listener)
+    {
+        var total = this._listeners.length;
+
+        for (var i = 0; i < total; i++) {
+            var l = this._listeners[i];
+
+            if(l === listener) {
+                this._listeners.splice(i, 1);
+            }
+        }
     }
 
     /**
@@ -191,6 +198,9 @@ export default class Test
         // entry 에 연결된 연결 리스트 체인 실행
         while (listener.nextListener != null) {
             if ((listener = listener.nextListener).tick()) {
+                // Test Code
+                this.removeFromListeners(listener);
+
                 if (listener.prevListener != null) {
                     listener.prevListener.nextListener = listener.nextListener;
                 }
@@ -204,6 +214,9 @@ export default class Test
                 --this._numListeners;
             }
             if ((listener = listener.nextListener).tick()) {
+                // Test Code
+                this.removeFromListeners(listener);
+
                 if (listener.prevListener != null) {
                     listener.prevListener.nextListener = listener.nextListener;
                 }
@@ -217,6 +230,9 @@ export default class Test
                 --this._numListeners;
             }
             if ((listener = listener.nextListener).tick()) {
+                // Test Code
+                this.removeFromListeners(listener);
+
                 if (listener.prevListener != null) {
                     listener.prevListener.nextListener = listener.nextListener;
                 }
@@ -230,6 +246,9 @@ export default class Test
                 --this._numListeners;
             }
             if ((listener = listener.nextListener).tick()) {
+                // Test Code
+                this.removeFromListeners(listener);
+
                 if (listener.prevListener != null) {
                     listener.prevListener.nextListener = listener.nextListener;
                 }
@@ -243,6 +262,9 @@ export default class Test
                 --this._numListeners;
             }
             if ((listener = listener.nextListener).tick()) {
+                // Test Code
+                this.removeFromListeners(listener);
+
                 if (listener.prevListener != null) {
                     listener.prevListener.nextListener = listener.nextListener;
                 }
@@ -256,6 +278,9 @@ export default class Test
                 --this._numListeners;
             }
             if ((listener = listener.nextListener).tick()) {
+                // Test Code
+                this.removeFromListeners(listener);
+
                 if (listener.prevListener != null) {
                     listener.prevListener.nextListener = listener.nextListener;
                 }
@@ -269,6 +294,9 @@ export default class Test
                 --this._numListeners;
             }
             if ((listener = listener.nextListener).tick()) {
+                // Test Code
+                this.removeFromListeners(listener);
+
                 if (listener.prevListener != null) {
                     listener.prevListener.nextListener = listener.nextListener;
                 }
@@ -282,6 +310,9 @@ export default class Test
                 --this._numListeners;
             }
             if ((listener = listener.nextListener).tick()) {
+                // Test Code
+                this.removeFromListeners(listener);
+
                 if (listener.prevListener != null) {
                     listener.prevListener.nextListener = listener.nextListener;
                 }
@@ -298,8 +329,6 @@ export default class Test
 
         // _first prev 초기화 null 셋팅
         if ((this._first = l.nextListener) != null) {
-
-            console.log('**************', this._first.id);
             this._first.prevListener = null;
         }
 
@@ -336,6 +365,9 @@ export default class Test
 
                 // 리스너 카운트 줄임
                 --this._numListeners;
+
+                // Test Code
+                this.removeFromListeners(listener);
             }
         }
     }

@@ -1,6 +1,8 @@
 #### [BetweenAS3](https://github.com/hyoshida/BetweenAS3) 를 JavaScript 버전으로 변환하였습니다. 
 
-###### PointUpdater, DisplayObjectUpdater는 [Pixi.js](https://github.com/pixijs/pixi.js)의 PIXI.Point, PIXI.DisplayObject 를 지원합니다. 또는 Point와 DisplayObject 클래스로 작성된 경우 아래의 속성을 지원합니다.
+###### PointUpdater, DisplayObjectUpdater는 [Pixi.js](https://github.com/pixijs/pixi.js)의 PIXI.Point, PIXI.DisplayObject 를 지원합니다. 
+
+###### 또는 Point와 DisplayObject 클래스로 작성된 경우 아래의 속성을 지원합니다.
 
 <br>
 

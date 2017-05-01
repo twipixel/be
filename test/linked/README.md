@@ -1,8 +1,9 @@
-연결 리스트 add시 연결 상태와 update 시 호출 순서을 표로 작성하였습니다.
+###### 연결 리스트 add시 연결 상태와 update 시 호출 순서을 표로 작성하였습니다.
 
 
 
-_tickerListenerPaddings 생성과 연결 상태
+###### _tickerListenerPaddings 생성과 연결 상태
+
 | 생성 순서 | prevListener | nextListener |
 | ----- | ------------ | ------------ |
 | [0]   | null         | 1            |
@@ -13,7 +14,7 @@ _tickerListenerPaddings 생성과 연결 상태
 
 
 
-addListener 호출 시 연결 상태
+###### addListener 호출 시 연결 상태
 
 | _numListeners | in _first | nextListener | prevListener | out _first |
 | ------------- | --------- | ------------ | ------------ | ---------- |
@@ -24,7 +25,7 @@ addListener 호출 시 연결 상태
 
 
 
-패딩이 있는 경우 update 함수 호출 순서 
+###### 패딩이 있는 경우 update 함수 호출 순서 
 
 | listener id | nextListener | prevListener |
 | ----------- | ------------ | ------------ |
@@ -36,7 +37,7 @@ addListener 호출 시 연결 상태
 
 
 
-패딩이 없는 경우 update 함수 호출 순서
+###### 패딩이 없는 경우 update 함수 호출 순서
 
 | listener id | nextListener | prevListener |
 | ----------- | ------------ | ------------ |
