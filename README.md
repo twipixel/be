@@ -1,8 +1,10 @@
 #### [BetweenAS3](https://github.com/hyoshida/BetweenAS3) 를 JavaScript 버전으로 변환하였습니다. 
 
-##### PointUpdater, DisplayObjectUpdater는 [Pixi.js](https://github.com/pixijs/pixi.js)의 PIXI.Point, PIXI.DisplayObject 를 지원합니다. 또는 Point와 DisplayObject 클래스로 작성된 경우 아래의 속성을 지원합니다.
+###### PointUpdater, DisplayObjectUpdater는 [Pixi.js](https://github.com/pixijs/pixi.js)의 PIXI.Point, PIXI.DisplayObject 를 지원합니다. 또는 Point와 DisplayObject 클래스로 작성된 경우 아래의 속성을 지원합니다.
 
-##### 지원 속성
+<br>
+
+###### 지원 속성
 
 - ###### Point
   - x, y
@@ -22,34 +24,34 @@
 
 #### 사용법
 
-##### tween
+###### tween
 
 - ```javascript
   var tween = Be.tween(this.icon, {x: 250, y: 250}, {x: 0}, 2, Quad.easeInOut);
   tween.play();
   ```
 
-##### to
+###### to
 
 - ```javascript
   var tween = Be.to(this.icon, {x: 300, y: 250}, 2, Elastic.easeInOut);
   tween.play();
   ```
 
-##### from
+###### from
 
 - ```
   var tween = Be.from(this.icon, {x: 800, y: 600}, 2, Bounce.easeOut);
   tween.play();
   ```
 
-##### apply
+###### apply
 
 - ```javascript
   Be.apply(this.icon, {x: 250, y: 250}, {x: 0}, 2, 0.5, Sine.easeOut);
   ```
 
-##### bezier, bezierTo, bezierFrom
+###### bezier, bezierTo, bezierFrom
 
 - ```javascript
   var tween = Be.bezier(this.icon, {x: 400, y: 400}, {x: icon.x, y: icon.y}, {
@@ -71,7 +73,7 @@
   tween.play();
   ```
 
-##### physical, physicalTo, physicalFrom
+###### physical, physicalTo, physicalFrom
 
 - ```javascript
   var uniform = Be.physical(icon, {x: 400, y: 100}, {x: 0, y: 0}, Physical.uniform(12));
@@ -109,13 +111,13 @@
   exponential.play();
   ```
 
-##### physicalApply
+###### physicalApply
 
 - ```javascript
   Be.physicalApply(icon, {x: 400, y: 100}, {x: 0, y: 0}, 0.5, Physical.uniform(12));
   ```
 
-##### parallel
+###### parallel
 
 - ```javascript
   var move = Be.tween(icon, {x: 400}, {x: 100}, 2, Expo.easeOut);
@@ -127,7 +129,7 @@
   group.play();
   ```
 
-##### parallelTweens
+###### parallelTweens
 
 - ```javascript
   var tweens = [move, scale1, scale2, scale3, scale4];
@@ -135,7 +137,7 @@
   group.play();
   ```
 
-##### serial
+###### serial
 
 - ```javascript
   var time = 0.2;
@@ -148,7 +150,7 @@
   group.play();
   ```
 
-##### serialTweens
+###### serialTweens
 
 - ```javascript
   var tweens = [move1, move2, move3, move4, move5];
@@ -156,7 +158,7 @@
   group.play();
   ```
 
-##### reverse
+###### reverse
 
 - ```javascript
   var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
@@ -164,7 +166,7 @@
   reverse.play();
   ```
 
-##### repeat
+###### repeat
 
 - ```javascript
   var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
@@ -172,7 +174,7 @@
   repeat.play();
   ```
 
-##### scale
+###### scale
 
 - ```javascript
   var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
@@ -180,7 +182,7 @@
   scale.play();
   ```
 
-##### slice
+###### slice
 
 - ```javascript
   var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
@@ -188,7 +190,7 @@
   slice.play();
   ```
 
-##### delay
+###### delay
 
 - ```javascript
   var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
@@ -196,7 +198,7 @@
   delay.play();
   ```
 
-##### addChildAction
+###### addChildAction
 
 - ```javascript
   var panda = new PIXI.Sprite.fromImage('../../asset/image/icon/panda.png');
@@ -207,7 +209,7 @@
   serial.play();
   ```
 
-##### removeFromParent
+###### removeFromParent
 
 - ```javascript
   var p, w = this.canvas.width, h = this.canvas.height;
@@ -241,7 +243,7 @@
   }
   ```
 
-##### func
+###### func
 
 - ```javascript
   var stage = this.stage,
@@ -302,19 +304,19 @@
 
 <br>
 
-#### BetweenAS3 들어가기
+#### BetweenAS3 코드 설명
 
-##### 크게 3 부분으로 나뉩니다.
+###### 크게 3 부분으로 나뉩니다.
 
 - Ticker
 - Tween
 - Updater
 
-##### Ticker
+###### Ticker
 
 - 하나의 EnterFrame 으로 등록된 모든 Tween 의 tick 함수를 호출할 수 있도록 LinkedList 를 관리합니다.
 
-##### Tween
+###### Tween
 
 - tick 을 관리합니다. 호출 순서는 tick() -> internalUpdate -> update() -> udpateObject() 순으로 반복 호출됩니다.
 - play() 함수를 호출하면 Ticker에 Tween을 등록하게 되고 등록하면 tick 이 발생합니다.
@@ -322,7 +324,7 @@
 - 종류
   - Parallel, Serial, Delayed, Repeated … 등등
 
-##### Updater
+###### Updater
 
 - target 의 객체에 따라 Updater 를 반환하고 해당 클래스에 따라 업데이트 방법을 기술합니다.
   - 종류
@@ -332,9 +334,9 @@
 
 <br>
 
-#### FLOW
+#### 기본 흐름 (Flow)
 
-##### BetweenAS3 초기화
+###### BetweenAS3 초기화
 
 - _ticker = new EnterFrameTicker();
 - _ticker.start();
@@ -398,95 +400,94 @@ tween(target:Object, to:Object, from:Object = null, time:Number = 1.0, easing:IE
 
 <br>
 
-#### EnterFrameTicker
+#### EnterFrameTicker 설명
 
-- _tickerListenerPaddings 생성
+###### _tickerListenerPaddings 생성과 연결 상태
 
-  - | 생성 순서(index) | prevListener | nextListener |
-    | ------------ | ------------ | ------------ |
-    | [0]          | null         | 1            |
-    | [1]          | 0            | 2            |
-    | [2]          | 1            | 3            |
-    | [n]          | n - 1        | n + 1        |
-    | [9]          | 8            | null         |
+- | 생성 순서(index) | prevListener | nextListener |
+  | ------------ | ------------ | ------------ |
+  | [0]          | null         | 1            |
+  | [1]          | 0            | 2            |
+  | [2]          | 1            | 3            |
+  | [n]          | n - 1        | n + 1        |
+  | [9]          | 8            | null         |
 
+###### AbstractTween.tick(t) 호출 과정
 
-- AbstractTween.tick(t) 호출 과정
+- BetweenAS3 초기화 시 _ticker 생성
 
-  - BetweenAS3 초기화 시 _ticker 생성
+- BetweenAS3.tween() 호출
 
-  - BetweenAS3.tween() 호출
+  - var tween:ObjectTween = new ObjectTween(_ticker);
 
-    - var tween:ObjectTween = new ObjectTween(_ticker);
+  - tween.play();
 
-    - tween.play();
+    - AbstractTween.play
 
-      - AbstractTween.play
+      - _ticker.addTickerListener(this); (ticker에 트위너 등록하면 tick함수가 반복 호출됩니다.)
 
-        - _ticker.addTickerListener(this); (ticker에 트위너 등록하면 tick함수가 반복 호출됩니다.)
+        - | _numListeners | in _first | prevListener | nextListener | out _first |
+          | ------------- | --------- | ------------ | ------------ | ---------- |
+          | 0             | null      | 1            | null         | 0          |
+          | 1             | 0         | 2            | 0            | 1          |
+          | 2             | 1         | 3            | 1            | 2          |
+          | 3             | 2         | null         | 2            | 3          |
 
-          - | _numListeners | in _first | prevListener | nextListener | out _first |
-            | ------------- | --------- | ------------ | ------------ | ---------- |
-            | 0             | null      | 1            | null         | 0          |
-            | 1             | 0         | 2            | 0            | 1          |
-            | 2             | 1         | 3            | 1            | 2          |
-            | 3             | 2         | null         | 2            | 3          |
+        - _ticker.update
 
-          - _ticker.update
+          - -> AbstractTween.tick(t); 반복 호출
 
-            - -> AbstractTween.tick(t); 반복 호출
+      - tick(t);
 
-        - tick(t);
+        - 트윈이 완료되면 true를 반환합니다.
 
-          - 트윈이 완료되면 true를 반환합니다.
+###### 기본 흐름
 
-- **기본 흐름**
-
-  - addTickerListener
-    - addTickerListener 를 통해 tween 을 등록합니다. 등록되면 duration 이 끝날때 까지 tick 함수가 반복 호출됩니다. 등록되는 과정에서 tween 들 끼리 LinkedList 를 구성하며 맨 마지막 등록된 tween 을 _first 에 대입합니다. 
-  - update
-    - update 함수는 EnterFrame 으로 반복 호출됩니다. update 함수는 _tickerListenerPaddings 의 리스너를 모두 돌면서 nextListener 가 있으면 tick() 함수를 호출합니다. 만약 _first 가 있으면 _tickerListenerPaddings 에 연결하므로 _first 에 등록된 tween 을 찾아 돌면서 tick() 함수를 호출하는 구조입니다. 
-  - tick 링크 삭제는 tick(t) 의 반환값이 true 를 라면 LinkedList 에서 삭제되면서 tick 호출이 멈춥니다.
-    - **삭제 과정**
-      - update 함수는 기본적으로 _tickerListenerPaddings 을 돌면서 tick 함수를 계속 호출 합니다.
-      - n = _numListeners
-      - _tickerListenerPaddings 의 리스너를 p0, p1, … p9 라 부릅니다.
-      - 4개 tween 등록 후 update 함수 실행 결과
-        - n = 4, _first = 3
-        - p4 와 _first 를 링크합니다. (8개 이상이 될 경우 순환 되어야 하니까 연결합니다.)
-        - while(listener.nextListner != null) (이 곳에서 연결된 _first 를 찾아서 tick 을 호출합니다.)
-          - p4.next -> 3 -> 3.prev -> p4 (p4 -> _first 를 연결)
-          - [p0 -> p1] p0
-          - [p1 -> p2] p1
-          - [p2 -> p3] p2
-          - [p3 -> p4] p3
-          - [p4 -> p5] p4
-          - 3.tick(0.29) (<- 연결된 _first 의 tick 함수 호출)
-          - [p5 -> p6] 3
-          - 2.tick(0.29) (<- _first 에 연결된 LinkedList 가 순차 호출)
-          - [p6 -> p7] 2
-          - 1.tick(0.29) (<- _first 에 연결된 LinkedList 가 순차 호출)
-          - [p7 -> p8] 1
-          - 0.tick(0.29) (<- 0 tween 이 종료되어 tick 함수 리턴이 true 로 반환된 상태)
-            - linked 1.next -> null
-          - p4.next -> p5 , _first: 3 (update 함수 종료 시 p4의 next 를 원래대로 p5로 변경)
-      - 중간에 링크 삭제 시 함수 흐름
-        - 중간에 0, 1 이 삭제되고 3, 2 LinkedList 만 남은 경우
-        - n = 6, _first = 3
-          - p6.next -> 3 -> 3.prev -> p6
-          - [p0 -> p1] p0
-          - [p1 -> p2] p1
-          - [p2 -> p3] p2
-          - [p3 -> p4] p3
-          - [p4 -> p5] p4
-          - [p5 -> p6] p5
-          - [p6 -> p7] p6
-          - 3.tick(0.525) (<- _first tick 호출 결과 트윈이 종료 되어서 새로운 링크 연결)
-            - linked p6.next -> 2 (<- 남은 2를 연결)
-            - linked 2.prev -> p6
-          - **[p7 -> p8] p6 (<- 삭제 이후 다시 p6 를 진입시킵니다. p6.next 인 2가 호출되도록)**
-          - 2.tick(0.525)
-          - p6.next -> p7 , _first: 2
+- addTickerListener
+  - addTickerListener 를 통해 tween 을 등록합니다. 등록되면 duration 이 끝날때 까지 tick 함수가 반복 호출됩니다. 등록되는 과정에서 tween 들 끼리 LinkedList 를 구성하며 맨 마지막 등록된 tween 을 _first 에 대입합니다. 
+- update
+  - update 함수는 EnterFrame 으로 반복 호출됩니다. update 함수는 _tickerListenerPaddings 의 리스너를 모두 돌면서 nextListener 가 있으면 tick() 함수를 호출합니다. 만약 _first 가 있으면 _tickerListenerPaddings 에 연결하므로 _first 에 등록된 tween 을 찾아 돌면서 tick() 함수를 호출하는 구조입니다. 
+- tick 링크 삭제는 tick(t) 의 반환값이 true 를 라면 LinkedList 에서 삭제되면서 tick 호출이 멈춥니다.
+  - **삭제 과정**
+    - update 함수는 기본적으로 _tickerListenerPaddings 을 돌면서 tick 함수를 계속 호출 합니다.
+    - n = _numListeners
+    - _tickerListenerPaddings 의 리스너를 p0, p1, … p9 라 부릅니다.
+    - 4개 tween 등록 후 update 함수 실행 결과
+      - n = 4, _first = 3
+      - p4 와 _first 를 링크합니다. (8개 이상이 될 경우 순환 되어야 하니까 연결합니다.)
+      - while(listener.nextListner != null) (이 곳에서 연결된 _first 를 찾아서 tick 을 호출합니다.)
+        - p4.next -> 3 -> 3.prev -> p4 (p4 -> _first 를 연결)
+        - [p0 -> p1] p0
+        - [p1 -> p2] p1
+        - [p2 -> p3] p2
+        - [p3 -> p4] p3
+        - [p4 -> p5] p4
+        - 3.tick(0.29) (<- 연결된 _first 의 tick 함수 호출)
+        - [p5 -> p6] 3
+        - 2.tick(0.29) (<- _first 에 연결된 LinkedList 가 순차 호출)
+        - [p6 -> p7] 2
+        - 1.tick(0.29) (<- _first 에 연결된 LinkedList 가 순차 호출)
+        - [p7 -> p8] 1
+        - 0.tick(0.29) (<- 0 tween 이 종료되어 tick 함수 리턴이 true 로 반환된 상태)
+          - linked 1.next -> null
+        - p4.next -> p5 , _first: 3 (update 함수 종료 시 p4의 next 를 원래대로 p5로 변경)
+    - 중간에 링크 삭제 시 함수 흐름
+      - 중간에 0, 1 이 삭제되고 3, 2 LinkedList 만 남은 경우
+      - n = 6, _first = 3
+        - p6.next -> 3 -> 3.prev -> p6
+        - [p0 -> p1] p0
+        - [p1 -> p2] p1
+        - [p2 -> p3] p2
+        - [p3 -> p4] p3
+        - [p4 -> p5] p4
+        - [p5 -> p6] p5
+        - [p6 -> p7] p6
+        - 3.tick(0.525) (<- _first tick 호출 결과 트윈이 종료 되어서 새로운 링크 연결)
+          - linked p6.next -> 2 (<- 남은 2를 연결)
+          - linked 2.prev -> p6
+        - **[p7 -> p8] p6 (<- 삭제 이후 다시 p6 를 진입시킵니다. p6.next 인 2가 호출되도록)**
+        - 2.tick(0.525)
+        - p6.next -> p7 , _first: 2
 
 <br>
 
@@ -520,27 +521,27 @@ if (time >= 0) {
 
 #### BIT FLAG
 
-##### 비트 켜기 (BIT ON)
+###### 비트 켜기 (BIT ON)
 
 - `플래그 |= 마스크`
 - `flag |= 0x0001`
 - `00000000 00000000 | 00000000 00000001 = 00000000 00000001`
 - `OR 연산은 0 | 1 과 1 | 1 은 1인 속성을 이용, 비트가 꺼져있으면 켜고, 켜져 있으면 그대로 유지합니다.`
 
-##### 비트 끄기 (BIT OFF)
+###### 비트 끄기 (BIT OFF)
 
 - `플래그 &= ~마스크`
 - `flag &= ~0x0001`
 - `00000000 00000011 & 11111111 11111110 = 00000000 00000010`
 - `AND 연산은 1 | 1 인것만 1이 되므로 기존에 켜져있으면 그대로 켜고 나머지는 꺼지게 된다.`
 
-##### 비트 토글 (BIT TOGGLE)
+###### 비트 토글 (BIT TOGGLE)
 
 - `플래그 ^= 마스크`
 - `flag ^= 0x0001`
 - `XOR 연산은 두 비트가 다르면 1, 같으면 0으로 변환합니다. 즉, 켜져 있으면 끄고 꺼져있으면 켭니다.`
 
-##### 비트 상태 확인 (BIT CHECK)
+###### 비트 상태 확인 (BIT CHECK)
 
 - `플래그 & 마스크`
 - `flag & 0x0001`
