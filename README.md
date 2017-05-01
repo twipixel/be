@@ -382,11 +382,13 @@ tween(target:Object, to:Object, from:Object = null, time:Number = 1.0, easing:IE
 
 - _tickerListenerPaddings 생성
 
-  - | [0]  | prev = null | next = [1]  |
-    | ---- | ----------- | ----------- |
-    | [1]  | prev = [0]  | next = [2]  |
-    | [2]  | prev = [1]  | next = [3]  |
-    | [9]  | prev = [8]  | next = null |
+  - | 생성 순서(index) | prevListener | nextListener |
+    | ------------ | ------------ | ------------ |
+    | [0]          | null         | 1            |
+    | [1]          | 0            | 2            |
+    | [2]          | 1            | 3            |
+    | [n]          | n - 1        | n + 1        |
+    | [9]          | 8            | null         |
 
 
 - AbstractTween.tick(t) 호출 과정
