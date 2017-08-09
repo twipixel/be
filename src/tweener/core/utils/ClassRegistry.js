@@ -200,7 +200,9 @@ export default class ClassRegistry
          * 현재로서는 다른 대안이 없습니다.
          */
         try {
-            prototype = Object.getPrototypeOf(new c());
+            prototype = klass.prototype;
+            console.log('prototype', prototype);
+            //prototype = Object.getPrototypeOf(new c());
         }
         catch (error) {
             return [klass, Object];

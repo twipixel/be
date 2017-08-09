@@ -27,6 +27,8 @@ import Quint from '../../src/tweener/easing/Quint';
 import Quintic from '../../src/tweener/easing/Quintic';
 import Sine from '../../src/tweener/easing/Sine';
 
+import Icon from './Icon';
+
 
 let path, icon, controlPoint, controlPointSize, controlPointColor;
 
@@ -48,7 +50,8 @@ export default class Test
 
     initialize()
     {
-        icon = this.icon = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
+        //icon = this.icon = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
+        icon = this.icon = new Icon('../../asset/image/icon/github.png');
         this.stage.addChild(this.icon);
 
         path = this.path = new PIXI.Graphics();

@@ -595,7 +595,7 @@ class DisplayObjectParameter
         this.relativeFlags = 0;
         this.x = undefined;
         this.y = undefined;
-        this.scale = undefined;
+        this.scaleX = undefined;
         this.scaleY = undefined;
         this.rotation = undefined;
         this.alpha = undefined;
