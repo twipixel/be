@@ -9,10 +9,12 @@
 ###### 지원 속성
 
 - ###### Point
+
   - x, y
 
 
 - ###### DisplayObject
+
   - x, y
   - scaleX, scaleY
   - rotation
@@ -20,7 +22,9 @@
   - width, height
   - skewX, skewY
 
-##### <br>
+#### 주의사항
+
+만약 PIXI.DisplayObject에서 **scaleX, scaleY, skewX, skewY** 같은 속성이 동작하지 않는다면 라이브러리 추가 순서를 확인해주세요. PIXI 라이브러리를 먼저 추가하고 Be 라이브러리를 추가해야 DisplayObjectUpdater 가 정상 동작 합니다. 
 
 <br>
 
