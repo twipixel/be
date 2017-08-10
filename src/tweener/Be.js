@@ -66,7 +66,7 @@ PointUpdater.register(_updaterClassRegistry);
 
 export default class Be
 {
-    static get VERSION() { return '0.2 (Alpha)' }
+    static get VERSION() { return '0.9.2 (Beta)' }
 
     /**
      *
