@@ -1,5 +1,8 @@
 #### 할일
 
+- 데모 페이지 정리 하기
+  - Tween
+  - Easing (Graph)
 - 필터 테스트
   - _blurFilter
   - _blurXFilter
