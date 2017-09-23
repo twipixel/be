@@ -10,13 +10,14 @@
         }
     </style>
     <meta charset="UTF-8">
-    <title>Tween</title>
+    <title>Create</title>
 </head>
 
 <body>
 
 <script type="text/javascript" src="./../../external/lib/test.common.js"></script>
 <script type="text/javascript" src="./../../external/vendor/pixi.min.js"></script>
+
 <script>
     (function(){
         addScriptToBodySync('./../../external/vendor/dat.gui.js');
@@ -29,9 +30,10 @@
         else {
             // commons 은 build 할 때 생성합니다.
             addScriptToHeadSync('./../bundle/commons.js');
-            addScriptToBodySync('./../bundle/tween.js');
+            addScriptToBodySync('./../bundle/create.js');
         }
     })();
+
 </script>
 
 </body>

@@ -50,7 +50,6 @@ export default class Test
 
     initialize()
     {
-        //icon = this.icon = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
         icon = this.icon = new Icon('../../asset/image/icon/github.png');
         this.stage.addChild(this.icon);
 
