@@ -1,126 +1,90 @@
 
+const spaceY = 20;
+const lineThickness = 1.5;
+const lineColor = 0x009dec;
+const bgColor = 0xFAFAFA;
+const outLineColor = 0xE6E6E6;
+const outLineThickness = 0.5;
 
 
-export default class Graph extends PIXI.Sprite
+export default class Graph extends PIXI.Container
 {
-    constructor(width = 100, height = 100, easeIn = null, easeOut = null, easeInOut = null, easeOutIn = null)
+    constructor(width = 100, height = 100, easing = null)
     {
         super();
-        this.initialize();
+        this.g = new PIXI.Graphics();
+        this.addChild(this.g);
 
+        this.value = 0;
+        this.easing = easing;
+        this.spaceY = spaceY * 2;
         this.graphWidth = width;
         this.graphHeight = height;
-
-        this.easeIn = easeIn;
-        this.easeOut = easeOut;
-        this.easeInOut = easeInOut;
-        this.easeOutIn = easeOutIn;
-    }
-
-
-    initialize()
-    {
-        this.graphics = this.g = new PIXI.Graphics();
-        this.addChild(this.graphics);
     }
 
 
     draw()
     {
-        this.g.clear();
-
-        this.drawEasing(this.easeIn);
-        this.drawEasing(this.easeOut);
-        this.drawEasing(this.easeInOut);
-        this.drawEasing(this.easeOutIn);
-    }
-
-
-    drawEasing(easing)
-    {
-        if (!easing) {
+        if (!this.easing) {
             return;
         }
 
+        this.g.clear();
+        this.drawOutLine();
 
-        var target = new PIXI.Sprite();
+        this.lastPoint = {x:0, y: this.graphHeight - spaceY};
+        this.g.lineStyle(lineThickness, lineColor);
+        this.g.moveTo(this.lastPoint.x, this.lastPoint.y);
 
-        target.scaleX = 0;
+        var tween = Be.tween(this, {value: 1}, {value: 0}, 1, this.easing);
 
-
-        var tween = Be.tween(target, {scaleX: 1}, {scaleX:0}, 2, easing);
-
-        // x가 time, y가 value
-
-        tween.onUpdate = (value) => {
-            // console.log('upate', 'value', target.value, 'time', tween.position, tween.time);
+        tween.onUpdate = () => {
+            this.drawGraph(tween.position, this.value);
         };
 
-        tween.onComplete = (value) => {
-            // console.log('complete', 'value', target.value, 'time', tween.position, tween.time);
-            console.log('scaleX', target.scaleX);
+        tween.onComplete = () => {
+            this.drawGraph(tween.position, this.value);
         };
 
         tween.play();
     }
 
 
-    set value(value)
+    drawOutLine()
     {
-        this._value = value;
+        console.log('drawOut');
+        this.g.beginFill(bgColor);
+        this.g.drawRect(0, 0, this.graphWidth, this.graphHeight);
+        this.g.endFill();
+
+        this.g.lineStyle(outLineThickness, outLineColor);
+        this.g.moveTo(0, spaceY);
+        this.g.lineTo(this.graphWidth, spaceY);
+        this.g.moveTo(0, this.graphHeight - spaceY);
+        this.g.lineTo(this.graphWidth, this.graphHeight - spaceY);
     }
 
 
-    get value()
+    /**
+     * x축이 time, y축이 value
+     * @param time x축
+     * @param value y축
+     */
+    drawGraph(time, value)
     {
-        return this._value;
+        var x = time * this.graphWidth,
+            y = (this.graphHeight - spaceY) - (value * this.realGraphHeight);
+
+        this.g.moveTo(this.lastPoint.x, this.lastPoint.y );
+        this.g.lineTo(x, y);
+
+        this.lastPoint.x = x;
+        this.lastPoint.y = y;
     }
 
 
-    set easeIn(value)
+    get realGraphHeight()
     {
-        this._easeIn = value;
-    }
-
-
-    get easeIn()
-    {
-        return this._easeIn;
-    }
-
-
-    set easeOut(value)
-    {
-        this._easeOut = value;
-    }
-
-
-    get easeOut()
-    {
-        return this._easeOut;
-    }
-
-
-    set easeInOut(value)
-    {
-        this._easeInOut = value;
-    }
-
-
-    get easeInOut()
-    {
-        return this._easeInOut;
-    }
-
-
-    set easeOutIn(value)
-    {
-        this._easeOutIn = value;
-    }
-
-
-    get easeOutIn()
-    {
-        return this._easeOutIn;
+        return this.graphHeight - this.spaceY;
     }
 }

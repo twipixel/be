@@ -1,41 +1,45 @@
-import Graph from "./Graph";
+import {
+    animation,
+    requestAnimationFrame,
+    cancelAnimationFrame,
+    Easing
+} from './../../external/lib/animation';
 
+import Graph from "./Graph";
+import GraphItem from "./GraphItem";
+
+const list = [];
 
 export default class Test
 {
     constructor()
     {
-        this.app = new PIXI.Application(800, 600, {backgroundColor : 0x8BC34A});
+        this.app = new PIXI.Application(800, 600, {forceCanvas: true, backgroundColor: 0xFFFFFF, antialias: true});
         document.body.appendChild(this.app.view);
 
         this.canvas = this.app.renderer.view;
         this.stage = this.app.stage;
-
-        this.initialize();
-        this.initializeGUI();
+        
         this.render();
+
+        setTimeout(this.initialize.bind(this), 1500);
     }
 
 
     initialize()
     {
-        var graph = new Graph(100, 100, Quad.easeInOut);
-        this.stage.addChild(graph);
-
-        graph.draw();
+        var item = new GraphItem('Elastic.easeOut', Elastic.easeOut, 4, 4);
+        item.y = 20;
+        this.stage.addChild(item);
+        console.log('item[', item.width, item.height, ']');
     }
 
-
-    initializeGUI()
-    {
-        // this.gui = new dat.GUI();
-        // this.config = {};
-    }
 
     update(ms)
     {
         this.app.render(this.stage);
     }
+
 
     render(ms)
     {
