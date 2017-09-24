@@ -50,6 +50,12 @@ import FunctionAction from './core/tweens/actions/FunctionAction';
 
 
 /**
+ * 업데이터 등록 여부
+ * @type {boolean}
+ */
+let isRegist = false;
+
+/**
  * @type {EnterFrameTicker}
  * @private
  */
@@ -66,7 +72,23 @@ PointUpdater.register(_updaterClassRegistry);
 
 export default class Be
 {
-    static get VERSION() { return '0.9.2 (Beta)' }
+    static get VERSION() { return '0.9.3 (Beta)' }
+
+    /**
+     * 업데이터 등록
+     * PIXI 라이브러리를 Be 라이브러리 보다 먼저 등록한 경우
+     * DisplayObjecter 에서 PIXI.DisplayObject 를 못 찾는 경우를 위해서
+     * Be static 함수에서 다시 한번 업데이터를 등록하도록 하였습니다.
+     */
+    static registUpdater()
+    {
+        if (isRegist === false) {
+            ObjectUpdater.register(_updaterClassRegistry);
+            DisplayObjectUpdater.register(_updaterClassRegistry);
+            PointUpdater.register(_updaterClassRegistry);
+            isRegist = true;
+        }
+    }
 
     /**
      *
@@ -79,6 +101,8 @@ export default class Be
      */
     static tween(target, to, from = null, time = 1.0, easing = null)
     {
+        Be.registUpdater();
+
         var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.create(target, to, from);
         tween.time = time;
@@ -96,6 +120,8 @@ export default class Be
      */
     static to(target, to, time = 1.0, easing = null)
     {
+        Be.registUpdater();
+
         var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.create(target, to, null);
         tween.time = time;
@@ -113,6 +139,8 @@ export default class Be
      */
     static from(target, from, time = 1.0, easing = null)
     {
+        Be.registUpdater();
+
         var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.create(target, null, from);
         tween.time = time;
@@ -131,6 +159,8 @@ export default class Be
      */
     static apply(target, to, from = null, time = 1.0, applyTime = 1.0, easing = null)
     {
+        Be.registUpdater();
+
         var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.create(target, to, from);
         tween.time = time;
@@ -150,6 +180,8 @@ export default class Be
      */
     static bezier(target, to, from = null, controlPoint = null, time = 1.0, easing = null)
     {
+        Be.registUpdater();
+
         var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.createBezier(target, to, from, controlPoint);
         tween.time = time;
@@ -168,6 +200,8 @@ export default class Be
      */
     static bezierTo(target, to, controlPoint = null, time = 1.0, easing = null)
     {
+        Be.registUpdater();
+
         var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.createBezier(target, to, null, controlPoint);
         tween.time = time;
@@ -186,6 +220,8 @@ export default class Be
      */
     static bezierFrom(target, from, controlPoint = null, time = 1.0, easing = null)
     {
+        Be.registUpdater();
+
         var tween = new ObjectTween(_ticker);
         tween.updater = _updaterFactory.createBezier(target, null, from, controlPoint);
         tween.time = time;
@@ -203,6 +239,8 @@ export default class Be
      */
     static physical(target, to, from = null, easing = null)
     {
+        Be.registUpdater();
+
         var tween = new PhysicalTween(_ticker);
         tween.updater = _updaterFactory.createPhysical(target, to, from, easing || Physical.exponential());
         return tween;
@@ -217,6 +255,8 @@ export default class Be
      */
     static physicalTo(target, to, easing = null)
     {
+        Be.registUpdater();
+
         var tween = new PhysicalTween(_ticker);
         tween.updater = _updaterFactory.createPhysical(target, to, null, easing || Physical.exponential());
         return tween;
@@ -231,6 +271,8 @@ export default class Be
      */
     static physicalFrom(target, from, easing = null)
     {
+        Be.registUpdater();
+
         var tween = new PhysicalTween(_ticker);
         tween.updater = _updaterFactory.createPhysical(target, null, from, easing || Physical.exponential());
         return tween;
@@ -246,6 +288,8 @@ export default class Be
      */
     static physicalApply(target, to, from = null, applyTime = 1.0, easing = null)
     {
+        Be.registUpdater();
+
         var tween = new PhysicalTween(_ticker);
         tween.updater = _updaterFactory.createPhysical(target, to, from, easing || Physical.exponential());
         tween.update(applyTime);
@@ -258,6 +302,8 @@ export default class Be
      */
     static parallel(...tweens)
     {
+        Be.registUpdater();
+
         return Be.parallelTweens(tweens);
     }
 
@@ -268,6 +314,8 @@ export default class Be
      */
     static parallelTweens(tweens)
     {
+        Be.registUpdater();
+
         return new ParallelTween(tweens, _ticker, 0);
     }
 
@@ -278,6 +326,8 @@ export default class Be
      */
     static serial(...tweens)
     {
+        Be.registUpdater();
+
         return Be.serialTweens(tweens);
     }
 
@@ -288,6 +338,8 @@ export default class Be
      */
     static serialTweens(tweens)
     {
+        Be.registUpdater();
+
         return new SerialTween(tweens, _ticker, 0);
     }
 
@@ -299,6 +351,8 @@ export default class Be
      */
     static reverse(tween, reversePosition = true)
     {
+        Be.registUpdater();
+
         var pos = reversePosition ? tween.duration - tween.position : 0.0;
         if (tween instanceof ReversedTween) {
         return new TweenDecorator((tween).baseTween, pos);
@@ -317,6 +371,8 @@ export default class Be
      */
     static repeat(tween, repeatCount)
     {
+        Be.registUpdater();
+
         return new RepeatedTween(tween, repeatCount);
     }
 
@@ -328,6 +384,8 @@ export default class Be
      */
     static scale(tween, scale)
     {
+        Be.registUpdater();
+
         return new ScaledTween(tween, scale);
     }
 
@@ -341,6 +399,8 @@ export default class Be
      */
     static slice(tween, begin, end, isPercent = false)
     {
+        Be.registUpdater();
+
         if (isPercent === true) {
             begin = tween.duration * begin;
             end = tween.duration * end;
@@ -360,6 +420,8 @@ export default class Be
      */
     static delay(tween, delay, postDelay = 0.0)
     {
+        Be.registUpdater();
+
         return new DelayedTween(tween, delay, postDelay);
     }
 
@@ -371,6 +433,8 @@ export default class Be
      */
     static addChild(target, parent)
     {
+        Be.registUpdater();
+
         return new AddChildAction(_ticker, target, parent);
     }
 
@@ -381,6 +445,8 @@ export default class Be
      */
     static removeFromParent(target)
     {
+        Be.registUpdater();
+
         return new RemoveFromParentAction(_ticker, target);
     }
 
@@ -395,6 +461,8 @@ export default class Be
      */
     static func(func, params = null, useRollback = false, rollbackFunc = null, rollbackParams = null)
     {
+        Be.registUpdater();
+
         return new FunctionAction(_ticker, func, params, useRollback, rollbackFunc, rollbackParams);
     }
 }

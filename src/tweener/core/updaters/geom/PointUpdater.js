@@ -44,10 +44,10 @@ export default class PointUpdater extends AbstractUpdater
      */
     static register(registry)
     {
-        if(typeof PIXI === 'undefined' || PIXI === null) {
-            registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, Point, TARGET_PROPERTIES);
-        }
-        else {
+        registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, Point, TARGET_PROPERTIES);
+        registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, Vector, TARGET_PROPERTIES);
+
+        if(typeof PIXI !== 'undefined') {
             registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, PIXI.Point, TARGET_PROPERTIES);
         }
     }
@@ -254,6 +254,11 @@ export default class PointUpdater extends AbstractUpdater
 }
 
 class Point
+{
+
+}
+
+class Vector
 {
 
 }

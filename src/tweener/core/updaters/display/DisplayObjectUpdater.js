@@ -60,10 +60,9 @@ export default class DisplayObjectUpdater extends AbstractUpdater
      */
     static register(registry)
     {
-        if(typeof PIXI === 'undefined' || PIXI === null) {
-            registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, DisplayObject, TARGET_PROPERTIES);
-        }
-        else {
+        registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, DisplayObject, TARGET_PROPERTIES);
+
+        if(typeof PIXI !== 'undefined') {
             registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, PIXI.DisplayObject, TARGET_PROPERTIES);
         }
     }

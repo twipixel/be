@@ -1,8 +1,8 @@
-#### [BetweenAS3](https://github.com/hyoshida/BetweenAS3) 를 JavaScript 버전으로 변환하였습니다. 
+#### [BetweenAS3](https://github.com/hyoshida/BetweenAS3) 를 JavaScript 로 변환하였습니다. 
 
-###### PointUpdater, DisplayObjectUpdater는 [Pixi.js](https://github.com/pixijs/pixi.js)의 PIXI.Point, PIXI.DisplayObject 를 지원합니다. 
+###### [Pixi.js](https://github.com/pixijs/pixi.js)의 PIXI.Point, PIXI.DisplayObject 를 지원합니다. 
 
-###### 또는 Point와 DisplayObject 클래스로 작성된 경우 아래의 속성을 지원합니다.
+###### Point와 DisplayObject는 아래의 속성을 지원합니다.
 
 <br>
 
@@ -16,15 +16,13 @@
 - ###### DisplayObject
 
   - x, y
-  - scaleX, scaleY
+  - width
+  - height
+  - alpha 
   - rotation
-  - alpha
-  - width, height
   - skewX, skewY
-
-#### 주의사항
-
-만약 PIXI.DisplayObject에서 **scaleX, scaleY, skewX, skewY** 같은 속성이 동작하지 않는다면 라이브러리 추가 순서를 확인해주세요. PIXI 라이브러리를 먼저 추가하고 Be 라이브러리를 추가해야 DisplayObjectUpdater 가 정상 동작 합니다. 
+  - scaleX, scaleY
+  
 
 <br>
 
