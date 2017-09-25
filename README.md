@@ -1,4 +1,4 @@
-#### [BetweenAS3](https://github.com/hyoshida/BetweenAS3) 를 JavaScript 로 변환하였습니다. 
+#### [BetweenAS3](https://github.com/hyoshida/BetweenAS3)를 JavaScript에서 사용 가능하도록 변환하였습니다. 
 
 ###### [Pixi.js](https://github.com/pixijs/pixi.js)의 PIXI.Point, PIXI.DisplayObject 를 지원합니다. 
 

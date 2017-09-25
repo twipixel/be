@@ -33,7 +33,7 @@ class Main
 
     onResize()
     {
-
+        //this.test.resize();
     }
 
     onKeyUp (e)
