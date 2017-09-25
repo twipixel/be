@@ -30,34 +30,34 @@
 
 ###### tween
 
-- ```javascript
+  ```javascript
   var tween = Be.tween(this.icon, {x: 250, y: 250}, {x: 0}, 2, Quad.easeInOut);
   tween.play();
   ```
 
 ###### to
 
-- ```javascript
+  ```javascript
   var tween = Be.to(this.icon, {x: 300, y: 250}, 2, Elastic.easeInOut);
   tween.play();
   ```
 
 ###### from
 
-- ```
+  ```
   var tween = Be.from(this.icon, {x: 800, y: 600}, 2, Bounce.easeOut);
   tween.play();
   ```
 
 ###### apply
 
-- ```javascript
+  ```javascript
   Be.apply(this.icon, {x: 250, y: 250}, {x: 0}, 2, 0.5, Sine.easeOut);
   ```
 
 ###### bezier, bezierTo, bezierFrom
 
-- ```javascript
+  ```javascript
   var tween = Be.bezier(this.icon, {x: 400, y: 400}, {x: icon.x, y: icon.y}, {
       x: controlPoint.x,
       y: controlPoint.y
@@ -79,7 +79,7 @@
 
 ###### physical, physicalTo, physicalFrom
 
-- ```javascript
+  ```javascript
   var uniform = Be.physical(icon, {x: 400, y: 100}, {x: 0, y: 0}, Physical.uniform(12));
   uniform.onPlay = () => {
       console.log('onPlay');
@@ -117,13 +117,13 @@
 
 ###### physicalApply
 
-- ```javascript
+  ```javascript
   Be.physicalApply(icon, {x: 400, y: 100}, {x: 0, y: 0}, 0.5, Physical.uniform(12));
   ```
 
 ###### parallel
 
-- ```javascript
+  ```javascript
   var move = Be.tween(icon, {x: 400}, {x: 100}, 2, Expo.easeOut);
   var scale1 = Be.tween(icon, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
   var scale2 = Be.tween(icon, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
@@ -135,7 +135,7 @@
 
 ###### parallelTweens
 
-- ```javascript
+  ```javascript
   var tweens = [move, scale1, scale2, scale3, scale4];
   var group = Be.parallelTweens(tweens);
   group.play();
@@ -143,7 +143,7 @@
 
 ###### serial
 
-- ```javascript
+  ```javascript
   var time = 0.2;
   var move1 = Be.to(icon, {x: 400, y: 400}, time, Back.easeOut);
   var move2 = Be.to(icon, {x: 0, y: 0}, time, Exponential.easeOut);
@@ -156,7 +156,7 @@
 
 ###### serialTweens
 
-- ```javascript
+  ```javascript
   var tweens = [move1, move2, move3, move4, move5];
   var group = Be.serialTweens(tweens);
   group.play();
@@ -164,7 +164,7 @@
 
 ###### reverse
 
-- ```javascript
+  ```javascript
   var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
   var reverse = Be.reverse(tween, true);
   reverse.play();
@@ -172,7 +172,7 @@
 
 ###### repeat
 
-- ```javascript
+  ```javascript
   var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
   var repeat = Be.repeat(tween, 3);
   repeat.play();
@@ -180,7 +180,7 @@
 
 ###### scale
 
-- ```javascript
+  ```javascript
   var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
   var scale = Be.scale(tween, 3);
   scale.play();
@@ -188,7 +188,7 @@
 
 ###### slice
 
-- ```javascript
+  ```javascript
   var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
   var slice = Be.slice(tween, 0.1, 0.6);
   slice.play();
@@ -196,7 +196,7 @@
 
 ###### delay
 
-- ```javascript
+  ```javascript
   var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
   var delay = Be.delay(tween, 2, 1);
   delay.play();
@@ -204,7 +204,7 @@
 
 ###### addChildAction
 
-- ```javascript
+  ```javascript
   var panda = new PIXI.Sprite.fromImage('../../asset/image/icon/panda.png');
   var addChildAction = Be.addChild(panda, this.stage);
   var to = Be.to(panda, {x: 400, y: 400, scaleX: 2, scaleY: 2, skewX: 2, skewY: 2}, 2, Bounce.easeOut);
@@ -215,7 +215,7 @@
 
 ###### removeFromParent
 
-- ```javascript
+  ```javascript
   var p, w = this.canvas.width, h = this.canvas.height;
 
   for (var i = 0; i < 200; i++) {
@@ -249,7 +249,7 @@
 
 ###### func
 
-- ```javascript
+  ```javascript
   var stage = this.stage,
       canvas = this.canvas,
       points = getPoint(100);
