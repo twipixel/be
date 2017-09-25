@@ -1,6 +1,6 @@
 
 
-export default class Icon extends PIXI.Container
+export default class Image extends PIXI.Container
 {
     constructor(url)
     {

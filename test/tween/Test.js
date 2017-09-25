@@ -5,10 +5,10 @@ import {
     Easing
 } from './../../external/lib/animation';
 
-import Icon from './Icon';
+import Image from './Image';
 
 
-let path, icon, controlPoint, controlPointSize, controlPointColor;
+let minion, control, from, to, path;
 
 
 export default class Test
@@ -26,27 +26,30 @@ export default class Test
         this.render();
     }
 
+
     initialize()
     {
-        icon = this.icon = new Icon('../../asset/image/m7.png');
-        icon.on('ready', () => {
-            icon.width = 200;
-            icon.scale.y = icon.scale.x;
+        this.render = this.render.bind(this);
+
+        minion = new Image('../../asset/image/m7.png');
+        minion.on('ready', () => {
+            minion.width = 200;
+            minion.scale.y = minion.scale.x;
         });
 
-        this.stage.addChild(this.icon);
+        to = new PIXI.Graphics();
+        from = new PIXI.Graphics();
+        path = new PIXI.Graphics();
+        control = new PIXI.Graphics();
 
-        path = this.path = new PIXI.Graphics();
-        this.stage.addChild(this.path);
+        this.stage.addChild(to);
+        this.stage.addChild(from);
+        this.stage.addChild(path);
+        this.stage.addChild(control);
 
-        controlPointColor = this.controlPointColor = 0x4CAF50;
-        controlPointSize = this.controlPointSize = 5;
-        controlPoint = this.controlPoint = new PIXI.Graphics();
-        this.controlPoint.beginFill(this.controlPointColor);
-        this.controlPoint.drawRect(0, 0, this.controlPointSize, this.controlPointSize);
-        this.controlPoint.endFill();
-        this.stage.addChild(this.controlPoint);
+        this.stage.addChild(minion);
     }
+
 
     initializeGUI()
     {
@@ -110,61 +113,66 @@ export default class Test
         this.gui.add(this.config, 'func');
     }
 
-    update(ms)
-    {
 
-    }
+    update(ms) {}
+
 
     render(ms)
     {
         this.update(ms);
-        this.requestId = requestAnimationFrame(this.render.bind(this));
+        requestAnimationFrame(this.render);
     }
+
 
     tween()
     {
         path.clear();
-        var tween = Be.tween(this.icon, {x: 250, y: 250}, {x: 0}, 2, Quad.easeInOut);
+        var tween = Be.tween(minion, {x: 250, y: 250}, {x: 0}, 2, Quad.easeInOut);
         tween.play();
     }
+
 
     to()
     {
         path.clear();
-        var tween = Be.to(this.icon, {x: 300, y: 250}, 2, Elastic.easeInOut);
+        var tween = Be.to(minion, {x: 300, y: 250}, 2, Elastic.easeInOut);
         tween.play();
     }
+
 
     from()
     {
         path.clear();
-        var tween = Be.from(this.icon, {x: 800, y: 600}, 2, Bounce.easeOut);
+        var tween = Be.from(minion, {x: 800, y: 600}, 2, Bounce.easeOut);
         tween.play();
     }
+
 
     apply()
     {
         path.clear();
-        Be.apply(this.icon, {x: 250, y: 250}, {x: 0}, 2, 0.5, Sine.easeOut);
+        Be.apply(minion, {x: 250, y: 250}, {x: 0}, 2, 0.5, Sine.easeOut);
     }
+
 
     bezier()
     {
         path.clear();
-        controlPoint.x = 0;
-        controlPoint.y = 200;
+        control.x = 0;
+        control.y = 200;
 
-        var tween = Be.bezier(this.icon, {x: 400, y: 400}, {x: icon.x, y: icon.y}, {
-            x: controlPoint.x,
-            y: controlPoint.y
+        var tween = Be.bezier(minion, {x: 400, y: 400}, {x: minion.x, y: minion.y}, {
+            x: control.x,
+            y: control.y
         }, 2, Quad.easeOut);
+
         tween.onPlay = () => {
             console.log('onPlay');
         };
         tween.onUpdate = () => {
-            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            console.log(`onUpdate (${minion.x}, ${minion.y} )`);
             path.beginFill(controlPointColor);
-            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.drawRect(minion.x, minion.y, controlPointSize, controlPointSize);
             path.endFill();
         };
         tween.onComplete = () => {
@@ -172,21 +180,22 @@ export default class Test
         };
         tween.play();
     }
+
 
     bezierTo()
     {
         path.clear();
-        controlPoint.x = 0;
-        controlPoint.y = 200;
+        control.x = 0;
+        control.y = 200;
 
-        var tween = Be.bezierTo(this.icon, {x: 400, y: 0}, {x: controlPoint.x, y: controlPoint.y}, 2, Quadratic.easeIn);
+        var tween = Be.bezierTo(minion, {x: 400, y: 0}, {x: control.x, y: control.y}, 2, Quadratic.easeIn);
         tween.onPlay = () => {
             console.log('onPlay');
         };
         tween.onUpdate = () => {
-            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            console.log(`onUpdate (${minion.x}, ${minion.y} )`);
             path.beginFill(controlPointColor);
-            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.drawRect(minion.x, minion.y, controlPointSize, controlPointSize);
             path.endFill();
 
         };
@@ -195,21 +204,22 @@ export default class Test
         };
         tween.play();
     }
+
 
     bezierFrom()
     {
         path.clear();
-        controlPoint.x = 200;
-        controlPoint.y = 0;
+        control.x = 200;
+        control.y = 0;
 
-        var tween = Be.bezierTo(this.icon, {x: 0, y: 400}, {x: controlPoint.x, y: controlPoint.y}, 2, Quadratic.easeIn);
+        var tween = Be.bezierTo(minion, {x: 0, y: 400}, {x: control.x, y: control.y}, 2, Quadratic.easeIn);
         tween.onPlay = () => {
             console.log('onPlay');
         };
         tween.onUpdate = () => {
-            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            console.log(`onUpdate (${minion.x}, ${minion.y} )`);
             path.beginFill(controlPointColor);
-            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.drawRect(minion.x, minion.y, controlPointSize, controlPointSize);
             path.endFill();
 
         };
@@ -219,20 +229,21 @@ export default class Test
         tween.play();
     }
 
+
     physical()
     {
         path.clear();
-        controlPoint.x = -10;
-        controlPoint.y = -10;
+        control.x = -10;
+        control.y = -10;
 
-        var uniform = Be.physical(icon, {x: 400, y: 100}, {x: 0, y: 0}, Physical.uniform(12));
+        var uniform = Be.physical(minion, {x: 400, y: 100}, {x: 0, y: 0}, Physical.uniform(12));
         uniform.onPlay = () => {
             console.log('onPlay');
         };
         uniform.onUpdate = () => {
-            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            console.log(`onUpdate (${minion.x}, ${minion.y} )`);
             path.beginFill(controlPointColor);
-            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.drawRect(minion.x, minion.y, controlPointSize, controlPointSize);
             path.endFill();
         };
         uniform.onComplete = () => {
@@ -260,22 +271,23 @@ export default class Test
         exponential.play();
     }
 
+
     physicalTo()
     {
         path.clear();
-        controlPoint.x = -10;
-        controlPoint.y = -10;
-        icon.x = 0;
-        icon.y = 0;
+        control.x = -10;
+        control.y = -10;
+        minion.x = 0;
+        minion.y = 0;
 
-        var uniform = Be.physicalTo(icon, {x: 400, y: 100}, Physical.uniform(12));
+        var uniform = Be.physicalTo(minion, {x: 400, y: 100}, Physical.uniform(12));
         uniform.onPlay = () => {
             console.log('onPlay');
         };
         uniform.onUpdate = () => {
-            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            console.log(`onUpdate (${minion.x}, ${minion.y} )`);
             path.beginFill(controlPointColor);
-            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.drawRect(minion.x, minion.y, controlPointSize, controlPointSize);
             path.endFill();
 
         };
@@ -304,20 +316,21 @@ export default class Test
         exponential.play();
     }
 
+
     physicalFrom()
     {
         path.clear();
-        controlPoint.x = -10;
-        controlPoint.y = -10;
+        control.x = -10;
+        control.y = -10;
 
-        var uniform = Be.physicalFrom(icon, {x: 0, y: 0}, Physical.uniform(12));
+        var uniform = Be.physicalFrom(minion, {x: 0, y: 0}, Physical.uniform(12));
         uniform.onPlay = () => {
             console.log('onPlay');
         };
         uniform.onUpdate = () => {
-            console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+            console.log(`onUpdate (${minion.x}, ${minion.y} )`);
             path.beginFill(controlPointColor);
-            path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
+            path.drawRect(minion.x, minion.y, controlPointSize, controlPointSize);
             path.endFill();
 
         };
@@ -331,8 +344,8 @@ export default class Test
         this.stage.addChild(icon1);
         this.stage.addChild(icon2);
 
-        icon.x = 400;
-        icon.y = 100;
+        minion.x = 400;
+        minion.y = 100;
         icon1.x = 400;
         icon1.y = 200;
         icon2.x = 400;
@@ -353,120 +366,131 @@ export default class Test
         exponential.play();
     }
 
+
     physicalApply()
     {
-        controlPoint.x = -10;
-        controlPoint.y = -10;
-        Be.physicalApply(icon, {x: 400, y: 100}, {x: 0, y: 0}, 0.5, Physical.uniform(12));
+        control.x = -10;
+        control.y = -10;
+        Be.physicalApply(minion, {x: 400, y: 100}, {x: 0, y: 0}, 0.5, Physical.uniform(12));
     }
+
 
     parallel()
     {
         path.clear();
-        controlPoint.x = -10;
-        controlPoint.y = -10;
+        control.x = -10;
+        control.y = -10;
 
         // 5개 이상일 경우 테스트
-        var move = Be.tween(icon, {x: 400}, {x: 100}, 2, Expo.easeOut);
-        var scale1 = Be.tween(icon, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var scale2 = Be.tween(icon, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var scale3 = Be.tween(icon, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var scale4 = Be.tween(icon, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
+        var move = Be.tween(minion, {x: 400}, {x: 100}, 2, Expo.easeOut);
+        var scale1 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
+        var scale2 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
+        var scale3 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
+        var scale4 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
         var group = Be.parallel(move, scale1, scale2, scale3, scale4);
         group.play();
     }
 
+
     parallelTweens()
     {
         path.clear();
-        controlPoint.x = -10;
-        controlPoint.y = -10;
+        control.x = -10;
+        control.y = -10;
 
         // 5개 이상일 경우 테스트
-        var move = Be.tween(icon, {x: 400}, {x: 100}, 2, Expo.easeOut);
-        var scale1 = Be.tween(icon, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var scale2 = Be.tween(icon, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var scale3 = Be.tween(icon, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var scale4 = Be.tween(icon, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
+        var move = Be.tween(minion, {x: 400}, {x: 100}, 2, Expo.easeOut);
+        var scale1 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
+        var scale2 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
+        var scale3 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
+        var scale4 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
         var tweens = [move, scale1, scale2, scale3, scale4];
         var group = Be.parallelTweens(tweens);
         group.play();
     }
 
+
     serial()
     {
         path.clear();
-        controlPoint.x = -10;
-        controlPoint.y = -10;
+        control.x = -10;
+        control.y = -10;
 
         // 5개 이상일 경우 테스트
         var time = 0.2;
-        var move1 = Be.to(icon, {x: 400, y: 400}, time, Back.easeOut);
-        var move2 = Be.to(icon, {x: 0, y: 0}, time, Exponential.easeOut);
-        var move3 = Be.to(icon, {x: 300, y: 300}, time, Quartic.easeOut);
-        var move4 = Be.to(icon, {x: 100, y: 100}, time, Quart.easeOut);
-        var move5 = Be.to(icon, {x: 200, y: 200}, time, Quad.easeOut);
+        var move1 = Be.to(minion, {x: 400, y: 400}, time, Back.easeOut);
+        var move2 = Be.to(minion, {x: 0, y: 0}, time, Exponential.easeOut);
+        var move3 = Be.to(minion, {x: 300, y: 300}, time, Quartic.easeOut);
+        var move4 = Be.to(minion, {x: 100, y: 100}, time, Quart.easeOut);
+        var move5 = Be.to(minion, {x: 200, y: 200}, time, Quad.easeOut);
         var group = Be.serial(move1, move2, move3, move4, move5);
         group.play();
     }
 
+
     serialTweens()
     {
         path.clear();
-        controlPoint.x = -10;
-        controlPoint.y = -10;
+        control.x = -10;
+        control.y = -10;
 
         // 5개 이상일 경우 테스트
         var time = 0.2;
-        var move1 = Be.to(icon, {x: 400, y: 400, scaleX: 2, scaleY: 2}, time, Back.easeOut);
-        var move2 = Be.to(icon, {x: 0, y: 0}, time, Exponential.easeOut);
-        var move3 = Be.to(icon, {x: 300, y: 300}, time, Quartic.easeOut);
-        var move4 = Be.to(icon, {x: 100, y: 100}, time, Quart.easeOut);
-        var move5 = Be.to(icon, {x: 200, y: 200}, time, Quad.easeOut);
+        var move1 = Be.to(minion, {x: 400, y: 400, scaleX: 2, scaleY: 2}, time, Back.easeOut);
+        var move2 = Be.to(minion, {x: 0, y: 0}, time, Exponential.easeOut);
+        var move3 = Be.to(minion, {x: 300, y: 300}, time, Quartic.easeOut);
+        var move4 = Be.to(minion, {x: 100, y: 100}, time, Quart.easeOut);
+        var move5 = Be.to(minion, {x: 200, y: 200}, time, Quad.easeOut);
         var tweens = [move1, move2, move3, move4, move5];
         var group = Be.serialTweens(tweens);
         group.play();
     }
 
+
     reverse()
     {
         path.clear();
-        var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
+        var tween = Be.tween(minion, {x: 500}, {x: 100}, 1, Quad.easeOut);
         var reverse = Be.reverse(tween, true);
         reverse.play();
     }
 
+
     repeat()
     {
         path.clear();
-        var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
+        var tween = Be.tween(minion, {x: 500}, {x: 100}, 1, Quad.easeOut);
         var repeat = Be.repeat(tween, 3);
         repeat.play();
     }
 
+
     scale()
     {
         path.clear();
-        var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
+        var tween = Be.tween(minion, {x: 500}, {x: 100}, 1, Quad.easeOut);
         var scale = Be.scale(tween, 3);
         scale.play();
     }
 
+
     slice()
     {
         path.clear();
-        var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
+        var tween = Be.tween(minion, {x: 500}, {x: 100}, 1, Quad.easeOut);
         var slice = Be.slice(tween, 0.1, 0.6);
         slice.play();
     }
 
+
     delay()
     {
         path.clear();
-        var tween = Be.tween(icon, {x: 500}, {x: 100}, 1, Quad.easeOut);
+        var tween = Be.tween(minion, {x: 500}, {x: 100}, 1, Quad.easeOut);
         var delay = Be.delay(tween, 2, 1);
         delay.play();
     }
+
 
     addChildAction()
     {
@@ -478,6 +502,7 @@ export default class Test
         var serial = Be.serial(addChildAction, to, removeFromParent);
         serial.play();
     }
+
 
     removeFromParent()
     {
@@ -511,6 +536,7 @@ export default class Test
             t.play();
         }
     }
+
 
     func()
     {
