@@ -705,6 +705,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
+ * 업데이터 등록 여부
+ * @type {boolean}
+ */
+var isRegist = false;
+
+/**
  * @type {EnterFrameTicker}
  * @private
  */
@@ -724,8 +730,23 @@ var Be = function () {
     }
 
     _createClass(Be, null, [{
-        key: 'tween',
+        key: 'registUpdater',
 
+
+        /**
+         * 업데이터 등록
+         * PIXI 라이브러리를 Be 라이브러리 보다 먼저 등록한 경우
+         * DisplayObjecter 에서 PIXI.DisplayObject 를 못 찾는 경우를 위해서
+         * Be static 함수에서 다시 한번 업데이터를 등록하도록 하였습니다.
+         */
+        value: function registUpdater() {
+            if (isRegist === false) {
+                _ObjectUpdater2.default.register(_updaterClassRegistry);
+                _DisplayObjectUpdater2.default.register(_updaterClassRegistry);
+                _PointUpdater2.default.register(_updaterClassRegistry);
+                isRegist = true;
+            }
+        }
 
         /**
          *
@@ -736,10 +757,15 @@ var Be = function () {
          * @param easing {IEasing}
          * @returns {IObjectTween}
          */
+
+    }, {
+        key: 'tween',
         value: function tween(target, to) {
             var from = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
             var time = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1.0;
             var easing = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+
+            Be.registUpdater();
 
             var tween = new _ObjectTween2.default(_ticker);
             tween.updater = _updaterFactory.create(target, to, from);
@@ -763,6 +789,8 @@ var Be = function () {
             var time = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1.0;
             var easing = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
+            Be.registUpdater();
+
             var tween = new _ObjectTween2.default(_ticker);
             tween.updater = _updaterFactory.create(target, _to, null);
             tween.time = time;
@@ -784,6 +812,8 @@ var Be = function () {
         value: function from(target, _from) {
             var time = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1.0;
             var easing = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+
+            Be.registUpdater();
 
             var tween = new _ObjectTween2.default(_ticker);
             tween.updater = _updaterFactory.create(target, null, _from);
@@ -809,6 +839,8 @@ var Be = function () {
             var time = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1.0;
             var applyTime = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1.0;
             var easing = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
+
+            Be.registUpdater();
 
             var tween = new _ObjectTween2.default(_ticker);
             tween.updater = _updaterFactory.create(target, to, from);
@@ -836,6 +868,8 @@ var Be = function () {
             var time = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1.0;
             var easing = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
 
+            Be.registUpdater();
+
             var tween = new _ObjectTween2.default(_ticker);
             tween.updater = _updaterFactory.createBezier(target, to, from, controlPoint);
             tween.time = time;
@@ -859,6 +893,8 @@ var Be = function () {
             var controlPoint = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
             var time = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1.0;
             var easing = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+
+            Be.registUpdater();
 
             var tween = new _ObjectTween2.default(_ticker);
             tween.updater = _updaterFactory.createBezier(target, to, null, controlPoint);
@@ -884,6 +920,8 @@ var Be = function () {
             var time = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1.0;
             var easing = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
 
+            Be.registUpdater();
+
             var tween = new _ObjectTween2.default(_ticker);
             tween.updater = _updaterFactory.createBezier(target, null, from, controlPoint);
             tween.time = time;
@@ -906,6 +944,8 @@ var Be = function () {
             var from = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
             var easing = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
+            Be.registUpdater();
+
             var tween = new _PhysicalTween2.default(_ticker);
             tween.updater = _updaterFactory.createPhysical(target, to, from, easing || Physical.exponential());
             return tween;
@@ -924,6 +964,8 @@ var Be = function () {
         value: function physicalTo(target, to) {
             var easing = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
 
+            Be.registUpdater();
+
             var tween = new _PhysicalTween2.default(_ticker);
             tween.updater = _updaterFactory.createPhysical(target, to, null, easing || Physical.exponential());
             return tween;
@@ -941,6 +983,8 @@ var Be = function () {
         key: 'physicalFrom',
         value: function physicalFrom(target, from) {
             var easing = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
+            Be.registUpdater();
 
             var tween = new _PhysicalTween2.default(_ticker);
             tween.updater = _updaterFactory.createPhysical(target, null, from, easing || Physical.exponential());
@@ -963,6 +1007,8 @@ var Be = function () {
             var applyTime = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1.0;
             var easing = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
 
+            Be.registUpdater();
+
             var tween = new _PhysicalTween2.default(_ticker);
             tween.updater = _updaterFactory.createPhysical(target, to, from, easing || Physical.exponential());
             tween.update(applyTime);
@@ -977,6 +1023,8 @@ var Be = function () {
     }, {
         key: 'parallel',
         value: function parallel() {
+            Be.registUpdater();
+
             for (var _len = arguments.length, tweens = Array(_len), _key = 0; _key < _len; _key++) {
                 tweens[_key] = arguments[_key];
             }
@@ -993,6 +1041,8 @@ var Be = function () {
     }, {
         key: 'parallelTweens',
         value: function parallelTweens(tweens) {
+            Be.registUpdater();
+
             return new _ParallelTween2.default(tweens, _ticker, 0);
         }
 
@@ -1005,6 +1055,8 @@ var Be = function () {
     }, {
         key: 'serial',
         value: function serial() {
+            Be.registUpdater();
+
             for (var _len2 = arguments.length, tweens = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
                 tweens[_key2] = arguments[_key2];
             }
@@ -1021,6 +1073,8 @@ var Be = function () {
     }, {
         key: 'serialTweens',
         value: function serialTweens(tweens) {
+            Be.registUpdater();
+
             return new _SerialTween2.default(tweens, _ticker, 0);
         }
 
@@ -1035,6 +1089,8 @@ var Be = function () {
         key: 'reverse',
         value: function reverse(tween) {
             var reversePosition = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+            Be.registUpdater();
 
             var pos = reversePosition ? tween.duration - tween.position : 0.0;
             if (tween instanceof _ReversedTween2.default) {
@@ -1056,6 +1112,8 @@ var Be = function () {
     }, {
         key: 'repeat',
         value: function repeat(tween, repeatCount) {
+            Be.registUpdater();
+
             return new _RepeatedTween2.default(tween, repeatCount);
         }
 
@@ -1069,6 +1127,8 @@ var Be = function () {
     }, {
         key: 'scale',
         value: function scale(tween, _scale) {
+            Be.registUpdater();
+
             return new _ScaledTween2.default(tween, _scale);
         }
 
@@ -1085,6 +1145,8 @@ var Be = function () {
         key: 'slice',
         value: function slice(tween, begin, end) {
             var isPercent = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+
+            Be.registUpdater();
 
             if (isPercent === true) {
                 begin = tween.duration * begin;
@@ -1109,6 +1171,8 @@ var Be = function () {
         value: function delay(tween, _delay) {
             var postDelay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0.0;
 
+            Be.registUpdater();
+
             return new _DelayedTween2.default(tween, _delay, postDelay);
         }
 
@@ -1122,6 +1186,8 @@ var Be = function () {
     }, {
         key: 'addChild',
         value: function addChild(target, parent) {
+            Be.registUpdater();
+
             return new _AddChildAction2.default(_ticker, target, parent);
         }
 
@@ -1134,6 +1200,8 @@ var Be = function () {
     }, {
         key: 'removeFromParent',
         value: function removeFromParent(target) {
+            Be.registUpdater();
+
             return new _RemoveFromParentAction2.default(_ticker, target);
         }
 
@@ -1155,12 +1223,14 @@ var Be = function () {
             var rollbackFunc = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
             var rollbackParams = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
 
+            Be.registUpdater();
+
             return new _FunctionAction2.default(_ticker, _func, params, useRollback, rollbackFunc, rollbackParams);
         }
     }, {
         key: 'VERSION',
         get: function get() {
-            return '0.9.2 (Beta)';
+            return '0.9.3 (Beta)';
         }
     }]);
 
@@ -11511,9 +11581,9 @@ var DisplayObjectUpdater = function (_AbstractUpdater) {
          * @param registry {ClassRegistry}
          */
         value: function register(registry) {
-            if (typeof PIXI === 'undefined' || PIXI === null) {
-                registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, DisplayObject, TARGET_PROPERTIES);
-            } else {
+            registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, DisplayObject, TARGET_PROPERTIES);
+
+            if (typeof PIXI !== 'undefined') {
                 registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, PIXI.DisplayObject, TARGET_PROPERTIES);
             }
         }
@@ -12142,9 +12212,10 @@ var PointUpdater = function (_AbstractUpdater) {
          * @param registry {ClassRegistry}
          */
         value: function register(registry) {
-            if (typeof PIXI === 'undefined' || PIXI === null) {
-                registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, Point, TARGET_PROPERTIES);
-            } else {
+            registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, Point, TARGET_PROPERTIES);
+            registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, Vector, TARGET_PROPERTIES);
+
+            if (typeof PIXI !== 'undefined') {
                 registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, PIXI.Point, TARGET_PROPERTIES);
             }
         }
@@ -12371,6 +12442,10 @@ exports.default = PointUpdater;
 
 var Point = function Point() {
     _classCallCheck(this, Point);
+};
+
+var Vector = function Vector() {
+    _classCallCheck(this, Vector);
 };
 
 },{"../AbstractUpdater":78}],91:[function(require,module,exports){

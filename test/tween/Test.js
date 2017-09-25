@@ -5,28 +5,6 @@ import {
     Easing
 } from './../../external/lib/animation';
 
-import global from '../../src/global/';
-import polyfill from '../../src/polyfill/';
-import Be from '../../src/tweener/Be';
-import Back from '../../src/tweener/easing/Back';
-import Bounce from '../../src/tweener/easing/Bounce';
-import Circ from '../../src/tweener/easing/Circ';
-import Circular from '../../src/tweener/easing/Circular';
-import Cubic from '../../src/tweener/easing/Cubic';
-import Custom from '../../src/tweener/easing/Custom';
-import Elastic from '../../src/tweener/easing/Elastic';
-import Expo from '../../src/tweener/easing/Expo';
-import Exponential from '../../src/tweener/easing/Exponential';
-import Linear from '../../src/tweener/easing/Linear';
-import Physical from '../../src/tweener/easing/Physical';
-import Quad from '../../src/tweener/easing/Quad';
-import Quadratic from '../../src/tweener/easing/Quadratic';
-import Quart from '../../src/tweener/easing/Quart';
-import Quartic from '../../src/tweener/easing/Quartic';
-import Quint from '../../src/tweener/easing/Quint';
-import Quintic from '../../src/tweener/easing/Quintic';
-import Sine from '../../src/tweener/easing/Sine';
-
 import Icon from './Icon';
 
 
@@ -37,7 +15,7 @@ export default class Test
 {
     constructor()
     {
-        this.app = new PIXI.Application(800, 600, {backgroundColor: 0x8BC34A});
+        this.app = new PIXI.Application(800, 800, {forceCanvas: true, backgroundColor: 0xFFFFFF, antialias: true});
         document.body.appendChild(this.app.view);
 
         this.canvas = this.app.renderer.view;
@@ -50,7 +28,12 @@ export default class Test
 
     initialize()
     {
-        icon = this.icon = new Icon('../../asset/image/icon/github.png');
+        icon = this.icon = new Icon('../../asset/image/m7.png');
+        icon.on('ready', () => {
+            icon.width = 200;
+            icon.scale.y = icon.scale.x;
+        });
+
         this.stage.addChild(this.icon);
 
         path = this.path = new PIXI.Graphics();
