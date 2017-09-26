@@ -1,5 +1,7 @@
 #### 할일
 
+- Easing 그래프 한번씩 확인해 보기
+
 - 데모 페이지 정리 하기
   - [Tween](http://www.libspark.org/wiki/BetweenAS3/en)
     - tween
@@ -27,9 +29,9 @@
     - func
   - Easing (Graph)
     - Back
-        - BackEaseIn
-        - BaskEaseOut
-        - BackEaseInOut
+        - BackEaseIn 
+        - BaskEaseOut 
+        - BackEaseInOut (Back.easeOut이 Back.easeInOut 같고 Back.easeInOut이 Back.easeOut 같다)
         - BackEaseOutIn
     - Bounce
     - Circular

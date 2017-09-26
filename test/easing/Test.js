@@ -20,7 +20,7 @@ const list = [
     Exponential.easeIn, Exponential.easeOut, Exponential.easeInOut, Exponential.easeOutIn,
     Back.easeIn, Back.easeOut, Back.easeInOut, Back.easeOutIn,
     Elastic.easeIn, Elastic.easeOut, Elastic.easeInOut, Elastic.easeOutIn,
-    Bounce.easeIn, Bounce.easeOut, Bounce.easeInOut, Bounce.easeOutIn,
+    Bounce.easeIn, Bounce.easeOut, Bounce.easeInOut, Bounce.easeOutIn
     //Physical.uniform(), Physical.accelerate(), Physical.exponential()
 ];
 
@@ -59,6 +59,7 @@ export default class Test
 
     initialize()
     {
+        const startX = 10;
         const startY = 20;
         const itemWidth = 168 + 20;
         const itemHeight = 123 + 30;
@@ -75,7 +76,7 @@ export default class Test
                 yPos++;
             }
 
-            item.x = itemWidth * xPos;
+            item.x = startX + itemWidth * xPos;
             item.y = startY + itemHeight * yPos;
             count++;
         });
