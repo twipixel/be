@@ -47,6 +47,7 @@
     "gulp-uglify": "^2.1.2",
     "jquery": "^3.1.1",
     "path": "^0.12.7",
+    "promise-polyfill": "^6.0.2",
     "raw-loader": "^0.5.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-fs": "^2.4.4",

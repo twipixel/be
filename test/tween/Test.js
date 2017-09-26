@@ -8,6 +8,8 @@ import {
 import Size from './Size';
 import Image from './Image';
 import Vector from './Vector';
+import {loadImage} from './async';
+
 
 let control,
     from,
@@ -42,23 +44,30 @@ export default class Test
     {
         this.render = this.render.bind(this);
 
-        minion = new Image(minionURL);
-        minion.on('ready', () => {
-            minion.width = 200;
-            minion.scale.y = minion.scale.x;
-            this.minionHalfWidth = minion.width / 2;
-            this.minionHalfHeight = minion.height / 2;
-            minion.x = this.minionHalfWidth;
-            minion.y = this.minionHalfHeight;
-        });
+        loadImage(minionURL)
+            .then((image) => {
+                this.startApplication(image);
+            })
+            .catch((e) => {console.log(e)});
+    }
+
+
+    startApplication(minionImage)
+    {
+        minion = new Image(minionImage);
+        minion.width = 200;
+        minion.scale.y = minion.scale.x;
+        this.minionHalfWidth = minion.width / 2;
+        this.minionHalfHeight = minion.height / 2;
+        minion.x = this.minionHalfWidth;
+        minion.y = this.minionHalfHeight;
+        this.stage.addChild(minion);
 
         path = new PIXI.Graphics();
         control = new PIXI.Graphics();
         vector = new Vector();
-
         this.stage.addChild(path);
         this.stage.addChild(control);
-        this.stage.addChild(minion);
     }
 
 
