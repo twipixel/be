@@ -71,8 +71,7 @@ gulp.task('build:production', () => {
     return rebundle(getBundler(options), options);
 });
 
-gulp.task('build', ['clean', 'build:production']);
-gulp.task('build:all', ['clean', 'build:development', 'build:production']);
+gulp.task('build:both', ['build:development', 'build:production']);
 
 
 function getBundler(options) {

@@ -34,8 +34,8 @@ import BackEaseOutIn from '../core/easing/BackEaseOutIn';
 
 
 const easeIn = new BackEaseIn();
-const easeOut = new BackEaseInOut();
-const easeInOut = new BackEaseOut();
+const easeOut = new BackEaseOut();
+const easeInOut = new BackEaseInOut();
 const easeOutIn = new BackEaseOutIn();
 
 
