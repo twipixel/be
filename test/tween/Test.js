@@ -8,10 +8,12 @@ import {
 import Size from './Size';
 import Image from './Image';
 import Vector from './Vector';
+import Config from './Config';
+import Mouse from './Mouse';
 import {loadImage} from './async';
 
 
-let control, path, vector, minion, minions = [], minionURL = '../../asset/image/m7.png', minionImage;
+let vector, controlMinion, minion, minions = [], minionURL = './../../asset/image/m7.png', minionImage;
 
 
 export default class Test
@@ -24,6 +26,9 @@ export default class Test
         this.canvas = this.app.renderer.view;
         this.renderer = this.app.renderer;
         this.stage = this.app.stage;
+
+        Mouse.renderer = this.renderer;
+        Mouse.mouse = (Config.desktop) ? Mouse.DESKTOP_MOUSE : Mouse.MOBILE_MOUSE;
 
         // 미니온 보여지는 레이어
         this.minionLayer = new PIXI.Container();
@@ -43,12 +48,29 @@ export default class Test
     {
         this.render = this.render.bind(this);
 
+        controlMinion = new PIXI.Sprite.fromImage('./../../asset/image/m11.png');
+        controlMinion.anchor = new PIXI.Point(0.5, 0.5);
+        controlMinion.visible = false;
+        controlMinion.texture.baseTexture.on('loaded', () => {
+            controlMinion.height = 200;
+            controlMinion.scale.x = controlMinion.scale.y;
+            controlMinion.interactive = true;
+            controlMinion.buttonMode = true;
+            controlMinion.on('mousedown', this.onControlDown);
+        });
+
+        this.isBezierTween = false;
+
         loadImage(minionURL)
             .then((image) => {
                 minionImage = image;
                 this.startApplication(image);
             })
             .catch((e) => {console.log(e)});
+
+        this.onControlDown = this.onControlDown.bind(this);
+        this.onControlMove = this.onControlMove.bind(this);
+        this.onControlUp = this.onControlUp.bind(this);
     }
 
 
@@ -57,16 +79,13 @@ export default class Test
         minion = new Image(minionImage);
         this.setMinion(minion);
         this.minionLayer.addChild(minion);
+        this.minionLayer.addChild(controlMinion);
 
         for (var i = 0; i < 100; i++) {
             this.getAfterimage(i);
         }
 
-        path = new PIXI.Graphics();
-        control = new PIXI.Graphics();
         vector = new Vector();
-        this.afterimageLayer.addChild(path);
-        this.afterimageLayer.addChild(control);
     }
 
 
@@ -87,6 +106,7 @@ export default class Test
 
         this.config = {
             time: 0.4,
+            leaveAfterImage: true,
             easingList: [
                 Sine.easeIn, Sine.easeOut, Sine.easeInOut, Sine.easeOutIn,
                 Quadratic.easeIn, Quadratic.easeOut, Quadratic.easeInOut, Quadratic.easeOutIn,
@@ -121,6 +141,7 @@ export default class Test
         this.config.tween = this.tween.bind(this);
         this.config.bezier = this.bezier.bind(this);
 
+        this.gui.add(this.config, 'leaveAfterImage');
         this.gui.add(this.config, 'time').min(0).step(0.1).max(4);
         const easingControl = this.gui.add(this.config, 'easing', this.config.easingNameList);
         easingControl.onFinishChange((easingName) => {
@@ -154,19 +175,17 @@ export default class Test
 
     tween()
     {
-        this.clearAfterimage();
+        this.isBezierTween = false;
 
         this.current = Vector.fromObject(minion);
-        this.to = this.getTweenVector();
-        this.last = this.current.clone();
+        this.to = this.getRandomPosition();
 
-        this.go(this.current.clone(), this.to.clone());
+        this.startTween(this.current.clone(), this.to.clone());
         this.drawAfterimage(this.current.clone(), this.to.clone());
-        this.hideAfterImage(this.current.clone(), this.to.clone());
     }
 
 
-    go(current, to)
+    startTween(current, to)
     {
         if (this.goTween) {
             this.goTween.stop();
@@ -178,17 +197,14 @@ export default class Test
 
         to.rotation = direction.direction() + Math.PI / 2;
         this.goTween = Be.to(minion, to, time, easing);
-        this.goTween.onUpdate =
-        this.goTween.onComplete = () => {
-            this.onTween();
-        };
-
         this.goTween.play();
     }
 
 
     drawAfterimage(current, to)
     {
+        this.clearAfterimage();
+
         if (this.drawAfterTween) {
             this.drawAfterTween.stop();
         }
@@ -204,7 +220,7 @@ export default class Test
         vector.rotation = minion.rotation;
 
         this.drawAfterTween = Be.to(vector, {
-            x: to.x, y: to.y, alpha: 0.15,
+            x: to.x, y: to.y, alpha: 0.1,
             rotation:direction.direction() + Math.PI / 2
         }, time, easing);
 
@@ -215,7 +231,10 @@ export default class Test
         this.drawAfterTween.onComplete = () => {
             this.setAfterimage(this.drawAfterimageIndex, vector);
             this.drawAfterimageIndex++;
-            this.hideAfterImage(this.current.clone(), this.to.clone());
+
+            if (this.config.leaveAfterImage === false) {
+                this.hideAfterImage(this.current.clone(), this.to.clone());
+            }
         };
 
         this.drawAfterTween.play();
@@ -281,7 +300,7 @@ export default class Test
     }
 
 
-    getTweenVector()
+    getRandomPosition()
     {
         return new Vector().randomize(
             {x: this.minionHalfWidth, y: this.minionHalfHeight},
@@ -290,37 +309,108 @@ export default class Test
     }
 
 
-    onTween()
-    {
-        this.last = Vector.fromObject(minion);
-    }
-
-
     bezier()
     {
-        path.clear();
-        control.x = 0;
-        control.y = 200;
+        this.current = Vector.fromObject(minion);
+        this.to = this.getRandomPosition();
 
-        var tween = Be.bezier(minion, {x: 400, y: 400}, {x: minion.x, y: minion.y}, {
-            x: control.x,
-            y: control.y
-        }, 2, Quad.easeOut);
+        if (this.isBezierTween === false) {
+            controlMinion.x = Size.windowCenterX;
+            controlMinion.y = Size.windowCenterY;
+        }
 
-        tween.onPlay = () => {
-            console.log('onPlay');
-        };
-        tween.onUpdate = () => {
-            console.log(`onUpdate (${minion.x}, ${minion.y} )`);
-            path.beginFill(controlPointColor);
-            path.drawRect(minion.x, minion.y, controlPointSize, controlPointSize);
-            path.endFill();
-        };
-        tween.onComplete = () => {
-            console.log('onComplete');
-        };
-        tween.play();
+        this.startBezier(this.current.clone(), this.to.clone());
+        this.drawBezierAfterimage(this.current.clone(), this.to.clone());
+        this.isBezierTween = true;
     }
+
+
+    startBezier(current, to)
+    {
+        if (this.bezierTween) {
+            this.bezierTween.stop();
+        }
+
+        const time = Number(this.config.time)
+            , easing = this.config.selectedEasing
+            , direction = current.subtract(to);
+
+        to.rotation = direction.direction() + Math.PI / 2;
+        this.bezierTween = Be.bezierTo(minion, to, {x: controlMinion.x, y: controlMinion.y}, time, easing);
+        this.bezierTween.play();
+    }
+
+
+    drawBezierAfterimage(current, to)
+    {
+        this.clearAfterimage();
+
+        if (this.drawBezierAfterTween) {
+            this.drawBezierAfterTween.stop();
+        }
+
+        this.drawAfterimageIndex = 0;
+
+        const time = Number(this.config.time)
+            , easing = this.config.selectedEasing
+            , direction = current.subtract(to)
+            , vector = Vector.fromObject(minion);
+
+        vector.alpha = 0.01;
+        vector.rotation = minion.rotation;
+
+        this.drawBezierAfterTween = Be.bezierTo(vector
+            , {x: to.x, y: to.y, alpha: 0.1, rotation: direction.direction() + Math.PI / 2}
+            , {x: controlMinion.x, y: controlMinion.y}
+            , time, easing);
+
+        this.drawBezierAfterTween.onUpdate = () => {
+            this.setAfterimage(this.drawAfterimageIndex, vector);
+            this.drawAfterimageIndex++;
+        };
+
+        this.drawBezierAfterTween.onComplete = () => {
+            this.setAfterimage(this.drawAfterimageIndex, vector);
+            this.drawAfterimageIndex++;
+
+            if (this.config.leaveAfterImage === false) {
+                this.hideAfterImage(this.current.clone(), this.to.clone());
+            }
+        };
+
+        this.drawBezierAfterTween.play();
+    }
+
+
+    onControlDown(event)
+    {
+        this.prevPoint = Mouse.global.clone();
+
+        controlMinion.off('mousedown', this.onControlDown);
+        window.addEventListener('mousemove', this.onControlMove);
+        window.addEventListener('mouseup', this.onControlUp);
+    }
+
+
+    onControlMove(event)
+    {
+        const dx = Mouse.global.x - this.prevPoint.x
+            , dy = Mouse.global.y - this.prevPoint.y;
+
+        controlMinion.x += dx;
+        controlMinion.y += dy;
+
+        this.prevPoint = Mouse.global.clone();
+    }
+
+
+    onControlUp(event)
+    {
+        controlMinion.on('mousedown', this.onControlDown);
+        window.removeEventListener('mousemove', this.onControlMove);
+        window.removeEventListener('mouseup', this.onControlUp);
+    }
+
 
 
     resize()
@@ -334,5 +424,19 @@ export default class Test
         this.canvas.style.height = height + 'px';
 
         this.renderer.resize(width, height);
+    }
+
+
+
+    set isBezierTween(value)
+    {
+        this._isBezierTween = value;
+        controlMinion.visible = value;
+    }
+
+
+    get isBezierTween()
+    {
+        return this._isBezierTween;
     }
 }

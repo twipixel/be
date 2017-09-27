@@ -1,7 +1,7 @@
 #### 할일
 
+- Be.bezierTo 에서 컨트롤 포인트가 Point 가 아니고 Sprite 객체 일 때 오류 발생
 - Easing 그래프 한번씩 확인해 보기
-
 - 데모 페이지 정리 하기
   - [Tween](http://www.libspark.org/wiki/BetweenAS3/en)
     - tween
