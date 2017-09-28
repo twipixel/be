@@ -2,18 +2,16 @@
 
 export default class Image extends PIXI.Container
 {
-    constructor(url)
+    constructor(source)
     {
         super();
-        this.className = 'Icon';
-        this.image = new PIXI.Sprite.fromImage(url);
-        this.image.texture.baseTexture.on('loaded', this.ready.bind(this));
+
+        var base = new PIXI.BaseTexture(source),
+            texture = new PIXI.Texture(base);
+
+        this.image = new PIXI.Sprite(texture);
+        this.image.x = -this.image.width / 2;
+        this.image.y = -this.image.height / 2;
         this.addChild(this.image);
-    }
-
-
-    ready()
-    {
-        this.emit('ready');
     }
 }

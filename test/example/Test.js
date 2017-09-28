@@ -5,21 +5,38 @@ import {
     Easing
 } from './../../external/lib/animation';
 
+import Size from './Size';
 import Image from './Image';
+import Vector from './Vector';
+import Config from './Config';
+import Mouse from './Mouse';
+import {loadImage} from './async';
 
 
-let minion, control, from, to, path;
+let vector, controlMinion, minion, minions = [], minionURL = './../../asset/image/m7.png', minionImage;
 
 
 export default class Test
 {
     constructor()
     {
-        this.app = new PIXI.Application(1000, 800, {forceCanvas: true, backgroundColor: 0xFFFFFF, antialias: true});
+        this.app = new PIXI.Application(Size.windowWidth, Size.windowHeight, {forceCanvas: true, backgroundColor: 0xFFFFFF, antialias: true});
         document.body.appendChild(this.app.view);
 
         this.canvas = this.app.renderer.view;
+        this.renderer = this.app.renderer;
         this.stage = this.app.stage;
+
+        Mouse.renderer = this.renderer;
+        Mouse.mouse = (Config.desktop) ? Mouse.DESKTOP_MOUSE : Mouse.MOBILE_MOUSE;
+
+        // 미니온 보여지는 레이어
+        this.minionLayer = new PIXI.Container();
+        // 잔상이 보여지는 레이어
+        this.afterimageLayer = new PIXI.Container();
+
+        this.stage.addChild(this.afterimageLayer);
+        this.stage.addChild(this.minionLayer);
 
         this.initialize();
         this.initializeGUI();
@@ -31,23 +48,173 @@ export default class Test
     {
         this.render = this.render.bind(this);
 
-        minion = new Image('../../asset/image/m7.png');
-        minion.on('ready', () => {
-            minion.width = 200;
-            minion.scale.y = minion.scale.x;
+        controlMinion = new PIXI.Sprite.fromImage('./../../asset/image/m11.png');
+        controlMinion.anchor = new PIXI.Point(0.5, 0.5);
+        controlMinion.visible = false;
+        controlMinion.texture.baseTexture.on('loaded', () => {
+            controlMinion.height = 200;
+            controlMinion.scale.x = controlMinion.scale.y;
+            controlMinion.interactive = true;
+            controlMinion.buttonMode = true;
+            controlMinion.on('mousedown', this.onControlDown);
         });
 
-        to = new PIXI.Graphics();
-        from = new PIXI.Graphics();
-        path = new PIXI.Graphics();
-        control = new PIXI.Graphics();
+        loadImage(minionURL)
+            .then((image) => {
+                minionImage = image;
+                this.startApplication(image);
+            })
+            .catch((e) => {console.log(e)});
+    }
 
-        this.stage.addChild(to);
-        this.stage.addChild(from);
-        this.stage.addChild(path);
-        this.stage.addChild(control);
 
-        this.stage.addChild(minion);
+    startApplication()
+    {
+        minion = new Image(minionImage);
+        this.setMinion(minion);
+        this.minionLayer.addChild(minion);
+        this.minionLayer.addChild(controlMinion);
+
+        for (var i = 0; i < 100; i++) {
+            this.getAfterimage(i);
+        }
+
+        vector = new Vector();
+    }
+
+
+    setMinion(minion)
+    {
+        minion.width = 200;
+        minion.scale.y = minion.scale.x;
+        this.minionHalfWidth = minion.width / 2;
+        this.minionHalfHeight = minion.height / 2;
+        minion.x = this.minionHalfWidth;
+        minion.y = this.minionHalfHeight;
+    }
+
+
+    startTween(current, to)
+    {
+        if (this.goTween) {
+            this.goTween.stop();
+        }
+
+        const time = Number(this.config.time)
+            , easing = this.config.selectedEasing
+            , direction = current.subtract(to);
+
+        to.rotation = direction.direction() + Math.PI / 2;
+        this.goTween = Be.to(minion, to, time, easing);
+        this.goTween.play();
+    }
+
+
+    drawAfterimage(current, to)
+    {
+        this.clearAfterimage();
+
+        if (this.drawAfterTween) {
+            this.drawAfterTween.stop();
+        }
+
+        this.drawAfterimageIndex = 0;
+
+        const time = Number(this.config.time)
+            , easing = this.config.selectedEasing
+            , direction = current.subtract(to)
+            , vector = new Vector(minion.x, minion.y);
+
+        vector.alpha = 0.01;
+        vector.rotation = minion.rotation;
+
+        this.drawAfterTween = Be.to(vector, {
+            x: to.x, y: to.y, alpha: 0.1,
+            rotation:direction.direction() + Math.PI / 2
+        }, time, easing);
+
+        this.drawAfterTween.onUpdate = () => {
+            this.setAfterimage(this.drawAfterimageIndex, vector);
+            this.drawAfterimageIndex++;
+        };
+        this.drawAfterTween.onComplete = () => {
+            this.setAfterimage(this.drawAfterimageIndex, vector);
+            this.drawAfterimageIndex++;
+
+            if (this.config.leaveAfterImage === false) {
+                this.hideAfterImage(this.current.clone(), this.to.clone());
+            }
+        };
+
+        this.drawAfterTween.play();
+    }
+
+
+    hideAfterImage(current, to)
+    {
+        if (this.hideAfterTween) {
+            this.hideAfterTween.stop();
+        }
+
+        this.hideAfterimageIndex = 0;
+
+        const time = Number(this.config.time)
+            , easing = this.config.selectedEasing
+            , vector = new Vector(minion.x, minion.y);
+
+        this.hideAfterTween = Be.to(vector, {x: to.x, y: to.y}, time, easing);
+        this.hideAfterTween.onUpdate =
+            this.hideAfterTween.onComplete = () => {
+                minions[this.hideAfterimageIndex].visible = false;
+                this.hideAfterimageIndex++;
+            };
+
+        this.hideAfterTween.play();
+    }
+
+
+    setAfterimage(index, props)
+    {
+        var image = this.getAfterimage(index);
+        image.x = props.x;
+        image.y = props.y;
+        image.alpha = props.alpha;
+        image.rotation = props.rotation;
+        image.visible = true;
+    }
+
+
+    clearAfterimage()
+    {
+        const total = minions.length;
+
+        for (var i = 0; i < total; i++) {
+            var minion = minions[i];
+            minion.visible = false;
+        }
+    }
+
+
+    getAfterimage(index)
+    {
+        if (!minions[index]) {
+            var afterimage = new Image(minionImage);
+            afterimage.visible = false;
+            this.setMinion(afterimage);
+            this.afterimageLayer.addChild(afterimage);
+            minions.push(afterimage);
+        }
+
+        return minions[index];
+    }
+
+
+    getRandomPosition()
+    {
+        return new Vector().randomize(
+            {x: this.minionHalfWidth, y: this.minionHalfHeight},
+            {x: Size.windowWidth - this.minionHalfWidth, y: Size.windowHeight - this.minionHalfHeight}
+        );
     }
 
 
@@ -595,4 +762,19 @@ export default class Test
             return list;
         }
     }
+
+
+    resize()
+    {
+        const height = Size.windowHeight;
+        const width = Size.windowWidth;
+
+        this.canvas.width = width;
+        this.canvas.height = height;
+        this.canvas.style.width = width + 'px';
+        this.canvas.style.height = height + 'px';
+
+        this.renderer.resize(width, height);
+    }
 }
+

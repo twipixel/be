@@ -19,10 +19,12 @@ class Main
         this.onResize();
     }
 
+
     init()
     {
         this.test = new Test();
     }
+
 
     addEvent()
     {
@@ -30,10 +32,12 @@ class Main
         window.addEventListener('keyup', this.onKeyUp.bind(this));
     }
 
+
     onResize()
     {
-
+        this.test.resize();
     }
+
 
     onKeyUp (e)
     {
