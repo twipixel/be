@@ -11,32 +11,33 @@ import Config from './Config';
 import Size from './Size';
 
 const list = [
-    Sine.easeIn, Sine.easeOut, Sine.easeInOut, Sine.easeOutIn,
-    Quadratic.easeIn, Quadratic.easeOut, Quadratic.easeInOut, Quadratic.easeOutIn,
-    Cubic.easeIn, Cubic.easeOut, Cubic.easeInOut, Cubic.easeOutIn,
-    Quartic.easeIn, Quartic.easeOut, Quartic.easeInOut, Quartic.easeOutIn,
-    Quintic.easeIn, Quintic.easeOut, Quintic.easeInOut, Quintic.easeOutIn,
-    Circular.easeIn, Circular.easeOut, Circular.easeInOut, Circular.easeOutIn,
-    Exponential.easeIn, Exponential.easeOut, Exponential.easeInOut, Exponential.easeOutIn,
-    Back.easeIn, Back.easeOut, Back.easeInOut, Back.easeOutIn,
-    Elastic.easeIn, Elastic.easeOut, Elastic.easeInOut, Elastic.easeOutIn,
-    Bounce.easeIn, Bounce.easeOut, Bounce.easeInOut, Bounce.easeOutIn
+    Sine.easeIn, Sine.easeOut, Sine.easeOutIn, Sine.easeInOut,
+    Quadratic.easeIn, Quadratic.easeOut, Quadratic.easeOutIn, Quadratic.easeInOut,
+    Cubic.easeIn, Cubic.easeOut, Cubic.easeOutIn, Cubic.easeInOut,
+    Quartic.easeIn, Quartic.easeOut, Quartic.easeOutIn, Quartic.easeInOut,
+    Quintic.easeIn, Quintic.easeOut, Quintic.easeOutIn, Quintic.easeInOut,
+    Circular.easeIn, Circular.easeOut, Circular.easeOutIn, Circular.easeInOut,
+    Exponential.easeIn, Exponential.easeOut, Exponential.easeOutIn, Exponential.easeInOut,
+    Back.easeIn, Back.easeOut, Back.easeOutIn, Back.easeInOut,
+    Elastic.easeIn, Elastic.easeOut, Elastic.easeOutIn, Elastic.easeInOut,
+    Bounce.easeIn, Bounce.easeOut, Bounce.easeOutIn, Bounce.easeInOut
     //Physical.uniform(), Physical.accelerate(), Physical.exponential()
 ];
 
 const name = [
-    'Sine.easeIn', 'Sine.easeOut', 'Sine.easeInOut', 'Sine.easeOutIn',
-    'Quadratic.easeIn', 'Quadratic.easeOut', 'Quadratic.easeInOut', 'Quadratic.easeOutIn',
-    'Cubic.easeIn', 'Cubic.easeOut', 'Cubic.easeInOut', 'Cubic.easeOutIn',
-    'Quartic.easeIn', 'Quartic.easeOut', 'Quartic.easeInOut', 'Quartic.easeOutIn',
-    'Quintic.easeIn', 'Quintic.easeOut', 'Quintic.easeInOut', 'Quintic.easeOutIn',
-    'Circular.easeIn', 'Circular.easeOut', 'Circular.easeInOut', 'Circular.easeOutIn',
-    'Exponential.easeIn', 'Exponential.easeOut', 'Exponential.easeInOut', 'Exponential.easeOutIn',
-    'Back.easeIn', 'Back.easeOut', 'Back.easeInOut', 'Back.easeOutIn',
-    'Elastic.easeIn', 'Elastic.easeOut', 'Elastic.easeInOut', 'Elastic.easeOutIn',
-    'Bounce.easeIn', 'Bounce.easeOut', 'Bounce.easeInOut', 'Bounce.easeOutIn',
+    'Sine.easeIn', 'Sine.easeOut', 'Sine.easeOutIn', 'Sine.easeInOut',
+    'Quadratic.easeIn', 'Quadratic.easeOut', 'Quadratic.easeOutIn', 'Quadratic.easeInOut',
+    'Cubic.easeIn', 'Cubic.easeOut', 'Cubic.easeOutIn', 'Cubic.easeInOut',
+    'Quartic.easeIn', 'Quartic.easeOut', 'Quartic.easeOutIn', 'Quartic.easeInOut',
+    'Quintic.easeIn', 'Quintic.easeOut', 'Quintic.easeOutIn', 'Quintic.easeInOut',
+    'Circular.easeIn', 'Circular.easeOut', 'Circular.easeOutIn', 'Circular.easeInOut',
+    'Exponential.easeIn', 'Exponential.easeOut', 'Exponential.easeOutIn', 'Exponential.easeInOut',
+    'Back.easeIn', 'Back.easeOut', 'Back.easeOutIn', 'Back.easeInOut',
+    'Elastic.easeIn', 'Elastic.easeOut', 'Elastic.easeOutIn', 'Elastic.easeInOut',
+    'Bounce.easeIn', 'Bounce.easeOut', 'Bounce.easeOutIn', 'Bounce.easeInOut',
     'PhysicalUniform', 'PhysicalAccelerate', 'PhysicalExponential'
 ];
+
 
 export default class Test
 {
