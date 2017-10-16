@@ -5,12 +5,12 @@ import {
     Easing
 } from './../../external/lib/animation';
 
-import Size from './Size';
-import Image from './Image';
-import Vector from './Vector';
-import Config from './Config';
-import Mouse from './Mouse';
-import {loadImage} from './async';
+import Size from './../src/Size';
+import Image from './../src/Image';
+import Mouse from './../src/Mouse';
+import Vector from './../src/Vector';
+import Config from './../src/Config';
+import {loadImage} from './../src/async';
 
 
 let vector, controlMinion, minion, minions = [], minionURL = './../../asset/image/m7.png', minionImage;

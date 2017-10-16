@@ -5,10 +5,11 @@ import {
     Easing
 } from './../../external/lib/animation';
 
+import Size from './../src/Size';
+import Config from './../src/Config';
 import Graph from "./Graph";
 import GraphItem from "./GraphItem";
-import Config from './Config';
-import Size from './Size';
+
 
 const list = [
     Sine.easeIn, Sine.easeOut, Sine.easeOutIn, Sine.easeInOut,
