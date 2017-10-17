@@ -50,6 +50,7 @@ class Main
                 break;
 
             case KeyCode.SPACE:
+                this.test.logMinion();
                 break;
 
             case KeyCode.DOWN:

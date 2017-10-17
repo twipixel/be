@@ -44,6 +44,13 @@ export default class Test
     }
 
 
+    logMinion()
+    {
+        minion.visible = !minion.visible;
+        console.log('minion[', minion.x, minion.y, ']');
+    }
+
+
     initialize()
     {
         this.render = this.render.bind(this);
@@ -189,8 +196,8 @@ export default class Test
         const total = minions.length;
 
         for (var i = 0; i < total; i++) {
-            var minion = minions[i];
-            minion.visible = false;
+            var afterImage = minions[i];
+            afterImage.visible = false;
         }
     }
 
@@ -223,12 +230,41 @@ export default class Test
         this.gui = new dat.GUI();
 
         this.config = {
-            x: 0,
-            y: 0,
-            scaleX: 1,
-            scaleY: 1,
-            rotation: 0
+            time: 0.4,
+            easingList: [
+                Sine.easeIn, Sine.easeOut, Sine.easeOutIn, Sine.easeInOut,
+                Quadratic.easeIn, Quadratic.easeOut, Quadratic.easeOutIn, Quadratic.easeInOut,
+                Cubic.easeIn, Cubic.easeOut, Cubic.easeOutIn, Cubic.easeInOut,
+                Quartic.easeIn, Quartic.easeOut, Quartic.easeOutIn, Quartic.easeInOut,
+                Quintic.easeIn, Quintic.easeOut, Quintic.easeOutIn, Quintic.easeInOut,
+                Circular.easeIn, Circular.easeOut, Circular.easeOutIn, Circular.easeInOut,
+                Exponential.easeIn, Exponential.easeOut, Exponential.easeOutIn, Exponential.easeInOut,
+                Back.easeIn, Back.easeOut, Back.easeOutIn, Back.easeInOut,
+                Elastic.easeIn, Elastic.easeOut, Elastic.easeOutIn, Elastic.easeInOut,
+                Bounce.easeIn, Bounce.easeOut, Bounce.easeOutIn, Bounce.easeInOut
+            ],
+            easingNameList: [
+                'Sine.easeIn', 'Sine.easeOut', 'Sine.easeOutIn', 'Sine.easeInOut',
+                'Quadratic.easeIn', 'Quadratic.easeOut', 'Quadratic.easeOutIn', 'Quadratic.easeInOut',
+                'Cubic.easeIn', 'Cubic.easeOut', 'Cubic.easeOutIn', 'Cubic.easeInOut',
+                'Quartic.easeIn', 'Quartic.easeOut', 'Quartic.easeOutIn', 'Quartic.easeInOut',
+                'Quintic.easeIn', 'Quintic.easeOut', 'Quintic.easeOutIn', 'Quintic.easeInOut',
+                'Circular.easeIn', 'Circular.easeOut', 'Circular.easeOutIn', 'Circular.easeInOut',
+                'Exponential.easeIn', 'Exponential.easeOut', 'Exponential.easeOutIn', 'Exponential.easeInOut',
+                'Back.easeIn', 'Back.easeOut', 'Back.easeOutIn', 'Back.easeInOut',
+                'Elastic.easeIn', 'Elastic.easeOut', 'Elastic.easeOutIn', 'Elastic.easeInOut',
+                'Bounce.easeIn', 'Bounce.easeOut', 'Bounce.easeOutIn', 'Bounce.easeInOut'
+            ],
         };
+
+        this.gui.add(this.config, 'time').min(0).step(0.1).max(4);
+        const index = this.getEasingIndex('Back.easeOut');
+        this.config.easing = this.config.easingNameList[index];
+        this.config.selectedEasing = this.config.easingList[index];
+        const easingControl = this.gui.add(this.config, 'easing', this.config.easingNameList);
+        easingControl.onFinishChange((easingName) => {
+            this.config.selectedEasing = this.config.easingList[this.getEasingIndex(easingName)];
+        });
 
         // 기본 함수 테스트
         this.config.tween = this.tween.bind(this);
@@ -281,6 +317,16 @@ export default class Test
     }
 
 
+    getEasingIndex(easingName)
+    {
+        for (var i = 0; i < this.config.easingNameList.length; i++) {
+            if (easingName === this.config.easingNameList[i]) {
+                return i;
+            }
+        }
+    }
+
+
     update(ms) {}
 
 
@@ -293,15 +339,27 @@ export default class Test
 
     tween()
     {
-        path.clear();
-        var tween = Be.tween(minion, {x: 250, y: 250}, {x: 0}, 2, Quad.easeInOut);
-        tween.play();
+        const time = Number(this.config.time)
+            , easing = this.config.selectedEasing
+            , to = this.getRandomPosition()
+            , from = Vector.fromObject(minion)
+            , direction = from.subtract(to);
+
+        console.log('minion[', minion.x, minion.y, ']');
+        from.rotation = minion.rotation;
+        to.rotation = direction.direction() + Math.PI / 2;
+
+        if (this.minionTween) {
+            this.minionTween.stop();
+        }
+
+        this.minionTween = Be.tween(minion, to, from, time, easing);
+        this.minionTween.play();
     }
 
 
     to()
     {
-        path.clear();
         var tween = Be.to(minion, {x: 300, y: 250}, 2, Elastic.easeInOut);
         tween.play();
     }
@@ -309,7 +367,6 @@ export default class Test
 
     from()
     {
-        path.clear();
         var tween = Be.from(minion, {x: 800, y: 600}, 2, Bounce.easeOut);
         tween.play();
     }
@@ -317,14 +374,12 @@ export default class Test
 
     apply()
     {
-        path.clear();
         Be.apply(minion, {x: 250, y: 250}, {x: 0}, 2, 0.5, Sine.easeOut);
     }
 
 
     bezier()
     {
-        path.clear();
         control.x = 0;
         control.y = 200;
 
@@ -351,7 +406,6 @@ export default class Test
 
     bezierTo()
     {
-        path.clear();
         control.x = 0;
         control.y = 200;
 
@@ -375,7 +429,6 @@ export default class Test
 
     bezierFrom()
     {
-        path.clear();
         control.x = 200;
         control.y = 0;
 

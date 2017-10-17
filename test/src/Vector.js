@@ -58,6 +58,7 @@ export default class Vector
      */
     static fromObject(obj)
     {
+        console.log('fromObject(', obj.x, obj.y, ')');
         return new Vector(obj.x || 0, obj.y || 0);
     }
 
