@@ -153,6 +153,7 @@ export default class Test
             }
 
             if (completeCallback) {
+                console.log('!!!!!!!, call');
                 completeCallback.call();
             }
         };
@@ -409,7 +410,13 @@ export default class Test
         from.rotation = minion.rotation;
         to.rotation = direction.direction() + Math.PI / 2;
 
-        this.drawAfterimage(from, to, () => {
+        const cloneTo = Object.assign({}, from)
+            , cloneFrom = Object.assign({}, to);
+
+        this.drawAfterimage(cloneFrom, cloneTo, () => {
+
+            console.log('apply(', minion, to, from, time, applyTime, easing);
+
             Be.apply(minion, to, from, time, applyTime, easing);
         });
     }
