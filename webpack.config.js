@@ -7,6 +7,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const regJS = /\.js$/;
 const regMap = /\.map$/gi;
+const regSrc = /src$/i;
 const regHTML = /\.html$/;
 const regDotFolder = /^\./;
 const regMin = /\.min\.js/gi;
@@ -91,6 +92,7 @@ const setEntry = list => {
      * https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98
      */
     list = list
+        .filter(entry => regSrc.test(entry) === false)
         .filter(entry => regHTML.test(entry) === false)
         .filter(entry => regDotFolder.test(entry) === false);
 

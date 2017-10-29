@@ -117,7 +117,7 @@ export default class Test
     }
 
 
-    drawAfterimage(current, to)
+    drawAfterimage(current, to, completeCallback = null)
     {
         this.clearAfterimage();
 
@@ -150,6 +150,10 @@ export default class Test
 
             if (this.config.leaveAfterImage === false) {
                 this.hideAfterImage(this.current.clone(), this.to.clone());
+            }
+
+            if (completeCallback) {
+                completeCallback.call();
             }
         };
 
@@ -337,21 +341,24 @@ export default class Test
     }
 
 
+    minionTweenStop()
+    {
+        if (this.minionTween) {
+            this.minionTween.stop();
+        }
+    }
+
+
     tween()
     {
+        this.minionTweenStop();
         const time = Number(this.config.time)
             , easing = this.config.selectedEasing
             , to = this.getRandomPosition()
             , from = Vector.fromObject(minion)
             , direction = from.subtract(to);
-
-        console.log('minion[', minion.x, minion.y, ']');
         from.rotation = minion.rotation;
         to.rotation = direction.direction() + Math.PI / 2;
-
-        if (this.minionTween) {
-            this.minionTween.stop();
-        }
 
         this.minionTween = Be.tween(minion, to, from, time, easing);
         this.minionTween.play();
@@ -360,21 +367,51 @@ export default class Test
 
     to()
     {
-        var tween = Be.to(minion, {x: 300, y: 250}, 2, Elastic.easeInOut);
-        tween.play();
+        this.minionTweenStop();
+        const time = Number(this.config.time)
+            , easing = this.config.selectedEasing
+            , to = this.getRandomPosition()
+            , from = Vector.fromObject(minion)
+            , direction = from.subtract(to);
+        from.rotation = minion.rotation;
+        to.rotation = direction.direction() + Math.PI / 2;
+
+        this.minionTween = Be.to(minion, to, time, easing);
+        this.minionTween.play();
     }
 
 
     from()
     {
-        var tween = Be.from(minion, {x: 800, y: 600}, 2, Bounce.easeOut);
-        tween.play();
+        this.minionTweenStop();
+        const time = Number(this.config.time)
+            , easing = this.config.selectedEasing
+            , to = this.getRandomPosition()
+            , from = Vector.fromObject(minion)
+            , direction = from.subtract(to);
+        from.rotation = minion.rotation;
+        to.rotation = direction.direction() + Math.PI / 2;
+
+        this.minionTween = Be.from(minion, to, time, easing);
+        this.minionTween.play();
     }
 
 
     apply()
     {
-        Be.apply(minion, {x: 250, y: 250}, {x: 0}, 2, 0.5, Sine.easeOut);
+        this.minionTweenStop();
+        const time = Number(this.config.time)
+            , easing = this.config.selectedEasing
+            , to = this.getRandomPosition()
+            , from = Vector.fromObject(minion)
+            , direction = from.subtract(to)
+            , applyTime = time / 2;
+        from.rotation = minion.rotation;
+        to.rotation = direction.direction() + Math.PI / 2;
+
+        this.drawAfterimage(from, to, () => {
+            Be.apply(minion, to, from, time, applyTime, easing);
+        });
     }
 
 
