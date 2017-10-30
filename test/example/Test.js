@@ -400,18 +400,21 @@ export default class Test
         this.clearAfterimage();
 
         const time = Number(this.config.time)
+            , applyTime = time / 2
             , easing = this.config.selectedEasing
             , to = this.getRandomPosition()
             , from = Vector.fromObject(minion)
-            , direction = from.clone().subtract(to)
-            , applyTime = time / 2;
+            , direction = from.clone().subtract(to);
         from.rotation = minion.rotation;
-        to.rotation = direction.direction() + Math.PI / 2;
+        to.rotation = direction.direction();
 
         const cloneTo = Object.assign(to.clone(), to)
             , cloneFrom = Object.assign(from.clone(), from);
 
-        this.drawAfterimage(cloneFrom, cloneTo, () => {
+        this.minionTween = Be.to(minion, to, time, easing);
+        this.minionTween.play();
+
+        this.drawAfterimage(cloneTo, cloneFrom, time, easing, () => {
             Be.apply(minion, to, from, time, applyTime, easing);
         });
     }
@@ -928,7 +931,7 @@ export default class Test
     }
 
 
-    drawBezierAfterimage(from, to)
+    drawBezierAfterimage(to, from, time, easing, completeCallback = null)
     {
         this.clearAfterimage();
 
@@ -938,18 +941,11 @@ export default class Test
 
         this.drawAfterimageIndex = 0;
 
-        const time = Number(this.config.time)
-            , easing = this.config.selectedEasing
-            , direction = from.subtract(to)
-            , vector = Vector.fromObject(minion);
+        const vector = Vector.fromObject(minion);
+        vector.alpha = 0.1;
+        vector.rotation = from.rotation;
 
-        vector.alpha = 0.01;
-        vector.rotation = minion.rotation;
-
-        this.drawBezierAfterTween = Be.bezierTo(vector
-            , {x: to.x, y: to.y, alpha: 0.1, rotation: direction.direction() + Math.PI / 2}
-            , {x: controlMinion.x, y: controlMinion.y}
-            , time, easing);
+        this.drawBezierAfterTween = Be.bezier(vector, to, from, controlMinion, time, easing);
 
         this.drawBezierAfterTween.onUpdate = () => {
             this.setAfterimage(this.drawAfterimageIndex, vector);
@@ -962,6 +958,10 @@ export default class Test
 
             if (this.config.leaveAfterImage === false) {
                 this.hideAfterImage(this.current.clone(), this.to.clone());
+            }
+
+            if (completeCallback) {
+                completeCallback.call();
             }
         };
 
