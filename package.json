@@ -4,8 +4,8 @@
   "description": "",
   "main": "./test/index.html",
   "scripts": {
-    "build": "gulp dist",
-    "browser": "webpack",
+    "deploy": "gulp dist",
+    "dev": "webpack",
     "electron": "electron electron.js"
   },
   "repository": {
