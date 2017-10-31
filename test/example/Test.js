@@ -177,6 +177,40 @@ export default class Test
     }
 
 
+    drawPhysicalAfterimage(to, from, easing, completeCallback = null)
+    {
+        this.clearAfterimage();
+
+        if (this.drawPhysicalAfterTween) {
+            this.drawPhysicalAfterTween.stop();
+        }
+
+        this.drawAfterimageIndex = 0;
+
+        const vector = Vector.fromObject(from);
+        vector.alpha = 0.1;
+        vector.rotation = from.rotation;
+
+        this.drawPhysicalAfterTween = Be.physical(vector, to, from, easing);
+
+        this.drawPhysicalAfterTween.onUpdate = () => {
+            this.setAfterimage(this.drawAfterimageIndex, vector);
+            this.drawAfterimageIndex++;
+        };
+
+        this.drawPhysicalAfterTween.onComplete = () => {
+            this.setAfterimage(this.drawAfterimageIndex, vector);
+            this.drawAfterimageIndex++;
+
+            if (completeCallback) {
+                completeCallback.call();
+            }
+        };
+
+        this.drawPhysicalAfterTween.play();
+    }
+
+
     hideAfterImage(from, to)
     {
         if (this.hideAfterTween) {
@@ -255,6 +289,8 @@ export default class Test
         this.config = {
             time: 0.4,
             easingList: [
+                Linear.easeNone, Linear.linear,
+                Linear.easeIn, Linear.easeOut, Linear.easeOutIn, Linear.easeInOut,
                 Sine.easeIn, Sine.easeOut, Sine.easeOutIn, Sine.easeInOut,
                 Quadratic.easeIn, Quadratic.easeOut, Quadratic.easeOutIn, Quadratic.easeInOut,
                 Cubic.easeIn, Cubic.easeOut, Cubic.easeOutIn, Cubic.easeInOut,
@@ -267,6 +303,8 @@ export default class Test
                 Bounce.easeIn, Bounce.easeOut, Bounce.easeOutIn, Bounce.easeInOut
             ],
             easingNameList: [
+                'Linear.easeNone', 'Linear.linear',
+                'Linear.easeIn', 'Linear.easeOut', 'Linear.easeOutIn', 'Linear.easeInOut',
                 'Sine.easeIn', 'Sine.easeOut', 'Sine.easeOutIn', 'Sine.easeInOut',
                 'Quadratic.easeIn', 'Quadratic.easeOut', 'Quadratic.easeOutIn', 'Quadratic.easeInOut',
                 'Cubic.easeIn', 'Cubic.easeOut', 'Cubic.easeOutIn', 'Cubic.easeInOut',
@@ -364,6 +402,7 @@ export default class Test
     {
         this.stopTween();
         this.clearAfterimage();
+        this.hideControlMinion();
 
         const time = Number(this.config.time)
             , easing = this.config.selectedEasing
@@ -387,6 +426,7 @@ export default class Test
     {
         this.stopTween();
         this.clearAfterimage();
+        this.hideControlMinion();
 
         const time = Number(this.config.time)
             , easing = this.config.selectedEasing
@@ -410,6 +450,7 @@ export default class Test
     {
         this.stopTween();
         this.clearAfterimage();
+        this.hideControlMinion();
 
         const time = Number(this.config.time)
             , easing = this.config.selectedEasing
@@ -433,6 +474,7 @@ export default class Test
     {
         this.stopTween();
         this.clearAfterimage();
+        this.hideControlMinion();
 
         const time = Number(this.config.time)
             , applyTime = time / 2
@@ -454,6 +496,7 @@ export default class Test
         this.drawAfterimage(cloneTo, cloneFrom, time, easing, () => {
             setTimeout(() => {Be.apply(minion, applyTo, applyFrom, time, applyTime, easing);}, 10);
         });
+
     }
 
 
@@ -517,54 +560,72 @@ export default class Test
             , easing = this.config.selectedEasing
             , to = this.getRandomPosition()
             , from = Vector.fromObject(minion)
-            , direction = from.clone().subtract(to);
+            , direction = from.clone().subtract(to)
+            , control = Vector.fromObject(controlMinion);
         from.rotation = minion.rotation;
-        to.rotation = direction.direction() + Math.PI / 2;
+        to.rotation = direction.direction();
 
-        this.bezierTween = Be.bezierFrom(minion, to, {x: controlMinion.x, y: controlMinion.y}, time, easing);
-        this.bezierTween.play();
+        const cloneTo = Object.assign(to.clone(), to)
+            , cloneFrom = Object.assign(from.clone(), from);
 
-        this.drawBezierAfterimage(Object.assign(to.clone(), to), Object.assign(from.clone(), from));
+        this.minionTween = Be.bezierFrom(minion, to, control, time, easing);
+        this.minionTween.play();
+
+        this.drawBezierAfterimage(cloneFrom, cloneTo, control.clone(), time, easing);
     }
 
 
     physical()
     {
-        path.clear();
-        control.x = -10;
-        control.y = -10;
+        this.stopTween();
+        this.clearAfterimage();
+        this.hideControlMinion();
 
-        var uniform = Be.physical(minion, {x: 400, y: 100}, {x: 0, y: 0}, Physical.uniform(12));
-        uniform.onPlay = () => {
-            console.log('onPlay');
-        };
-        uniform.onUpdate = () => {
-            console.log(`onUpdate (${minion.x}, ${minion.y} )`);
-            path.beginFill(controlPointColor);
-            path.drawRect(minion.x, minion.y, controlPointSize, controlPointSize);
-            path.endFill();
-        };
-        uniform.onComplete = () => {
-            console.log('onComplete');
+        const uniformVector = Vector.fromObject(minion)
+            , accelerateVector = Vector.fromObject(minion)
+            , exponentailVector = Vector.fromObject(minion)
+            , uniformTo = {x: 400, y: 100}
+            , uniformFrom = Vector.fromObject(minion)
+            , accelerateTo = {x: 400, y: 200}
+            , accelerateFrom = Vector.fromObject(minion)
+            , exponentialTo = {x: 400, y: 300}
+            , exponentialFrom = Vector.fromObject(minion)
+            , uniformDirection = uniformFrom.clone().subtract(uniformTo)
+            , accelrateDirection = accelerateFrom.clone().subtract(accelerateTo)
+            , exponentialDirection = exponentialFrom.clone().subtract(exponentialTo);
+
+        uniformFrom.rotation = minion.rotation;
+        accelerateFrom.rotation = minion.rotation;
+        exponentialFrom.rotation = minion.rotation;
+        uniformTo.rotation = uniformDirection.direction();
+        accelerateTo.rotation = accelrateDirection.direction();
+        exponentialTo.rotation = exponentialDirection.direction();
+
+        uniformVector.alpha = 0.1;
+        accelerateVector.alpha = 0.1;
+        exponentailVector.alpha = 0.1;
+        uniformVector.rotation = minion.rotation;
+        accelerateVector.rotation = minion.rotation;
+        exponentailVector.rotation = minion.rotation;
+
+        const uniform = Be.physical(uniformVector, uniformTo, uniformFrom, Physical.uniform(12))
+            , accelerate = Be.physical(accelerateVector, accelerateTo, accelerateFrom, Physical.accelerate(2.0, 4.0))
+            , exponential = Be.physical(exponentailVector, exponentialTo, exponentialFrom, Physical.exponential(0.2));
+
+        this.drawAfterimageIndex = 0;
+
+        uniform.onUpdate = uniform.onComplete = () => {
+            this.setAfterimage(this.drawAfterimageIndex++, uniformVector);
         };
         uniform.play();
 
-        var icon1 = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
-        var icon2 = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
-        this.stage.addChild(icon1);
-        this.stage.addChild(icon2);
-
-        var accelerate = Be.physical(icon1, {x: 400, y: 200}, {x: 0, y: 0}, Physical.accelerate(2.0, 4.0));
-        accelerate.onComplete = () => {
-            this.stage.removeChild(icon1);
-            icon1.destroy();
+        accelerate.onUpdate = accelerate.onComplete = () => {
+            this.setAfterimage(this.drawAfterimageIndex++, accelerateVector);
         };
         accelerate.play();
 
-        var exponential = Be.physical(icon2, {x: 400, y: 300}, {x: 0, y: 0}, Physical.exponential(0.2));
-        exponential.onComplete = () => {
-            this.stage.removeChild(icon2);
-            icon2.destroy();
+        exponential.onUpdate = exponential.onComplete = () => {
+            this.setAfterimage(this.drawAfterimageIndex++, exponentailVector);
         };
         exponential.play();
     }
