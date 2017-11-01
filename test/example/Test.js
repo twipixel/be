@@ -581,14 +581,15 @@ export default class Test
         this.clearAfterimage();
         this.hideControlMinion();
 
-        const uniformVector = Vector.fromObject(minion)
-            , accelerateVector = Vector.fromObject(minion)
-            , exponentailVector = Vector.fromObject(minion)
-            , uniformTo = {x: 400, y: 100}
+        const minion0 = this.getAfterimage(0)
+            , minion1 = this.getAfterimage(1)
+            , minion2 = this.getAfterimage(2)
+            , targetX = 600
+            , uniformTo = new Vector(targetX, 100)
             , uniformFrom = Vector.fromObject(minion)
-            , accelerateTo = {x: 400, y: 200}
+            , accelerateTo = new Vector(targetX, 280)
             , accelerateFrom = Vector.fromObject(minion)
-            , exponentialTo = {x: 400, y: 300}
+            , exponentialTo = new Vector(targetX, 460)
             , exponentialFrom = Vector.fromObject(minion)
             , uniformDirection = uniformFrom.clone().subtract(uniformTo)
             , accelrateDirection = accelerateFrom.clone().subtract(accelerateTo)
@@ -601,78 +602,70 @@ export default class Test
         accelerateTo.rotation = accelrateDirection.direction();
         exponentialTo.rotation = exponentialDirection.direction();
 
-        uniformVector.alpha = 0.1;
-        accelerateVector.alpha = 0.1;
-        exponentailVector.alpha = 0.1;
-        uniformVector.rotation = minion.rotation;
-        accelerateVector.rotation = minion.rotation;
-        exponentailVector.rotation = minion.rotation;
+        minion0.visible = true;
+        minion1.visible = true;
+        minion2.visible = true;
+        minion0.rotation = minion.rotation;
+        minion1.rotation = minion.rotation;
+        minion2.rotation = minion.rotation;
 
-        const uniform = Be.physical(uniformVector, uniformTo, uniformFrom, Physical.uniform(12))
-            , accelerate = Be.physical(accelerateVector, accelerateTo, accelerateFrom, Physical.accelerate(2.0, 4.0))
-            , exponential = Be.physical(exponentailVector, exponentialTo, exponentialFrom, Physical.exponential(0.2));
+        this.uniform = Be.physical(minion0, uniformTo, uniformFrom, Physical.uniform(12));
+        this.accelerate = Be.physical(minion1, accelerateTo, accelerateFrom, Physical.accelerate(2.0, 4.0));
+        this.exponential = Be.physical(minion2, exponentialTo, exponentialFrom, Physical.exponential(0.2));
 
-        this.drawAfterimageIndex = 0;
-
-        uniform.onUpdate = uniform.onComplete = () => {
-            this.setAfterimage(this.drawAfterimageIndex++, uniformVector);
-        };
-        uniform.play();
-
-        accelerate.onUpdate = accelerate.onComplete = () => {
-            this.setAfterimage(this.drawAfterimageIndex++, accelerateVector);
-        };
-        accelerate.play();
-
-        exponential.onUpdate = exponential.onComplete = () => {
-            this.setAfterimage(this.drawAfterimageIndex++, exponentailVector);
-        };
-        exponential.play();
+        this.uniform.play();
+        this.accelerate.play();
+        this.exponential.play();
     }
 
 
     physicalTo()
     {
-        path.clear();
-        control.x = -10;
-        control.y = -10;
-        minion.x = 0;
-        minion.y = 0;
+        this.stopTween();
+        this.clearAfterimage();
+        this.hideControlMinion();
 
-        var uniform = Be.physicalTo(minion, {x: 400, y: 100}, Physical.uniform(12));
-        uniform.onPlay = () => {
-            console.log('onPlay');
-        };
-        uniform.onUpdate = () => {
-            console.log(`onUpdate (${minion.x}, ${minion.y} )`);
-            path.beginFill(controlPointColor);
-            path.drawRect(minion.x, minion.y, controlPointSize, controlPointSize);
-            path.endFill();
+        const minion0 = this.getAfterimage(0)
+            , minion1 = this.getAfterimage(1)
+            , minion2 = this.getAfterimage(2)
+            , targetX = 600
+            , uniformTo = new Vector(this.minionHalfWidth, this.minionHalfHeight)
+            , uniformFrom = new Vector(targetX, 100)
+            , accelerateTo = new Vector(this.minionHalfWidth, this.minionHalfHeight)
+            , accelerateFrom = new Vector(targetX, 280)
+            , exponentialTo = new Vector(this.minionHalfWidth, this.minionHalfHeight)
+            , exponentialFrom = new Vector(targetX, 460)
+            , uniformDirection = uniformFrom.clone().subtract(uniformTo)
+            , accelrateDirection = accelerateFrom.clone().subtract(accelerateTo)
+            , exponentialDirection = exponentialFrom.clone().subtract(exponentialTo);
 
-        };
-        uniform.onComplete = () => {
-            console.log('onComplete');
-        };
-        uniform.play();
+        uniformFrom.rotation = minion.rotation;
+        accelerateFrom.rotation = minion.rotation;
+        exponentialFrom.rotation = minion.rotation;
+        uniformTo.rotation = uniformDirection.direction();
+        accelerateTo.rotation = accelrateDirection.direction();
+        exponentialTo.rotation = exponentialDirection.direction();
 
-        var icon1 = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
-        var icon2 = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
-        this.stage.addChild(icon1);
-        this.stage.addChild(icon2);
+        minion0.x = uniformFrom.x;
+        minion0.y = uniformFrom.y;
+        minion1.x = accelerateFrom.x;
+        minion1.y = accelerateFrom.y;
+        minion2.x = exponentialFrom.x;
+        minion2.y = exponentialFrom.y;
+        minion0.visible = true;
+        minion1.visible = true;
+        minion2.visible = true;
+        minion0.rotation = minion.rotation;
+        minion1.rotation = minion.rotation;
+        minion2.rotation = minion.rotation;
 
-        var accelerate = Be.physicalTo(icon1, {x: 400, y: 200}, Physical.accelerate(2.0, 4.0));
-        accelerate.onComplete = () => {
-            this.stage.removeChild(icon1);
-            icon1.destroy();
-        };
-        accelerate.play();
+        this.uniform = Be.physicalTo(minion0, uniformTo, Physical.uniform(12));
+        this.accelerate = Be.physicalTo(minion1, accelerateTo, Physical.accelerate(2.0, 4.0));
+        this.exponential = Be.physicalTo(minion2, exponentialTo, Physical.exponential(0.2));
 
-        var exponential = Be.physicalTo(icon2, {x: 400, y: 300}, Physical.exponential(0.2));
-        exponential.onComplete = () => {
-            this.stage.removeChild(icon2);
-            icon2.destroy();
-        };
-        exponential.play();
+        this.uniform.play();
+        this.accelerate.play();
+        this.exponential.play();
     }
 
 
@@ -986,6 +979,12 @@ export default class Test
 
         if (this.drawBezierAfterTween) {
             this.drawBezierAfterTween.stop();
+        }
+
+        if (this.uniform) {
+            this.uniform.stop();
+            this.accelerate.stop();
+            this.exponential.stop();
         }
     }
 

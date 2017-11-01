@@ -108,6 +108,8 @@ export default class Test
             time: 0.4,
             leaveAfterImage: true,
             easingList: [
+                Linear.easeNone, Linear.linear,
+                Linear.easeIn, Linear.easeOut, Linear.easeOutIn, Linear.easeInOut,
                 Sine.easeIn, Sine.easeOut, Sine.easeOutIn, Sine.easeInOut,
                 Quadratic.easeIn, Quadratic.easeOut, Quadratic.easeOutIn, Quadratic.easeInOut,
                 Cubic.easeIn, Cubic.easeOut, Cubic.easeOutIn, Cubic.easeInOut,
@@ -120,6 +122,8 @@ export default class Test
                 Bounce.easeIn, Bounce.easeOut, Bounce.easeOutIn, Bounce.easeInOut
             ],
             easingNameList: [
+                'Linear.easeNone', 'Linear.linear',
+                'Linear.easeIn', 'Linear.easeOut', 'Linear.easeOutIn', 'Linear.easeInOut',
                 'Sine.easeIn', 'Sine.easeOut', 'Sine.easeOutIn', 'Sine.easeInOut',
                 'Quadratic.easeIn', 'Quadratic.easeOut', 'Quadratic.easeOutIn', 'Quadratic.easeInOut',
                 'Cubic.easeIn', 'Cubic.easeOut', 'Cubic.easeOutIn', 'Cubic.easeInOut',
