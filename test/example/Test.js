@@ -609,9 +609,13 @@ export default class Test
         minion1.rotation = minion.rotation;
         minion2.rotation = minion.rotation;
 
-        this.uniform = Be.physical(minion0, uniformTo, uniformFrom, Physical.uniform(12));
+        /*this.uniform = Be.physical(minion0, uniformTo, uniformFrom, Physical.uniform(12));
         this.accelerate = Be.physical(minion1, accelerateTo, accelerateFrom, Physical.accelerate(2.0, 4.0));
-        this.exponential = Be.physical(minion2, exponentialTo, exponentialFrom, Physical.exponential(0.2));
+        this.exponential = Be.physical(minion2, exponentialTo, exponentialFrom, Physical.exponential(0.2));*/
+
+        this.uniform = Be.physical(minion0, uniformTo, uniformFrom, Physical.uniform(1));
+        this.accelerate = Be.physical(minion1, accelerateTo, accelerateFrom, Physical.accelerate(0.1, 0.2));
+        this.exponential = Be.physical(minion2, exponentialTo, exponentialFrom, Physical.exponential(0.01));
 
         this.uniform.play();
         this.accelerate.play();
