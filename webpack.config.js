@@ -257,7 +257,7 @@ const development = {
      * inline-source-map: 컴파일된 파일에서도 원래의 파일 구조를 확인할 수 있는 옵션
      * (inline 은 map 파일을 따로 생성하지 않고 bundle에 포함 시킵니다.)
      */
-    devtool: '#inline-source-map',
+    devtool: '#sourcemap',
     plugins: [
         new BrowserSyncPlugin({
             host: 'localhost',
