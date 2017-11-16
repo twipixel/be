@@ -1,6 +1,8 @@
-#### [BetweenAS3](https://github.com/hyoshida/BetweenAS3)를 JavaScript에서 사용 가능하도록 변환하였습니다. 
+<br>
 
 [SPARK Project 공식 홈페이지](http://www.libspark.org/wiki/BetweenAS3/en)
+
+[BetweenAS3](https://github.com/hyoshida/BetweenAS3)를 JavaScript에서 사용 가능하도록 변환하였습니다.
 
 자세한 설명은 BetweenAS3 공식 홈페이지를 참조하세요.
 
@@ -64,7 +66,7 @@
 
 <br>
 
-#### Be 함수 사용예
+#### Be 사용 예제
 
 ###### tween
 
