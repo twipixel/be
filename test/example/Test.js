@@ -338,7 +338,7 @@ export default class Test
         this.config.physical = this.physical.bind(this);
         this.config.physicalTo = this.physicalTo.bind(this);
         this.config.physicalFrom = this.physicalFrom.bind(this);
-        this.config.physicalApply = this.physicalApply.bind(this);
+        // this.config.physicalApply = this.physicalApply.bind(this);
         this.config.parallel = this.parallel.bind(this);
         this.config.parallelTweens = this.parallelTweens.bind(this);
         this.config.serial = this.serial.bind(this);
@@ -359,9 +359,9 @@ export default class Test
         this.gui.add(this.config, 'bezier');
         this.gui.add(this.config, 'bezierTo');
         this.gui.add(this.config, 'bezierFrom');
-        // this.gui.add(this.config, 'physical');
-        // this.gui.add(this.config, 'physicalTo');
-        // this.gui.add(this.config, 'physicalFrom');
+        this.gui.add(this.config, 'physical');
+        this.gui.add(this.config, 'physicalTo');
+        this.gui.add(this.config, 'physicalFrom');
         // this.gui.add(this.config, 'physicalApply');
         this.gui.add(this.config, 'parallel');
         this.gui.add(this.config, 'parallelTweens');
@@ -579,6 +579,10 @@ export default class Test
      * uniform(velocity = 10.0, frameRate = NaN)
      * accelerate(acceleration = 1.0, initialVelocity = 0.0, frameRate = NaN)
      * exponential(factor = 0.2, threshold = 0.0001, frameRate = NaN)
+     *
+     * **************************************************************
+     * accelerate, expenential는 to가 음수일 경우 제대로 동작하지 않습니다.
+     * **************************************************************
      */
     physical()
     {
@@ -586,28 +590,29 @@ export default class Test
         this.clearAfterimage();
         this.hideControlMinion();
 
-        //아오 좀 도라  졸 귀찮
-        const minion0 = minion
-            , targetX = 400, y0 = 100, y1 = 280, y2 = 460;
-        minion0.x = minion1.x = minion2.x = this.minionHalfWidth;
-        minion0.y = y0, minion1.y = y1, minion2.y = y2;
-        minion0.rotation = minion1.rotation = minion2.rotation = 0;
-        minion0.visible = minion1.visible = minion2.visible = true;
+        const targetX = 600
+            , uniformSpeed = 12
+            , minion0 = this.getAfterimage(0)
+            , minion1 = this.getAfterimage(1)
+            , minion2 = this.getAfterimage(2)
+            , uniformTo = new Vector(targetX, 100)
+            , uniformFrom = Vector.fromObject(minion)
+            , accelerateTo = new Vector(targetX, 280)
+            , accelerateFrom = Vector.fromObject(minion)
+            , exponentialTo = new Vector(targetX, 460)
+            , exponentialFrom = Vector.fromObject(minion);
 
-        const uniformTo = new Vector(targetX, y0)
-            , uniformFrom = Vector.fromObject(minion0)
-            , accelerateTo = new Vector(targetX, y1)
-            , accelerateFrom = Vector.fromObject(minion1)
-            , exponentialTo = new Vector(targetX, y2)
-            , exponentialFrom = Vector.fromObject(minion2);
+        minion0.x = this.minionHalfWidth, minion0.y = this.minionHalfHeight, minion0.alpha = 1, minion0.visible = true,
+        minion1.x = this.minionHalfWidth, minion1.y = this.minionHalfHeight, minion1.alpha = 1, minion1.visible = true,
+        minion2.x = this.minionHalfWidth, minion2.y = this.minionHalfHeight, minion2.alpha = 1, minion2.visible = true;
 
-        this.uniform = Be.physical(minion0, uniformTo, uniformFrom, Physical.uniform(12));
-        // this.accelerate = Be.physical(minion1, accelerateTo, accelerateFrom, Physical.accelerate(2.0, 4.0));
-        // this.exponential = Be.physical(minion2, exponentialTo, exponentialFrom, Physical.exponential(0.2));
+        this.uniform0 = Be.physical(minion0, uniformTo, uniformFrom, Physical.uniform(uniformSpeed));
+        this.uniform1 = Be.physical(minion1, accelerateTo, accelerateFrom, Physical.uniform(uniformSpeed));
+        this.uniform2 = Be.physical(minion2, exponentialTo, exponentialFrom, Physical.uniform(uniformSpeed));
 
-        this.uniform.play();
-        // this.accelerate.play();
-        // this.exponential.play();
+        this.uniform0.play();
+        this.uniform1.play();
+        this.uniform2.play();
     }
 
 
@@ -616,6 +621,10 @@ export default class Test
      * uniform(velocity = 10.0, frameRate = NaN)
      * accelerate(acceleration = 1.0, initialVelocity = 0.0, frameRate = NaN)
      * exponential(factor = 0.2, threshold = 0.0001, frameRate = NaN)
+     *
+     * **************************************************************
+     * accelerate, expenential는 to가 음수일 경우 제대로 동작하지 않습니다.
+     * **************************************************************
      */
     physicalTo()
     {
@@ -623,30 +632,29 @@ export default class Test
         this.clearAfterimage();
         this.hideControlMinion();
 
-        //아오 좀 도라  졸 귀찮
-        const minion0 = minion
-            , minion1 = this.getAfterimage(0)
-            , minion2 = this.getAfterimage(1)
-            , targetX = 400, y0 = 100, y1 = 280, y2 = 460;
-        minion0.x = minion1.x = minion2.x = this.minionHalfWidth;
-        minion0.y = y0, minion1.y = y1, minion2.y = y2;
-        minion0.rotation = minion1.rotation = minion2.rotation = 0;
-        minion0.visible = minion1.visible = minion2.visible = true;
+        const targetX = 600
+            , uniformSpeed = 12
+            , minion0 = this.getAfterimage(0)
+            , minion1 = this.getAfterimage(1)
+            , minion2 = this.getAfterimage(2)
+            , uniformTo = new Vector(targetX, 100)
+            , uniformFrom = Vector.fromObject(minion)
+            , accelerateTo = new Vector(targetX, 280)
+            , accelerateFrom = Vector.fromObject(minion)
+            , exponentialTo = new Vector(targetX, 460)
+            , exponentialFrom = Vector.fromObject(minion);
 
-        const uniformTo = new Vector(targetX, y0)
-            , uniformFrom = Vector.fromObject(minion0)
-            , accelerateTo = new Vector(targetX, y1)
-            , accelerateFrom = Vector.fromObject(minion1)
-            , exponentialTo = new Vector(targetX, y2)
-            , exponentialFrom = Vector.fromObject(minion2);
+        minion0.x = this.minionHalfWidth, minion0.y = this.minionHalfHeight, minion0.alpha = 1, minion0.visible = true,
+        minion1.x = this.minionHalfWidth, minion1.y = this.minionHalfHeight, minion1.alpha = 1, minion1.visible = true,
+        minion2.x = this.minionHalfWidth, minion2.y = this.minionHalfHeight, minion2.alpha = 1, minion2.visible = true;
 
-        this.uniform = Be.physical(minion0, uniformTo, uniformFrom, Physical.uniform(12));
-        this.accelerate = Be.physical(minion1, accelerateTo, accelerateFrom, Physical.accelerate(2.0, 4.0));
-        this.exponential = Be.physical(minion2, exponentialTo, exponentialFrom, Physical.exponential(0.2));
+        this.uniform0 = Be.physicalTo(minion0, uniformTo, Physical.uniform(uniformSpeed));
+        this.uniform1 = Be.physicalTo(minion1, accelerateTo, Physical.uniform(uniformSpeed));
+        this.uniform2 = Be.physicalTo(minion2, exponentialTo, Physical.uniform(uniformSpeed));
 
-        this.uniform.play();
-        this.accelerate.play();
-        this.exponential.play();
+        this.uniform0.play();
+        this.uniform1.play();
+        this.uniform2.play();
     }
 
 
@@ -655,6 +663,10 @@ export default class Test
      * uniform(velocity = 10.0, frameRate = NaN)
      * accelerate(acceleration = 1.0, initialVelocity = 0.0, frameRate = NaN)
      * exponential(factor = 0.2, threshold = 0.0001, frameRate = NaN)
+     *
+     * **************************************************************
+     * accelerate, expenential는 to가 음수일 경우 제대로 동작하지 않습니다.
+     * **************************************************************
      */
     physicalFrom()
     {
@@ -662,52 +674,58 @@ export default class Test
         this.clearAfterimage();
         this.hideControlMinion();
 
-        //아오 좀 도라  졸 귀찮
-        const minion0 = minion
-            , minion1 = this.getAfterimage(0)
-            , minion2 = this.getAfterimage(1)
-            , targetX = 400, y0 = 100, y1 = 280, y2 = 460;
-        minion0.x = minion1.x = minion2.x = this.minionHalfWidth;
-        minion0.y = y0, minion1.y = y1, minion2.y = y2;
-        minion0.rotation = minion1.rotation = minion2.rotation = 0;
-        minion0.visible = minion1.visible = minion2.visible = true;
+        const targetX = 600
+            , uniformSpeed = 12
+            , minion0 = this.getAfterimage(0)
+            , minion1 = this.getAfterimage(1)
+            , minion2 = this.getAfterimage(2)
+            , uniformTo = new Vector(targetX, 100)
+            , uniformFrom = {x: this.minionHalfWidth, y: this.minionHalfHeight}
+            , accelerateTo = new Vector(targetX, 280)
+            , accelerateFrom = {x: this.minionHalfWidth, y: this.minionHalfHeight}
+            , exponentialTo = new Vector(targetX, 460)
+            , exponentialFrom = {x: this.minionHalfWidth, y: this.minionHalfHeight};
 
-        const uniformTo = new Vector(targetX, y0)
-            , uniformFrom = Vector.fromObject(minion0)
-            , accelerateTo = new Vector(targetX, y1)
-            , accelerateFrom = Vector.fromObject(minion1)
-            , exponentialTo = new Vector(targetX, y2)
-            , exponentialFrom = Vector.fromObject(minion2);
+        minion0.x = this.minionHalfWidth, minion0.y = this.minionHalfHeight, minion0.alpha = 1, minion0.visible = true,
+        minion1.x = this.minionHalfWidth, minion1.y = this.minionHalfHeight, minion1.alpha = 1, minion1.visible = true,
+        minion2.x = this.minionHalfWidth, minion2.y = this.minionHalfHeight, minion2.alpha = 1, minion2.visible = true;
 
-        this.uniform = Be.physical(minion0, uniformTo, uniformFrom, Physical.uniform(12));
-        this.accelerate = Be.physical(minion1, accelerateTo, accelerateFrom, Physical.accelerate(2.0, 4.0));
-        this.exponential = Be.physical(minion2, exponentialTo, exponentialFrom, Physical.exponential(0.2));
+        this.uniform0 = Be.physicalFrom(minion0, uniformTo, Physical.uniform(uniformSpeed));
+        this.uniform1 = Be.physicalFrom(minion1, accelerateTo, Physical.uniform(uniformSpeed));
+        this.uniform2 = Be.physicalFrom(minion2, exponentialTo, Physical.uniform(uniformSpeed));
 
-        this.uniform.play();
-        this.accelerate.play();
-        this.exponential.play();
+        this.uniform0.play();
+        this.uniform1.play();
+        this.uniform2.play();
     }
 
 
     physicalApply()
     {
-        Be.physicalApply(minion, {x: 400, y: 100}, {x: 0, y: 0}, 0.5, Physical.uniform(12));
+        Be.physicalApply(minion, {x: 400, y: 100}, {x: 0, y: 0}, 0.5, Physical.uniform(10));
     }
 
 
     parallel()
     {
-        path.clear();
-        control.x = -10;
-        control.y = -10;
+        this.stopTween();
+        this.clearAfterimage();
+        this.hideControlMinion();
 
-        // 5개 이상일 경우 테스트
-        var move = Be.tween(minion, {x: 400}, {x: 100}, 2, Expo.easeOut);
-        var scale1 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var scale2 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var scale3 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var scale4 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var group = Be.parallel(move, scale1, scale2, scale3, scale4);
+        const centerX = 300
+            , centerY = 300
+            , center = {x: centerX, y: centerY}
+            , to = this.getRandomPosition()
+            , from = Vector.fromObject(minion)
+            , direction = from.clone().subtract(to)
+            , rotation = direction.direction();
+
+        const bezier = Be.bezier(minion, to, from, center, 1, Linear.easeNone)
+            , rot = Be.tween(minion, {rotation: minion.rotation}, {rotation: rotation}, 1, Elastic.easeOut)
+            , alpha = Be.tween(minion, {alpha: minion.alpha}, {alpha: 0.3 + Math.random() * 0.7}, 1, Elastic.easeOut)
+            , scale = Be.tween(minion, {scaleX: minion.scale.x, scaleY: minion.scale.y}, {scaleX: 1 + Math.random() * 3, scaleY: 1 + Math.random() * 3}, 1, Elastic.easeOut);
+
+        const group = Be.parallel(bezier, rot, alpha, scale);
         group.play();
     }
 
@@ -949,10 +967,10 @@ export default class Test
             this.drawBezierAfterTween.stop();
         }
 
-        if (this.uniform) {
-            this.uniform.stop();
-            this.accelerate.stop();
-            this.exponential.stop();
+        if (this.uniform0) {
+            this.uniform0.stop();
+            this.uniform1.stop();
+            this.uniform2.stop();
         }
     }
 

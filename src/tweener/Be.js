@@ -72,7 +72,7 @@ PointUpdater.register(_updaterClassRegistry);
 
 export default class Be
 {
-    static get VERSION() { return '0.9.3 (Beta)' }
+    static get VERSION() { return '0.9.4 (Beta)' }
 
     /**
      * 업데이터 등록
