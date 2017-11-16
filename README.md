@@ -1,12 +1,50 @@
 #### [BetweenAS3](https://github.com/hyoshida/BetweenAS3)를 JavaScript에서 사용 가능하도록 변환하였습니다. 
 
-###### [Pixi.js](https://github.com/pixijs/pixi.js)의 PIXI.Point, PIXI.DisplayObject 를 지원합니다. 
+[SPARK Project 공식 홈페이지](http://www.libspark.org/wiki/BetweenAS3/en)
 
-###### Point와 DisplayObject는 아래의 속성을 지원합니다.
+자세한 설명은 BetweenAS3 공식 홈페이지를 참조하세요.
 
 <br>
 
-###### 지원 속성
+#### Easing
+
+- Back
+- Bounce
+- Circ (or Circular)
+- Cubic
+- Elastic
+- Expo (or Exponential)
+- Linear
+- Quad (or Quadratic)
+- Quart (or Quartic)
+- Quint (or Quintic)
+- Sine
+
+<br>
+
+#### Events
+
+- PLAY
+- STOP
+- UPDATE
+- COMPLETE
+
+<br>
+
+#### Event Callback
+
+- onPlay
+- onPlayParams
+- onStop
+- onStpoParams
+- onUpdate
+- onUpdateParams
+- onComplete
+- onCompleteParams
+
+<br>
+
+#### 지원 속성
 
 - ###### Point
 
@@ -22,11 +60,11 @@
   - rotation
   - skewX, skewY
   - scaleX, scaleY
-  
+
 
 <br>
 
-#### 사용법
+#### Be 함수 사용예
 
 ###### tween
 
@@ -55,7 +93,7 @@
   Be.apply(this.icon, {x: 250, y: 250}, {x: 0}, 2, 0.5, Sine.easeOut);
   ```
 
-###### bezier, bezierTo, bezierFrom
+###### bezier, bezierTo, bezierFrom, onPlay, onUpdate, onUpdateParams, onComplete
 
   ```javascript
   var tween = Be.bezier(this.icon, {x: 400, y: 400}, {x: icon.x, y: icon.y}, {
@@ -65,8 +103,9 @@
   tween.onPlay = () => {
       console.log('onPlay');
   };
-  tween.onUpdate = () => {
-      console.log(`onUpdate (${icon.x}, ${icon.y} )`);
+  tween.onUpdateParams = [this.icon];
+  tween.onUpdate = (target) => {
+      console.log(`onUpdate icon[${this.icon.x}, ${this.icon.y}] target[${target.x}, ${target.y}]`);
       path.beginFill(controlPointColor);
       path.drawRect(icon.x, icon.y, controlPointSize, controlPointSize);
       path.endFill();
@@ -303,7 +342,6 @@
       return list;
   }
   ```
-
 <br>
 
 <br>

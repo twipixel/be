@@ -82,7 +82,7 @@ export default class Test
     startApplication()
     {
         minion = new Image(minionImage);
-        this.setMinion(minion);
+        this.resetMinion();
         this.minionLayer.addChild(minion);
         this.minionLayer.addChild(controlMinion);
 
@@ -94,14 +94,36 @@ export default class Test
     }
 
 
-    setMinion(minion)
+    resetTween()
     {
-        minion.width = 200;
-        minion.scale.y = minion.scale.x;
-        this.minionHalfWidth = minion.width / 2;
-        this.minionHalfHeight = minion.height / 2;
-        minion.x = this.minionHalfWidth;
-        minion.y = this.minionHalfHeight;
+        this.stopTween();
+        this.clearAfterimage();
+        this.hideControlMinion();
+        this.resetMinionSize();
+    }
+
+
+    resetMinionSize()
+    {
+        // 기본 싸이즈가 아니면
+        if (minion.width !== 200) {
+            minion.width = 200;
+            minion.scale.y = minion.scale.x;
+        }
+    }
+
+
+    resetMinion(target = minion, justSize = false)
+    {
+        target.width = 200;
+        target.scale.y = target.scale.x;
+        this.minionHalfWidth = target.width / 2;
+        this.minionHalfHeight = target.height / 2;
+
+        if (!justSize) {
+            target.x = this.minionHalfWidth;
+            target.y = this.minionHalfHeight;
+        }
     }
 
 
@@ -264,7 +286,7 @@ export default class Test
         if (!minions[index]) {
             var afterimage = new Image(minionImage);
             afterimage.visible = false;
-            this.setMinion(afterimage);
+            this.resetMinion(afterimage);
             this.afterimageLayer.addChild(afterimage);
             minions.push(afterimage);
         }
@@ -400,9 +422,7 @@ export default class Test
 
     tween()
     {
-        this.stopTween();
-        this.clearAfterimage();
-        this.hideControlMinion();
+        this.resetTween();
 
         const time = Number(this.config.time)
             , easing = this.config.selectedEasing
@@ -415,6 +435,7 @@ export default class Test
         const cloneTo = Object.assign(to.clone(), to)
             , cloneFrom = Object.assign(from.clone(), from);
 
+        this.currentTween =
         this.minionTween = Be.tween(minion, to, from, time, easing);
         this.minionTween.play();
 
@@ -424,9 +445,7 @@ export default class Test
 
     to()
     {
-        this.stopTween();
-        this.clearAfterimage();
-        this.hideControlMinion();
+        this.resetTween();
 
         const time = Number(this.config.time)
             , easing = this.config.selectedEasing
@@ -439,6 +458,7 @@ export default class Test
         const cloneTo = Object.assign(to.clone(), to)
             , cloneFrom = Object.assign(from.clone(), from);
 
+        this.currentTween =
         this.minionTween = Be.to(minion, to, time, easing);
         this.minionTween.play();
 
@@ -448,9 +468,7 @@ export default class Test
 
     from()
     {
-        this.stopTween();
-        this.clearAfterimage();
-        this.hideControlMinion();
+        this.resetTween();
 
         const time = Number(this.config.time)
             , easing = this.config.selectedEasing
@@ -463,6 +481,7 @@ export default class Test
         const cloneTo = Object.assign(to.clone(), to)
             , cloneFrom = Object.assign(from.clone(), from);
 
+        this.currentTween =
         this.minionTween = Be.from(minion, to, time, easing);
         this.minionTween.play();
 
@@ -472,9 +491,7 @@ export default class Test
 
     apply()
     {
-        this.stopTween();
-        this.clearAfterimage();
-        this.hideControlMinion();
+        this.resetTween();
 
         const time = Number(this.config.time)
             , applyTime = time / 2
@@ -502,9 +519,7 @@ export default class Test
 
     bezier()
     {
-        this.stopTween();
-        this.clearAfterimage();
-        this.showControlMinion();
+        this.resetTween();
 
         const time = Number(this.config.time)
             , easing = this.config.selectedEasing
@@ -518,6 +533,7 @@ export default class Test
         const cloneTo = Object.assign(to.clone(), to)
             , cloneFrom = Object.assign(from.clone(), from);
 
+        this.currentTween =
         this.minionTween = Be.bezier(minion, to, from, control, time, easing);
         this.minionTween.play();
 
@@ -527,9 +543,7 @@ export default class Test
 
     bezierTo()
     {
-        this.stopTween();
-        this.clearAfterimage();
-        this.showControlMinion();
+        this.resetTween();
 
         const time = Number(this.config.time)
             , easing = this.config.selectedEasing
@@ -543,6 +557,7 @@ export default class Test
         const cloneTo = Object.assign(to.clone(), to)
             , cloneFrom = Object.assign(from.clone(), from);
 
+        this.currentTween =
         this.minionTween = Be.bezierTo(minion, to, control, time, easing);
         this.minionTween.play();
 
@@ -552,9 +567,7 @@ export default class Test
 
     bezierFrom()
     {
-        this.stopTween();
-        this.clearAfterimage();
-        this.showControlMinion();
+        this.resetTween();
 
         const time = Number(this.config.time)
             , easing = this.config.selectedEasing
@@ -568,6 +581,7 @@ export default class Test
         const cloneTo = Object.assign(to.clone(), to)
             , cloneFrom = Object.assign(from.clone(), from);
 
+        this.currentTween =
         this.minionTween = Be.bezierFrom(minion, to, control, time, easing);
         this.minionTween.play();
 
@@ -586,9 +600,7 @@ export default class Test
      */
     physical()
     {
-        this.stopTween();
-        this.clearAfterimage();
-        this.hideControlMinion();
+        this.resetTween();
 
         const targetX = 600
             , uniformSpeed = 12
@@ -606,6 +618,7 @@ export default class Test
         minion1.x = this.minionHalfWidth, minion1.y = this.minionHalfHeight, minion1.alpha = 1, minion1.visible = true,
         minion2.x = this.minionHalfWidth, minion2.y = this.minionHalfHeight, minion2.alpha = 1, minion2.visible = true;
 
+        this.currentTween =
         this.uniform0 = Be.physical(minion0, uniformTo, uniformFrom, Physical.uniform(uniformSpeed));
         this.uniform1 = Be.physical(minion1, accelerateTo, accelerateFrom, Physical.uniform(uniformSpeed));
         this.uniform2 = Be.physical(minion2, exponentialTo, exponentialFrom, Physical.uniform(uniformSpeed));
@@ -628,9 +641,7 @@ export default class Test
      */
     physicalTo()
     {
-        this.stopTween();
-        this.clearAfterimage();
-        this.hideControlMinion();
+        this.resetTween();
 
         const targetX = 600
             , uniformSpeed = 12
@@ -648,6 +659,7 @@ export default class Test
         minion1.x = this.minionHalfWidth, minion1.y = this.minionHalfHeight, minion1.alpha = 1, minion1.visible = true,
         minion2.x = this.minionHalfWidth, minion2.y = this.minionHalfHeight, minion2.alpha = 1, minion2.visible = true;
 
+        this.currentTween =
         this.uniform0 = Be.physicalTo(minion0, uniformTo, Physical.uniform(uniformSpeed));
         this.uniform1 = Be.physicalTo(minion1, accelerateTo, Physical.uniform(uniformSpeed));
         this.uniform2 = Be.physicalTo(minion2, exponentialTo, Physical.uniform(uniformSpeed));
@@ -670,9 +682,7 @@ export default class Test
      */
     physicalFrom()
     {
-        this.stopTween();
-        this.clearAfterimage();
-        this.hideControlMinion();
+        this.resetTween();
 
         const targetX = 600
             , uniformSpeed = 12
@@ -690,6 +700,7 @@ export default class Test
         minion1.x = this.minionHalfWidth, minion1.y = this.minionHalfHeight, minion1.alpha = 1, minion1.visible = true,
         minion2.x = this.minionHalfWidth, minion2.y = this.minionHalfHeight, minion2.alpha = 1, minion2.visible = true;
 
+        this.currentTween =
         this.uniform0 = Be.physicalFrom(minion0, uniformTo, Physical.uniform(uniformSpeed));
         this.uniform1 = Be.physicalFrom(minion1, accelerateTo, Physical.uniform(uniformSpeed));
         this.uniform2 = Be.physicalFrom(minion2, exponentialTo, Physical.uniform(uniformSpeed));
@@ -702,131 +713,278 @@ export default class Test
 
     physicalApply()
     {
-        Be.physicalApply(minion, {x: 400, y: 100}, {x: 0, y: 0}, 0.5, Physical.uniform(10));
+        //Be.physicalApply(minion, {x: 400, y: 100}, {x: 0, y: 0}, 0.5, Physical.uniform(10));
     }
 
 
     parallel()
     {
-        this.stopTween();
-        this.clearAfterimage();
-        this.hideControlMinion();
+        this.resetTween();
 
         const centerX = 300
             , centerY = 300
             , center = {x: centerX, y: centerY}
+            , start = {x: this.minionHalfWidth, y: this.minionHalfHeight}
             , to = this.getRandomPosition()
             , from = Vector.fromObject(minion)
-            , direction = from.clone().subtract(to)
-            , rotation = direction.direction();
+            , direction = from.clone().subtract(to);
 
-        const bezier = Be.bezier(minion, to, from, center, 1, Linear.easeNone)
-            , rot = Be.tween(minion, {rotation: minion.rotation}, {rotation: rotation}, 1, Elastic.easeOut)
-            , alpha = Be.tween(minion, {alpha: minion.alpha}, {alpha: 0.3 + Math.random() * 0.7}, 1, Elastic.easeOut)
+        from.rotation = minion.rotation;
+        to.rotation = direction.direction();
+
+        const bezier = Be.bezier(minion, to, from, center, 1, Back.easeOut)
+            , alpha = Be.tween(minion, {alpha: minion.alpha}, {alpha: 0}, 1, Linear.easeNone)
             , scale = Be.tween(minion, {scaleX: minion.scale.x, scaleY: minion.scale.y}, {scaleX: 1 + Math.random() * 3, scaleY: 1 + Math.random() * 3}, 1, Elastic.easeOut);
 
-        const group = Be.parallel(bezier, rot, alpha, scale);
-        group.play();
+        this.currentTween =
+        this.group = Be.parallel(bezier, alpha, scale);
+        this.group.onComplete = () => {
+            const tween = Be.to(minion, {alpha:1, width:200}, 0.5, Elastic.easeOut);
+            tween.onUpdate = tween.onComplete = () => {minion.scale.y = minion.scale.x;};
+            tween.play();
+        };
+        this.group.play();
     }
 
 
     parallelTweens()
     {
-        path.clear();
-        control.x = -10;
-        control.y = -10;
+        this.resetTween();
 
-        // 5개 이상일 경우 테스트
-        var move = Be.tween(minion, {x: 400}, {x: 100}, 2, Expo.easeOut);
-        var scale1 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var scale2 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var scale3 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var scale4 = Be.tween(minion, {scaleX: 1, scaleY: 1}, {scaleX: 0.2, scaleY: 0.2}, 2, Elastic.easeOut);
-        var tweens = [move, scale1, scale2, scale3, scale4];
-        var group = Be.parallelTweens(tweens);
-        group.play();
+        const centerX = 300
+            , centerY = 300
+            , center = {x: centerX, y: centerY}
+            , start = {x: this.minionHalfWidth, y: this.minionHalfHeight}
+            , to = this.getRandomPosition()
+            , from = Vector.fromObject(minion)
+            , direction = from.clone().subtract(to);
+
+        from.rotation = minion.rotation;
+        to.rotation = direction.direction();
+
+        const bezier = Be.bezier(minion, to, from, center, 1, Back.easeOut)
+            , alpha = Be.tween(minion, {alpha: minion.alpha}, {alpha: 0}, 1, Linear.easeNone)
+            , scale = Be.tween(minion, {scaleX: minion.scale.x, scaleY: minion.scale.y}, {scaleX: 1 + Math.random() * 3, scaleY: 1 + Math.random() * 3}, 1, Elastic.easeOut)
+            , tweens = [bezier, alpha, scale];
+
+        this.currentTween =
+        this.group = Be.parallelTweens(tweens);
+        this.group.onComplete = () => {
+            const tween = Be.to(minion, {alpha:1, width:200}, 0.5, Elastic.easeOut);
+            tween.onUpdate = tween.onComplete = () => {minion.scale.y = minion.scale.x;};
+            tween.play();
+        };
+        this.group.play();
     }
 
 
     serial()
     {
-        path.clear();
-        control.x = -10;
-        control.y = -10;
+        this.resetTween();
 
-        // 5개 이상일 경우 테스트
-        var time = 0.2;
-        var move1 = Be.to(minion, {x: 400, y: 400}, time, Back.easeOut);
-        var move2 = Be.to(minion, {x: 0, y: 0}, time, Exponential.easeOut);
-        var move3 = Be.to(minion, {x: 300, y: 300}, time, Quartic.easeOut);
-        var move4 = Be.to(minion, {x: 100, y: 100}, time, Quart.easeOut);
-        var move5 = Be.to(minion, {x: 200, y: 200}, time, Quad.easeOut);
-        var group = Be.serial(move1, move2, move3, move4, move5);
-        group.play();
+        const startX = this.minionHalfWidth + 20
+            , startY = this.minionHalfHeight - 20
+            , centerX = 300 + 20
+            , centerY = 300 + 10
+            , endX = 600
+            , endY = 600
+            , lt = new Vector(startX, startY)
+            , rt = new Vector(endX, startY)
+            , rb = new Vector(endX, endY)
+            , lb = new Vector(startX, endY)
+            , center = new Vector(centerX, centerY)
+            , time = 0.4
+            , easing = Back.easeOut
+            , from1 = Vector.fromObject(minion)
+            , to1 = lt.clone()
+            , from2 = to1.clone()
+            , to2 = rt.clone()
+            , from3 = to2.clone()
+            , to3 = rb.clone()
+            , from4 = to3.clone()
+            , to4 = lb.clone()
+            , from5 = to4.clone()
+            , to5 = lt.clone()
+            , from6 = to5.clone()
+            , to6 = center.clone()
+            , direction1 = from1.clone().subtract(to1)
+            , direction2 = from2.clone().subtract(to2)
+            , direction3 = from3.clone().subtract(to3)
+            , direction4 = from4.clone().subtract(to4)
+            , direction5 = from5.clone().subtract(to5)
+            , direction6 = from6.clone().subtract(to6);
+
+        from1.rotation = minion.rotation;
+        to1.rotation = direction1.direction();
+        from2.rotation = to1.rotation;
+        to2.rotation = direction2.direction();
+        from3.rotation = to2.rotation;
+        to3.rotation = direction3.direction();
+        from4.rotation = to3.rotation;
+        to4.rotation = direction4.direction();
+        from5.rotation = to4.rotation;
+        to5.rotation = direction5.direction();
+        from6.rotation = to5.rotation;
+        to6.rotation = direction6.direction();
+
+        const tween1 = Be.tween(minion, to1, from1, time, easing)
+            , tween2 = Be.tween(minion, to2, from2, time, easing)
+            , tween3 = Be.tween(minion, to3, from3, time, easing)
+            , tween4 = Be.tween(minion, to4, from4, time, easing)
+            , tween5 = Be.tween(minion, to5, from5, time, easing)
+            , tween6 = Be.tween(minion, to6, from6, time, easing);
+
+        this.currentTween =
+        this.group = Be.serial(tween1, tween2, tween3, tween4, tween5, tween6);
+
+        this.group.onPlay = () => {
+            this.drawAfterimageIndex = 0;
+        };
+
+        this.group.onUpdateParams = [minion];
+
+        this.group.onUpdate = (target) => {
+            const afterImage = Vector.fromObject(target);
+            afterImage.alpha = 0.1;
+            afterImage.rotation = target.rotation;
+            this.setAfterimage(this.drawAfterimageIndex, afterImage);
+            this.drawAfterimageIndex++;
+        };
+
+        this.group.play();
     }
 
 
     serialTweens()
     {
-        path.clear();
-        control.x = -10;
-        control.y = -10;
+        this.resetTween();
 
-        // 5개 이상일 경우 테스트
-        var time = 0.2;
-        var move1 = Be.to(minion, {x: 400, y: 400, scaleX: 2, scaleY: 2}, time, Back.easeOut);
-        var move2 = Be.to(minion, {x: 0, y: 0}, time, Exponential.easeOut);
-        var move3 = Be.to(minion, {x: 300, y: 300}, time, Quartic.easeOut);
-        var move4 = Be.to(minion, {x: 100, y: 100}, time, Quart.easeOut);
-        var move5 = Be.to(minion, {x: 200, y: 200}, time, Quad.easeOut);
-        var tweens = [move1, move2, move3, move4, move5];
-        var group = Be.serialTweens(tweens);
-        group.play();
+        const startX = this.minionHalfWidth + 20
+            , startY = this.minionHalfHeight - 20
+            , centerX = 300 + 20
+            , centerY = 300 + 10
+            , endX = 600
+            , endY = 600
+            , lt = new Vector(startX, startY)
+            , rt = new Vector(endX, startY)
+            , rb = new Vector(endX, endY)
+            , lb = new Vector(startX, endY)
+            , center = new Vector(centerX, centerY)
+            , time = 0.4
+            , easing = Back.easeOut
+            , from1 = Vector.fromObject(minion)
+            , to1 = center.clone()
+            , from2 = to1.clone()
+            , to2 = lt.clone()
+            , from3 = to2.clone()
+            , to3 = lb.clone()
+            , from4 = to3.clone()
+            , to4 = rb.clone()
+            , from5 = to4.clone()
+            , to5 = rt.clone()
+            , from6 = to5.clone()
+            , to6 = lt.clone()
+            , direction1 = from1.clone().subtract(to1)
+            , direction2 = from2.clone().subtract(to2)
+            , direction3 = from3.clone().subtract(to3)
+            , direction4 = from4.clone().subtract(to4)
+            , direction5 = from5.clone().subtract(to5)
+            , direction6 = from6.clone().subtract(to6);
+
+        from1.rotation = minion.rotation;
+        to1.rotation = direction1.direction();
+        from2.rotation = to1.rotation;
+        to2.rotation = direction2.direction();
+        from3.rotation = to2.rotation;
+        to3.rotation = direction3.direction();
+        from4.rotation = to3.rotation;
+        to4.rotation = direction4.direction();
+        from5.rotation = to4.rotation;
+        to5.rotation = direction5.direction();
+        from6.rotation = to5.rotation;
+        to6.rotation = direction6.direction();
+
+        const tween1 = Be.tween(minion, to1, from1, time, easing)
+            , tween2 = Be.tween(minion, to2, from2, time, easing)
+            , tween3 = Be.tween(minion, to3, from3, time, easing)
+            , tween4 = Be.tween(minion, to4, from4, time, easing)
+            , tween5 = Be.tween(minion, to5, from5, time, easing)
+            , tween6 = Be.tween(minion, to6, from6, time, easing)
+            , tweens = [tween1, tween2, tween3, tween4, tween5, tween6];
+
+        this.currentTween =
+        this.group = Be.serialTweens(tweens);
+
+        this.group.onPlay = () => {
+            this.drawAfterimageIndex = 0;
+        };
+
+        this.group.onUpdateParams = [minion];
+
+        this.group.onUpdate = (target) => {
+            const afterImage = Vector.fromObject(target);
+            afterImage.alpha = 0.1;
+            afterImage.rotation = target.rotation;
+            this.setAfterimage(this.drawAfterimageIndex, afterImage);
+            this.drawAfterimageIndex++;
+        };
+
+        this.group.play();
     }
 
 
     reverse()
     {
-        path.clear();
-        var tween = Be.tween(minion, {x: 500}, {x: 100}, 1, Quad.easeOut);
-        var reverse = Be.reverse(tween, true);
-        reverse.play();
+        if (this.currentTween) {
+            this.resetTween();
+            this.currentTween =
+                this.minionTween = Be.reverse(this.currentTween, true);
+            this.minionTween.play();
+        }
     }
 
 
     repeat()
     {
-        path.clear();
-        var tween = Be.tween(minion, {x: 500}, {x: 100}, 1, Quad.easeOut);
-        var repeat = Be.repeat(tween, 3);
-        repeat.play();
+        if (this.currentTween) {
+            this.resetTween();
+            this.minionTween = Be.repeat(this.currentTween, 3);
+            this.minionTween.play();
+        }
     }
 
 
     scale()
     {
-        path.clear();
-        var tween = Be.tween(minion, {x: 500}, {x: 100}, 1, Quad.easeOut);
-        var scale = Be.scale(tween, 3);
-        scale.play();
+        if (this.currentTween) {
+            this.resetTween();
+            this.minionTween = Be.scale(this.currentTween, 3);
+            this.minionTween.play();
+        }
     }
 
 
     slice()
     {
-        path.clear();
-        var tween = Be.tween(minion, {x: 500}, {x: 100}, 1, Quad.easeOut);
-        var slice = Be.slice(tween, 0.1, 0.6);
-        slice.play();
+        if (this.currentTween) {
+            this.resetTween();
+            this.minionTween = Be.slice(this.currentTween, 0.2, 0.8);
+            this.minionTween.onComplete = () => {
+                minion.width = 200;
+                minion.scale.y = minion.scale.x;
+            };
+            this.minionTween.play();
+        }
     }
 
 
     delay()
     {
-        path.clear();
-        var tween = Be.tween(minion, {x: 500}, {x: 100}, 1, Quad.easeOut);
-        var delay = Be.delay(tween, 2, 1);
-        delay.play();
+        if (this.currentTween) {
+            this.resetTween();
+            this.minionTween = Be.delay(this.currentTween, 1, 0);
+            this.minionTween.play();
+        }
     }
 
 
@@ -971,6 +1129,10 @@ export default class Test
             this.uniform0.stop();
             this.uniform1.stop();
             this.uniform2.stop();
+        }
+
+        if (this.group) {
+            this.group.stop();
         }
     }
 
