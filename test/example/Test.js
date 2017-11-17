@@ -3,7 +3,7 @@ import {
     requestAnimationFrame,
     cancelAnimationFrame,
     Easing
-} from './../../external/lib/animation';
+} from './../assets/lib/animation';
 
 import Size from './../src/Size';
 import Mouse from './../src/Mouse';
@@ -13,7 +13,7 @@ import Config from './../src/Config';
 import {loadImage} from './../src/async';
 
 
-let vector, controlMinion, minion, minions = [], minionURL = './../../asset/image/m7.png', minionImage;
+let vector, controlMinion, minion, minions = [], minionURL = './../assets/image/m7.png', minionImage;
 
 
 export default class Test
@@ -55,7 +55,7 @@ export default class Test
     {
         this.render = this.render.bind(this);
 
-        controlMinion = new PIXI.Sprite.fromImage('./../../asset/image/m11.png');
+        controlMinion = new PIXI.Sprite.fromImage('./../assets/image/m11.png');
         controlMinion.anchor = new PIXI.Point(0.5, 0.5);
         controlMinion.visible = false;
         controlMinion.texture.baseTexture.on('loaded', () => {
@@ -258,7 +258,6 @@ export default class Test
 
     setAfterimage(index, props)
     {
-        console.log('setAfterimage', index);
         const image = this.getAfterimage(index);
         image.x = props.x;
         image.y = props.y;
@@ -991,7 +990,7 @@ export default class Test
     addChildAction()
     {
         path.clear();
-        var panda = new PIXI.Sprite.fromImage('../../asset/image/icon/panda.png');
+        var panda = new PIXI.Sprite.fromImage('./../assets/image/icon/panda.png');
         var addChildAction = Be.addChild(panda, this.stage);
         var to = Be.to(panda, {x: 400, y: 400, scaleX: 2, scaleY: 2, skewX: 2, skewY: 2}, 2, Bounce.easeOut);
         var removeFromParent = Be.removeFromParent(panda);

@@ -3,7 +3,7 @@ import {
     requestAnimationFrame,
     cancelAnimationFrame,
     Easing
-} from './../../external/lib/animation';
+} from './../assets/lib/animation';
 
 import Size from './../src/Size';
 import Config from './../src/Config';

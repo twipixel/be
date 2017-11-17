@@ -1230,7 +1230,7 @@ var Be = function () {
     }, {
         key: 'VERSION',
         get: function get() {
-            return '0.9.3 (Beta)';
+            return '0.9.4 (Beta)';
         }
     }]);
 
@@ -3447,7 +3447,7 @@ exports.default = IEasing;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -3482,39 +3482,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 * 
 */
 var IPhysicalEasing = function () {
-  function IPhysicalEasing() {
-    _classCallCheck(this, IPhysicalEasing);
-  }
-
-  _createClass(IPhysicalEasing, [{
-    key: "getDuration",
-
-    /**
-     *
-     * @param b {number}
-     * @param e {number}
-     * @return {number}
-        */
-    value: function getDuration(b, e) {
-      return null;
+    function IPhysicalEasing() {
+        _classCallCheck(this, IPhysicalEasing);
     }
 
-    /**
-     *
-     * @param t {number}
-     * @param b {number}
-        * @param e {number}
-     * @return {number}
-        */
+    _createClass(IPhysicalEasing, [{
+        key: "getDuration",
 
-  }, {
-    key: "calculate",
-    value: function calculate(t, b, e) {
-      return null;
-    }
-  }]);
+        /**
+         *
+         * @param b {number}
+         * @param e {number}
+         * @return {number}
+            */
+        value: function getDuration(b, e) {
+            return null;
+        }
 
-  return IPhysicalEasing;
+        /**
+         *
+         * @param t {number}
+         * @param b {number}
+            * @param e {number}
+         * @return {number}
+            */
+
+    }, {
+        key: "calculate",
+        value: function calculate(t, b, e) {
+            return null;
+        }
+    }]);
+
+    return IPhysicalEasing;
 }();
 
 exports.default = IPhysicalEasing;
@@ -7029,7 +7029,7 @@ exports.default = ObjectTween;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -7075,101 +7075,101 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 var PhysicalTween = function (_AbstractTween) {
-    _inherits(PhysicalTween, _AbstractTween);
+  _inherits(PhysicalTween, _AbstractTween);
+
+  /**
+   *
+   * @param ticker {ITicker}
+   */
+  function PhysicalTween(ticker) {
+    _classCallCheck(this, PhysicalTween);
 
     /**
      *
-     * @param ticker {ITicker}
+     * @type {IPhysicalUpdater}
+     * @private
      */
-    function PhysicalTween(ticker) {
-        _classCallCheck(this, PhysicalTween);
+    var _this = _possibleConstructorReturn(this, (PhysicalTween.__proto__ || Object.getPrototypeOf(PhysicalTween)).call(this, ticker, 0));
 
-        /**
-         *
-         * @type {IPhysicalUpdater}
-         * @private
-         */
-        var _this = _possibleConstructorReturn(this, (PhysicalTween.__proto__ || Object.getPrototypeOf(PhysicalTween)).call(this, ticker, 0));
+    _this._updater = undefined;
+    return _this;
+  }
 
-        _this._updater = undefined;
-        return _this;
+  /**
+   *
+   * @returns {IPhysicalUpdater}
+   */
+
+
+  _createClass(PhysicalTween, [{
+    key: 'internalUpdate',
+
+
+    /**
+     *
+     * @param time {number}
+     */
+    value: function internalUpdate(time) {
+      this._updater.update(time);
     }
 
     /**
      *
-     * @returns {IPhysicalUpdater}
+     * @returns {AbstractTween}
      */
 
+  }, {
+    key: 'newInstance',
+    value: function newInstance() {
+      return new PhysicalTween(this._ticker);
+    }
 
-    _createClass(PhysicalTween, [{
-        key: 'internalUpdate',
+    /**
+     *
+     * @param source {AbstractTween}
+     */
 
+  }, {
+    key: 'copyFrom',
+    value: function copyFrom(source) {
+      _get(PhysicalTween.prototype.__proto__ || Object.getPrototypeOf(PhysicalTween.prototype), 'copyFrom', this).call(this, source);
 
-        /**
-         *
-         * @param time {number}
-         */
-        value: function internalUpdate(time) {
-            this._updater.update(time);
-        }
+      var obj = source;
 
-        /**
-         *
-         * @returns {AbstractTween}
-         */
+      this._updater = obj._updater.clone();
+    }
+  }, {
+    key: 'updater',
+    get: function get() {
+      return this._updater;
+    }
 
-    }, {
-        key: 'newInstance',
-        value: function newInstance() {
-            return new PhysicalTween(this._ticker);
-        }
+    /**
+     *
+     * @param value {IPhysicalUpdater}
+     */
+    ,
+    set: function set(value) {
+      this._updater = value;
 
-        /**
-         *
-         * @param source {AbstractTween}
-         */
+      if (this._updater != null) {
+        this._duration = this._updater.duration;
+      }
+    }
 
-    }, {
-        key: 'copyFrom',
-        value: function copyFrom(source) {
-            _get(PhysicalTween.prototype.__proto__ || Object.getPrototypeOf(PhysicalTween.prototype), 'copyFrom', this).call(this, source);
+    /**
+     *
+     * @returns {Object}
+     */
 
-            var obj = source;
+  }, {
+    key: 'target',
+    get: function get() {
+      return this._updater != null ? this._updater.target : null;
+    }
+  }]);
 
-            this._updater = obj._updater.clone();
-        }
-    }, {
-        key: 'updater',
-        get: function get() {
-            return this._updater;
-        }
-
-        /**
-         *
-         * @param value {IPhysicalUpdater}
-         */
-        ,
-        set: function set(value) {
-            this._updater = value;
-
-            if (this._updater != null) {
-                this._duration = this._updater.duration;
-            }
-        }
-
-        /**
-         *
-         * @returns {Object}
-         */
-
-    }, {
-        key: 'target',
-        get: function get() {
-            return this._updater != null ? this._updater.target : null;
-        }
-    }]);
-
-    return PhysicalTween;
+  return PhysicalTween;
 }(_AbstractTween3.default);
 
 exports.default = PhysicalTween;
@@ -7948,7 +7948,7 @@ exports.default = ReversedTween;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -7992,59 +7992,59 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 var ScaledTween = function (_TweenDecorator) {
-    _inherits(ScaledTween, _TweenDecorator);
+  _inherits(ScaledTween, _TweenDecorator);
+
+  /**
+   *
+   * @param baseTween {IITween}
+   * @param scale {number}
+   */
+  function ScaledTween(baseTween, scale) {
+    _classCallCheck(this, ScaledTween);
+
+    var _this = _possibleConstructorReturn(this, (ScaledTween.__proto__ || Object.getPrototypeOf(ScaledTween)).call(this, baseTween, 0));
+
+    _this._duration = baseTween.duration * scale;
+    _this._scale = scale;
+    return _this;
+  }
+
+  /**
+   *
+   * @returns {number}
+   */
+
+
+  _createClass(ScaledTween, [{
+    key: 'internalUpdate',
+
 
     /**
      *
-     * @param baseTween {IITween}
-     * @param scale {number}
+     * @param time {number}
      */
-    function ScaledTween(baseTween, scale) {
-        _classCallCheck(this, ScaledTween);
-
-        var _this = _possibleConstructorReturn(this, (ScaledTween.__proto__ || Object.getPrototypeOf(ScaledTween)).call(this, baseTween, 0));
-
-        _this._duration = baseTween.duration * scale;
-        _this._scale = scale;
-        return _this;
+    value: function internalUpdate(time) {
+      this._baseTween.update(time / this.scale);
     }
 
     /**
      *
-     * @returns {number}
+     * @returns {AbstractTween}
      */
 
+  }, {
+    key: 'newInstance',
+    value: function newInstance() {
+      return new ScaledTween(this._baseTween.clone(), this._scale);
+    }
+  }, {
+    key: 'scale',
+    get: function get() {
+      return this._scale;
+    }
+  }]);
 
-    _createClass(ScaledTween, [{
-        key: 'internalUpdate',
-
-
-        /**
-         *
-         * @param time {number}
-         */
-        value: function internalUpdate(time) {
-            this._baseTween.update(time / this.scale);
-        }
-
-        /**
-         *
-         * @returns {AbstractTween}
-         */
-
-    }, {
-        key: 'newInstance',
-        value: function newInstance() {
-            return new ScaledTween(this._baseTween.clone(), this._scale);
-        }
-    }, {
-        key: 'scale',
-        get: function get() {
-            return this._scale;
-        }
-    }]);
-
-    return ScaledTween;
+  return ScaledTween;
 }(_TweenDecorator3.default);
 
 exports.default = ScaledTween;
@@ -8969,7 +8969,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -9013,149 +9013,149 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 var AbstractUpdater = function (_IUpdater) {
-    _inherits(AbstractUpdater, _IUpdater);
+  _inherits(AbstractUpdater, _IUpdater);
 
-    function AbstractUpdater() {
-        _classCallCheck(this, AbstractUpdater);
+  function AbstractUpdater() {
+    _classCallCheck(this, AbstractUpdater);
 
-        /**
-         * @type {boolean}
-         * @private
-         */
-        var _this = _possibleConstructorReturn(this, (AbstractUpdater.__proto__ || Object.getPrototypeOf(AbstractUpdater)).call(this));
+    /**
+     * @type {boolean}
+     * @private
+     */
+    var _this = _possibleConstructorReturn(this, (AbstractUpdater.__proto__ || Object.getPrototypeOf(AbstractUpdater)).call(this));
 
-        _this._isResolved = false;
-        return _this;
+    _this._isResolved = false;
+    return _this;
+  }
+
+  /**
+   *
+   * @returns {Object}
+   */
+
+
+  _createClass(AbstractUpdater, [{
+    key: 'setSourceValue',
+
+
+    /**
+     *
+     * @param propertyName {string}
+     * @param value {number}
+     * @param isRelative {boolean}
+     */
+    value: function setSourceValue(propertyName, value) {
+      var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
     }
 
     /**
      *
+     * @param propertyName {string}
+     * @param value {number}
+     * @param isRelative {boolean}
+     */
+
+  }, {
+    key: 'setDestinationValue',
+    value: function setDestinationValue(propertyName, value) {
+      var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+    }
+
+    /**
+     *
+     * @param propertyName {string}
      * @returns {Object}
      */
 
+  }, {
+    key: 'getObject',
+    value: function getObject(propertyName) {
+      return null;
+    }
 
-    _createClass(AbstractUpdater, [{
-        key: 'setSourceValue',
+    /**
+     *
+     * @param propertyName {string}
+     * @param value {Object}
+     */
 
+  }, {
+    key: 'setObject',
+    value: function setObject(propertyName, value) {}
 
-        /**
-         *
-         * @param propertyName {string}
-         * @param value {number}
-         * @param isRelative {boolean}
-         */
-        value: function setSourceValue(propertyName, value) {
-            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-        }
+    /**
+     * @param factor {number}
+     */
 
-        /**
-         *
-         * @param propertyName {string}
-         * @param value {number}
-         * @param isRelative {boolean}
-         */
+  }, {
+    key: 'update',
+    value: function update(factor) {
+      if (this._isResolved === false) {
+        this.resolveValues();
+        this._isResolved = true;
+      }
+      this.updateObject(factor);
+    }
+  }, {
+    key: 'resolveValues',
+    value: function resolveValues() {}
 
-    }, {
-        key: 'setDestinationValue',
-        value: function setDestinationValue(propertyName, value) {
-            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-        }
+    /**
+     * @param factor {number}
+     */
 
-        /**
-         *
-         * @param propertyName {string}
-         * @returns {Object}
-         */
+  }, {
+    key: 'updateObject',
+    value: function updateObject(factor) {}
 
-    }, {
-        key: 'getObject',
-        value: function getObject(propertyName) {
-            return null;
-        }
+    /**
+     * @returns {IUpdater}
+     */
 
-        /**
-         *
-         * @param propertyName {string}
-         * @param value {Object}
-         */
+  }, {
+    key: 'clone',
+    value: function clone() {
+      var instance = this.newInstance();
+      if (instance != null) {
+        instance.copyFrom(this);
+      }
+      return instance;
+    }
 
-    }, {
-        key: 'setObject',
-        value: function setObject(propertyName, value) {}
+    /**
+     * @return {AbstractUpdater}
+     */
 
-        /**
-         * @param factor {number}
-         */
+  }, {
+    key: 'newInstance',
+    value: function newInstance() {
+      return null;
+    }
 
-    }, {
-        key: 'update',
-        value: function update(factor) {
-            if (this._isResolved === false) {
-                this.resolveValues();
-                this._isResolved = true;
-            }
-            this.updateObject(factor);
-        }
-    }, {
-        key: 'resolveValues',
-        value: function resolveValues() {}
+    /**
+     * @param source {AbstractUpdater}
+     */
 
-        /**
-         * @param factor {number}
-         */
+  }, {
+    key: 'copyFrom',
+    value: function copyFrom(source) {
+      // Do NOT copy _isResolved property.
+    }
+  }, {
+    key: 'target',
+    get: function get() {
+      return null;
+    }
 
-    }, {
-        key: 'updateObject',
-        value: function updateObject(factor) {}
+    /**
+     *
+     * @param value {Object}
+     */
+    ,
+    set: function set(value) {}
+  }]);
 
-        /**
-         * @returns {IUpdater}
-         */
-
-    }, {
-        key: 'clone',
-        value: function clone() {
-            var instance = this.newInstance();
-            if (instance != null) {
-                instance.copyFrom(this);
-            }
-            return instance;
-        }
-
-        /**
-         * @return {AbstractUpdater}
-         */
-
-    }, {
-        key: 'newInstance',
-        value: function newInstance() {
-            return null;
-        }
-
-        /**
-         * @param source {AbstractUpdater}
-         */
-
-    }, {
-        key: 'copyFrom',
-        value: function copyFrom(source) {
-            // Do NOT copy _isResolved property.
-        }
-    }, {
-        key: 'target',
-        get: function get() {
-            return null;
-        }
-
-        /**
-         *
-         * @param value {Object}
-         */
-        ,
-        set: function set(value) {}
-    }]);
-
-    return AbstractUpdater;
+  return AbstractUpdater;
 }(_IUpdater3.default);
 
 exports.default = AbstractUpdater;
@@ -10860,7 +10860,7 @@ exports.default = PhysicalUpdater;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -10904,39 +10904,74 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 var PhysicalUpdaterLadder = function (_IPhysicalUpdater) {
-    _inherits(PhysicalUpdaterLadder, _IPhysicalUpdater);
+  _inherits(PhysicalUpdaterLadder, _IPhysicalUpdater);
+
+  /**
+   *
+   * @param parent {IPhysicalUpdater}
+   * @param child {IPhysicalUpdater}
+   * @param propertyName {String}
+   */
+  function PhysicalUpdaterLadder(parent, child, propertyName) {
+    _classCallCheck(this, PhysicalUpdaterLadder);
+
+    /**
+     * @type {IPhysicalUpdater}
+     */
+    var _this = _possibleConstructorReturn(this, (PhysicalUpdaterLadder.__proto__ || Object.getPrototypeOf(PhysicalUpdaterLadder)).call(this));
+
+    _this._parent = parent;
+
+    /**
+     * @type {IPhysicalUpdater}
+     */
+    _this._child = child;
+
+    /**
+     * @type {string}
+     */
+    _this._propertyName = propertyName;
+
+    /**
+     * @type {number}
+     */
+    _this._duration = child.duration;
+    return _this;
+  }
+
+  /**
+   *
+   * @returns {IPhysicalUpdater}
+   */
+
+
+  _createClass(PhysicalUpdaterLadder, [{
+    key: 'update',
+
 
     /**
      *
-     * @param parent {IPhysicalUpdater}
-     * @param child {IPhysicalUpdater}
-     * @param propertyName {String}
+     * @param factor {number}
      */
-    function PhysicalUpdaterLadder(parent, child, propertyName) {
-        _classCallCheck(this, PhysicalUpdaterLadder);
+    value: function update(factor) {
+      this._child.update(factor);
+      this._parent.setObject(this._propertyName, this._child.target);
+    }
 
-        /**
-         * @type {IPhysicalUpdater}
-         */
-        var _this = _possibleConstructorReturn(this, (PhysicalUpdaterLadder.__proto__ || Object.getPrototypeOf(PhysicalUpdaterLadder)).call(this));
+    /**
+     *
+     * @returns {IUpdater}
+     */
 
-        _this._parent = parent;
-
-        /**
-         * @type {IPhysicalUpdater}
-         */
-        _this._child = child;
-
-        /**
-         * @type {string}
-         */
-        _this._propertyName = propertyName;
-
-        /**
-         * @type {number}
-         */
-        _this._duration = child.duration;
-        return _this;
+  }, {
+    key: 'clone',
+    value: function clone() {
+      return new PhysicalUpdaterLadder(this._parent, this._child, this._propertyName);
+    }
+  }, {
+    key: 'parent',
+    get: function get() {
+      return this._parent;
     }
 
     /**
@@ -10944,60 +10979,25 @@ var PhysicalUpdaterLadder = function (_IPhysicalUpdater) {
      * @returns {IPhysicalUpdater}
      */
 
+  }, {
+    key: 'child',
+    get: function get() {
+      return this._child;
+    }
 
-    _createClass(PhysicalUpdaterLadder, [{
-        key: 'update',
+    /**
+     *
+     * @returns {number}
+     */
 
+  }, {
+    key: 'duration',
+    get: function get() {
+      return this._duration;
+    }
+  }]);
 
-        /**
-         *
-         * @param factor {number}
-         */
-        value: function update(factor) {
-            this._child.update(factor);
-            this._parent.setObject(this._propertyName, this._child.target);
-        }
-
-        /**
-         *
-         * @returns {IUpdater}
-         */
-
-    }, {
-        key: 'clone',
-        value: function clone() {
-            return new PhysicalUpdaterLadder(this._parent, this._child, this._propertyName);
-        }
-    }, {
-        key: 'parent',
-        get: function get() {
-            return this._parent;
-        }
-
-        /**
-         *
-         * @returns {IPhysicalUpdater}
-         */
-
-    }, {
-        key: 'child',
-        get: function get() {
-            return this._child;
-        }
-
-        /**
-         *
-         * @returns {number}
-         */
-
-    }, {
-        key: 'duration',
-        get: function get() {
-            return this._duration;
-        }
-    }]);
-
-    return PhysicalUpdaterLadder;
+  return PhysicalUpdaterLadder;
 }(_IPhysicalUpdater3.default);
 
 exports.default = PhysicalUpdaterLadder;
@@ -11409,7 +11409,7 @@ exports.default = UpdaterFactory;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -11453,68 +11453,68 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 var UpdaterLadder = function (_IUpdater) {
-    _inherits(UpdaterLadder, _IUpdater);
+  _inherits(UpdaterLadder, _IUpdater);
+
+  /**
+   * @param parent {IUpdater}
+   * @param child {IUpdater}
+   * @param propertyName {string}
+   */
+  function UpdaterLadder(parent, child, propertyName) {
+    _classCallCheck(this, UpdaterLadder);
+
+    var _this = _possibleConstructorReturn(this, (UpdaterLadder.__proto__ || Object.getPrototypeOf(UpdaterLadder)).call(this));
+
+    _this._parent = parent;
+    _this._child = child;
+    _this._propertyName = propertyName;
+    return _this;
+  }
+
+  /**
+   * @returns {IUpdater}
+   */
+
+
+  _createClass(UpdaterLadder, [{
+    key: 'update',
+
 
     /**
-     * @param parent {IUpdater}
-     * @param child {IUpdater}
-     * @param propertyName {string}
+     * @param factor {number}
      */
-    function UpdaterLadder(parent, child, propertyName) {
-        _classCallCheck(this, UpdaterLadder);
-
-        var _this = _possibleConstructorReturn(this, (UpdaterLadder.__proto__ || Object.getPrototypeOf(UpdaterLadder)).call(this));
-
-        _this._parent = parent;
-        _this._child = child;
-        _this._propertyName = propertyName;
-        return _this;
+    value: function update(factor) {
+      this._child.update(factor);
+      this._parent.setObject(this._propertyName, this._child.target);
     }
 
     /**
      * @returns {IUpdater}
      */
 
+  }, {
+    key: 'clone',
+    value: function clone() {
+      return new UpdaterLadder(this._parent, this._child, this._propertyName);
+    }
+  }, {
+    key: 'parent',
+    get: function get() {
+      return this._parent;
+    }
 
-    _createClass(UpdaterLadder, [{
-        key: 'update',
+    /**
+     * @returns {IUpdater}
+     */
 
+  }, {
+    key: 'child',
+    get: function get() {
+      return this._child;
+    }
+  }]);
 
-        /**
-         * @param factor {number}
-         */
-        value: function update(factor) {
-            this._child.update(factor);
-            this._parent.setObject(this._propertyName, this._child.target);
-        }
-
-        /**
-         * @returns {IUpdater}
-         */
-
-    }, {
-        key: 'clone',
-        value: function clone() {
-            return new UpdaterLadder(this._parent, this._child, this._propertyName);
-        }
-    }, {
-        key: 'parent',
-        get: function get() {
-            return this._parent;
-        }
-
-        /**
-         * @returns {IUpdater}
-         */
-
-    }, {
-        key: 'child',
-        get: function get() {
-            return this._child;
-        }
-    }]);
-
-    return UpdaterLadder;
+  return UpdaterLadder;
 }(_IUpdater3.default);
 
 exports.default = UpdaterLadder;
@@ -14913,7 +14913,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -14949,47 +14949,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  */
 
 var TweenEvent = function () {
-    _createClass(TweenEvent, null, [{
-        key: 'PLAY',
-        get: function get() {
-            return 'play';
-        }
-    }, {
-        key: 'STOP',
-        get: function get() {
-            return 'stop';
-        }
-    }, {
-        key: 'UPDATE',
-        get: function get() {
-            return 'update';
-        }
-    }, {
-        key: 'COMPLETE',
-        get: function get() {
-            return 'complete';
-        }
-
-        /**
-         * @param type {string}
-         * @param bubbles {boolean}
-         * @param cancelable {boolean}
-         */
-
-    }]);
-
-    function TweenEvent(type) {
-        var bubbles = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-        var cancelable = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-        _classCallCheck(this, TweenEvent);
-
-        this.type = type;
-        this.bubbles = bubbles;
-        this.cancelable = cancelable;
+  _createClass(TweenEvent, null, [{
+    key: 'PLAY',
+    get: function get() {
+      return 'play';
+    }
+  }, {
+    key: 'STOP',
+    get: function get() {
+      return 'stop';
+    }
+  }, {
+    key: 'UPDATE',
+    get: function get() {
+      return 'update';
+    }
+  }, {
+    key: 'COMPLETE',
+    get: function get() {
+      return 'complete';
     }
 
-    return TweenEvent;
+    /**
+     * @param type {string}
+     * @param bubbles {boolean}
+     * @param cancelable {boolean}
+     */
+
+  }]);
+
+  function TweenEvent(type) {
+    var bubbles = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    var cancelable = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+    _classCallCheck(this, TweenEvent);
+
+    this.type = type;
+    this.bubbles = bubbles;
+    this.cancelable = cancelable;
+  }
+
+  return TweenEvent;
 }();
 
 exports.default = TweenEvent;

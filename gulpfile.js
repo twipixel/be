@@ -16,7 +16,7 @@ const gulp = require('gulp'),
 
 const defaults =
 {
-    dest: 'dist',
+    dest: './build/',
     source: './src/',
     watch: false,
     minify: false,

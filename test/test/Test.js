@@ -3,7 +3,7 @@ import {
     requestAnimationFrame,
     cancelAnimationFrame,
     Easing
-} from './../../external/lib/animation';
+} from './../assets/lib/animation';
 
 import global from '../../src/global/';
 import polyfill from '../../src/polyfill/';
@@ -170,7 +170,7 @@ export default class Test
 
         console.log('blurFilter:', blurFilter);
 
-        var icon = new PIXI.Sprite.fromImage('../../asset/image/icon/github.png');
+        var icon = new PIXI.Sprite.fromImage('./../assets/image/icon/github.png');
         this.stage.addChild(icon);
 
         icon.filters = [blurFilter];

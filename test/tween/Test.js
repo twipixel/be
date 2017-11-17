@@ -3,7 +3,7 @@ import {
     requestAnimationFrame,
     cancelAnimationFrame,
     Easing
-} from './../../external/lib/animation';
+} from './../assets/lib/animation';
 
 import Size from './../src/Size';
 import Image from './../src/Image';
@@ -13,7 +13,7 @@ import Config from './../src/Config';
 import {loadImage} from './../src/async';
 
 
-let vector, controlMinion, minion, minions = [], minionURL = './../../asset/image/m7.png', minionImage;
+let vector, controlMinion, minion, minions = [], minionURL = './../assets/image/m7.png', minionImage;
 
 
 export default class Test
@@ -48,7 +48,7 @@ export default class Test
     {
         this.render = this.render.bind(this);
 
-        controlMinion = new PIXI.Sprite.fromImage('./../../asset/image/m11.png');
+        controlMinion = new PIXI.Sprite.fromImage('./../assets/image/m11.png');
         controlMinion.anchor = new PIXI.Point(0.5, 0.5);
         controlMinion.visible = false;
         controlMinion.texture.baseTexture.on('loaded', () => {

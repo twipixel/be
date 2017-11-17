@@ -5,8 +5,7 @@
   "main": "./test/index.html",
   "scripts": {
     "deploy": "gulp dist",
-    "dev": "webpack",
-    "electron": "electron electron.js"
+    "dev": "webpack"
   },
   "repository": {
     "type": "git",
