@@ -39,6 +39,8 @@ const name = [
     'PhysicalUniform', 'PhysicalAccelerate', 'PhysicalExponential'
 ];
 
+const playButton = new PIXI.Sprite.fromImage('./../assets/image/play-button.png');
+
 
 export default class Test
 {
@@ -53,9 +55,27 @@ export default class Test
         this.stage = this.app.stage;
         
         this.render = this.render.bind(this);
-        setTimeout(this.initialize.bind(this), 1000);
 
-        //this.initialize();
+        playButton.anchor = {x:0.5, y:0.5};
+        playButton.scale.x = 0.9;
+        playButton.scale.y = 0.9;
+        playButton.x = playButton.width / 2 + 20;
+        playButton.y = playButton.height / 2 + 20;
+        playButton.buttonMode = true;
+        playButton.interactive = true;
+        this.app.stage.addChild(playButton);
+
+        const tweeen1 = Be.to(playButton, {scaleX:1, scaleY:1, alpha: 1}, 2, Back.easeOut)
+            , tweeen2 = Be.to(playButton, {scaleX:0.9, scaleY:0.9, alpha: 1}, 2, Back.easeOut)
+            , serial = Be.serial(tweeen1, tweeen2)
+            , tween = Be.repeat(serial, 10000);
+        tween.play();
+
+        playButton.on('pointerdown', () => {
+            tween.stop();
+            this.app.stage.removeChild(playButton);
+            this.initialize();
+        });
     }
 
 

@@ -5,7 +5,7 @@
   "main": "./test/index.html",
   "scripts": {
     "dev": "webpack",
-    "build": "webpack --build"
+    "dist": "webpack --build"
   },
   "repository": {
     "type": "git",

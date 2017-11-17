@@ -39,13 +39,8 @@
             return window.innerWidth - nav;
         }
 
-        var frame, parent = document.getElementsByClassName('canvas')[0];
-
-        if (navigator.userAgent.indexOf('Electron') >= 0) {
-            frame = document.createElement('webview');
-        } else {
-            frame = document.createElement('iframe');
-        }
+        var frame = document.createElement('iframe'),
+            parent = document.getElementsByClassName('canvas')[0];
 
         window.frame = frame;
         frame.name = 'canvas';
