@@ -59,8 +59,10 @@ export default class Test
         playButton.anchor = {x:0.5, y:0.5};
         playButton.scale.x = 0.9;
         playButton.scale.y = 0.9;
-        playButton.x = playButton.width / 2 + 20;
-        playButton.y = playButton.height / 2 + 20;
+        // playButton.x = playButton.width / 2 + 20;
+        // playButton.y = playButton.height / 2 + 20;
+        playButton.x = Size.windowCenterX;
+        playButton.y = Size.windowCenterY;
         playButton.buttonMode = true;
         playButton.interactive = true;
         this.app.stage.addChild(playButton);
@@ -120,8 +122,6 @@ export default class Test
 
     resize()
     {
-        return;
-
         const height = Size.windowHeight;
         const width = Size.windowWidth;
 
@@ -129,6 +129,11 @@ export default class Test
         this.canvas.height = height;
         this.canvas.style.width = width + 'px';
         this.canvas.style.height = height + 'px';
+
+        if (playButton) {
+            playButton.x = Size.windowCenterX;
+            playButton.y = Size.windowCenterY;
+        }
 
         this.renderer.resize(width, height);
     }
