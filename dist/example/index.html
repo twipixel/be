@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #FFFFFF;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Example</title>
+</head>
+
+<body>
+
+<script type="text/javascript" src="./../assets/vendor/be.min.js"></script>
+<script type="text/javascript" src="./../assets/vendor/pixi.min.js"></script>
+<script type="text/javascript" src="./../assets/lib/test.common.js"></script>
+<script>
+    (function(){
+        addScriptToBodySync('./../assets/vendor/dat.gui.js');
+            // commons 은 build 할 때 생성합니다.
+        addScriptToHeadSync('./../bundle/commons.js');
+        addScriptToBodySync('./index.js');
+    })();
+</script>
+
+</body>
+</html>

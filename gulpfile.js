@@ -45,9 +45,15 @@ catch(e) {
 }
 
 
-gulp.task('clean', () => {
+gulp.task('clean:dist', () => {
     return gulp
         .src('dist', {read: false, force: true})
+        .pipe(clean());
+});
+
+gulp.task('clean:build', () => {
+    return gulp
+        .src('build', {read: false, force: true})
         .pipe(clean());
 });
 

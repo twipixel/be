@@ -4,8 +4,8 @@
   "description": "",
   "main": "./test/index.html",
   "scripts": {
-    "deploy": "gulp dist",
-    "dev": "webpack"
+    "dev": "webpack",
+    "build": "webpack --build"
   },
   "repository": {
     "type": "git",
