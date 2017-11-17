@@ -8,6 +8,16 @@
 
 <br>
 
+#### 관련 링크 
+
+- [데모 페이지](https://twipixel.github.io/be/dist/index.html)
+  - [Tween](https://twipixel.github.io/be/dist/tween/index.html)
+  - [Easing](https://twipixel.github.io/be/dist/easing/index.html)
+  - [Example](https://twipixel.github.io/be/dist/example/index.html)
+- [트위너 성능 비교](https://github.com/twipixel/be/wiki)
+
+<br>
+
 #### Easing
 
 - Back
@@ -346,8 +356,6 @@
   ```
 <br>
 
-<br>
-
 #### BetweenAS3 코드 설명
 
 ###### 크게 3 부분으로 나뉩니다.
@@ -376,8 +384,6 @@
 
 <br>
 
-<br>
-
 #### 기본 흐름 (Flow)
 
 ###### BetweenAS3 초기화
@@ -389,8 +395,6 @@
 - ObjectUpdater.register( _updaterClassRegistry );
   - registry.registerClassWithTargetClassAndPropertyName(ObjectUpdater, Object, '*');
 
-
-<br>
 
 <br>
 
@@ -425,8 +429,6 @@ tween(target:Object, to:Object, from:Object = null, time:Number = 1.0, easing:IE
 
 <br>
 
-<br>
-
 #### Filter 처리
 - '_blurFilter', '_colorMatrixFilter' 같은 속성이 들어오면 UpdaterLadder 를 생성합니다. UpdaterLadder는 부모로 DisplayObjectUpdater를 자식으로 ObjectUpdater를 가지면서 update 때 자식의 객체 값을 업데이트하고 부모에게 그 값을 set 하도록 되어있습니다. 
 - 필터 적용 시 IUpdater에서 getObject와 setObject를 사용합니다. 
@@ -439,8 +441,6 @@ tween(target:Object, to:Object, from:Object = null, time:Number = 1.0, easing:IE
       - if (propertyName == '_blurFilter') {
         ​	this.setFilterByClass(value, PIXI.filters.BlurFilter);
         }
-
-<br>
 
 <br>
 
@@ -535,8 +535,6 @@ tween(target:Object, to:Object, from:Object = null, time:Number = 1.0, easing:IE
 
 <br>
 
-<br>
-
 #### SerialTween duration 계산
 
 ```javascript
@@ -548,8 +546,6 @@ ld = duration;
 
 <br>
 
-<br>
-
 #### RepeatedTween duration 계산
 
 ```javascript
@@ -557,8 +553,6 @@ if (time >= 0) {
 	time -= time < this.duration ? this.baseDuration * parseInt(time / this.baseDuration) : this.duration - this._baseDuration;
 }
 ```
-
-<br>
 
 <br>
 
