@@ -1,1 +1,860 @@
-webpackJsonp([1],{0:function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}function a(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}();n(1);var o=n(329),u=i(o),s=n(328),c=i(s);!function(){window.onload=function(){new l}}();var l=function(){function e(){a(this,e),this.init(),this.addEvent(),this.onResize()}return r(e,[{key:"init",value:function(){this.test=new u.default}},{key:"addEvent",value:function(){window.onresize=this.onResize.bind(this),window.addEventListener("keyup",this.onKeyUp.bind(this))}},{key:"onResize",value:function(){this.test.resize()}},{key:"onKeyUp",value:function(e){switch(e.keyCode){case c.default.BACKQUOTE:break;case c.default.ESCAPE:console.clear();break;case c.default.SPACE:break;case c.default.DOWN:break;case c.default.UP:break;case c.default.LEFT:break;case c.default.RIGHT:break;case c.default.BACKSPACE:}}}]),e}()},329:function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}function a(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}(),o=n(330),u=n(331),s=i(u),c=n(332),l=(i(c),n(333)),h=(i(l),n(334)),f=i(h),d=[Sine.easeIn,Sine.easeOut,Sine.easeOutIn,Sine.easeInOut,Quadratic.easeIn,Quadratic.easeOut,Quadratic.easeOutIn,Quadratic.easeInOut,Cubic.easeIn,Cubic.easeOut,Cubic.easeOutIn,Cubic.easeInOut,Quartic.easeIn,Quartic.easeOut,Quartic.easeOutIn,Quartic.easeInOut,Quintic.easeIn,Quintic.easeOut,Quintic.easeOutIn,Quintic.easeInOut,Circular.easeIn,Circular.easeOut,Circular.easeOutIn,Circular.easeInOut,Exponential.easeIn,Exponential.easeOut,Exponential.easeOutIn,Exponential.easeInOut,Back.easeIn,Back.easeOut,Back.easeOutIn,Back.easeInOut,Elastic.easeIn,Elastic.easeOut,Elastic.easeOutIn,Elastic.easeInOut,Bounce.easeIn,Bounce.easeOut,Bounce.easeOutIn,Bounce.easeInOut],p=["Sine.easeIn","Sine.easeOut","Sine.easeOutIn","Sine.easeInOut","Quadratic.easeIn","Quadratic.easeOut","Quadratic.easeOutIn","Quadratic.easeInOut","Cubic.easeIn","Cubic.easeOut","Cubic.easeOutIn","Cubic.easeInOut","Quartic.easeIn","Quartic.easeOut","Quartic.easeOutIn","Quartic.easeInOut","Quintic.easeIn","Quintic.easeOut","Quintic.easeOutIn","Quintic.easeInOut","Circular.easeIn","Circular.easeOut","Circular.easeOutIn","Circular.easeInOut","Exponential.easeIn","Exponential.easeOut","Exponential.easeOutIn","Exponential.easeInOut","Back.easeIn","Back.easeOut","Back.easeOutIn","Back.easeInOut","Elastic.easeIn","Elastic.easeOut","Elastic.easeOutIn","Elastic.easeInOut","Bounce.easeIn","Bounce.easeOut","Bounce.easeOutIn","Bounce.easeInOut","PhysicalUniform","PhysicalAccelerate","PhysicalExponential"],w=new PIXI.Sprite.fromImage("./../assets/image/play-button.png"),O=function(){function e(){var t=this;a(this,e),this.app=new PIXI.Application(800,1400,{forceCanvas:!0,backgroundColor:16777215,antialias:!0}),document.body.appendChild(this.app.view),this.canvas=this.app.renderer.view,this.renderer=this.app.renderer,this.stage=this.app.stage,this.render=this.render.bind(this),w.anchor={x:.5,y:.5},w.scale.x=.9,w.scale.y=.9,w.x=s.default.windowCenterX,w.y=s.default.windowCenterY,w.buttonMode=!0,w.interactive=!0,this.app.stage.addChild(w);var n=Be.to(w,{scaleX:1,scaleY:1,alpha:1},2,Back.easeOut),i=Be.to(w,{scaleX:.9,scaleY:.9,alpha:1},2,Back.easeOut),r=Be.serial(n,i),o=Be.repeat(r,1e4);o.play(),w.on("pointerdown",function(){o.stop(),t.app.stage.removeChild(w),t.initialize()})}return r(e,[{key:"initialize",value:function(){var e=this,t=10,n=20,i=188,a=153,r=0,o=0,u=0;d.forEach(function(s){var c=new f.default(p[r],s,4,4);e.stage.addChild(c),o=r%4,0!==r&&0===o&&u++,c.x=t+i*o,c.y=n+a*u,r++})}},{key:"update",value:function(e){this.app.render(this.stage)}},{key:"render",value:function(e){this.update(e),(0,o.requestAnimationFrame)(this.render)}},{key:"resize",value:function(){var e=s.default.windowHeight,t=s.default.windowWidth;this.canvas.width=t,this.canvas.height=e,this.canvas.style.width=t+"px",this.canvas.style.height=e+"px",w&&(w.x=s.default.windowCenterX,w.y=s.default.windowCenterY),this.renderer.resize(t,e)}}]),e}();t.default=O},330:function(e,t,n){"use strict";var i="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(n){var a={linear:function(e){return e},easeInQuad:function(e){return e*e},easeOutQuad:function(e){return-1*e*(e-2)},easeInOutQuad:function(e){return(e/=.5)<1?.5*e*e:-.5*(--e*(e-2)-1)},easeInCubic:function(e){return e*e*e},easeOutCubic:function(e){return 1*((e=e/1-1)*e*e+1)},easeInOutCubic:function(e){return(e/=.5)<1?.5*e*e*e:.5*((e-=2)*e*e+2)},easeInQuart:function(e){return e*e*e*e},easeOutQuart:function(e){return-1*((e=e/1-1)*e*e*e-1)},easeInOutQuart:function(e){return(e/=.5)<1?.5*e*e*e*e:-.5*((e-=2)*e*e*e-2)},easeInQuint:function(e){return 1*(e/=1)*e*e*e*e},easeOutQuint:function(e){return 1*((e=e/1-1)*e*e*e*e+1)},easeInOutQuint:function(e){return(e/=.5)<1?.5*e*e*e*e*e:.5*((e-=2)*e*e*e*e+2)},easeInSine:function(e){return-1*Math.cos(e/1*(Math.PI/2))+1},easeOutSine:function(e){return 1*Math.sin(e/1*(Math.PI/2))},easeInOutSine:function(e){return-.5*(Math.cos(Math.PI*e/1)-1)},easeInExpo:function(e){return 0===e?1:1*Math.pow(2,10*(e/1-1))},easeOutExpo:function(e){return 1===e?1:1*(-Math.pow(2,-10*e/1)+1)},easeInOutExpo:function(e){return 0===e?0:1===e?1:(e/=.5)<1?.5*Math.pow(2,10*(e-1)):.5*(-Math.pow(2,-10*--e)+2)},easeInCirc:function(e){return e>=1?e:-1*(Math.sqrt(1-(e/=1)*e)-1)},easeOutCirc:function(e){return 1*Math.sqrt(1-(e=e/1-1)*e)},easeInOutCirc:function(e){return(e/=.5)<1?-.5*(Math.sqrt(1-e*e)-1):.5*(Math.sqrt(1-(e-=2)*e)+1)},easeInElastic:function(e){var t=1.70158,n=0,i=1;return 0===e?0:1==(e/=1)?1:(n||(n=.3),i<Math.abs(1)?(i=1,t=n/4):t=n/(2*Math.PI)*Math.asin(1/i),-(i*Math.pow(2,10*(e-=1))*Math.sin((1*e-t)*(2*Math.PI)/n)))},easeOutElastic:function(e){var t=1.70158,n=0,i=1;return 0===e?0:1==(e/=1)?1:(n||(n=.3),i<Math.abs(1)?(i=1,t=n/4):t=n/(2*Math.PI)*Math.asin(1/i),i*Math.pow(2,-10*e)*Math.sin((1*e-t)*(2*Math.PI)/n)+1)},easeInOutElastic:function(e){var t=1.70158,n=0,i=1;return 0===e?0:2==(e/=.5)?1:(n||(n=1*(.3*1.5)),i<Math.abs(1)?(i=1,t=n/4):t=n/(2*Math.PI)*Math.asin(1/i),e<1?-.5*(i*Math.pow(2,10*(e-=1))*Math.sin((1*e-t)*(2*Math.PI)/n)):i*Math.pow(2,-10*(e-=1))*Math.sin((1*e-t)*(2*Math.PI)/n)*.5+1)},easeInBack:function(e){var t=1.70158;return 1*(e/=1)*e*((t+1)*e-t)},easeOutBack:function(e){var t=1.70158;return 1*((e=e/1-1)*e*((t+1)*e+t)+1)},easeInOutBack:function(e){var t=1.70158;return(e/=.5)<1?.5*(e*e*(((t*=1.525)+1)*e-t)):.5*((e-=2)*e*(((t*=1.525)+1)*e+t)+2)},easeInBounce:function(e){return 1-a.easeOutBounce(1-e)},easeOutBounce:function(e){return(e/=1)<1/2.75?1*(7.5625*e*e):e<2/2.75?1*(7.5625*(e-=1.5/2.75)*e+.75):e<2.5/2.75?1*(7.5625*(e-=2.25/2.75)*e+.9375):1*(7.5625*(e-=2.625/2.75)*e+.984375)},easeInOutBounce:function(e){return e<.5?.5*a.easeInBounce(2*e):.5*a.easeOutBounce(2*e-1)+.5}},r=function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(e){return window.setTimeout(e,16)}}(),o=function(){return window.cancelAnimationFrame||window.webkitCancelAnimationFrame||window.mozCancelAnimationFrame||window.oCancelAnimationFrame||window.msCancelAnimationFrame||function(e){return window.clearTimeout(e,16)}}(),u=function(e,t,n,i,o){if("function"!=typeof t)throw Error("onAnimation must be function");var u=0,s="string"==typeof i?a[i]||a.linear:i||a.linear,c=function i(){u++;var a=u/n,c=s(a);t.call(e,c,a,u),u<n?e?e.animationId=r(i):r(i):o&&o.apply(e)};r(c)};"object"===i(t)&&"undefined"!=typeof e?(e.exports.Easing=a,e.exports.requestAnimationFrame=r,e.exports.cancelAnimationFrame=o,e.exports.animation=u):(n.Easing=a,n.requestAnimationFrame=r,n.cancelAnimationFrame=o,n.animation=u)}(void 0)},331:function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}function a(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}(),o=n(332),u=i(o),s=(Symbol(),Symbol(),function(){function e(){a(this,e)}return r(e,null,[{key:"windowWidth",get:function(){return u.default.instance.macOS?window.innerWidth:window.innerWidth*window.devicePixelRatio}},{key:"windowHeight",get:function(){return u.default.instance.macOS?window.innerHeight:window.innerHeight*window.devicePixelRatio}},{key:"windowSize",get:function(){return new PIXI.Rectangle(0,0,e.windowWidth,e.windowHeight)}},{key:"windowCenterX",get:function(){return this.windowWidth/2}},{key:"windowCenterY",get:function(){return this.windowHeight/2}},{key:"canvasLimitWidth",get:function(){return 4096}},{key:"canvasLimitHeight",get:function(){return 4096}}]),e}());t.default=s},332:function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}(),o=Symbol(),u=Symbol(),s=function(e){function t(e){n(this,t);var a=i(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));if(e!==u)throw new Error("Cannot construct singleton");return a.checkOS(),a}return a(t,e),r(t,[{key:"checkOS",value:function(){this.desktop=!1;var e=navigator.userAgent;/Playstation Vita/.test(e)?this.vita=!0:/Kindle/.test(e)||/\bKF[A-Z][A-Z]+/.test(e)||/Silk.*Mobile Safari/.test(e)?this.kindle=!0:/Android/.test(e)?this.android=!0:/CrOS/.test(e)?this.chromeOS=!0:/iP[ao]d|iPhone/i.test(e)?(this.iOS=!0,navigator.appVersion.match(/OS (\d+)/),this.iOSVersion=parseInt(RegExp.$1,10)):/Linux/.test(e)?this.linux=!0:/Mac OS/.test(e)?this.macOS=!0:/Windows/.test(e)&&(this.windows=!0),(/Windows Phone/i.test(e)||/IEMobile/i.test(e))&&(this.android=!1,this.iOS=!1,this.macOS=!1,this.windows=!0,this.windowsPhone=!0);var t=/Silk/.test(e);(this.windows||this.macOS||this.linux&&!t||this.chromeOS)&&(this.desktop=!0),(this.windowsPhone||/Windows NT/i.test(e)&&/Touch/i.test(e))&&(this.desktop=!1)}}],[{key:"instance",get:function(){return this[o]||(this[o]=new t(u)),this[o]}}]),t}(PIXI.utils.EventEmitter);t.default=s},333:function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}(),o=20,u=1.5,s=40428,c=16448250,l=15132390,h=.5,f=function(e){function t(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:100,a=arguments.length>1&&void 0!==arguments[1]?arguments[1]:100,r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null;n(this,t);var u=i(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return u.g=new PIXI.Graphics,u.addChild(u.g),u.value=0,u.easing=r,u.spaceY=2*o,u.graphWidth=e,u.graphHeight=a,u}return a(t,e),r(t,[{key:"draw",value:function(){var e=this;if(this.easing){this.g.clear(),this.drawOutLine(),this.lastPoint={x:0,y:this.graphHeight-o},this.g.lineStyle(u,s),this.g.moveTo(this.lastPoint.x,this.lastPoint.y);var t=Be.tween(this,{value:1},{value:0},1,this.easing);t.onUpdate=function(){e.drawGraph(t.position,e.value)},t.onComplete=function(){e.drawGraph(t.position,e.value)},t.play()}}},{key:"drawOutLine",value:function(){console.log("drawOut"),this.g.beginFill(c),this.g.drawRect(0,0,this.graphWidth,this.graphHeight),this.g.endFill(),this.g.lineStyle(h,l),this.g.moveTo(0,o),this.g.lineTo(this.graphWidth,o),this.g.moveTo(0,this.graphHeight-o),this.g.lineTo(this.graphWidth,this.graphHeight-o)}},{key:"drawGraph",value:function(e,t){var n=e*this.graphWidth,i=this.graphHeight-o-t*this.realGraphHeight;this.g.moveTo(this.lastPoint.x,this.lastPoint.y),this.g.lineTo(n,i),this.lastPoint.x=n,this.lastPoint.y=i}},{key:"realGraphHeight",get:function(){return this.graphHeight-this.spaceY}}]),t}(PIXI.Container);t.default=f},334:function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}function a(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function r(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function o(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var u=n(333),s=i(u),c=function(e){function t(e,n){var i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:0,o=arguments.length>3&&void 0!==arguments[3]?arguments[3]:0;a(this,t);var u=r(this,(t.__proto__||Object.getPrototypeOf(t)).call(this)),c=new PIXI.Text(e,{fontFamily:"Helvetica, Arial, sans",fontSize:13,fill:0});c.x=i,c.y=o,u.addChild(c);var l=new s.default(168,100,n);return l.x=i,l.y=o+c.height+8,u.addChild(l),l.draw(),u}return o(t,e),t}(PIXI.Container);t.default=c}});
+webpackJsonp([1],{
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	__webpack_require__(1);
+	
+	var _Test = __webpack_require__(329);
+	
+	var _Test2 = _interopRequireDefault(_Test);
+	
+	var _KeyCode = __webpack_require__(328);
+	
+	var _KeyCode2 = _interopRequireDefault(_KeyCode);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	(function () {
+	    window.onload = function () {
+	        var main = new Main();
+	    };
+	})();
+	
+	var Main = function () {
+	    function Main() {
+	        _classCallCheck(this, Main);
+	
+	        this.init();
+	        this.addEvent();
+	        this.onResize();
+	    }
+	
+	    _createClass(Main, [{
+	        key: 'init',
+	        value: function init() {
+	            this.test = new _Test2.default();
+	        }
+	    }, {
+	        key: 'addEvent',
+	        value: function addEvent() {
+	            window.onresize = this.onResize.bind(this);
+	            window.addEventListener('keyup', this.onKeyUp.bind(this));
+	        }
+	    }, {
+	        key: 'onResize',
+	        value: function onResize() {
+	            this.test.resize();
+	        }
+	    }, {
+	        key: 'onKeyUp',
+	        value: function onKeyUp(e) {
+	            switch (e.keyCode) {
+	                case _KeyCode2.default.BACKQUOTE:
+	                    break;
+	
+	                case _KeyCode2.default.ESCAPE:
+	                    console.clear();
+	                    break;
+	
+	                case _KeyCode2.default.SPACE:
+	                    break;
+	
+	                case _KeyCode2.default.DOWN:
+	                    break;
+	
+	                case _KeyCode2.default.UP:
+	                    break;
+	
+	                case _KeyCode2.default.LEFT:
+	                    break;
+	
+	                case _KeyCode2.default.RIGHT:
+	                    break;
+	
+	                case _KeyCode2.default.BACKSPACE:
+	                    break;
+	            }
+	        }
+	    }]);
+
+	    return Main;
+	}();
+
+/***/ }),
+
+/***/ 329:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _animation = __webpack_require__(330);
+	
+	var _Size = __webpack_require__(331);
+	
+	var _Size2 = _interopRequireDefault(_Size);
+	
+	var _Config = __webpack_require__(332);
+	
+	var _Config2 = _interopRequireDefault(_Config);
+	
+	var _Graph = __webpack_require__(333);
+	
+	var _Graph2 = _interopRequireDefault(_Graph);
+	
+	var _GraphItem = __webpack_require__(334);
+	
+	var _GraphItem2 = _interopRequireDefault(_GraphItem);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var list = [Sine.easeIn, Sine.easeOut, Sine.easeOutIn, Sine.easeInOut, Quadratic.easeIn, Quadratic.easeOut, Quadratic.easeOutIn, Quadratic.easeInOut, Cubic.easeIn, Cubic.easeOut, Cubic.easeOutIn, Cubic.easeInOut, Quartic.easeIn, Quartic.easeOut, Quartic.easeOutIn, Quartic.easeInOut, Quintic.easeIn, Quintic.easeOut, Quintic.easeOutIn, Quintic.easeInOut, Circular.easeIn, Circular.easeOut, Circular.easeOutIn, Circular.easeInOut, Exponential.easeIn, Exponential.easeOut, Exponential.easeOutIn, Exponential.easeInOut, Back.easeIn, Back.easeOut, Back.easeOutIn, Back.easeInOut, Elastic.easeIn, Elastic.easeOut, Elastic.easeOutIn, Elastic.easeInOut, Bounce.easeIn, Bounce.easeOut, Bounce.easeOutIn, Bounce.easeInOut
+	//Physical.uniform(), Physical.accelerate(), Physical.exponential()
+	];
+	
+	var name = ['Sine.easeIn', 'Sine.easeOut', 'Sine.easeOutIn', 'Sine.easeInOut', 'Quadratic.easeIn', 'Quadratic.easeOut', 'Quadratic.easeOutIn', 'Quadratic.easeInOut', 'Cubic.easeIn', 'Cubic.easeOut', 'Cubic.easeOutIn', 'Cubic.easeInOut', 'Quartic.easeIn', 'Quartic.easeOut', 'Quartic.easeOutIn', 'Quartic.easeInOut', 'Quintic.easeIn', 'Quintic.easeOut', 'Quintic.easeOutIn', 'Quintic.easeInOut', 'Circular.easeIn', 'Circular.easeOut', 'Circular.easeOutIn', 'Circular.easeInOut', 'Exponential.easeIn', 'Exponential.easeOut', 'Exponential.easeOutIn', 'Exponential.easeInOut', 'Back.easeIn', 'Back.easeOut', 'Back.easeOutIn', 'Back.easeInOut', 'Elastic.easeIn', 'Elastic.easeOut', 'Elastic.easeOutIn', 'Elastic.easeInOut', 'Bounce.easeIn', 'Bounce.easeOut', 'Bounce.easeOutIn', 'Bounce.easeInOut', 'PhysicalUniform', 'PhysicalAccelerate', 'PhysicalExponential'];
+	
+	var playButton = new PIXI.Sprite.fromImage('./../assets/image/play-button.png');
+	
+	var Test = function () {
+	    function Test() {
+	        var _this = this;
+	
+	        _classCallCheck(this, Test);
+	
+	        this.app = new PIXI.Application(800, 1400, { forceCanvas: true, backgroundColor: 0xFFFFFF, antialias: true });
+	        //this.app = new PIXI.Application(Size.windowWidth, Size.windowHeight, {forceCanvas: true, backgroundColor: 0xFFFFFF, antialias: true});
+	        document.body.appendChild(this.app.view);
+	
+	        this.canvas = this.app.renderer.view;
+	        this.renderer = this.app.renderer;
+	        this.stage = this.app.stage;
+	
+	        this.render = this.render.bind(this);
+	
+	        playButton.anchor = { x: 0.5, y: 0.5 };
+	        playButton.scale.x = 0.9;
+	        playButton.scale.y = 0.9;
+	        // playButton.x = playButton.width / 2 + 20;
+	        // playButton.y = playButton.height / 2 + 20;
+	        playButton.x = _Size2.default.windowCenterX;
+	        playButton.y = _Size2.default.windowCenterY;
+	        playButton.buttonMode = true;
+	        playButton.interactive = true;
+	        this.app.stage.addChild(playButton);
+	
+	        var tweeen1 = Be.to(playButton, { scaleX: 1, scaleY: 1, alpha: 1 }, 2, Back.easeOut),
+	            tweeen2 = Be.to(playButton, { scaleX: 0.9, scaleY: 0.9, alpha: 1 }, 2, Back.easeOut),
+	            serial = Be.serial(tweeen1, tweeen2),
+	            tween = Be.repeat(serial, 10000);
+	        tween.play();
+	
+	        playButton.on('pointerdown', function () {
+	            tween.stop();
+	            _this.app.stage.removeChild(playButton);
+	            _this.initialize();
+	        });
+	    }
+	
+	    _createClass(Test, [{
+	        key: 'initialize',
+	        value: function initialize() {
+	            var _this2 = this;
+	
+	            var startX = 10;
+	            var startY = 20;
+	            var itemWidth = 168 + 20;
+	            var itemHeight = 123 + 30;
+	
+	            var count = 0,
+	                xPos = 0,
+	                yPos = 0;
+	
+	            list.forEach(function (easing) {
+	                var item = new _GraphItem2.default(name[count], easing, 4, 4);
+	                _this2.stage.addChild(item);
+	
+	                xPos = count % 4;
+	
+	                if (count !== 0 && xPos === 0) {
+	                    yPos++;
+	                }
+	
+	                item.x = startX + itemWidth * xPos;
+	                item.y = startY + itemHeight * yPos;
+	                count++;
+	            });
+	        }
+	    }, {
+	        key: 'update',
+	        value: function update(ms) {
+	            this.app.render(this.stage);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render(ms) {
+	            this.update(ms);
+	            (0, _animation.requestAnimationFrame)(this.render);
+	        }
+	    }, {
+	        key: 'resize',
+	        value: function resize() {
+	            var height = _Size2.default.windowHeight;
+	            var width = _Size2.default.windowWidth;
+	
+	            this.canvas.width = width;
+	            this.canvas.height = height;
+	            this.canvas.style.width = width + 'px';
+	            this.canvas.style.height = height + 'px';
+	
+	            if (playButton) {
+	                playButton.x = _Size2.default.windowCenterX;
+	                playButton.y = _Size2.default.windowCenterY;
+	            }
+	
+	            this.renderer.resize(width, height);
+	        }
+	    }]);
+	
+	    return Test;
+	}();
+	
+	exports.default = Test;
+
+/***/ }),
+
+/***/ 330:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	(function (global) {
+	    //--Animation methods
+	    //Easing functions adapted from Robert Penner's easing equations
+	    //http://www.robertpenner.com/easing/
+	    var Easing = {
+	        linear: function linear(t) {
+	            return t;
+	        },
+	        easeInQuad: function easeInQuad(t) {
+	            return t * t;
+	        },
+	        easeOutQuad: function easeOutQuad(t) {
+	            return -1 * t * (t - 2);
+	        },
+	        easeInOutQuad: function easeInOutQuad(t) {
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * t * t;
+	            return -1 / 2 * (--t * (t - 2) - 1);
+	        },
+	        easeInCubic: function easeInCubic(t) {
+	            return t * t * t;
+	        },
+	        easeOutCubic: function easeOutCubic(t) {
+	            return 1 * ((t = t / 1 - 1) * t * t + 1);
+	        },
+	        easeInOutCubic: function easeInOutCubic(t) {
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * t * t * t;
+	            return 1 / 2 * ((t -= 2) * t * t + 2);
+	        },
+	        easeInQuart: function easeInQuart(t) {
+	            return t * t * t * t;
+	        },
+	        easeOutQuart: function easeOutQuart(t) {
+	            return -1 * ((t = t / 1 - 1) * t * t * t - 1);
+	        },
+	        easeInOutQuart: function easeInOutQuart(t) {
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * t * t * t * t;
+	            return -1 / 2 * ((t -= 2) * t * t * t - 2);
+	        },
+	        easeInQuint: function easeInQuint(t) {
+	            return 1 * (t /= 1) * t * t * t * t;
+	        },
+	        easeOutQuint: function easeOutQuint(t) {
+	            return 1 * ((t = t / 1 - 1) * t * t * t * t + 1);
+	        },
+	        easeInOutQuint: function easeInOutQuint(t) {
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * t * t * t * t * t;
+	            return 1 / 2 * ((t -= 2) * t * t * t * t + 2);
+	        },
+	        easeInSine: function easeInSine(t) {
+	            return -1 * Math.cos(t / 1 * (Math.PI / 2)) + 1;
+	        },
+	        easeOutSine: function easeOutSine(t) {
+	            return 1 * Math.sin(t / 1 * (Math.PI / 2));
+	        },
+	        easeInOutSine: function easeInOutSine(t) {
+	            return -1 / 2 * (Math.cos(Math.PI * t / 1) - 1);
+	        },
+	        easeInExpo: function easeInExpo(t) {
+	            return t === 0 ? 1 : 1 * Math.pow(2, 10 * (t / 1 - 1));
+	        },
+	        easeOutExpo: function easeOutExpo(t) {
+	            return t === 1 ? 1 : 1 * (-Math.pow(2, -10 * t / 1) + 1);
+	        },
+	        easeInOutExpo: function easeInOutExpo(t) {
+	            if (t === 0) return 0;
+	            if (t === 1) return 1;
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * Math.pow(2, 10 * (t - 1));
+	            return 1 / 2 * (-Math.pow(2, -10 * --t) + 2);
+	        },
+	        easeInCirc: function easeInCirc(t) {
+	            if (t >= 1) return t;
+	            return -1 * (Math.sqrt(1 - (t /= 1) * t) - 1);
+	        },
+	        easeOutCirc: function easeOutCirc(t) {
+	            return 1 * Math.sqrt(1 - (t = t / 1 - 1) * t);
+	        },
+	        easeInOutCirc: function easeInOutCirc(t) {
+	            if ((t /= 1 / 2) < 1) return -1 / 2 * (Math.sqrt(1 - t * t) - 1);
+	            return 1 / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1);
+	        },
+	        easeInElastic: function easeInElastic(t) {
+	            var s = 1.70158;
+	            var p = 0;
+	            var a = 1;
+	            if (t === 0) return 0;
+	            if ((t /= 1) == 1) return 1;
+	            if (!p) p = 1 * 0.3;
+	            if (a < Math.abs(1)) {
+	                a = 1;
+	                s = p / 4;
+	            } else s = p / (2 * Math.PI) * Math.asin(1 / a);
+	            return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * 1 - s) * (2 * Math.PI) / p));
+	        },
+	        easeOutElastic: function easeOutElastic(t) {
+	            var s = 1.70158;
+	            var p = 0;
+	            var a = 1;
+	            if (t === 0) return 0;
+	            if ((t /= 1) == 1) return 1;
+	            if (!p) p = 1 * 0.3;
+	            if (a < Math.abs(1)) {
+	                a = 1;
+	                s = p / 4;
+	            } else s = p / (2 * Math.PI) * Math.asin(1 / a);
+	            return a * Math.pow(2, -10 * t) * Math.sin((t * 1 - s) * (2 * Math.PI) / p) + 1;
+	        },
+	        easeInOutElastic: function easeInOutElastic(t) {
+	            var s = 1.70158;
+	            var p = 0;
+	            var a = 1;
+	            if (t === 0) return 0;
+	            if ((t /= 1 / 2) == 2) return 1;
+	            if (!p) p = 1 * (0.3 * 1.5);
+	            if (a < Math.abs(1)) {
+	                a = 1;
+	                s = p / 4;
+	            } else s = p / (2 * Math.PI) * Math.asin(1 / a);
+	            if (t < 1) return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * 1 - s) * (2 * Math.PI) / p));
+	            return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * 1 - s) * (2 * Math.PI) / p) * 0.5 + 1;
+	        },
+	        easeInBack: function easeInBack(t) {
+	            var s = 1.70158;
+	            return 1 * (t /= 1) * t * ((s + 1) * t - s);
+	        },
+	        easeOutBack: function easeOutBack(t) {
+	            var s = 1.70158;
+	            return 1 * ((t = t / 1 - 1) * t * ((s + 1) * t + s) + 1);
+	        },
+	        easeInOutBack: function easeInOutBack(t) {
+	            var s = 1.70158;
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * (t * t * (((s *= 1.525) + 1) * t - s));
+	            return 1 / 2 * ((t -= 2) * t * (((s *= 1.525) + 1) * t + s) + 2);
+	        },
+	        easeInBounce: function easeInBounce(t) {
+	            return 1 - Easing.easeOutBounce(1 - t);
+	        },
+	        easeOutBounce: function easeOutBounce(t) {
+	            if ((t /= 1) < 1 / 2.75) {
+	                return 1 * (7.5625 * t * t);
+	            } else if (t < 2 / 2.75) {
+	                return 1 * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75);
+	            } else if (t < 2.5 / 2.75) {
+	                return 1 * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375);
+	            } else {
+	                return 1 * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375);
+	            }
+	        },
+	        easeInOutBounce: function easeInOutBounce(t) {
+	            if (t < 1 / 2) return Easing.easeInBounce(t * 2) * 0.5;
+	            return Easing.easeOutBounce(t * 2 - 1) * 0.5 + 1 * 0.5;
+	        }
+	    };
+	
+	    //Request animation polyfill - http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+	    var requestAnimationFrame = function () {
+	        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
+	            return window.setTimeout(callback, 16);
+	        };
+	    }();
+	
+	    var cancelAnimationFrame = function () {
+	        return window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.oCancelAnimationFrame || window.msCancelAnimationFrame || function (callback) {
+	            return window.clearTimeout(callback, 16);
+	        };
+	    }();
+	
+	    var animation = function animation(thisArg, onAnimation, totalStep, easing, onComplete) {
+	        if (typeof onAnimation !== 'function') throw Error('onAnimation must be function');
+	
+	        var currentStep = 0,
+	            easingFunction = typeof easing === 'string' ? Easing[easing] || Easing.linear : easing || Easing.linear;
+	
+	        var animationFrame = function animationFrame() {
+	            currentStep++;
+	
+	            var step = currentStep / totalStep,
+	                ease = easingFunction(step);
+	
+	            onAnimation.call(thisArg, ease, step, currentStep);
+	
+	            if (currentStep < totalStep) {
+	                if (!thisArg) {
+	                    requestAnimationFrame(animationFrame);
+	                } else {
+	                    thisArg.animationId = requestAnimationFrame(animationFrame);
+	                }
+	            } else {
+	                if (onComplete) {
+	                    onComplete.apply(thisArg);
+	                }
+	            }
+	        };
+	        requestAnimationFrame(animationFrame);
+	    };
+	
+	    if (( false ? 'undefined' : _typeof(exports)) === "object" && typeof module !== "undefined") {
+	        module.exports.Easing = Easing;
+	        module.exports.requestAnimationFrame = requestAnimationFrame;
+	        module.exports.cancelAnimationFrame = cancelAnimationFrame;
+	        module.exports.animation = animation;
+	    } else {
+	        global.Easing = Easing;
+	        global.requestAnimationFrame = requestAnimationFrame;
+	        global.cancelAnimationFrame = cancelAnimationFrame;
+	        global.animation = animation;
+	    }
+	})(undefined);
+
+/***/ }),
+
+/***/ 331:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _Config = __webpack_require__(332);
+	
+	var _Config2 = _interopRequireDefault(_Config);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var singleton = Symbol();
+	var singletonEnforcer = Symbol();
+	
+	var Size = function () {
+	    function Size() {
+	        _classCallCheck(this, Size);
+	    }
+	
+	    _createClass(Size, null, [{
+	        key: 'windowWidth',
+	
+	        ///////////////////////////////////////////////////////////////////////////////
+	        //
+	        // Static
+	        //
+	        /////////////////////////////////////////////////////////////////////////////////
+	
+	
+	        get: function get() {
+	            if (_Config2.default.instance.macOS) {
+	                return window.innerWidth;
+	            } else {
+	                return window.innerWidth * window.devicePixelRatio;
+	            }
+	        }
+	    }, {
+	        key: 'windowHeight',
+	        get: function get() {
+	            if (_Config2.default.instance.macOS) {
+	                return window.innerHeight;
+	            } else {
+	                return window.innerHeight * window.devicePixelRatio;
+	            }
+	        }
+	    }, {
+	        key: 'windowSize',
+	        get: function get() {
+	            return new PIXI.Rectangle(0, 0, Size.windowWidth, Size.windowHeight);
+	        }
+	    }, {
+	        key: 'windowCenterX',
+	        get: function get() {
+	            return this.windowWidth / 2;
+	        }
+	    }, {
+	        key: 'windowCenterY',
+	        get: function get() {
+	            return this.windowHeight / 2;
+	        }
+	
+	        /**
+	         * Chrome
+	         * Maximum height/width: 32,767 pixels
+	         * Maximum area: 268,435,456 pixels (e.g., 16,384 x 16,384)
+	         *
+	         * Firefox
+	         * Maximum height/width: 32,767 pixels
+	         * Maximum area: 472,907,776 pixels (e.g., 22,528 x 20,992)
+	         *
+	         * IE
+	         * Maximum height/width: 8,192 pixels
+	         * Maximum area: N/A
+	         *
+	         * IE Mobile
+	         * Maximum height/width: 4,096 pixels
+	         * Maximum area: N/A
+	         */
+	
+	    }, {
+	        key: 'canvasLimitWidth',
+	        get: function get() {
+	            return 4096;
+	        }
+	    }, {
+	        key: 'canvasLimitHeight',
+	        get: function get() {
+	            return 4096;
+	        }
+	    }]);
+	
+	    return Size;
+	}();
+	
+	exports.default = Size;
+
+/***/ }),
+
+/***/ 332:
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var singleton = Symbol();
+	var singletonEnforcer = Symbol();
+	
+	var Config = function (_PIXI$utils$EventEmit) {
+	    _inherits(Config, _PIXI$utils$EventEmit);
+	
+	    //--------------------------------------------------------------------------
+	    //
+	    //    static
+	    //
+	    //--------------------------------------------------------------------------
+	
+	
+	    function Config(enforcer) {
+	        _classCallCheck(this, Config);
+	
+	        var _this = _possibleConstructorReturn(this, (Config.__proto__ || Object.getPrototypeOf(Config)).call(this));
+	
+	        if (enforcer !== singletonEnforcer) {
+	            throw new Error('Cannot construct singleton');
+	        }
+	
+	        _this.checkOS();
+	        return _this;
+	    }
+	
+	    _createClass(Config, [{
+	        key: 'checkOS',
+	
+	
+	        //--------------------------------------------------------------------------
+	        //
+	        //    OS 체크
+	        //
+	        //--------------------------------------------------------------------------
+	
+	
+	        /**
+	         * Phaser.Device 코드
+	         * http://phaser.io/docs/2.4.2/Phaser.Device.html
+	         */
+	        value: function checkOS() {
+	            this.desktop = false;
+	
+	            var ua = navigator.userAgent;
+	
+	            if (/Playstation Vita/.test(ua)) {
+	                this.vita = true;
+	            } else if (/Kindle/.test(ua) || /\bKF[A-Z][A-Z]+/.test(ua) || /Silk.*Mobile Safari/.test(ua)) {
+	                this.kindle = true;
+	                // This will NOT detect early generations of Kindle Fire, I think there is no reliable way...
+	                // E.g. "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.1.0-80) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true"
+	            } else if (/Android/.test(ua)) {
+	                this.android = true;
+	            } else if (/CrOS/.test(ua)) {
+	                this.chromeOS = true;
+	            } else if (/iP[ao]d|iPhone/i.test(ua)) {
+	                this.iOS = true;
+	                navigator.appVersion.match(/OS (\d+)/);
+	                this.iOSVersion = parseInt(RegExp.$1, 10);
+	            } else if (/Linux/.test(ua)) {
+	                this.linux = true;
+	            } else if (/Mac OS/.test(ua)) {
+	                this.macOS = true;
+	            } else if (/Windows/.test(ua)) {
+	                this.windows = true;
+	            }
+	
+	            if (/Windows Phone/i.test(ua) || /IEMobile/i.test(ua)) {
+	                this.android = false;
+	                this.iOS = false;
+	                this.macOS = false;
+	                this.windows = true;
+	                this.windowsPhone = true;
+	            }
+	
+	            var silk = /Silk/.test(ua); // detected in browsers
+	
+	            if (this.windows || this.macOS || this.linux && !silk || this.chromeOS) {
+	                this.desktop = true;
+	            }
+	
+	            //  Windows Phone / Table reset
+	            if (this.windowsPhone || /Windows NT/i.test(ua) && /Touch/i.test(ua)) {
+	                this.desktop = false;
+	            }
+	        }
+	    }], [{
+	        key: 'instance',
+	        get: function get() {
+	            if (!this[singleton]) {
+	                this[singleton] = new Config(singletonEnforcer);
+	            }
+	            return this[singleton];
+	        }
+	    }]);
+	
+	    return Config;
+	}(PIXI.utils.EventEmitter);
+	
+	exports.default = Config;
+
+/***/ }),
+
+/***/ 333:
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var spaceY = 20;
+	var lineThickness = 1.5;
+	var lineColor = 0x009dec;
+	var bgColor = 0xFAFAFA;
+	var outLineColor = 0xE6E6E6;
+	var outLineThickness = 0.5;
+	
+	var Graph = function (_PIXI$Container) {
+	    _inherits(Graph, _PIXI$Container);
+	
+	    function Graph() {
+	        var width = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 100;
+	        var height = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
+	        var easing = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+	
+	        _classCallCheck(this, Graph);
+	
+	        var _this = _possibleConstructorReturn(this, (Graph.__proto__ || Object.getPrototypeOf(Graph)).call(this));
+	
+	        _this.g = new PIXI.Graphics();
+	        _this.addChild(_this.g);
+	
+	        _this.value = 0;
+	        _this.easing = easing;
+	        _this.spaceY = spaceY * 2;
+	        _this.graphWidth = width;
+	        _this.graphHeight = height;
+	        return _this;
+	    }
+	
+	    _createClass(Graph, [{
+	        key: 'draw',
+	        value: function draw() {
+	            var _this2 = this;
+	
+	            if (!this.easing) {
+	                return;
+	            }
+	
+	            this.g.clear();
+	            this.drawOutLine();
+	
+	            this.lastPoint = { x: 0, y: this.graphHeight - spaceY };
+	            this.g.lineStyle(lineThickness, lineColor);
+	            this.g.moveTo(this.lastPoint.x, this.lastPoint.y);
+	
+	            var tween = Be.tween(this, { value: 1 }, { value: 0 }, 1, this.easing);
+	
+	            tween.onUpdate = function () {
+	                _this2.drawGraph(tween.position, _this2.value);
+	            };
+	
+	            tween.onComplete = function () {
+	                _this2.drawGraph(tween.position, _this2.value);
+	            };
+	
+	            tween.play();
+	        }
+	    }, {
+	        key: 'drawOutLine',
+	        value: function drawOutLine() {
+	            console.log('drawOut');
+	            this.g.beginFill(bgColor);
+	            this.g.drawRect(0, 0, this.graphWidth, this.graphHeight);
+	            this.g.endFill();
+	
+	            this.g.lineStyle(outLineThickness, outLineColor);
+	            this.g.moveTo(0, spaceY);
+	            this.g.lineTo(this.graphWidth, spaceY);
+	            this.g.moveTo(0, this.graphHeight - spaceY);
+	            this.g.lineTo(this.graphWidth, this.graphHeight - spaceY);
+	        }
+	
+	        /**
+	         * x축이 time, y축이 value
+	         * @param time x축
+	         * @param value y축
+	         */
+	
+	    }, {
+	        key: 'drawGraph',
+	        value: function drawGraph(time, value) {
+	            var x = time * this.graphWidth,
+	                y = this.graphHeight - spaceY - value * this.realGraphHeight;
+	
+	            this.g.moveTo(this.lastPoint.x, this.lastPoint.y);
+	            this.g.lineTo(x, y);
+	
+	            this.lastPoint.x = x;
+	            this.lastPoint.y = y;
+	        }
+	    }, {
+	        key: 'realGraphHeight',
+	        get: function get() {
+	            return this.graphHeight - this.spaceY;
+	        }
+	    }]);
+	
+	    return Graph;
+	}(PIXI.Container);
+	
+	exports.default = Graph;
+
+/***/ }),
+
+/***/ 334:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _Graph = __webpack_require__(333);
+	
+	var _Graph2 = _interopRequireDefault(_Graph);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var GraphItem = function (_PIXI$Container) {
+	    _inherits(GraphItem, _PIXI$Container);
+	
+	    function GraphItem(easingName, easing) {
+	        var spaceX = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+	        var spaceY = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+	
+	        _classCallCheck(this, GraphItem);
+	
+	        var _this = _possibleConstructorReturn(this, (GraphItem.__proto__ || Object.getPrototypeOf(GraphItem)).call(this));
+	
+	        var text = new PIXI.Text(easingName, { fontFamily: 'Helvetica, Arial, sans', fontSize: 13, fill: 0x000 });
+	        text.x = spaceX;
+	        text.y = spaceY;
+	        _this.addChild(text);
+	
+	        var graph = new _Graph2.default(168, 100, easing);
+	        graph.x = spaceX;
+	        graph.y = spaceY + text.height + 8;
+	        _this.addChild(graph);
+	
+	        graph.draw();
+	        return _this;
+	    }
+	
+	    return GraphItem;
+	}(PIXI.Container);
+	
+	exports.default = GraphItem;
+
+/***/ })
+
+});
+//# sourceMappingURL=index.js.map

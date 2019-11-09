@@ -4,6 +4,7 @@
   "description": "",
   "main": "./test/index.html",
   "scripts": {
+    "start": "webpack",
     "dev": "webpack",
     "dist": "webpack --build"
   },

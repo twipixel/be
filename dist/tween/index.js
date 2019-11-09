@@ -1,2 +1,3591 @@
-webpackJsonp([6],{0:function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var a=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}();n(1);var o=n(396),u=i(o),s=n(328),c=i(s);!function(){window.onload=function(){new l}}();var l=function(){function e(){r(this,e),this.init(),this.addEvent(),this.onResize()}return a(e,[{key:"init",value:function(){this.test=new u.default}},{key:"addEvent",value:function(){window.onresize=this.onResize.bind(this),window.addEventListener("keyup",this.onKeyUp.bind(this))}},{key:"onResize",value:function(){this.test.resize()}},{key:"onKeyUp",value:function(e){switch(e.keyCode){case c.default.BACKQUOTE:break;case c.default.ESCAPE:console.clear();break;case c.default.SPACE:break;case c.default.DOWN:break;case c.default.UP:break;case c.default.LEFT:break;case c.default.RIGHT:break;case c.default.BACKSPACE:}}}]),e}()},330:function(e,t,n){"use strict";var i="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(n){var r={linear:function(e){return e},easeInQuad:function(e){return e*e},easeOutQuad:function(e){return-1*e*(e-2)},easeInOutQuad:function(e){return(e/=.5)<1?.5*e*e:-.5*(--e*(e-2)-1)},easeInCubic:function(e){return e*e*e},easeOutCubic:function(e){return 1*((e=e/1-1)*e*e+1)},easeInOutCubic:function(e){return(e/=.5)<1?.5*e*e*e:.5*((e-=2)*e*e+2)},easeInQuart:function(e){return e*e*e*e},easeOutQuart:function(e){return-1*((e=e/1-1)*e*e*e-1)},easeInOutQuart:function(e){return(e/=.5)<1?.5*e*e*e*e:-.5*((e-=2)*e*e*e-2)},easeInQuint:function(e){return 1*(e/=1)*e*e*e*e},easeOutQuint:function(e){return 1*((e=e/1-1)*e*e*e*e+1)},easeInOutQuint:function(e){return(e/=.5)<1?.5*e*e*e*e*e:.5*((e-=2)*e*e*e*e+2)},easeInSine:function(e){return-1*Math.cos(e/1*(Math.PI/2))+1},easeOutSine:function(e){return 1*Math.sin(e/1*(Math.PI/2))},easeInOutSine:function(e){return-.5*(Math.cos(Math.PI*e/1)-1)},easeInExpo:function(e){return 0===e?1:1*Math.pow(2,10*(e/1-1))},easeOutExpo:function(e){return 1===e?1:1*(-Math.pow(2,-10*e/1)+1)},easeInOutExpo:function(e){return 0===e?0:1===e?1:(e/=.5)<1?.5*Math.pow(2,10*(e-1)):.5*(-Math.pow(2,-10*--e)+2)},easeInCirc:function(e){return e>=1?e:-1*(Math.sqrt(1-(e/=1)*e)-1)},easeOutCirc:function(e){return 1*Math.sqrt(1-(e=e/1-1)*e)},easeInOutCirc:function(e){return(e/=.5)<1?-.5*(Math.sqrt(1-e*e)-1):.5*(Math.sqrt(1-(e-=2)*e)+1)},easeInElastic:function(e){var t=1.70158,n=0,i=1;return 0===e?0:1==(e/=1)?1:(n||(n=.3),i<Math.abs(1)?(i=1,t=n/4):t=n/(2*Math.PI)*Math.asin(1/i),-(i*Math.pow(2,10*(e-=1))*Math.sin((1*e-t)*(2*Math.PI)/n)))},easeOutElastic:function(e){var t=1.70158,n=0,i=1;return 0===e?0:1==(e/=1)?1:(n||(n=.3),i<Math.abs(1)?(i=1,t=n/4):t=n/(2*Math.PI)*Math.asin(1/i),i*Math.pow(2,-10*e)*Math.sin((1*e-t)*(2*Math.PI)/n)+1)},easeInOutElastic:function(e){var t=1.70158,n=0,i=1;return 0===e?0:2==(e/=.5)?1:(n||(n=1*(.3*1.5)),i<Math.abs(1)?(i=1,t=n/4):t=n/(2*Math.PI)*Math.asin(1/i),e<1?-.5*(i*Math.pow(2,10*(e-=1))*Math.sin((1*e-t)*(2*Math.PI)/n)):i*Math.pow(2,-10*(e-=1))*Math.sin((1*e-t)*(2*Math.PI)/n)*.5+1)},easeInBack:function(e){var t=1.70158;return 1*(e/=1)*e*((t+1)*e-t)},easeOutBack:function(e){var t=1.70158;return 1*((e=e/1-1)*e*((t+1)*e+t)+1)},easeInOutBack:function(e){var t=1.70158;return(e/=.5)<1?.5*(e*e*(((t*=1.525)+1)*e-t)):.5*((e-=2)*e*(((t*=1.525)+1)*e+t)+2)},easeInBounce:function(e){return 1-r.easeOutBounce(1-e)},easeOutBounce:function(e){return(e/=1)<1/2.75?1*(7.5625*e*e):e<2/2.75?1*(7.5625*(e-=1.5/2.75)*e+.75):e<2.5/2.75?1*(7.5625*(e-=2.25/2.75)*e+.9375):1*(7.5625*(e-=2.625/2.75)*e+.984375)},easeInOutBounce:function(e){return e<.5?.5*r.easeInBounce(2*e):.5*r.easeOutBounce(2*e-1)+.5}},a=function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(e){return window.setTimeout(e,16)}}(),o=function(){return window.cancelAnimationFrame||window.webkitCancelAnimationFrame||window.mozCancelAnimationFrame||window.oCancelAnimationFrame||window.msCancelAnimationFrame||function(e){return window.clearTimeout(e,16)}}(),u=function(e,t,n,i,o){if("function"!=typeof t)throw Error("onAnimation must be function");var u=0,s="string"==typeof i?r[i]||r.linear:i||r.linear,c=function i(){u++;var r=u/n,c=s(r);t.call(e,c,r,u),u<n?e?e.animationId=a(i):a(i):o&&o.apply(e)};a(c)};"object"===i(t)&&"undefined"!=typeof e?(e.exports.Easing=r,e.exports.requestAnimationFrame=a,e.exports.cancelAnimationFrame=o,e.exports.animation=u):(n.Easing=r,n.requestAnimationFrame=a,n.cancelAnimationFrame=o,n.animation=u)}(void 0)},331:function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var a=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}(),o=n(332),u=i(o),s=(Symbol(),Symbol(),function(){function e(){r(this,e)}return a(e,null,[{key:"windowWidth",get:function(){return u.default.instance.macOS?window.innerWidth:window.innerWidth*window.devicePixelRatio}},{key:"windowHeight",get:function(){return u.default.instance.macOS?window.innerHeight:window.innerHeight*window.devicePixelRatio}},{key:"windowSize",get:function(){return new PIXI.Rectangle(0,0,e.windowWidth,e.windowHeight)}},{key:"windowCenterX",get:function(){return this.windowWidth/2}},{key:"windowCenterY",get:function(){return this.windowHeight/2}},{key:"canvasLimitWidth",get:function(){return 4096}},{key:"canvasLimitHeight",get:function(){return 4096}}]),e}());t.default=s},332:function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function r(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var a=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}(),o=Symbol(),u=Symbol(),s=function(e){function t(e){n(this,t);var r=i(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));if(e!==u)throw new Error("Cannot construct singleton");return r.checkOS(),r}return r(t,e),a(t,[{key:"checkOS",value:function(){this.desktop=!1;var e=navigator.userAgent;/Playstation Vita/.test(e)?this.vita=!0:/Kindle/.test(e)||/\bKF[A-Z][A-Z]+/.test(e)||/Silk.*Mobile Safari/.test(e)?this.kindle=!0:/Android/.test(e)?this.android=!0:/CrOS/.test(e)?this.chromeOS=!0:/iP[ao]d|iPhone/i.test(e)?(this.iOS=!0,navigator.appVersion.match(/OS (\d+)/),this.iOSVersion=parseInt(RegExp.$1,10)):/Linux/.test(e)?this.linux=!0:/Mac OS/.test(e)?this.macOS=!0:/Windows/.test(e)&&(this.windows=!0),(/Windows Phone/i.test(e)||/IEMobile/i.test(e))&&(this.android=!1,this.iOS=!1,this.macOS=!1,this.windows=!0,this.windowsPhone=!0);var t=/Silk/.test(e);(this.windows||this.macOS||this.linux&&!t||this.chromeOS)&&(this.desktop=!0),(this.windowsPhone||/Windows NT/i.test(e)&&/Touch/i.test(e))&&(this.desktop=!1)}}],[{key:"instance",get:function(){return this[o]||(this[o]=new t(u)),this[o]}}]),t}(PIXI.utils.EventEmitter);t.default=s},336:function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var i=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}(),r=function(){function e(){n(this,e)}return i(e,null,[{key:"isDoubleClick",value:function(e,t,n,i){var r=t.x-e.x;r<0&&(r*=-1);var a=t.y-e.y;return a<0&&(a*=-1),!(r>5||a>5)&&!(i-n>500)}},{key:"DESKTOP_MOUSE",get:function(){return this.renderer.plugins.interaction.mouse}},{key:"MOBILE_MOUSE",get:function(){return this.renderer.plugins.interaction.pointer}},{key:"renderer",set:function(e){this._renderer=e},get:function(){return this._renderer}},{key:"mouse",set:function(e){this._mouse=e},get:function(){return this._mouse||(this._mouse=this.DESKTOP_MOUSE),this._mouse}},{key:"global",get:function(){return this.mouse.global}},{key:"globalX",get:function(){return this.mouse.global.x}},{key:"globalY",get:function(){return this.mouse.global.y}},{key:"currentCursorStyle",set:function(t){e.renderer.plugins.interaction.currentCursorStyle=t},get:function(){return e.renderer.plugins.interaction.currentCursorStyle}},{key:"currentTime",get:function(){return(new Date).getTime()}}]),e}();t.default=r},337:function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function r(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var a=function(e){function t(e){n(this,t);var r=i(this,(t.__proto__||Object.getPrototypeOf(t)).call(this)),a=new PIXI.BaseTexture(e),o=new PIXI.Texture(a);return r.image=new PIXI.Sprite(o),r.image.x=-r.image.width/2,r.image.y=-r.image.height/2,r.addChild(r.image),r}return r(t,e),t}(PIXI.Container);t.default=a},338:function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){return Math.floor(Math.random()*(t-e+1)+e)}function r(e){return e*u}function a(e){return e/u}Object.defineProperty(t,"__esModule",{value:!0});var o=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}(),u=180/Math.PI,s=function(){function e(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:0,i=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0;return n(this,e),this instanceof e?(this.x=t,void(this.y=i)):new e(t,i)}return o(e,null,[{key:"fromArray",value:function(t){return new e(t[0]||0,t[1]||0)}},{key:"fromObject",value:function(t){return new e(t.x||0,t.y||0)}}]),o(e,[{key:"addX",value:function(e){return this.x+=e.x,this}},{key:"addY",value:function(e){return this.y+=e.y,this}},{key:"add",value:function(e){return this.x+=e.x,this.y+=e.y,this}},{key:"addScalar",value:function(e){return this.x+=e,this.y+=e,this}},{key:"addScalarX",value:function(e){return this.x+=e,this}},{key:"addScalarY",value:function(e){return this.y+=e,this}},{key:"subtractX",value:function(e){return this.x-=e.x,this}},{key:"subtractY",value:function(e){return this.y-=e.y,this}},{key:"subtract",value:function(e){return this.x-=e.x,this.y-=e.y,this}},{key:"subtractScalar",value:function(e){return this.x-=e,this.y-=e,this}},{key:"subtractScalarX",value:function(e){return this.x-=e,this}},{key:"subtractScalarY",value:function(e){return this.y-=e,this}},{key:"divideX",value:function(e){return this.x/=e.x,this}},{key:"divideY",value:function(e){return this.y/=e.y,this}},{key:"divide",value:function(e){return this.x/=e.x,this.y/=e.y,this}},{key:"divideScalar",value:function(e){return 0!==e?(this.x/=e,this.y/=e):(this.x=0,this.y=0),this}},{key:"divideScalarX",value:function(e){return 0!==e?this.x/=e:this.x=0,this}},{key:"divideScalarY",value:function(e){return 0!==e?this.y/=e:this.y=0,this}},{key:"invertX",value:function(){return this.x*=-1,this}},{key:"invertY",value:function(){return this.y*=-1,this}},{key:"invert",value:function(){return this.invertX(),this.invertY(),this}},{key:"multiplyX",value:function(e){return this.x*=e.x,this}},{key:"multiplyY",value:function(e){return this.y*=e.y,this}},{key:"multiply",value:function(e){return this.x*=e.x,this.y*=e.y,this}},{key:"multiplyScalar",value:function(e){return this.x*=e,this.y*=e,this}},{key:"multiplyScalarX",value:function(e){return this.x*=e,this}},{key:"multiplyScalarY",value:function(e){return this.y*=e,this}},{key:"normalize",value:function(){var t=this.length();return 0===t?(this.x=1,this.y=0):this.divide(e(t,t)),this}},{key:"norm",value:function(){return this.normalize()}},{key:"limit",value:function(e,t){return Math.abs(this.x)>e&&(this.x*=t),Math.abs(this.y)>e&&(this.y*=t),this}},{key:"randomize",value:function(e,t){return this.randomizeX(e,t),this.randomizeY(e,t),this}},{key:"randomizeX",value:function(e,t){var n=Math.min(e.x,t.x),r=Math.max(e.x,t.x);return this.x=i(n,r),this}},{key:"randomizeY",value:function(e,t){var n=Math.min(e.y,t.y),r=Math.max(e.y,t.y);return this.y=i(n,r),this}},{key:"randomizeAny",value:function(e,t){return Math.round(Math.random())?this.randomizeX(e,t):this.randomizeY(e,t),this}},{key:"unfloat",value:function(){return this.x=Math.round(this.x),this.y=Math.round(this.y),this}},{key:"toFixed",value:function(e){return"undefined"==typeof e&&(e=8),this.x=this.x.toFixed(e),this.y=this.y.toFixed(e),this}},{key:"mixX",value:function(e,t){return"undefined"==typeof t&&(t=.5),this.x=(1-t)*this.x+t*e.x,this}},{key:"mixY",value:function(e,t){return"undefined"==typeof t&&(t=.5),this.y=(1-t)*this.y+t*e.y,this}},{key:"mix",value:function(e,t){return this.mixX(e,t),this.mixY(e,t),this}},{key:"clone",value:function(){return new e(this.x,this.y)}},{key:"copyX",value:function(e){return this.x=e.x,this}},{key:"copyY",value:function(e){return this.y=e.y,this}},{key:"copy",value:function(e){return this.copyX(e),this.copyY(e),this}},{key:"zero",value:function(){return this.x=this.y=0,this}},{key:"dot",value:function(e){return this.x*e.x+this.y*e.y}},{key:"cross",value:function(e){return this.x*e.y-this.y*e.x}},{key:"projectOnto",value:function(e){var t=(this.x*e.x+this.y*e.y)/(e.x*e.x+e.y*e.y);return this.x=t*e.x,this.y=t*e.y,this}},{key:"horizontalAngle",value:function(){return Math.atan2(this.y,this.x)}},{key:"horizontalAngleDeg",value:function(){return r(this.horizontalAngle())}},{key:"verticalAngle",value:function(){return Math.atan2(this.x,this.y)}},{key:"verticalAngleDeg",value:function(){return r(this.verticalAngle())}},{key:"angle",value:function(){return this.horizontalAngle()}},{key:"angleDeg",value:function(){return this.horizontalAngleDeg()}},{key:"direction",value:function(){return this.horizontalAngle()}},{key:"rotate",value:function(e){var t=this.x*Math.cos(e)-this.y*Math.sin(e),n=this.x*Math.sin(e)+this.y*Math.cos(e);return this.x=t,this.y=n,this}},{key:"rotateDeg",value:function(e){return e=a(e),this.rotate(e)}},{key:"rotateTo",value:function(e){return this.rotate(e-this.angle())}},{key:"rotateToDeg",value:function(e){return e=a(e),this.rotateTo(e)}},{key:"rotateBy",value:function(e){var t=this.angle()+e;return this.rotate(t)}},{key:"rotateByDeg",value:function(e){return e=a(e),this.rotateBy(e)}},{key:"distanceX",value:function(e){return this.x-e.x}},{key:"absDistanceX",value:function(e){return Math.abs(this.distanceX(e))}},{key:"distanceY",value:function(e){return this.y-e.y}},{key:"absDistanceY",value:function(e){return Math.abs(this.distanceY(e))}},{key:"distance",value:function(e){return Math.sqrt(this.distanceSq(e))}},{key:"distanceSq",value:function(e){var t=this.distanceX(e),n=this.distanceY(e);return t*t+n*n}},{key:"length",value:function(){return Math.sqrt(this.lengthSq())}},{key:"lengthSq",value:function(){return this.x*this.x+this.y*this.y}},{key:"magnitude",value:function(){return this.length()}},{key:"isZero",value:function(){return 0===this.x&&0===this.y}},{key:"isEqualTo",value:function(e){return this.x===e.x&&this.y===e.y}},{key:"toString",value:function(){return"x:"+this.x+", y:"+this.y}},{key:"toArray",value:function(){return[this.x,this.y]}},{key:"toObject",value:function(){return{x:this.x,y:this.y}}}]),e}();t.default=s},339:function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}function r(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}function a(e){return function(t){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:document.createElement("img");return null!=e&&(n.crossOrigin=e),new Promise(function(e,i){n.onload=function(t){o(n)?e(n):i("image element validation error")},n.onerror=function(e){return i(e)},n.src=t})}}function o(e){return 0!==(e.width||e.naturalWidth)&&0!==(e.height||e.naturalHeight)}function u(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null;return t=t||g,t.canvas.width=e.width||e.naturalWidth,t.canvas.height=e.height||e.naturalHeight,t.drawImage(e,0,0),t.getImageData(0,0,t.canvas.width,t.canvas.height)}function s(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"GET";return new Promise(function(n,i){var r=new XMLHttpRequest;r.onload=function(){return n(r.responseText)},r.onerror=function(e){return i(e)},r.open(t,e),r.send(null)})}function c(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:null,t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"";return e=e||w,t&&t.length&&e.setAttribute("accept",t),new Promise(function(t,n){var i=function e(i){var r=i.target,a=r.files;a.length?t(a):n({type:"user cancel",files:a}),r.removeEventListener(i.type,e)};e.addEventListener("change",i),e.click()})}function l(e){return new Promise(function(t,n){var i=new FileReader,r=function(e){t(e.target.result),o(e.target)},a=function(e){n(e),o(e.target)},o=function(e){e.removeEventListener("load",r),e.removeEventListener("error",a)};i.addEventListener("load",r),i.addEventListener("error",a),i.readAsDataURL(e)})}function f(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:60;return new Promise(function(n,i){e.running?e.once("complete",function(e){return n(e)}):setTimeout(function(){e.running?e.once("complete",function(e){return n(e)}):n("unstarted")},t)})}function h(e){for(var t=arguments.length,n=Array(t>1?t-1:0),i=1;i<t;i++)n[i-1]=arguments[i];return e.apply(void 0,n).then(function(t){return t.done?Promise.resolve(t.args):h.apply(void 0,[e].concat(r(t.args)))})}Object.defineProperty(t,"__esModule",{value:!0}),t.loadImage=t.all=void 0,t.makeLoadImage=a,t.getImageData=u,t.request=s,t.browseFile=c,t.readAsDataURL=l,t.completeMotion=f,t.re=h;var d=n(340),y=i(d),v=n(344),m=i(v);window.Promise||(window.Promise=y.default);var g=document.createElement("canvas").getContext("2d");(0,m.default)(g,"CanvasRenderingContext2D를 찾을 수 없습니다.");var w=(t.all=Promise.all.bind(Promise),t.loadImage=a(),document.createElement("input"));w.setAttribute("type","file")},340:function(e,t,n){(function(t){!function(n){function i(){}function r(e,t){return function(){e.apply(t,arguments)}}function a(e){if(!(this instanceof a))throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=void 0,this._deferreds=[],f(e,this)}function o(e,t){for(;3===e._state;)e=e._value;return 0===e._state?void e._deferreds.push(t):(e._handled=!0,void a._immediateFn(function(){var n=1===e._state?t.onFulfilled:t.onRejected;if(null===n)return void(1===e._state?u:s)(t.promise,e._value);var i;try{i=n(e._value)}catch(e){return void s(t.promise,e)}u(t.promise,i)}))}function u(e,t){try{if(t===e)throw new TypeError("A promise cannot be resolved with itself.");if(t&&("object"==typeof t||"function"==typeof t)){var n=t.then;if(t instanceof a)return e._state=3,e._value=t,void c(e);if("function"==typeof n)return void f(r(n,t),e)}e._state=1,e._value=t,c(e)}catch(t){s(e,t)}}function s(e,t){e._state=2,e._value=t,c(e)}function c(e){2===e._state&&0===e._deferreds.length&&a._immediateFn(function(){e._handled||a._unhandledRejectionFn(e._value)});for(var t=0,n=e._deferreds.length;t<n;t++)o(e,e._deferreds[t]);e._deferreds=null}function l(e,t,n){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof t?t:null,this.promise=n}function f(e,t){var n=!1;try{e(function(e){n||(n=!0,u(t,e))},function(e){n||(n=!0,s(t,e))})}catch(e){if(n)return;n=!0,s(t,e)}}var h=setTimeout;a.prototype.catch=function(e){return this.then(null,e)},a.prototype.then=function(e,t){var n=new this.constructor(i);return o(this,new l(e,t,n)),n},a.all=function(e){return new a(function(t,n){function i(e,o){try{if(o&&("object"==typeof o||"function"==typeof o)){var u=o.then;if("function"==typeof u)return void u.call(o,function(t){i(e,t)},n)}r[e]=o,0===--a&&t(r)}catch(e){n(e)}}if(!e||"undefined"==typeof e.length)throw new TypeError("Promise.all accepts an array");var r=Array.prototype.slice.call(e);if(0===r.length)return t([]);for(var a=r.length,o=0;o<r.length;o++)i(o,r[o])})},a.resolve=function(e){return e&&"object"==typeof e&&e.constructor===a?e:new a(function(t){t(e)})},a.reject=function(e){return new a(function(t,n){n(e)})},a.race=function(e){return new a(function(t,n){for(var i=0,r=e.length;i<r;i++)e[i].then(t,n)})},a._immediateFn="function"==typeof t&&function(e){t(e)}||function(e){h(e,0)},a._unhandledRejectionFn=function(e){"undefined"!=typeof console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)},a._setImmediateFn=function(e){a._immediateFn=e},a._setUnhandledRejectionFn=function(e){a._unhandledRejectionFn=e},"undefined"!=typeof e&&e.exports?e.exports=a:n.Promise||(n.Promise=a)}(this)}).call(t,n(341).setImmediate)},341:function(e,t,n){function i(e,t){this._id=e,this._clearFn=t}var r=Function.prototype.apply;t.setTimeout=function(){return new i(r.call(setTimeout,window,arguments),clearTimeout)},t.setInterval=function(){return new i(r.call(setInterval,window,arguments),clearInterval)},t.clearTimeout=t.clearInterval=function(e){e&&e.close()},i.prototype.unref=i.prototype.ref=function(){},i.prototype.close=function(){this._clearFn.call(window,this._id)},t.enroll=function(e,t){clearTimeout(e._idleTimeoutId),e._idleTimeout=t},t.unenroll=function(e){clearTimeout(e._idleTimeoutId),e._idleTimeout=-1},t._unrefActive=t.active=function(e){clearTimeout(e._idleTimeoutId);var t=e._idleTimeout;t>=0&&(e._idleTimeoutId=setTimeout(function(){e._onTimeout&&e._onTimeout()},t))},n(342),t.setImmediate=setImmediate,t.clearImmediate=clearImmediate},342:function(e,t,n){(function(e,t){!function(e,n){"use strict";function i(e){"function"!=typeof e&&(e=new Function(""+e));for(var t=new Array(arguments.length-1),n=0;n<t.length;n++)t[n]=arguments[n+1];var i={callback:e,args:t};return v[y]=i,d(y),y++}function r(e){delete v[e]}function a(e){var t=e.callback,i=e.args;switch(i.length){case 0:t();break;case 1:t(i[0]);break;case 2:t(i[0],i[1]);break;case 3:t(i[0],i[1],i[2]);break;default:t.apply(n,i)}}function o(e){if(m)setTimeout(o,0,e);else{var t=v[e];if(t){m=!0;try{a(t)}finally{r(e),m=!1}}}}function u(){d=function(e){t.nextTick(function(){o(e)})}}function s(){if(e.postMessage&&!e.importScripts){var t=!0,n=e.onmessage;return e.onmessage=function(){t=!1},e.postMessage("","*"),e.onmessage=n,t}}function c(){var t="setImmediate$"+Math.random()+"$",n=function(n){n.source===e&&"string"==typeof n.data&&0===n.data.indexOf(t)&&o(+n.data.slice(t.length))};e.addEventListener?e.addEventListener("message",n,!1):e.attachEvent("onmessage",n),d=function(n){e.postMessage(t+n,"*")}}function l(){var e=new MessageChannel;e.port1.onmessage=function(e){var t=e.data;o(t)},d=function(t){e.port2.postMessage(t)}}function f(){var e=g.documentElement;d=function(t){var n=g.createElement("script");n.onreadystatechange=function(){o(t),n.onreadystatechange=null,e.removeChild(n),n=null},e.appendChild(n)}}function h(){d=function(e){setTimeout(o,0,e)}}if(!e.setImmediate){var d,y=1,v={},m=!1,g=e.document,w=Object.getPrototypeOf&&Object.getPrototypeOf(e);w=w&&w.setTimeout?w:e,"[object process]"==={}.toString.call(e.process)?u():s()?c():e.MessageChannel?l():g&&"onreadystatechange"in g.createElement("script")?f():h(),w.setImmediate=i,w.clearImmediate=r}}("undefined"==typeof self?"undefined"==typeof e?this:e:self)}).call(t,function(){return this}(),n(343))},343:function(e,t){function n(){throw new Error("setTimeout has not been defined")}function i(){throw new Error("clearTimeout has not been defined")}function r(e){if(l===setTimeout)return setTimeout(e,0);if((l===n||!l)&&setTimeout)return l=setTimeout,setTimeout(e,0);try{return l(e,0)}catch(t){try{return l.call(null,e,0)}catch(t){return l.call(this,e,0)}}}function a(e){if(f===clearTimeout)return clearTimeout(e);if((f===i||!f)&&clearTimeout)return f=clearTimeout,clearTimeout(e);try{return f(e)}catch(t){try{return f.call(null,e)}catch(t){return f.call(this,e)}}}function o(){v&&d&&(v=!1,d.length?y=d.concat(y):m=-1,y.length&&u())}function u(){if(!v){var e=r(o);v=!0;for(var t=y.length;t;){for(d=y,y=[];++m<t;)d&&d[m].run();m=-1,t=y.length}d=null,v=!1,a(e)}}function s(e,t){this.fun=e,this.array=t}function c(){}var l,f,h=e.exports={};!function(){try{l="function"==typeof setTimeout?setTimeout:n}catch(e){l=n}try{f="function"==typeof clearTimeout?clearTimeout:i}catch(e){f=i}}();var d,y=[],v=!1,m=-1;h.nextTick=function(e){var t=new Array(arguments.length-1);if(arguments.length>1)for(var n=1;n<arguments.length;n++)t[n-1]=arguments[n];y.push(new s(e,t)),1!==y.length||v||r(u)},s.prototype.run=function(){this.fun.apply(null,this.array)},h.title="browser",h.browser=!0,h.env={},h.argv=[],h.version="",h.versions={},h.on=c,h.addListener=c,h.once=c,h.off=c,h.removeListener=c,h.removeAllListeners=c,h.emit=c,h.prependListener=c,h.prependOnceListener=c,h.listeners=function(e){return[]},h.binding=function(e){throw new Error("process.binding is not supported")},h.cwd=function(){return"/"},h.chdir=function(e){throw new Error("process.chdir is not supported")},h.umask=function(){return 0}},344:function(e,t){"use strict";function n(e,t){if(!e)throw new Error("[Assertion Error] "+t)}Object.defineProperty(t,"__esModule",{value:!0}),t.default=n},396:function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var a=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}(),o=n(330),u=n(331),s=i(u),c=n(337),l=i(c),f=n(336),h=i(f),d=n(338),y=i(d),v=n(332),m=i(v),g=n(339),w=void 0,p=void 0,b=void 0,I=[],k="./../assets/image/m7.png",x=void 0,O=function(){function e(){r(this,e),this.app=new PIXI.Application(s.default.windowWidth,s.default.windowHeight,{forceCanvas:!0,backgroundColor:16777215,antialias:!0}),document.body.appendChild(this.app.view),this.canvas=this.app.renderer.view,this.renderer=this.app.renderer,this.stage=this.app.stage,h.default.renderer=this.renderer,h.default.mouse=m.default.desktop?h.default.DESKTOP_MOUSE:h.default.MOBILE_MOUSE,this.minionLayer=new PIXI.Container,this.afterimageLayer=new PIXI.Container,this.stage.addChild(this.afterimageLayer),this.stage.addChild(this.minionLayer),this.initialize(),this.initializeGUI(),this.render()}return a(e,[{key:"initialize",value:function(){var e=this;this.render=this.render.bind(this),p=new PIXI.Sprite.fromImage("./../assets/image/m11.png"),p.anchor=new PIXI.Point(.5,.5),p.visible=!1,p.texture.baseTexture.on("loaded",function(){p.height=200,p.scale.x=p.scale.y,p.interactive=!0,p.buttonMode=!0,p.on("mousedown",e.onControlDown)}),this.isBezierTween=!1,(0,g.loadImage)(k).then(function(t){x=t,e.startApplication(t)}).catch(function(e){console.log(e)}),this.onControlDown=this.onControlDown.bind(this),this.onControlMove=this.onControlMove.bind(this),this.onControlUp=this.onControlUp.bind(this)}},{key:"startApplication",value:function(){b=new l.default(x),this.setMinion(b),this.minionLayer.addChild(b),this.minionLayer.addChild(p);for(var e=0;e<100;e++)this.getAfterimage(e);w=new y.default}},{key:"setMinion",value:function(e){e.width=200,e.scale.y=e.scale.x,this.minionHalfWidth=e.width/2,this.minionHalfHeight=e.height/2,e.x=this.minionHalfWidth,e.y=this.minionHalfHeight}},{key:"initializeGUI",value:function(){var e=this;this.gui=new dat.GUI,this.config={time:.4,leaveAfterImage:!0,easingList:[Linear.easeNone,Linear.linear,Linear.easeIn,Linear.easeOut,Linear.easeOutIn,Linear.easeInOut,Sine.easeIn,Sine.easeOut,Sine.easeOutIn,Sine.easeInOut,Quadratic.easeIn,Quadratic.easeOut,Quadratic.easeOutIn,Quadratic.easeInOut,Cubic.easeIn,Cubic.easeOut,Cubic.easeOutIn,Cubic.easeInOut,Quartic.easeIn,Quartic.easeOut,Quartic.easeOutIn,Quartic.easeInOut,Quintic.easeIn,Quintic.easeOut,Quintic.easeOutIn,Quintic.easeInOut,Circular.easeIn,Circular.easeOut,Circular.easeOutIn,Circular.easeInOut,Exponential.easeIn,Exponential.easeOut,Exponential.easeOutIn,Exponential.easeInOut,Back.easeIn,Back.easeOut,Back.easeOutIn,Back.easeInOut,Elastic.easeIn,Elastic.easeOut,Elastic.easeOutIn,Elastic.easeInOut,Bounce.easeIn,Bounce.easeOut,Bounce.easeOutIn,Bounce.easeInOut],easingNameList:["Linear.easeNone","Linear.linear","Linear.easeIn","Linear.easeOut","Linear.easeOutIn","Linear.easeInOut","Sine.easeIn","Sine.easeOut","Sine.easeOutIn","Sine.easeInOut","Quadratic.easeIn","Quadratic.easeOut","Quadratic.easeOutIn","Quadratic.easeInOut","Cubic.easeIn","Cubic.easeOut","Cubic.easeOutIn","Cubic.easeInOut","Quartic.easeIn","Quartic.easeOut","Quartic.easeOutIn","Quartic.easeInOut","Quintic.easeIn","Quintic.easeOut","Quintic.easeOutIn","Quintic.easeInOut","Circular.easeIn","Circular.easeOut","Circular.easeOutIn","Circular.easeInOut","Exponential.easeIn","Exponential.easeOut","Exponential.easeOutIn","Exponential.easeInOut","Back.easeIn","Back.easeOut","Back.easeOutIn","Back.easeInOut","Elastic.easeIn","Elastic.easeOut","Elastic.easeOutIn","Elastic.easeInOut","Bounce.easeIn","Bounce.easeOut","Bounce.easeOutIn","Bounce.easeInOut"]};var t=this.getEasingIndex("Back.easeOut");this.config.easing=this.config.easingNameList[t],this.config.selectedEasing=this.config.easingList[t],this.config.tween=this.tween.bind(this),this.config.bezier=this.bezier.bind(this),this.gui.add(this.config,"leaveAfterImage"),this.gui.add(this.config,"time").min(0).step(.1).max(4);var n=this.gui.add(this.config,"easing",this.config.easingNameList);n.onFinishChange(function(t){e.config.selectedEasing=e.config.easingList[e.getEasingIndex(t)]}),this.gui.add(this.config,"tween"),this.gui.add(this.config,"bezier")}},{key:"getEasingIndex",value:function(e){for(var t=0;t<this.config.easingNameList.length;t++)if(e===this.config.easingNameList[t])return t}},{key:"update",value:function(e){}},{key:"render",value:function(e){this.update(e),(0,o.requestAnimationFrame)(this.render)}},{key:"tween",value:function(){this.isBezierTween=!1,this.current=y.default.fromObject(b),this.to=this.getRandomPosition(),this.startTween(this.current.clone(),this.to.clone()),
-this.drawAfterimage(this.current.clone(),this.to.clone())}},{key:"startTween",value:function(e,t){this.goTween&&this.goTween.stop();var n=Number(this.config.time),i=this.config.selectedEasing,r=e.subtract(t);t.rotation=r.direction()+Math.PI/2,this.goTween=Be.to(b,t,n,i),this.goTween.play()}},{key:"drawAfterimage",value:function(e,t){var n=this;this.clearAfterimage(),this.drawAfterTween&&this.drawAfterTween.stop(),this.drawAfterimageIndex=0;var i=Number(this.config.time),r=this.config.selectedEasing,a=e.subtract(t),o=new y.default(b.x,b.y);o.alpha=.01,o.rotation=b.rotation,this.drawAfterTween=Be.to(o,{x:t.x,y:t.y,alpha:.1,rotation:a.direction()+Math.PI/2},i,r),this.drawAfterTween.onUpdate=function(){n.setAfterimage(n.drawAfterimageIndex,o),n.drawAfterimageIndex++},this.drawAfterTween.onComplete=function(){n.setAfterimage(n.drawAfterimageIndex,o),n.drawAfterimageIndex++,n.config.leaveAfterImage===!1&&n.hideAfterImage(n.current.clone(),n.to.clone())},this.drawAfterTween.play()}},{key:"hideAfterImage",value:function(e,t){var n=this;this.hideAfterTween&&this.hideAfterTween.stop(),this.hideAfterimageIndex=0;var i=Number(this.config.time),r=this.config.selectedEasing,a=new y.default(b.x,b.y);this.hideAfterTween=Be.to(a,{x:t.x,y:t.y},i,r),this.hideAfterTween.onUpdate=this.hideAfterTween.onComplete=function(){I[n.hideAfterimageIndex].visible=!1,n.hideAfterimageIndex++},this.hideAfterTween.play()}},{key:"setAfterimage",value:function(e,t){var n=this.getAfterimage(e);n.x=t.x,n.y=t.y,n.alpha=t.alpha,n.rotation=t.rotation,n.visible=!0}},{key:"clearAfterimage",value:function(){for(var e=I.length,t=0;t<e;t++){var n=I[t];n.visible=!1}}},{key:"getAfterimage",value:function(e){if(!I[e]){var t=new l.default(x);t.visible=!1,this.setMinion(t),this.afterimageLayer.addChild(t),I.push(t)}return I[e]}},{key:"getRandomPosition",value:function(){return(new y.default).randomize({x:this.minionHalfWidth,y:this.minionHalfHeight},{x:s.default.windowWidth-this.minionHalfWidth,y:s.default.windowHeight-this.minionHalfHeight})}},{key:"bezier",value:function(){this.current=y.default.fromObject(b),this.to=this.getRandomPosition(),this.isBezierTween===!1&&(p.x=s.default.windowCenterX,p.y=s.default.windowCenterY),this.startBezier(this.current.clone(),this.to.clone()),this.drawBezierAfterimage(this.current.clone(),this.to.clone()),this.isBezierTween=!0}},{key:"startBezier",value:function(e,t){this.bezierTween&&this.bezierTween.stop();var n=Number(this.config.time),i=this.config.selectedEasing,r=e.subtract(t);t.rotation=r.direction()+Math.PI/2,this.bezierTween=Be.bezierTo(b,t,{x:p.x,y:p.y},n,i),this.bezierTween.play()}},{key:"drawBezierAfterimage",value:function(e,t){var n=this;this.clearAfterimage(),this.drawBezierAfterTween&&this.drawBezierAfterTween.stop(),this.drawAfterimageIndex=0;var i=Number(this.config.time),r=this.config.selectedEasing,a=e.subtract(t),o=y.default.fromObject(b);o.alpha=.01,o.rotation=b.rotation,this.drawBezierAfterTween=Be.bezierTo(o,{x:t.x,y:t.y,alpha:.1,rotation:a.direction()+Math.PI/2},{x:p.x,y:p.y},i,r),this.drawBezierAfterTween.onUpdate=function(){n.setAfterimage(n.drawAfterimageIndex,o),n.drawAfterimageIndex++},this.drawBezierAfterTween.onComplete=function(){n.setAfterimage(n.drawAfterimageIndex,o),n.drawAfterimageIndex++,n.config.leaveAfterImage===!1&&n.hideAfterImage(n.current.clone(),n.to.clone())},this.drawBezierAfterTween.play()}},{key:"onControlDown",value:function(e){this.prevPoint=h.default.global.clone(),p.off("mousedown",this.onControlDown),window.addEventListener("mousemove",this.onControlMove),window.addEventListener("mouseup",this.onControlUp)}},{key:"onControlMove",value:function(e){var t=h.default.global.x-this.prevPoint.x,n=h.default.global.y-this.prevPoint.y;p.x+=t,p.y+=n,this.prevPoint=h.default.global.clone()}},{key:"onControlUp",value:function(e){p.on("mousedown",this.onControlDown),window.removeEventListener("mousemove",this.onControlMove),window.removeEventListener("mouseup",this.onControlUp)}},{key:"resize",value:function(){var e=s.default.windowHeight,t=s.default.windowWidth;this.canvas.width=t,this.canvas.height=e,this.canvas.style.width=t+"px",this.canvas.style.height=e+"px",this.renderer.resize(t,e)}},{key:"isBezierTween",set:function(e){this._isBezierTween=e,p.visible=e},get:function(){return this._isBezierTween}}]),e}();t.default=O}});
+webpackJsonp([6],{
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	__webpack_require__(1);
+	
+	var _Test = __webpack_require__(396);
+	
+	var _Test2 = _interopRequireDefault(_Test);
+	
+	var _KeyCode = __webpack_require__(328);
+	
+	var _KeyCode2 = _interopRequireDefault(_KeyCode);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	(function () {
+	    window.onload = function () {
+	        var main = new Main();
+	    };
+	})();
+	
+	var Main = function () {
+	    function Main() {
+	        _classCallCheck(this, Main);
+	
+	        this.init();
+	        this.addEvent();
+	        this.onResize();
+	    }
+	
+	    _createClass(Main, [{
+	        key: 'init',
+	        value: function init() {
+	            this.test = new _Test2.default();
+	        }
+	    }, {
+	        key: 'addEvent',
+	        value: function addEvent() {
+	            window.onresize = this.onResize.bind(this);
+	            window.addEventListener('keyup', this.onKeyUp.bind(this));
+	        }
+	    }, {
+	        key: 'onResize',
+	        value: function onResize() {
+	            this.test.resize();
+	        }
+	    }, {
+	        key: 'onKeyUp',
+	        value: function onKeyUp(e) {
+	            switch (e.keyCode) {
+	                case _KeyCode2.default.BACKQUOTE:
+	                    break;
+	
+	                case _KeyCode2.default.ESCAPE:
+	                    console.clear();
+	                    break;
+	
+	                case _KeyCode2.default.SPACE:
+	                    break;
+	
+	                case _KeyCode2.default.DOWN:
+	                    break;
+	
+	                case _KeyCode2.default.UP:
+	                    break;
+	
+	                case _KeyCode2.default.LEFT:
+	                    break;
+	
+	                case _KeyCode2.default.RIGHT:
+	                    break;
+	
+	                case _KeyCode2.default.BACKSPACE:
+	                    break;
+	            }
+	        }
+	    }]);
+
+	    return Main;
+	}();
+
+/***/ }),
+
+/***/ 330:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	(function (global) {
+	    //--Animation methods
+	    //Easing functions adapted from Robert Penner's easing equations
+	    //http://www.robertpenner.com/easing/
+	    var Easing = {
+	        linear: function linear(t) {
+	            return t;
+	        },
+	        easeInQuad: function easeInQuad(t) {
+	            return t * t;
+	        },
+	        easeOutQuad: function easeOutQuad(t) {
+	            return -1 * t * (t - 2);
+	        },
+	        easeInOutQuad: function easeInOutQuad(t) {
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * t * t;
+	            return -1 / 2 * (--t * (t - 2) - 1);
+	        },
+	        easeInCubic: function easeInCubic(t) {
+	            return t * t * t;
+	        },
+	        easeOutCubic: function easeOutCubic(t) {
+	            return 1 * ((t = t / 1 - 1) * t * t + 1);
+	        },
+	        easeInOutCubic: function easeInOutCubic(t) {
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * t * t * t;
+	            return 1 / 2 * ((t -= 2) * t * t + 2);
+	        },
+	        easeInQuart: function easeInQuart(t) {
+	            return t * t * t * t;
+	        },
+	        easeOutQuart: function easeOutQuart(t) {
+	            return -1 * ((t = t / 1 - 1) * t * t * t - 1);
+	        },
+	        easeInOutQuart: function easeInOutQuart(t) {
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * t * t * t * t;
+	            return -1 / 2 * ((t -= 2) * t * t * t - 2);
+	        },
+	        easeInQuint: function easeInQuint(t) {
+	            return 1 * (t /= 1) * t * t * t * t;
+	        },
+	        easeOutQuint: function easeOutQuint(t) {
+	            return 1 * ((t = t / 1 - 1) * t * t * t * t + 1);
+	        },
+	        easeInOutQuint: function easeInOutQuint(t) {
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * t * t * t * t * t;
+	            return 1 / 2 * ((t -= 2) * t * t * t * t + 2);
+	        },
+	        easeInSine: function easeInSine(t) {
+	            return -1 * Math.cos(t / 1 * (Math.PI / 2)) + 1;
+	        },
+	        easeOutSine: function easeOutSine(t) {
+	            return 1 * Math.sin(t / 1 * (Math.PI / 2));
+	        },
+	        easeInOutSine: function easeInOutSine(t) {
+	            return -1 / 2 * (Math.cos(Math.PI * t / 1) - 1);
+	        },
+	        easeInExpo: function easeInExpo(t) {
+	            return t === 0 ? 1 : 1 * Math.pow(2, 10 * (t / 1 - 1));
+	        },
+	        easeOutExpo: function easeOutExpo(t) {
+	            return t === 1 ? 1 : 1 * (-Math.pow(2, -10 * t / 1) + 1);
+	        },
+	        easeInOutExpo: function easeInOutExpo(t) {
+	            if (t === 0) return 0;
+	            if (t === 1) return 1;
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * Math.pow(2, 10 * (t - 1));
+	            return 1 / 2 * (-Math.pow(2, -10 * --t) + 2);
+	        },
+	        easeInCirc: function easeInCirc(t) {
+	            if (t >= 1) return t;
+	            return -1 * (Math.sqrt(1 - (t /= 1) * t) - 1);
+	        },
+	        easeOutCirc: function easeOutCirc(t) {
+	            return 1 * Math.sqrt(1 - (t = t / 1 - 1) * t);
+	        },
+	        easeInOutCirc: function easeInOutCirc(t) {
+	            if ((t /= 1 / 2) < 1) return -1 / 2 * (Math.sqrt(1 - t * t) - 1);
+	            return 1 / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1);
+	        },
+	        easeInElastic: function easeInElastic(t) {
+	            var s = 1.70158;
+	            var p = 0;
+	            var a = 1;
+	            if (t === 0) return 0;
+	            if ((t /= 1) == 1) return 1;
+	            if (!p) p = 1 * 0.3;
+	            if (a < Math.abs(1)) {
+	                a = 1;
+	                s = p / 4;
+	            } else s = p / (2 * Math.PI) * Math.asin(1 / a);
+	            return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * 1 - s) * (2 * Math.PI) / p));
+	        },
+	        easeOutElastic: function easeOutElastic(t) {
+	            var s = 1.70158;
+	            var p = 0;
+	            var a = 1;
+	            if (t === 0) return 0;
+	            if ((t /= 1) == 1) return 1;
+	            if (!p) p = 1 * 0.3;
+	            if (a < Math.abs(1)) {
+	                a = 1;
+	                s = p / 4;
+	            } else s = p / (2 * Math.PI) * Math.asin(1 / a);
+	            return a * Math.pow(2, -10 * t) * Math.sin((t * 1 - s) * (2 * Math.PI) / p) + 1;
+	        },
+	        easeInOutElastic: function easeInOutElastic(t) {
+	            var s = 1.70158;
+	            var p = 0;
+	            var a = 1;
+	            if (t === 0) return 0;
+	            if ((t /= 1 / 2) == 2) return 1;
+	            if (!p) p = 1 * (0.3 * 1.5);
+	            if (a < Math.abs(1)) {
+	                a = 1;
+	                s = p / 4;
+	            } else s = p / (2 * Math.PI) * Math.asin(1 / a);
+	            if (t < 1) return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * 1 - s) * (2 * Math.PI) / p));
+	            return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * 1 - s) * (2 * Math.PI) / p) * 0.5 + 1;
+	        },
+	        easeInBack: function easeInBack(t) {
+	            var s = 1.70158;
+	            return 1 * (t /= 1) * t * ((s + 1) * t - s);
+	        },
+	        easeOutBack: function easeOutBack(t) {
+	            var s = 1.70158;
+	            return 1 * ((t = t / 1 - 1) * t * ((s + 1) * t + s) + 1);
+	        },
+	        easeInOutBack: function easeInOutBack(t) {
+	            var s = 1.70158;
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * (t * t * (((s *= 1.525) + 1) * t - s));
+	            return 1 / 2 * ((t -= 2) * t * (((s *= 1.525) + 1) * t + s) + 2);
+	        },
+	        easeInBounce: function easeInBounce(t) {
+	            return 1 - Easing.easeOutBounce(1 - t);
+	        },
+	        easeOutBounce: function easeOutBounce(t) {
+	            if ((t /= 1) < 1 / 2.75) {
+	                return 1 * (7.5625 * t * t);
+	            } else if (t < 2 / 2.75) {
+	                return 1 * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75);
+	            } else if (t < 2.5 / 2.75) {
+	                return 1 * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375);
+	            } else {
+	                return 1 * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375);
+	            }
+	        },
+	        easeInOutBounce: function easeInOutBounce(t) {
+	            if (t < 1 / 2) return Easing.easeInBounce(t * 2) * 0.5;
+	            return Easing.easeOutBounce(t * 2 - 1) * 0.5 + 1 * 0.5;
+	        }
+	    };
+	
+	    //Request animation polyfill - http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+	    var requestAnimationFrame = function () {
+	        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
+	            return window.setTimeout(callback, 16);
+	        };
+	    }();
+	
+	    var cancelAnimationFrame = function () {
+	        return window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.oCancelAnimationFrame || window.msCancelAnimationFrame || function (callback) {
+	            return window.clearTimeout(callback, 16);
+	        };
+	    }();
+	
+	    var animation = function animation(thisArg, onAnimation, totalStep, easing, onComplete) {
+	        if (typeof onAnimation !== 'function') throw Error('onAnimation must be function');
+	
+	        var currentStep = 0,
+	            easingFunction = typeof easing === 'string' ? Easing[easing] || Easing.linear : easing || Easing.linear;
+	
+	        var animationFrame = function animationFrame() {
+	            currentStep++;
+	
+	            var step = currentStep / totalStep,
+	                ease = easingFunction(step);
+	
+	            onAnimation.call(thisArg, ease, step, currentStep);
+	
+	            if (currentStep < totalStep) {
+	                if (!thisArg) {
+	                    requestAnimationFrame(animationFrame);
+	                } else {
+	                    thisArg.animationId = requestAnimationFrame(animationFrame);
+	                }
+	            } else {
+	                if (onComplete) {
+	                    onComplete.apply(thisArg);
+	                }
+	            }
+	        };
+	        requestAnimationFrame(animationFrame);
+	    };
+	
+	    if (( false ? 'undefined' : _typeof(exports)) === "object" && typeof module !== "undefined") {
+	        module.exports.Easing = Easing;
+	        module.exports.requestAnimationFrame = requestAnimationFrame;
+	        module.exports.cancelAnimationFrame = cancelAnimationFrame;
+	        module.exports.animation = animation;
+	    } else {
+	        global.Easing = Easing;
+	        global.requestAnimationFrame = requestAnimationFrame;
+	        global.cancelAnimationFrame = cancelAnimationFrame;
+	        global.animation = animation;
+	    }
+	})(undefined);
+
+/***/ }),
+
+/***/ 331:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _Config = __webpack_require__(332);
+	
+	var _Config2 = _interopRequireDefault(_Config);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var singleton = Symbol();
+	var singletonEnforcer = Symbol();
+	
+	var Size = function () {
+	    function Size() {
+	        _classCallCheck(this, Size);
+	    }
+	
+	    _createClass(Size, null, [{
+	        key: 'windowWidth',
+	
+	        ///////////////////////////////////////////////////////////////////////////////
+	        //
+	        // Static
+	        //
+	        /////////////////////////////////////////////////////////////////////////////////
+	
+	
+	        get: function get() {
+	            if (_Config2.default.instance.macOS) {
+	                return window.innerWidth;
+	            } else {
+	                return window.innerWidth * window.devicePixelRatio;
+	            }
+	        }
+	    }, {
+	        key: 'windowHeight',
+	        get: function get() {
+	            if (_Config2.default.instance.macOS) {
+	                return window.innerHeight;
+	            } else {
+	                return window.innerHeight * window.devicePixelRatio;
+	            }
+	        }
+	    }, {
+	        key: 'windowSize',
+	        get: function get() {
+	            return new PIXI.Rectangle(0, 0, Size.windowWidth, Size.windowHeight);
+	        }
+	    }, {
+	        key: 'windowCenterX',
+	        get: function get() {
+	            return this.windowWidth / 2;
+	        }
+	    }, {
+	        key: 'windowCenterY',
+	        get: function get() {
+	            return this.windowHeight / 2;
+	        }
+	
+	        /**
+	         * Chrome
+	         * Maximum height/width: 32,767 pixels
+	         * Maximum area: 268,435,456 pixels (e.g., 16,384 x 16,384)
+	         *
+	         * Firefox
+	         * Maximum height/width: 32,767 pixels
+	         * Maximum area: 472,907,776 pixels (e.g., 22,528 x 20,992)
+	         *
+	         * IE
+	         * Maximum height/width: 8,192 pixels
+	         * Maximum area: N/A
+	         *
+	         * IE Mobile
+	         * Maximum height/width: 4,096 pixels
+	         * Maximum area: N/A
+	         */
+	
+	    }, {
+	        key: 'canvasLimitWidth',
+	        get: function get() {
+	            return 4096;
+	        }
+	    }, {
+	        key: 'canvasLimitHeight',
+	        get: function get() {
+	            return 4096;
+	        }
+	    }]);
+	
+	    return Size;
+	}();
+	
+	exports.default = Size;
+
+/***/ }),
+
+/***/ 332:
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var singleton = Symbol();
+	var singletonEnforcer = Symbol();
+	
+	var Config = function (_PIXI$utils$EventEmit) {
+	    _inherits(Config, _PIXI$utils$EventEmit);
+	
+	    //--------------------------------------------------------------------------
+	    //
+	    //    static
+	    //
+	    //--------------------------------------------------------------------------
+	
+	
+	    function Config(enforcer) {
+	        _classCallCheck(this, Config);
+	
+	        var _this = _possibleConstructorReturn(this, (Config.__proto__ || Object.getPrototypeOf(Config)).call(this));
+	
+	        if (enforcer !== singletonEnforcer) {
+	            throw new Error('Cannot construct singleton');
+	        }
+	
+	        _this.checkOS();
+	        return _this;
+	    }
+	
+	    _createClass(Config, [{
+	        key: 'checkOS',
+	
+	
+	        //--------------------------------------------------------------------------
+	        //
+	        //    OS 체크
+	        //
+	        //--------------------------------------------------------------------------
+	
+	
+	        /**
+	         * Phaser.Device 코드
+	         * http://phaser.io/docs/2.4.2/Phaser.Device.html
+	         */
+	        value: function checkOS() {
+	            this.desktop = false;
+	
+	            var ua = navigator.userAgent;
+	
+	            if (/Playstation Vita/.test(ua)) {
+	                this.vita = true;
+	            } else if (/Kindle/.test(ua) || /\bKF[A-Z][A-Z]+/.test(ua) || /Silk.*Mobile Safari/.test(ua)) {
+	                this.kindle = true;
+	                // This will NOT detect early generations of Kindle Fire, I think there is no reliable way...
+	                // E.g. "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.1.0-80) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true"
+	            } else if (/Android/.test(ua)) {
+	                this.android = true;
+	            } else if (/CrOS/.test(ua)) {
+	                this.chromeOS = true;
+	            } else if (/iP[ao]d|iPhone/i.test(ua)) {
+	                this.iOS = true;
+	                navigator.appVersion.match(/OS (\d+)/);
+	                this.iOSVersion = parseInt(RegExp.$1, 10);
+	            } else if (/Linux/.test(ua)) {
+	                this.linux = true;
+	            } else if (/Mac OS/.test(ua)) {
+	                this.macOS = true;
+	            } else if (/Windows/.test(ua)) {
+	                this.windows = true;
+	            }
+	
+	            if (/Windows Phone/i.test(ua) || /IEMobile/i.test(ua)) {
+	                this.android = false;
+	                this.iOS = false;
+	                this.macOS = false;
+	                this.windows = true;
+	                this.windowsPhone = true;
+	            }
+	
+	            var silk = /Silk/.test(ua); // detected in browsers
+	
+	            if (this.windows || this.macOS || this.linux && !silk || this.chromeOS) {
+	                this.desktop = true;
+	            }
+	
+	            //  Windows Phone / Table reset
+	            if (this.windowsPhone || /Windows NT/i.test(ua) && /Touch/i.test(ua)) {
+	                this.desktop = false;
+	            }
+	        }
+	    }], [{
+	        key: 'instance',
+	        get: function get() {
+	            if (!this[singleton]) {
+	                this[singleton] = new Config(singletonEnforcer);
+	            }
+	            return this[singleton];
+	        }
+	    }]);
+	
+	    return Config;
+	}(PIXI.utils.EventEmitter);
+	
+	exports.default = Config;
+
+/***/ }),
+
+/***/ 336:
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Mouse = function () {
+	    function Mouse() {
+	        _classCallCheck(this, Mouse);
+	    }
+	
+	    _createClass(Mouse, null, [{
+	        key: "isDoubleClick",
+	
+	
+	        /**
+	         * 이동 거리가 5px 이하이고 500ms 안에 두번 클릭하면 더블 클릭으로 인정
+	         * @param prevPoint 이전좌표
+	         * @param currentPoint 현재좌표
+	         * @param prevTime 이전 클릭 타임
+	         * @param currentTime 현재 클릭 타임
+	         * @returns {boolean} 더블 클릭 여부
+	         */
+	        value: function isDoubleClick(prevPoint, currentPoint, prevTime, currentTime) {
+	            var diffX = currentPoint.x - prevPoint.x;
+	
+	            if (diffX < 0) {
+	                diffX = diffX * -1;
+	            }
+	
+	            var diffY = currentPoint.y - prevPoint.y;
+	
+	            if (diffY < 0) {
+	                diffY = diffY * -1;
+	            }
+	
+	            if (diffX > 5 || diffY > 5) {
+	                return false;
+	            }
+	
+	            if (currentTime - prevTime > 500) {
+	                return false;
+	            }
+	
+	            return true;
+	        }
+	    }, {
+	        key: "DESKTOP_MOUSE",
+	        get: function get() {
+	            return this.renderer.plugins.interaction.mouse;
+	        }
+	    }, {
+	        key: "MOBILE_MOUSE",
+	        get: function get() {
+	            return this.renderer.plugins.interaction.pointer;
+	        }
+	
+	        /**
+	         * PIXI.Application.renderer
+	         * 랜더러에서 interaction 객체를 참조할 수 있어서 사용하려면 렌더러를 셋팅해야 합니다.
+	         * @param value {PIXI.WebGLRenderrer|PIXI.CanvasRenderer}
+	         */
+	
+	    }, {
+	        key: "renderer",
+	        set: function set(value) {
+	            this._renderer = value;
+	        },
+	        get: function get() {
+	            return this._renderer;
+	        }
+	
+	        /**
+	         * 모바일 대응을 위해서
+	         * PC 버전에서는 mouse 객체를, 모바일 버전에서는 pointer 객체를 셋팅하면
+	         * global 객체에서 참조해서 좌표값을 전달하도록 합니다.
+	         *
+	         * 만약 설정하지 않으면 기본 PC만 대응하도록 mouse 객체를 설정합니다.
+	         *
+	         * Desktop : Mouse.renderer.plugins.interaction.mouse
+	         * Mobile : Mouse.renderer.plugins.interaction.pointer
+	         * @param value
+	         */
+	
+	    }, {
+	        key: "mouse",
+	        set: function set(value) {
+	            this._mouse = value;
+	        },
+	        get: function get() {
+	            if (!this._mouse) {
+	                this._mouse = this.DESKTOP_MOUSE;
+	            }
+	            return this._mouse;
+	        }
+	    }, {
+	        key: "global",
+	        get: function get() {
+	            return this.mouse.global;
+	        }
+	    }, {
+	        key: "globalX",
+	        get: function get() {
+	            return this.mouse.global.x;
+	        }
+	    }, {
+	        key: "globalY",
+	        get: function get() {
+	            return this.mouse.global.y;
+	        }
+	    }, {
+	        key: "currentCursorStyle",
+	        set: function set(value) {
+	            Mouse.renderer.plugins.interaction.currentCursorStyle = value;
+	        },
+	        get: function get() {
+	            return Mouse.renderer.plugins.interaction.currentCursorStyle;
+	        }
+	    }, {
+	        key: "currentTime",
+	        get: function get() {
+	            return new Date().getTime();
+	        }
+	    }]);
+	
+	    return Mouse;
+	}();
+	
+	exports.default = Mouse;
+
+/***/ }),
+
+/***/ 337:
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Image = function (_PIXI$Container) {
+	    _inherits(Image, _PIXI$Container);
+	
+	    function Image(source) {
+	        _classCallCheck(this, Image);
+	
+	        var _this = _possibleConstructorReturn(this, (Image.__proto__ || Object.getPrototypeOf(Image)).call(this));
+	
+	        var base = new PIXI.BaseTexture(source),
+	            texture = new PIXI.Texture(base);
+	
+	        _this.image = new PIXI.Sprite(texture);
+	        _this.image.x = -_this.image.width / 2;
+	        _this.image.y = -_this.image.height / 2;
+	        _this.addChild(_this.image);
+	        return _this;
+	    }
+	
+	    return Image;
+	}(PIXI.Container);
+	
+	exports.default = Image;
+
+/***/ }),
+
+/***/ 338:
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var degrees = 180 / Math.PI;
+	
+	function random(min, max) {
+	    return Math.floor(Math.random() * (max - min + 1) + min);
+	}
+	
+	function radian2degrees(rad) {
+	    return rad * degrees;
+	}
+	
+	function degrees2radian(deg) {
+	    return deg / degrees;
+	}
+	
+	/**
+	 * Victor.js를 ES6로 변환하여 사용하고 있습니다.
+	 * https://github.com/maxkueng/victor
+	 */
+	
+	var Vector = function () {
+	    _createClass(Vector, null, [{
+	        key: 'fromArray',
+	
+	        /**
+	         * Creates a new instance from an array
+	         *
+	         * ### Examples:
+	         *     var vec = Vector.fromArray([42, 21]);
+	         *
+	         *     vec.toString();
+	         *     // => x:42, y:21
+	         *
+	         * @name Vector.fromArray
+	         * @param {Array} array Array with the x and y values at index 0 and 1 respectively
+	         * @return {Vector} The new instance
+	         * @api public
+	         */
+	        value: function fromArray(arr) {
+	            return new Vector(arr[0] || 0, arr[1] || 0);
+	        }
+	
+	        /**
+	         * Creates a new instance from an object
+	         *
+	         * ### Examples:
+	         *     var vec = Vector.fromObject({ x: 42, y: 21 });
+	         *
+	         *     vec.toString();
+	         *     // => x:42, y:21
+	         *
+	         * @name Vector.fromObject
+	         * @param {Object} obj Object with the values for x and y
+	         * @return {Vector} The new instance
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'fromObject',
+	        value: function fromObject(obj) {
+	            return new Vector(obj.x || 0, obj.y || 0);
+	        }
+	
+	        /**
+	         * Constructor. Will also work without the `new` keyword
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 50);
+	         *     var vec2 = Vector(42, 1337);
+	         *
+	         * @param {Number} x Value of the x axis
+	         * @param {Number} y Value of the y axis
+	         * @return {Vector}
+	         * @api public
+	         */
+	
+	    }]);
+	
+	    function Vector() {
+	        var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+	        var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+	
+	        _classCallCheck(this, Vector);
+	
+	        if (!(this instanceof Vector)) {
+	            return new Vector(x, y);
+	        }
+	
+	        this.x = x;
+	        this.y = y;
+	    }
+	
+	    /**
+	     * Adds another vector's X axis to this one
+	     *
+	     * ### Examples:
+	     *     var vec1 = new Vector(10, 10);
+	     *     var vec2 = new Vector(20, 30);
+	     *
+	     *     vec1.addX(vec2);
+	     *     vec1.toString();
+	     *     // => x:30, y:10
+	     *
+	     * @param {Vector} vector The other vector you want to add to this one
+	     * @return {Vector} `this` for chaining capabilities
+	     * @api public
+	     */
+	
+	
+	    _createClass(Vector, [{
+	        key: 'addX',
+	        value: function addX(vec) {
+	            this.x += vec.x;
+	            return this;
+	        }
+	
+	        /**
+	         * Adds another vector's Y axis to this one
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(10, 10);
+	         *     var vec2 = new Vector(20, 30);
+	         *
+	         *     vec1.addY(vec2);
+	         *     vec1.toString();
+	         *     // => x:10, y:40
+	         *
+	         * @param {Vector} vector The other vector you want to add to this one
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'addY',
+	        value: function addY(vec) {
+	            this.y += vec.y;
+	            return this;
+	        }
+	
+	        /**
+	         * Adds another vector to this one
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(10, 10);
+	         *     var vec2 = new Vector(20, 30);
+	         *
+	         *     vec1.add(vec2);
+	         *     vec1.toString();
+	         *     // => x:30, y:40
+	         *
+	         * @param {Vector} vector The other vector you want to add to this one
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'add',
+	        value: function add(vec) {
+	            this.x += vec.x;
+	            this.y += vec.y;
+	            return this;
+	        }
+	
+	        /**
+	         * Adds the given scalar to both vector axis
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(1, 2);
+	         *
+	         *     vec.addScalar(2);
+	         *     vec.toString();
+	         *     // => x: 3, y: 4
+	         *
+	         * @param {Number} scalar The scalar to add
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'addScalar',
+	        value: function addScalar(scalar) {
+	            this.x += scalar;
+	            this.y += scalar;
+	            return this;
+	        }
+	
+	        /**
+	         * Adds the given scalar to the X axis
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(1, 2);
+	         *
+	         *     vec.addScalarX(2);
+	         *     vec.toString();
+	         *     // => x: 3, y: 2
+	         *
+	         * @param {Number} scalar The scalar to add
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'addScalarX',
+	        value: function addScalarX(scalar) {
+	            this.x += scalar;
+	            return this;
+	        }
+	
+	        /**
+	         * Adds the given scalar to the Y axis
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(1, 2);
+	         *
+	         *     vec.addScalarY(2);
+	         *     vec.toString();
+	         *     // => x: 1, y: 4
+	         *
+	         * @param {Number} scalar The scalar to add
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'addScalarY',
+	        value: function addScalarY(scalar) {
+	            this.y += scalar;
+	            return this;
+	        }
+	
+	        /**
+	         * Subtracts the X axis of another vector from this one
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 50);
+	         *     var vec2 = new Vector(20, 30);
+	         *
+	         *     vec1.subtractX(vec2);
+	         *     vec1.toString();
+	         *     // => x:80, y:50
+	         *
+	         * @param {Vector} vector The other vector you want subtract from this one
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'subtractX',
+	        value: function subtractX(vec) {
+	            this.x -= vec.x;
+	            return this;
+	        }
+	
+	        /**
+	         * Subtracts the Y axis of another vector from this one
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 50);
+	         *     var vec2 = new Vector(20, 30);
+	         *
+	         *     vec1.subtractY(vec2);
+	         *     vec1.toString();
+	         *     // => x:100, y:20
+	         *
+	         * @param {Vector} vector The other vector you want subtract from this one
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'subtractY',
+	        value: function subtractY(vec) {
+	            this.y -= vec.y;
+	            return this;
+	        }
+	
+	        /**
+	         * Subtracts another vector from this one
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 50);
+	         *     var vec2 = new Vector(20, 30);
+	         *
+	         *     vec1.subtract(vec2);
+	         *     vec1.toString();
+	         *     // => x:80, y:20
+	         *
+	         * @param {Vector} vector The other vector you want subtract from this one
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'subtract',
+	        value: function subtract(vec) {
+	            this.x -= vec.x;
+	            this.y -= vec.y;
+	            return this;
+	        }
+	
+	        /**
+	         * Subtracts the given scalar from both axis
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 200);
+	         *
+	         *     vec.subtractScalar(20);
+	         *     vec.toString();
+	         *     // => x: 80, y: 180
+	         *
+	         * @param {Number} scalar The scalar to subtract
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'subtractScalar',
+	        value: function subtractScalar(scalar) {
+	            this.x -= scalar;
+	            this.y -= scalar;
+	            return this;
+	        }
+	
+	        /**
+	         * Subtracts the given scalar from the X axis
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 200);
+	         *
+	         *     vec.subtractScalarX(20);
+	         *     vec.toString();
+	         *     // => x: 80, y: 200
+	         *
+	         * @param {Number} scalar The scalar to subtract
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'subtractScalarX',
+	        value: function subtractScalarX(scalar) {
+	            this.x -= scalar;
+	            return this;
+	        }
+	
+	        /**
+	         * Subtracts the given scalar from the Y axis
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 200);
+	         *
+	         *     vec.subtractScalarY(20);
+	         *     vec.toString();
+	         *     // => x: 100, y: 180
+	         *
+	         * @param {Number} scalar The scalar to subtract
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'subtractScalarY',
+	        value: function subtractScalarY(scalar) {
+	            this.y -= scalar;
+	            return this;
+	        }
+	
+	        /**
+	         * Divides the X axis by the x component of given vector
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *     var vec2 = new Vector(2, 0);
+	         *
+	         *     vec.divideX(vec2);
+	         *     vec.toString();
+	         *     // => x:50, y:50
+	         *
+	         * @param {Vector} vector The other vector you want divide by
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'divideX',
+	        value: function divideX(vector) {
+	            this.x /= vector.x;
+	            return this;
+	        }
+	
+	        /**
+	         * Divides the Y axis by the y component of given vector
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *     var vec2 = new Vector(0, 2);
+	         *
+	         *     vec.divideY(vec2);
+	         *     vec.toString();
+	         *     // => x:100, y:25
+	         *
+	         * @param {Vector} vector The other vector you want divide by
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'divideY',
+	        value: function divideY(vector) {
+	            this.y /= vector.y;
+	            return this;
+	        }
+	
+	        /**
+	         * Divides both vector axis by a axis values of given vector
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *     var vec2 = new Vector(2, 2);
+	         *
+	         *     vec.divide(vec2);
+	         *     vec.toString();
+	         *     // => x:50, y:25
+	         *
+	         * @param {Vector} vector The vector to divide by
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'divide',
+	        value: function divide(vector) {
+	            this.x /= vector.x;
+	            this.y /= vector.y;
+	            return this;
+	        }
+	
+	        /**
+	         * Divides both vector axis by the given scalar value
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *
+	         *     vec.divideScalar(2);
+	         *     vec.toString();
+	         *     // => x:50, y:25
+	         *
+	         * @param {Number} The scalar to divide by
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'divideScalar',
+	        value: function divideScalar(scalar) {
+	            if (scalar !== 0) {
+	                this.x /= scalar;
+	                this.y /= scalar;
+	            } else {
+	                this.x = 0;
+	                this.y = 0;
+	            }
+	
+	            return this;
+	        }
+	
+	        /**
+	         * Divides the X axis by the given scalar value
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *
+	         *     vec.divideScalarX(2);
+	         *     vec.toString();
+	         *     // => x:50, y:50
+	         *
+	         * @param {Number} The scalar to divide by
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'divideScalarX',
+	        value: function divideScalarX(scalar) {
+	            if (scalar !== 0) {
+	                this.x /= scalar;
+	            } else {
+	                this.x = 0;
+	            }
+	            return this;
+	        }
+	
+	        /**
+	         * Divides the Y axis by the given scalar value
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *
+	         *     vec.divideScalarY(2);
+	         *     vec.toString();
+	         *     // => x:100, y:25
+	         *
+	         * @param {Number} The scalar to divide by
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'divideScalarY',
+	        value: function divideScalarY(scalar) {
+	            if (scalar !== 0) {
+	                this.y /= scalar;
+	            } else {
+	                this.y = 0;
+	            }
+	            return this;
+	        }
+	
+	        /**
+	         * Inverts the X axis
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *
+	         *     vec.invertX();
+	         *     vec.toString();
+	         *     // => x:-100, y:50
+	         *
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'invertX',
+	        value: function invertX() {
+	            this.x *= -1;
+	            return this;
+	        }
+	
+	        /**
+	         * Inverts the Y axis
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *
+	         *     vec.invertY();
+	         *     vec.toString();
+	         *     // => x:100, y:-50
+	         *
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'invertY',
+	        value: function invertY() {
+	            this.y *= -1;
+	            return this;
+	        }
+	
+	        /**
+	         * Inverts both axis
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *
+	         *     vec.invert();
+	         *     vec.toString();
+	         *     // => x:-100, y:-50
+	         *
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'invert',
+	        value: function invert() {
+	            this.invertX();
+	            this.invertY();
+	            return this;
+	        }
+	
+	        /**
+	         * Multiplies the X axis by X component of given vector
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *     var vec2 = new Vector(2, 0);
+	         *
+	         *     vec.multiplyX(vec2);
+	         *     vec.toString();
+	         *     // => x:200, y:50
+	         *
+	         * @param {Vector} vector The vector to multiply the axis with
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'multiplyX',
+	        value: function multiplyX(vector) {
+	            this.x *= vector.x;
+	            return this;
+	        }
+	
+	        /**
+	         * Multiplies the Y axis by Y component of given vector
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *     var vec2 = new Vector(0, 2);
+	         *
+	         *     vec.multiplyX(vec2);
+	         *     vec.toString();
+	         *     // => x:100, y:100
+	         *
+	         * @param {Vector} vector The vector to multiply the axis with
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'multiplyY',
+	        value: function multiplyY(vector) {
+	            this.y *= vector.y;
+	            return this;
+	        }
+	
+	        /**
+	         * Multiplies both vector axis by values from a given vector
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *     var vec2 = new Vector(2, 2);
+	         *
+	         *     vec.multiply(vec2);
+	         *     vec.toString();
+	         *     // => x:200, y:100
+	         *
+	         * @param {Vector} vector The vector to multiply by
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'multiply',
+	        value: function multiply(vector) {
+	            this.x *= vector.x;
+	            this.y *= vector.y;
+	            return this;
+	        }
+	
+	        /**
+	         * Multiplies both vector axis by the given scalar value
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *
+	         *     vec.multiplyScalar(2);
+	         *     vec.toString();
+	         *     // => x:200, y:100
+	         *
+	         * @param {Number} The scalar to multiply by
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'multiplyScalar',
+	        value: function multiplyScalar(scalar) {
+	            this.x *= scalar;
+	            this.y *= scalar;
+	            return this;
+	        }
+	    }, {
+	        key: 'multiplyScalarX',
+	        value: function multiplyScalarX(scalar) {
+	            this.x *= scalar;
+	            return this;
+	        }
+	    }, {
+	        key: 'multiplyScalarY',
+	        value: function multiplyScalarY(scalar) {
+	            this.y *= scalar;
+	            return this;
+	        }
+	
+	        /**
+	         * Normalize
+	         *
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'normalize',
+	        value: function normalize() {
+	            var length = this.length();
+	
+	            if (length === 0) {
+	                this.x = 1;
+	                this.y = 0;
+	            } else {
+	                this.divide(Vector(length, length));
+	            }
+	            return this;
+	        }
+	    }, {
+	        key: 'norm',
+	        value: function norm() {
+	            return this.normalize();
+	        }
+	
+	        /**
+	         * If the absolute vector axis is greater than `max`, multiplies the axis by `factor`
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *
+	         *     vec.limit(80, 0.9);
+	         *     vec.toString();
+	         *     // => x:90, y:50
+	         *
+	         * @param {Number} max The maximum value for both x and y axis
+	         * @param {Number} factor Factor by which the axis are to be multiplied with
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'limit',
+	        value: function limit(max, factor) {
+	            if (Math.abs(this.x) > max) {
+	                this.x *= factor;
+	            }
+	            if (Math.abs(this.y) > max) {
+	                this.y *= factor;
+	            }
+	            return this;
+	        }
+	
+	        /**
+	         * Randomizes both vector axis with a value between 2 vectors
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *
+	         *     vec.randomize(new Vector(50, 60), new Vector(70, 80`));
+	         *     vec.toString();
+	         *     // => x:67, y:73
+	         *
+	         * @param {Vector} topLeft first vector
+	         * @param {Vector} bottomRight second vector
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'randomize',
+	        value: function randomize(topLeft, bottomRight) {
+	            this.randomizeX(topLeft, bottomRight);
+	            this.randomizeY(topLeft, bottomRight);
+	
+	            return this;
+	        }
+	    }, {
+	        key: 'randomizeX',
+	        value: function randomizeX(topLeft, bottomRight) {
+	            var min = Math.min(topLeft.x, bottomRight.x);
+	            var max = Math.max(topLeft.x, bottomRight.x);
+	            this.x = random(min, max);
+	            return this;
+	        }
+	    }, {
+	        key: 'randomizeY',
+	        value: function randomizeY(topLeft, bottomRight) {
+	            var min = Math.min(topLeft.y, bottomRight.y);
+	            var max = Math.max(topLeft.y, bottomRight.y);
+	            this.y = random(min, max);
+	            return this;
+	        }
+	
+	        /**
+	         * Randomly randomizes either axis between 2 vectors
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *
+	         *     vec.randomizeAny(new Vector(50, 60), new Vector(70, 80));
+	         *     vec.toString();
+	         *     // => x:100, y:77
+	         *
+	         * @param {Vector} topLeft first vector
+	         * @param {Vector} bottomRight second vector
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'randomizeAny',
+	        value: function randomizeAny(topLeft, bottomRight) {
+	            if (!!Math.round(Math.random())) {
+	                this.randomizeX(topLeft, bottomRight);
+	            } else {
+	                this.randomizeY(topLeft, bottomRight);
+	            }
+	            return this;
+	        }
+	
+	        /**
+	         * Rounds both axis to an integer value
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100.2, 50.9);
+	         *
+	         *     vec.unfloat();
+	         *     vec.toString();
+	         *     // => x:100, y:51
+	         *
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'unfloat',
+	        value: function unfloat() {
+	            this.x = Math.round(this.x);
+	            this.y = Math.round(this.y);
+	            return this;
+	        }
+	
+	        /**
+	         * Rounds both axis to a certain precision
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100.2, 50.9);
+	         *
+	         *     vec.unfloat();
+	         *     vec.toString();
+	         *     // => x:100, y:51
+	         *
+	         * @param {Number} Precision (default: 8)
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'toFixed',
+	        value: function toFixed(precision) {
+	            if (typeof precision === 'undefined') {
+	                precision = 8;
+	            }
+	            this.x = this.x.toFixed(precision);
+	            this.y = this.y.toFixed(precision);
+	            return this;
+	        }
+	
+	        /**
+	         * Performs a linear blend / interpolation of the X axis towards another vector
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 100);
+	         *     var vec2 = new Vector(200, 200);
+	         *
+	         *     vec1.mixX(vec2, 0.5);
+	         *     vec.toString();
+	         *     // => x:150, y:100
+	         *
+	         * @param {Vector} vector The other vector
+	         * @param {Number} amount The blend amount (optional, default: 0.5)
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'mixX',
+	        value: function mixX(vec, amount) {
+	            if (typeof amount === 'undefined') {
+	                amount = 0.5;
+	            }
+	
+	            this.x = (1 - amount) * this.x + amount * vec.x;
+	            return this;
+	        }
+	
+	        /**
+	         * Performs a linear blend / interpolation of the Y axis towards another vector
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 100);
+	         *     var vec2 = new Vector(200, 200);
+	         *
+	         *     vec1.mixY(vec2, 0.5);
+	         *     vec.toString();
+	         *     // => x:100, y:150
+	         *
+	         * @param {Vector} vector The other vector
+	         * @param {Number} amount The blend amount (optional, default: 0.5)
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'mixY',
+	        value: function mixY(vec, amount) {
+	            if (typeof amount === 'undefined') {
+	                amount = 0.5;
+	            }
+	
+	            this.y = (1 - amount) * this.y + amount * vec.y;
+	            return this;
+	        }
+	
+	        /**
+	         * Performs a linear blend / interpolation towards another vector
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 100);
+	         *     var vec2 = new Vector(200, 200);
+	         *
+	         *     vec1.mix(vec2, 0.5);
+	         *     vec.toString();
+	         *     // => x:150, y:150
+	         *
+	         * @param {Vector} vector The other vector
+	         * @param {Number} amount The blend amount (optional, default: 0.5)
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'mix',
+	        value: function mix(vec, amount) {
+	            this.mixX(vec, amount);
+	            this.mixY(vec, amount);
+	            return this;
+	        }
+	
+	        /**
+	         * # Products
+	         */
+	
+	        /**
+	         * Creates a clone of this vector
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(10, 10);
+	         *     var vec2 = vec1.clone();
+	         *
+	         *     vec2.toString();
+	         *     // => x:10, y:10
+	         *
+	         * @return {Vector} A clone of the vector
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'clone',
+	        value: function clone() {
+	            return new Vector(this.x, this.y);
+	        }
+	
+	        /**
+	         * Copies another vector's X component in to its own
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(10, 10);
+	         *     var vec2 = new Vector(20, 20);
+	         *     var vec2 = vec1.copyX(vec1);
+	         *
+	         *     vec2.toString();
+	         *     // => x:20, y:10
+	         *
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'copyX',
+	        value: function copyX(vec) {
+	            this.x = vec.x;
+	            return this;
+	        }
+	
+	        /**
+	         * Copies another vector's Y component in to its own
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(10, 10);
+	         *     var vec2 = new Vector(20, 20);
+	         *     var vec2 = vec1.copyY(vec1);
+	         *
+	         *     vec2.toString();
+	         *     // => x:10, y:20
+	         *
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'copyY',
+	        value: function copyY(vec) {
+	            this.y = vec.y;
+	            return this;
+	        }
+	
+	        /**
+	         * Copies another vector's X and Y components in to its own
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(10, 10);
+	         *     var vec2 = new Vector(20, 20);
+	         *     var vec2 = vec1.copy(vec1);
+	         *
+	         *     vec2.toString();
+	         *     // => x:20, y:20
+	         *
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'copy',
+	        value: function copy(vec) {
+	            this.copyX(vec);
+	            this.copyY(vec);
+	            return this;
+	        }
+	
+	        /**
+	         * Sets the vector to zero (0,0)
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(10, 10);
+	         *		 var1.zero();
+	         *     vec1.toString();
+	         *     // => x:0, y:0
+	         *
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'zero',
+	        value: function zero() {
+	            this.x = this.y = 0;
+	            return this;
+	        }
+	
+	        /**
+	         * Calculates the dot product of this vector and another
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 50);
+	         *     var vec2 = new Vector(200, 60);
+	         *
+	         *     vec1.dot(vec2);
+	         *     // => 23000
+	         *
+	         * @param {Vector} vector The second vector
+	         * @return {Number} Dot product
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'dot',
+	        value: function dot(vec2) {
+	            return this.x * vec2.x + this.y * vec2.y;
+	        }
+	    }, {
+	        key: 'cross',
+	        value: function cross(vec2) {
+	            return this.x * vec2.y - this.y * vec2.x;
+	        }
+	
+	        /**
+	         * Projects a vector onto another vector, setting itself to the result.
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 0);
+	         *     var vec2 = new Vector(100, 100);
+	         *
+	         *     vec.projectOnto(vec2);
+	         *     vec.toString();
+	         *     // => x:50, y:50
+	         *
+	         * @param {Vector} vector The other vector you want to project this vector onto
+	         * @return {Vector} `this` for chaining capabilities
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'projectOnto',
+	        value: function projectOnto(vec2) {
+	            var coeff = (this.x * vec2.x + this.y * vec2.y) / (vec2.x * vec2.x + vec2.y * vec2.y);
+	            this.x = coeff * vec2.x;
+	            this.y = coeff * vec2.y;
+	            return this;
+	        }
+	    }, {
+	        key: 'horizontalAngle',
+	        value: function horizontalAngle() {
+	            return Math.atan2(this.y, this.x);
+	        }
+	    }, {
+	        key: 'horizontalAngleDeg',
+	        value: function horizontalAngleDeg() {
+	            return radian2degrees(this.horizontalAngle());
+	        }
+	    }, {
+	        key: 'verticalAngle',
+	        value: function verticalAngle() {
+	            return Math.atan2(this.x, this.y);
+	        }
+	    }, {
+	        key: 'verticalAngleDeg',
+	        value: function verticalAngleDeg() {
+	            return radian2degrees(this.verticalAngle());
+	        }
+	    }, {
+	        key: 'angle',
+	        value: function angle() {
+	            return this.horizontalAngle();
+	        }
+	    }, {
+	        key: 'angleDeg',
+	        value: function angleDeg() {
+	            return this.horizontalAngleDeg();
+	        }
+	    }, {
+	        key: 'direction',
+	        value: function direction() {
+	            return this.horizontalAngle();
+	        }
+	    }, {
+	        key: 'rotate',
+	        value: function rotate(angle) {
+	            var nx = this.x * Math.cos(angle) - this.y * Math.sin(angle);
+	            var ny = this.x * Math.sin(angle) + this.y * Math.cos(angle);
+	
+	            this.x = nx;
+	            this.y = ny;
+	
+	            return this;
+	        }
+	    }, {
+	        key: 'rotateDeg',
+	        value: function rotateDeg(angle) {
+	            angle = degrees2radian(angle);
+	            return this.rotate(angle);
+	        }
+	    }, {
+	        key: 'rotateTo',
+	        value: function rotateTo(rotation) {
+	            return this.rotate(rotation - this.angle());
+	        }
+	    }, {
+	        key: 'rotateToDeg',
+	        value: function rotateToDeg(rotation) {
+	            rotation = degrees2radian(rotation);
+	            return this.rotateTo(rotation);
+	        }
+	    }, {
+	        key: 'rotateBy',
+	        value: function rotateBy(rotation) {
+	            var angle = this.angle() + rotation;
+	
+	            return this.rotate(angle);
+	        }
+	    }, {
+	        key: 'rotateByDeg',
+	        value: function rotateByDeg(rotation) {
+	            rotation = degrees2radian(rotation);
+	            return this.rotateBy(rotation);
+	        }
+	
+	        /**
+	         * Calculates the distance of the X axis between this vector and another
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 50);
+	         *     var vec2 = new Vector(200, 60);
+	         *
+	         *     vec1.distanceX(vec2);
+	         *     // => -100
+	         *
+	         * @param {Vector} vector The second vector
+	         * @return {Number} Distance
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'distanceX',
+	        value: function distanceX(vec) {
+	            return this.x - vec.x;
+	        }
+	
+	        /**
+	         * Same as `distanceX()` but always returns an absolute number
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 50);
+	         *     var vec2 = new Vector(200, 60);
+	         *
+	         *     vec1.absDistanceX(vec2);
+	         *     // => 100
+	         *
+	         * @param {Vector} vector The second vector
+	         * @return {Number} Absolute distance
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'absDistanceX',
+	        value: function absDistanceX(vec) {
+	            return Math.abs(this.distanceX(vec));
+	        }
+	
+	        /**
+	         * Calculates the distance of the Y axis between this vector and another
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 50);
+	         *     var vec2 = new Vector(200, 60);
+	         *
+	         *     vec1.distanceY(vec2);
+	         *     // => -10
+	         *
+	         * @param {Vector} vector The second vector
+	         * @return {Number} Distance
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'distanceY',
+	        value: function distanceY(vec) {
+	            return this.y - vec.y;
+	        }
+	
+	        /**
+	         * Same as `distanceY()` but always returns an absolute number
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 50);
+	         *     var vec2 = new Vector(200, 60);
+	         *
+	         *     vec1.distanceY(vec2);
+	         *     // => 10
+	         *
+	         * @param {Vector} vector The second vector
+	         * @return {Number} Absolute distance
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'absDistanceY',
+	        value: function absDistanceY(vec) {
+	            return Math.abs(this.distanceY(vec));
+	        }
+	
+	        /**
+	         * Calculates the euclidean distance between this vector and another
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 50);
+	         *     var vec2 = new Vector(200, 60);
+	         *
+	         *     vec1.distance(vec2);
+	         *     // => 100.4987562112089
+	         *
+	         * @param {Vector} vector The second vector
+	         * @return {Number} Distance
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'distance',
+	        value: function distance(vec) {
+	            return Math.sqrt(this.distanceSq(vec));
+	        }
+	
+	        /**
+	         * Calculates the squared euclidean distance between this vector and another
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 50);
+	         *     var vec2 = new Vector(200, 60);
+	         *
+	         *     vec1.distanceSq(vec2);
+	         *     // => 10100
+	         *
+	         * @param {Vector} vector The second vector
+	         * @return {Number} Distance
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'distanceSq',
+	        value: function distanceSq(vec) {
+	            var dx = this.distanceX(vec),
+	                dy = this.distanceY(vec);
+	
+	            return dx * dx + dy * dy;
+	        }
+	
+	        /**
+	         * Calculates the length or magnitude of the vector
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *
+	         *     vec.length();
+	         *     // => 111.80339887498948
+	         *
+	         * @return {Number} Length / Magnitude
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'length',
+	        value: function length() {
+	            return Math.sqrt(this.lengthSq());
+	        }
+	
+	        /**
+	         * Squared length / magnitude
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *
+	         *     vec.lengthSq();
+	         *     // => 12500
+	         *
+	         * @return {Number} Length / Magnitude
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'lengthSq',
+	        value: function lengthSq() {
+	            return this.x * this.x + this.y * this.y;
+	        }
+	    }, {
+	        key: 'magnitude',
+	        value: function magnitude() {
+	            return this.length();
+	        }
+	
+	        /**
+	         * Returns a true if vector is (0, 0)
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(100, 50);
+	         *     vec.zero();
+	         *
+	         *     // => true
+	         *
+	         * @return {Boolean}
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'isZero',
+	        value: function isZero() {
+	            return this.x === 0 && this.y === 0;
+	        }
+	
+	        /**
+	         * Returns a true if this vector is the same as another
+	         *
+	         * ### Examples:
+	         *     var vec1 = new Vector(100, 50);
+	         *     var vec2 = new Vector(100, 50);
+	         *     vec1.isEqualTo(vec2);
+	         *
+	         *     // => true
+	         *
+	         * @return {Boolean}
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'isEqualTo',
+	        value: function isEqualTo(vec2) {
+	            return this.x === vec2.x && this.y === vec2.y;
+	        }
+	
+	        /**
+	         * # Utility Methods
+	         */
+	
+	        /**
+	         * Returns an string representation of the vector
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(10, 20);
+	         *
+	         *     vec.toString();
+	         *     // => x:10, y:20
+	         *
+	         * @return {String}
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'toString',
+	        value: function toString() {
+	            return 'x:' + this.x + ', y:' + this.y;
+	        }
+	
+	        /**
+	         * Returns an array representation of the vector
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(10, 20);
+	         *
+	         *     vec.toArray();
+	         *     // => [10, 20]
+	         *
+	         * @return {Array}
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'toArray',
+	        value: function toArray() {
+	            return [this.x, this.y];
+	        }
+	
+	        /**
+	         * Returns an object representation of the vector
+	         *
+	         * ### Examples:
+	         *     var vec = new Vector(10, 20);
+	         *
+	         *     vec.toObject();
+	         *     // => { x: 10, y: 20 }
+	         *
+	         * @return {Object}
+	         * @api public
+	         */
+	
+	    }, {
+	        key: 'toObject',
+	        value: function toObject() {
+	            return { x: this.x, y: this.y };
+	        }
+	    }]);
+	
+	    return Vector;
+	}();
+	
+	exports.default = Vector;
+
+/***/ }),
+
+/***/ 339:
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.loadImage = exports.all = undefined;
+	exports.makeLoadImage = makeLoadImage;
+	exports.getImageData = getImageData;
+	exports.request = request;
+	exports.browseFile = browseFile;
+	exports.readAsDataURL = readAsDataURL;
+	exports.completeMotion = completeMotion;
+	exports.re = re;
+	
+	var _promisePolyfill = __webpack_require__(340);
+	
+	var _promisePolyfill2 = _interopRequireDefault(_promisePolyfill);
+	
+	var _assert = __webpack_require__(344);
+	
+	var _assert2 = _interopRequireDefault(_assert);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
+	//----------------------------------------------------------------------------------------
+	//
+	// Promise polyfill
+	//
+	//----------------------------------------------------------------------------------------
+	
+	
+	if (!window.Promise) window.Promise = _promisePolyfill2.default;
+	
+	var __context = document.createElement("canvas").getContext("2d");
+	
+	(0, _assert2.default)(__context, "CanvasRenderingContext2D를 찾을 수 없습니다.");
+	
+	var all = exports.all = Promise.all.bind(Promise);
+	
+	//----------------------------------------------------------------------------------------
+	//
+	// Image
+	//
+	//----------------------------------------------------------------------------------------
+	
+	/**
+	 * loadImage 함수를 생성한다. 
+	 * 1. crossOrigin 인자를 이용해 load할 image element에 crossOrigin 속성을 제어할 수 있다. 
+	 * @param  {String} crossOrigin [description]
+	 * @return {[type]}             [description]
+	 */
+	function makeLoadImage(crossOrigin) {
+	
+		return function (url) {
+			var imgElement = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.createElement('img');
+	
+	
+			if (crossOrigin != null) imgElement.crossOrigin = crossOrigin;
+	
+			return new Promise(function (resolve, reject) {
+	
+				imgElement.onload = function (e) {
+					validation(imgElement) ? resolve(imgElement) : reject('image element validation error');
+				};
+	
+				imgElement.onerror = function (e) {
+					return reject(e);
+				};
+				imgElement.src = url;
+			});
+		};
+	}
+	
+	/**
+	 * 이미지를 로드하는 프라미스 객체를 반환한다. 
+	 * @param  {[type]} url        [description]
+	 * @param  {[type]} imgElement [description]
+	 * @return {[type]}            [description]
+	 */
+	var loadImage = exports.loadImage = makeLoadImage();
+	
+	/**
+	 * image 유효성 체크, 가로 세로 길이로 image를 제대로 가져왔는지 확인한다. 
+	 * @param  {[type]} img [description]
+	 * @return {[type]}     [description]
+	 */
+	function validation(img) {
+		return (img.width || img.naturalWidth) !== 0 && (img.height || img.naturalHeight) !== 0;
+	}
+	
+	/**
+	 * source( ImageElement || CanvasElement )의 ImageData를 가져온다. 
+	 * @param  {[type]} source  [description]
+	 * @param  {[type]} context [description]
+	 * @return {[type]}         [description]
+	 */
+	function getImageData(source) {
+		var context = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+	
+	
+		context = context || __context;
+	
+		context.canvas.width = source.width || source.naturalWidth;
+		context.canvas.height = source.height || source.naturalHeight;
+	
+		context.drawImage(source, 0, 0);
+	
+		return context.getImageData(0, 0, context.canvas.width, context.canvas.height);
+	}
+	
+	/**
+	 * request some data
+	 * @param  {[type]} url    [description]
+	 * @param  {String} method [description]
+	 * @return {[type]}        [description]
+	 */
+	function request(url) {
+		var method = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'GET';
+	
+		return new Promise(function (resolve, reject) {
+			var req = new XMLHttpRequest();
+	
+			req.onload = function () {
+				return resolve(req.responseText);
+			};
+			req.onerror = function (e) {
+				return reject(e);
+			};
+	
+			req.open(method, url);
+			req.send(null);
+		});
+	}
+	
+	//----------------------------------------------------------------------------------------
+	//
+	// File
+	//
+	//----------------------------------------------------------------------------------------
+	
+	var __input = document.createElement('input');
+	__input.setAttribute('type', 'file');
+	
+	/**
+	 * file API를 이용해 로컬 파일 브라우져를 오픈한다. 
+	 * 1. 사용자가 로드할 파일을 선택할 경우 resolve를 호출한다. 
+	 * 2. 사용자가 취소할 경우 type: 'user cancel'을 호출한다. 
+	 * @param  {[type]} input  [description]
+	 * @param  {String} accept [description]
+	 * @return {[type]}        [description]
+	 */
+	function browseFile() {
+		var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+		var accept = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+	
+	
+		input = input || __input;
+	
+		if (accept && accept.length) input.setAttribute('accept', accept);
+	
+		return new Promise(function (resolve, reject) {
+	
+			var onChange = function onChange(e) {
+	
+				var target = e.target,
+				    files = target.files;
+	
+				files.length ? resolve(files) : reject({ type: "user cancel", files: files });
+	
+				target.removeEventListener(e.type, onChange);
+			};
+	
+			input.addEventListener('change', onChange);
+			input.click();
+		});
+	}
+	
+	/**
+	 * file 객체를 불러온다. 
+	 * 1. readAsDataURL을 사용하여 파일을 불러온다.
+	 * 2. 성공할 경우 resolve( dataURL )을 호출한다. 
+	 * 3. error의 경우 reject( error )를 호출한다. 
+	 * @param  {[type]} file [description]
+	 * @return {[type]}      [description]
+	 */
+	function readAsDataURL(file) {
+	
+		return new Promise(function (resolve, reject) {
+	
+			var reader = new FileReader();
+	
+			var onLoad = function onLoad(e) {
+	
+				resolve(e.target.result);
+				clear(e.target);
+			};
+	
+			var onError = function onError(e) {
+	
+				reject(e);
+				clear(e.target);
+			};
+	
+			var clear = function clear(target) {
+	
+				target.removeEventListener('load', onLoad);
+				target.removeEventListener('error', onError);
+			};
+	
+			reader.addEventListener('load', onLoad);
+			reader.addEventListener('error', onError);
+			reader.readAsDataURL(file);
+		});
+	}
+	
+	//----------------------------------------------------------------------------------------
+	//
+	// Util
+	//
+	//----------------------------------------------------------------------------------------
+	/**
+	 * motion이 끝나길 기다렸다 resolve
+	 * 1. motion은 시작되지 않을 수 있다. 
+	 * 2. 60ms 후에도 시작되지 않았다면 바로 resolve
+	 * @param  {[type]} motion [description]
+	 * @return {[type]}        [description]
+	 */
+	function completeMotion(motion) {
+		var after = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 60;
+	
+		return new Promise(function (resolve, reject) {
+			if (!motion.running) {
+				setTimeout(function () {
+					if (!motion.running) resolve('unstarted');else motion.once('complete', function (e) {
+						return resolve(e);
+					});
+				}, after);
+			} else {
+				motion.once('complete', function (e) {
+					return resolve(e);
+				});
+			}
+		});
+	}
+	
+	function re(f) {
+		for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+			args[_key - 1] = arguments[_key];
+		}
+	
+		return f.apply(undefined, args).then(function (result) {
+			if (result.done) return Promise.resolve(result.args);
+	
+			return re.apply(undefined, [f].concat(_toConsumableArray(result.args)));
+		});
+	}
+
+/***/ }),
+
+/***/ 340:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(setImmediate) {(function (root) {
+	
+	  // Store setTimeout reference so promise-polyfill will be unaffected by
+	  // other code modifying setTimeout (like sinon.useFakeTimers())
+	  var setTimeoutFunc = setTimeout;
+	
+	  function noop() {}
+	  
+	  // Polyfill for Function.prototype.bind
+	  function bind(fn, thisArg) {
+	    return function () {
+	      fn.apply(thisArg, arguments);
+	    };
+	  }
+	
+	  function Promise(fn) {
+	    if (!(this instanceof Promise)) throw new TypeError('Promises must be constructed via new');
+	    if (typeof fn !== 'function') throw new TypeError('not a function');
+	    this._state = 0;
+	    this._handled = false;
+	    this._value = undefined;
+	    this._deferreds = [];
+	
+	    doResolve(fn, this);
+	  }
+	
+	  function handle(self, deferred) {
+	    while (self._state === 3) {
+	      self = self._value;
+	    }
+	    if (self._state === 0) {
+	      self._deferreds.push(deferred);
+	      return;
+	    }
+	    self._handled = true;
+	    Promise._immediateFn(function () {
+	      var cb = self._state === 1 ? deferred.onFulfilled : deferred.onRejected;
+	      if (cb === null) {
+	        (self._state === 1 ? resolve : reject)(deferred.promise, self._value);
+	        return;
+	      }
+	      var ret;
+	      try {
+	        ret = cb(self._value);
+	      } catch (e) {
+	        reject(deferred.promise, e);
+	        return;
+	      }
+	      resolve(deferred.promise, ret);
+	    });
+	  }
+	
+	  function resolve(self, newValue) {
+	    try {
+	      // Promise Resolution Procedure: https://github.com/promises-aplus/promises-spec#the-promise-resolution-procedure
+	      if (newValue === self) throw new TypeError('A promise cannot be resolved with itself.');
+	      if (newValue && (typeof newValue === 'object' || typeof newValue === 'function')) {
+	        var then = newValue.then;
+	        if (newValue instanceof Promise) {
+	          self._state = 3;
+	          self._value = newValue;
+	          finale(self);
+	          return;
+	        } else if (typeof then === 'function') {
+	          doResolve(bind(then, newValue), self);
+	          return;
+	        }
+	      }
+	      self._state = 1;
+	      self._value = newValue;
+	      finale(self);
+	    } catch (e) {
+	      reject(self, e);
+	    }
+	  }
+	
+	  function reject(self, newValue) {
+	    self._state = 2;
+	    self._value = newValue;
+	    finale(self);
+	  }
+	
+	  function finale(self) {
+	    if (self._state === 2 && self._deferreds.length === 0) {
+	      Promise._immediateFn(function() {
+	        if (!self._handled) {
+	          Promise._unhandledRejectionFn(self._value);
+	        }
+	      });
+	    }
+	
+	    for (var i = 0, len = self._deferreds.length; i < len; i++) {
+	      handle(self, self._deferreds[i]);
+	    }
+	    self._deferreds = null;
+	  }
+	
+	  function Handler(onFulfilled, onRejected, promise) {
+	    this.onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : null;
+	    this.onRejected = typeof onRejected === 'function' ? onRejected : null;
+	    this.promise = promise;
+	  }
+	
+	  /**
+	   * Take a potentially misbehaving resolver function and make sure
+	   * onFulfilled and onRejected are only called once.
+	   *
+	   * Makes no guarantees about asynchrony.
+	   */
+	  function doResolve(fn, self) {
+	    var done = false;
+	    try {
+	      fn(function (value) {
+	        if (done) return;
+	        done = true;
+	        resolve(self, value);
+	      }, function (reason) {
+	        if (done) return;
+	        done = true;
+	        reject(self, reason);
+	      });
+	    } catch (ex) {
+	      if (done) return;
+	      done = true;
+	      reject(self, ex);
+	    }
+	  }
+	
+	  Promise.prototype['catch'] = function (onRejected) {
+	    return this.then(null, onRejected);
+	  };
+	
+	  Promise.prototype.then = function (onFulfilled, onRejected) {
+	    var prom = new (this.constructor)(noop);
+	
+	    handle(this, new Handler(onFulfilled, onRejected, prom));
+	    return prom;
+	  };
+	
+	  Promise.all = function (arr) {
+	    return new Promise(function (resolve, reject) {
+	      if (!arr || typeof arr.length === 'undefined') throw new TypeError('Promise.all accepts an array');
+	      var args = Array.prototype.slice.call(arr);
+	      if (args.length === 0) return resolve([]);
+	      var remaining = args.length;
+	
+	      function res(i, val) {
+	        try {
+	          if (val && (typeof val === 'object' || typeof val === 'function')) {
+	            var then = val.then;
+	            if (typeof then === 'function') {
+	              then.call(val, function (val) {
+	                res(i, val);
+	              }, reject);
+	              return;
+	            }
+	          }
+	          args[i] = val;
+	          if (--remaining === 0) {
+	            resolve(args);
+	          }
+	        } catch (ex) {
+	          reject(ex);
+	        }
+	      }
+	
+	      for (var i = 0; i < args.length; i++) {
+	        res(i, args[i]);
+	      }
+	    });
+	  };
+	
+	  Promise.resolve = function (value) {
+	    if (value && typeof value === 'object' && value.constructor === Promise) {
+	      return value;
+	    }
+	
+	    return new Promise(function (resolve) {
+	      resolve(value);
+	    });
+	  };
+	
+	  Promise.reject = function (value) {
+	    return new Promise(function (resolve, reject) {
+	      reject(value);
+	    });
+	  };
+	
+	  Promise.race = function (values) {
+	    return new Promise(function (resolve, reject) {
+	      for (var i = 0, len = values.length; i < len; i++) {
+	        values[i].then(resolve, reject);
+	      }
+	    });
+	  };
+	
+	  // Use polyfill for setImmediate for performance gains
+	  Promise._immediateFn = (typeof setImmediate === 'function' && function (fn) { setImmediate(fn); }) ||
+	    function (fn) {
+	      setTimeoutFunc(fn, 0);
+	    };
+	
+	  Promise._unhandledRejectionFn = function _unhandledRejectionFn(err) {
+	    if (typeof console !== 'undefined' && console) {
+	      console.warn('Possible Unhandled Promise Rejection:', err); // eslint-disable-line no-console
+	    }
+	  };
+	
+	  /**
+	   * Set the immediate function to execute callbacks
+	   * @param fn {function} Function to execute
+	   * @deprecated
+	   */
+	  Promise._setImmediateFn = function _setImmediateFn(fn) {
+	    Promise._immediateFn = fn;
+	  };
+	
+	  /**
+	   * Change the function to execute on unhandled rejection
+	   * @param {function} fn Function to execute on unhandled rejection
+	   * @deprecated
+	   */
+	  Promise._setUnhandledRejectionFn = function _setUnhandledRejectionFn(fn) {
+	    Promise._unhandledRejectionFn = fn;
+	  };
+	  
+	  if (typeof module !== 'undefined' && module.exports) {
+	    module.exports = Promise;
+	  } else if (!root.Promise) {
+	    root.Promise = Promise;
+	  }
+	
+	})(this);
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(341).setImmediate))
+
+/***/ }),
+
+/***/ 341:
+/***/ (function(module, exports, __webpack_require__) {
+
+	var apply = Function.prototype.apply;
+	
+	// DOM APIs, for completeness
+	
+	exports.setTimeout = function() {
+	  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
+	};
+	exports.setInterval = function() {
+	  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
+	};
+	exports.clearTimeout =
+	exports.clearInterval = function(timeout) {
+	  if (timeout) {
+	    timeout.close();
+	  }
+	};
+	
+	function Timeout(id, clearFn) {
+	  this._id = id;
+	  this._clearFn = clearFn;
+	}
+	Timeout.prototype.unref = Timeout.prototype.ref = function() {};
+	Timeout.prototype.close = function() {
+	  this._clearFn.call(window, this._id);
+	};
+	
+	// Does not start the time, just sets up the members needed.
+	exports.enroll = function(item, msecs) {
+	  clearTimeout(item._idleTimeoutId);
+	  item._idleTimeout = msecs;
+	};
+	
+	exports.unenroll = function(item) {
+	  clearTimeout(item._idleTimeoutId);
+	  item._idleTimeout = -1;
+	};
+	
+	exports._unrefActive = exports.active = function(item) {
+	  clearTimeout(item._idleTimeoutId);
+	
+	  var msecs = item._idleTimeout;
+	  if (msecs >= 0) {
+	    item._idleTimeoutId = setTimeout(function onTimeout() {
+	      if (item._onTimeout)
+	        item._onTimeout();
+	    }, msecs);
+	  }
+	};
+	
+	// setimmediate attaches itself to the global object
+	__webpack_require__(342);
+	exports.setImmediate = setImmediate;
+	exports.clearImmediate = clearImmediate;
+
+
+/***/ }),
+
+/***/ 342:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
+	    "use strict";
+	
+	    if (global.setImmediate) {
+	        return;
+	    }
+	
+	    var nextHandle = 1; // Spec says greater than zero
+	    var tasksByHandle = {};
+	    var currentlyRunningATask = false;
+	    var doc = global.document;
+	    var registerImmediate;
+	
+	    function setImmediate(callback) {
+	      // Callback can either be a function or a string
+	      if (typeof callback !== "function") {
+	        callback = new Function("" + callback);
+	      }
+	      // Copy function arguments
+	      var args = new Array(arguments.length - 1);
+	      for (var i = 0; i < args.length; i++) {
+	          args[i] = arguments[i + 1];
+	      }
+	      // Store and register the task
+	      var task = { callback: callback, args: args };
+	      tasksByHandle[nextHandle] = task;
+	      registerImmediate(nextHandle);
+	      return nextHandle++;
+	    }
+	
+	    function clearImmediate(handle) {
+	        delete tasksByHandle[handle];
+	    }
+	
+	    function run(task) {
+	        var callback = task.callback;
+	        var args = task.args;
+	        switch (args.length) {
+	        case 0:
+	            callback();
+	            break;
+	        case 1:
+	            callback(args[0]);
+	            break;
+	        case 2:
+	            callback(args[0], args[1]);
+	            break;
+	        case 3:
+	            callback(args[0], args[1], args[2]);
+	            break;
+	        default:
+	            callback.apply(undefined, args);
+	            break;
+	        }
+	    }
+	
+	    function runIfPresent(handle) {
+	        // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
+	        // So if we're currently running a task, we'll need to delay this invocation.
+	        if (currentlyRunningATask) {
+	            // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
+	            // "too much recursion" error.
+	            setTimeout(runIfPresent, 0, handle);
+	        } else {
+	            var task = tasksByHandle[handle];
+	            if (task) {
+	                currentlyRunningATask = true;
+	                try {
+	                    run(task);
+	                } finally {
+	                    clearImmediate(handle);
+	                    currentlyRunningATask = false;
+	                }
+	            }
+	        }
+	    }
+	
+	    function installNextTickImplementation() {
+	        registerImmediate = function(handle) {
+	            process.nextTick(function () { runIfPresent(handle); });
+	        };
+	    }
+	
+	    function canUsePostMessage() {
+	        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
+	        // where `global.postMessage` means something completely different and can't be used for this purpose.
+	        if (global.postMessage && !global.importScripts) {
+	            var postMessageIsAsynchronous = true;
+	            var oldOnMessage = global.onmessage;
+	            global.onmessage = function() {
+	                postMessageIsAsynchronous = false;
+	            };
+	            global.postMessage("", "*");
+	            global.onmessage = oldOnMessage;
+	            return postMessageIsAsynchronous;
+	        }
+	    }
+	
+	    function installPostMessageImplementation() {
+	        // Installs an event handler on `global` for the `message` event: see
+	        // * https://developer.mozilla.org/en/DOM/window.postMessage
+	        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
+	
+	        var messagePrefix = "setImmediate$" + Math.random() + "$";
+	        var onGlobalMessage = function(event) {
+	            if (event.source === global &&
+	                typeof event.data === "string" &&
+	                event.data.indexOf(messagePrefix) === 0) {
+	                runIfPresent(+event.data.slice(messagePrefix.length));
+	            }
+	        };
+	
+	        if (global.addEventListener) {
+	            global.addEventListener("message", onGlobalMessage, false);
+	        } else {
+	            global.attachEvent("onmessage", onGlobalMessage);
+	        }
+	
+	        registerImmediate = function(handle) {
+	            global.postMessage(messagePrefix + handle, "*");
+	        };
+	    }
+	
+	    function installMessageChannelImplementation() {
+	        var channel = new MessageChannel();
+	        channel.port1.onmessage = function(event) {
+	            var handle = event.data;
+	            runIfPresent(handle);
+	        };
+	
+	        registerImmediate = function(handle) {
+	            channel.port2.postMessage(handle);
+	        };
+	    }
+	
+	    function installReadyStateChangeImplementation() {
+	        var html = doc.documentElement;
+	        registerImmediate = function(handle) {
+	            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
+	            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
+	            var script = doc.createElement("script");
+	            script.onreadystatechange = function () {
+	                runIfPresent(handle);
+	                script.onreadystatechange = null;
+	                html.removeChild(script);
+	                script = null;
+	            };
+	            html.appendChild(script);
+	        };
+	    }
+	
+	    function installSetTimeoutImplementation() {
+	        registerImmediate = function(handle) {
+	            setTimeout(runIfPresent, 0, handle);
+	        };
+	    }
+	
+	    // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
+	    var attachTo = Object.getPrototypeOf && Object.getPrototypeOf(global);
+	    attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
+	
+	    // Don't get fooled by e.g. browserify environments.
+	    if ({}.toString.call(global.process) === "[object process]") {
+	        // For Node.js before 0.9
+	        installNextTickImplementation();
+	
+	    } else if (canUsePostMessage()) {
+	        // For non-IE10 modern browsers
+	        installPostMessageImplementation();
+	
+	    } else if (global.MessageChannel) {
+	        // For web workers, where supported
+	        installMessageChannelImplementation();
+	
+	    } else if (doc && "onreadystatechange" in doc.createElement("script")) {
+	        // For IE 6–8
+	        installReadyStateChangeImplementation();
+	
+	    } else {
+	        // For older browsers
+	        installSetTimeoutImplementation();
+	    }
+	
+	    attachTo.setImmediate = setImmediate;
+	    attachTo.clearImmediate = clearImmediate;
+	}(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(343)))
+
+/***/ }),
+
+/***/ 343:
+/***/ (function(module, exports) {
+
+	// shim for using process in browser
+	var process = module.exports = {};
+	
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+	
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+	
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout () {
+	    throw new Error('clearTimeout has not been defined');
+	}
+	(function () {
+	    try {
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
+	    } catch (e) {
+	        cachedSetTimeout = defaultSetTimout;
+	    }
+	    try {
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
+	    } catch (e) {
+	        cachedClearTimeout = defaultClearTimeout;
+	    }
+	} ())
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
+	        return setTimeout(fun, 0);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedSetTimeout(fun, 0);
+	    } catch(e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+	            return cachedSetTimeout.call(null, fun, 0);
+	        } catch(e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+	            return cachedSetTimeout.call(this, fun, 0);
+	        }
+	    }
+	
+	
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
+	        return clearTimeout(marker);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedClearTimeout(marker);
+	    } catch (e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+	            return cachedClearTimeout.call(null, marker);
+	        } catch (e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+	            return cachedClearTimeout.call(this, marker);
+	        }
+	    }
+	
+	
+	
+	}
+	var queue = [];
+	var draining = false;
+	var currentQueue;
+	var queueIndex = -1;
+	
+	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
+	    draining = false;
+	    if (currentQueue.length) {
+	        queue = currentQueue.concat(queue);
+	    } else {
+	        queueIndex = -1;
+	    }
+	    if (queue.length) {
+	        drainQueue();
+	    }
+	}
+	
+	function drainQueue() {
+	    if (draining) {
+	        return;
+	    }
+	    var timeout = runTimeout(cleanUpNextTick);
+	    draining = true;
+	
+	    var len = queue.length;
+	    while(len) {
+	        currentQueue = queue;
+	        queue = [];
+	        while (++queueIndex < len) {
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
+	        }
+	        queueIndex = -1;
+	        len = queue.length;
+	    }
+	    currentQueue = null;
+	    draining = false;
+	    runClearTimeout(timeout);
+	}
+	
+	process.nextTick = function (fun) {
+	    var args = new Array(arguments.length - 1);
+	    if (arguments.length > 1) {
+	        for (var i = 1; i < arguments.length; i++) {
+	            args[i - 1] = arguments[i];
+	        }
+	    }
+	    queue.push(new Item(fun, args));
+	    if (queue.length === 1 && !draining) {
+	        runTimeout(drainQueue);
+	    }
+	};
+	
+	// v8 likes predictible objects
+	function Item(fun, array) {
+	    this.fun = fun;
+	    this.array = array;
+	}
+	Item.prototype.run = function () {
+	    this.fun.apply(null, this.array);
+	};
+	process.title = 'browser';
+	process.browser = true;
+	process.env = {};
+	process.argv = [];
+	process.version = ''; // empty string to avoid regexp issues
+	process.versions = {};
+	
+	function noop() {}
+	
+	process.on = noop;
+	process.addListener = noop;
+	process.once = noop;
+	process.off = noop;
+	process.removeListener = noop;
+	process.removeAllListeners = noop;
+	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+	
+	process.listeners = function (name) { return [] }
+	
+	process.binding = function (name) {
+	    throw new Error('process.binding is not supported');
+	};
+	
+	process.cwd = function () { return '/' };
+	process.chdir = function (dir) {
+	    throw new Error('process.chdir is not supported');
+	};
+	process.umask = function() { return 0; };
+
+
+/***/ }),
+
+/***/ 344:
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = assert;
+	
+	
+	/**
+	 * assertion 
+	 * @param  {[type]} assertion [description]
+	 * @param  {[type]} message   [description]
+	 * @return {[type]}           [description]
+	 */
+	function assert(assertion, message) {
+	
+	  if (!assertion) throw new Error("[Assertion Error] " + message);
+	}
+
+/***/ }),
+
+/***/ 396:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _animation = __webpack_require__(330);
+	
+	var _Size = __webpack_require__(331);
+	
+	var _Size2 = _interopRequireDefault(_Size);
+	
+	var _Image = __webpack_require__(337);
+	
+	var _Image2 = _interopRequireDefault(_Image);
+	
+	var _Mouse = __webpack_require__(336);
+	
+	var _Mouse2 = _interopRequireDefault(_Mouse);
+	
+	var _Vector = __webpack_require__(338);
+	
+	var _Vector2 = _interopRequireDefault(_Vector);
+	
+	var _Config = __webpack_require__(332);
+	
+	var _Config2 = _interopRequireDefault(_Config);
+	
+	var _async = __webpack_require__(339);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var vector = void 0,
+	    controlMinion = void 0,
+	    minion = void 0,
+	    minions = [],
+	    minionURL = './../assets/image/m7.png',
+	    minionImage = void 0;
+	
+	var Test = function () {
+	    function Test() {
+	        _classCallCheck(this, Test);
+	
+	        this.app = new PIXI.Application(_Size2.default.windowWidth, _Size2.default.windowHeight, { forceCanvas: true, backgroundColor: 0xFFFFFF, antialias: true });
+	        document.body.appendChild(this.app.view);
+	
+	        this.canvas = this.app.renderer.view;
+	        this.renderer = this.app.renderer;
+	        this.stage = this.app.stage;
+	
+	        _Mouse2.default.renderer = this.renderer;
+	        _Mouse2.default.mouse = _Config2.default.desktop ? _Mouse2.default.DESKTOP_MOUSE : _Mouse2.default.MOBILE_MOUSE;
+	
+	        // 미니온 보여지는 레이어
+	        this.minionLayer = new PIXI.Container();
+	        // 잔상이 보여지는 레이어
+	        this.afterimageLayer = new PIXI.Container();
+	
+	        this.stage.addChild(this.afterimageLayer);
+	        this.stage.addChild(this.minionLayer);
+	
+	        this.initialize();
+	        this.initializeGUI();
+	        this.render();
+	    }
+	
+	    _createClass(Test, [{
+	        key: 'initialize',
+	        value: function initialize() {
+	            var _this = this;
+	
+	            this.render = this.render.bind(this);
+	
+	            controlMinion = new PIXI.Sprite.fromImage('./../assets/image/m11.png');
+	            controlMinion.anchor = new PIXI.Point(0.5, 0.5);
+	            controlMinion.visible = false;
+	            controlMinion.texture.baseTexture.on('loaded', function () {
+	                controlMinion.height = 200;
+	                controlMinion.scale.x = controlMinion.scale.y;
+	                controlMinion.interactive = true;
+	                controlMinion.buttonMode = true;
+	                controlMinion.on('mousedown', _this.onControlDown);
+	            });
+	
+	            this.isBezierTween = false;
+	
+	            (0, _async.loadImage)(minionURL).then(function (image) {
+	                minionImage = image;
+	                _this.startApplication(image);
+	            }).catch(function (e) {
+	                console.log(e);
+	            });
+	
+	            this.onControlDown = this.onControlDown.bind(this);
+	            this.onControlMove = this.onControlMove.bind(this);
+	            this.onControlUp = this.onControlUp.bind(this);
+	        }
+	    }, {
+	        key: 'startApplication',
+	        value: function startApplication() {
+	            minion = new _Image2.default(minionImage);
+	            this.setMinion(minion);
+	            this.minionLayer.addChild(minion);
+	            this.minionLayer.addChild(controlMinion);
+	
+	            for (var i = 0; i < 100; i++) {
+	                this.getAfterimage(i);
+	            }
+	
+	            vector = new _Vector2.default();
+	        }
+	    }, {
+	        key: 'setMinion',
+	        value: function setMinion(minion) {
+	            minion.width = 200;
+	            minion.scale.y = minion.scale.x;
+	            this.minionHalfWidth = minion.width / 2;
+	            this.minionHalfHeight = minion.height / 2;
+	            minion.x = this.minionHalfWidth;
+	            minion.y = this.minionHalfHeight;
+	        }
+	    }, {
+	        key: 'initializeGUI',
+	        value: function initializeGUI() {
+	            var _this2 = this;
+	
+	            this.gui = new dat.GUI();
+	
+	            this.config = {
+	                time: 0.4,
+	                leaveAfterImage: true,
+	                easingList: [Linear.easeNone, Linear.linear, Linear.easeIn, Linear.easeOut, Linear.easeOutIn, Linear.easeInOut, Sine.easeIn, Sine.easeOut, Sine.easeOutIn, Sine.easeInOut, Quadratic.easeIn, Quadratic.easeOut, Quadratic.easeOutIn, Quadratic.easeInOut, Cubic.easeIn, Cubic.easeOut, Cubic.easeOutIn, Cubic.easeInOut, Quartic.easeIn, Quartic.easeOut, Quartic.easeOutIn, Quartic.easeInOut, Quintic.easeIn, Quintic.easeOut, Quintic.easeOutIn, Quintic.easeInOut, Circular.easeIn, Circular.easeOut, Circular.easeOutIn, Circular.easeInOut, Exponential.easeIn, Exponential.easeOut, Exponential.easeOutIn, Exponential.easeInOut, Back.easeIn, Back.easeOut, Back.easeOutIn, Back.easeInOut, Elastic.easeIn, Elastic.easeOut, Elastic.easeOutIn, Elastic.easeInOut, Bounce.easeIn, Bounce.easeOut, Bounce.easeOutIn, Bounce.easeInOut],
+	                easingNameList: ['Linear.easeNone', 'Linear.linear', 'Linear.easeIn', 'Linear.easeOut', 'Linear.easeOutIn', 'Linear.easeInOut', 'Sine.easeIn', 'Sine.easeOut', 'Sine.easeOutIn', 'Sine.easeInOut', 'Quadratic.easeIn', 'Quadratic.easeOut', 'Quadratic.easeOutIn', 'Quadratic.easeInOut', 'Cubic.easeIn', 'Cubic.easeOut', 'Cubic.easeOutIn', 'Cubic.easeInOut', 'Quartic.easeIn', 'Quartic.easeOut', 'Quartic.easeOutIn', 'Quartic.easeInOut', 'Quintic.easeIn', 'Quintic.easeOut', 'Quintic.easeOutIn', 'Quintic.easeInOut', 'Circular.easeIn', 'Circular.easeOut', 'Circular.easeOutIn', 'Circular.easeInOut', 'Exponential.easeIn', 'Exponential.easeOut', 'Exponential.easeOutIn', 'Exponential.easeInOut', 'Back.easeIn', 'Back.easeOut', 'Back.easeOutIn', 'Back.easeInOut', 'Elastic.easeIn', 'Elastic.easeOut', 'Elastic.easeOutIn', 'Elastic.easeInOut', 'Bounce.easeIn', 'Bounce.easeOut', 'Bounce.easeOutIn', 'Bounce.easeInOut']
+	            };
+	
+	            var index = this.getEasingIndex('Back.easeOut');
+	            this.config.easing = this.config.easingNameList[index];
+	            this.config.selectedEasing = this.config.easingList[index];
+	
+	            // 기본 함수 테스트
+	            this.config.tween = this.tween.bind(this);
+	            this.config.bezier = this.bezier.bind(this);
+	
+	            this.gui.add(this.config, 'leaveAfterImage');
+	            this.gui.add(this.config, 'time').min(0).step(0.1).max(4);
+	            var easingControl = this.gui.add(this.config, 'easing', this.config.easingNameList);
+	            easingControl.onFinishChange(function (easingName) {
+	                _this2.config.selectedEasing = _this2.config.easingList[_this2.getEasingIndex(easingName)];
+	            });
+	
+	            this.gui.add(this.config, 'tween');
+	            this.gui.add(this.config, 'bezier');
+	        }
+	    }, {
+	        key: 'getEasingIndex',
+	        value: function getEasingIndex(easingName) {
+	            for (var i = 0; i < this.config.easingNameList.length; i++) {
+	                if (easingName === this.config.easingNameList[i]) {
+	                    return i;
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'update',
+	        value: function update(ms) {}
+	    }, {
+	        key: 'render',
+	        value: function render(ms) {
+	            this.update(ms);
+	            (0, _animation.requestAnimationFrame)(this.render);
+	        }
+	    }, {
+	        key: 'tween',
+	        value: function tween() {
+	            this.isBezierTween = false;
+	
+	            this.current = _Vector2.default.fromObject(minion);
+	            this.to = this.getRandomPosition();
+	
+	            this.startTween(this.current.clone(), this.to.clone());
+	            this.drawAfterimage(this.current.clone(), this.to.clone());
+	        }
+	    }, {
+	        key: 'startTween',
+	        value: function startTween(current, to) {
+	            if (this.goTween) {
+	                this.goTween.stop();
+	            }
+	
+	            var time = Number(this.config.time),
+	                easing = this.config.selectedEasing,
+	                direction = current.subtract(to);
+	
+	            to.rotation = direction.direction() + Math.PI / 2;
+	            this.goTween = Be.to(minion, to, time, easing);
+	            this.goTween.play();
+	        }
+	    }, {
+	        key: 'drawAfterimage',
+	        value: function drawAfterimage(current, to) {
+	            var _this3 = this;
+	
+	            this.clearAfterimage();
+	
+	            if (this.drawAfterTween) {
+	                this.drawAfterTween.stop();
+	            }
+	
+	            this.drawAfterimageIndex = 0;
+	
+	            var time = Number(this.config.time),
+	                easing = this.config.selectedEasing,
+	                direction = current.subtract(to),
+	                vector = new _Vector2.default(minion.x, minion.y);
+	
+	            vector.alpha = 0.01;
+	            vector.rotation = minion.rotation;
+	
+	            this.drawAfterTween = Be.to(vector, {
+	                x: to.x, y: to.y, alpha: 0.1,
+	                rotation: direction.direction() + Math.PI / 2
+	            }, time, easing);
+	
+	            this.drawAfterTween.onUpdate = function () {
+	                _this3.setAfterimage(_this3.drawAfterimageIndex, vector);
+	                _this3.drawAfterimageIndex++;
+	            };
+	            this.drawAfterTween.onComplete = function () {
+	                _this3.setAfterimage(_this3.drawAfterimageIndex, vector);
+	                _this3.drawAfterimageIndex++;
+	
+	                if (_this3.config.leaveAfterImage === false) {
+	                    _this3.hideAfterImage(_this3.current.clone(), _this3.to.clone());
+	                }
+	            };
+	
+	            this.drawAfterTween.play();
+	        }
+	    }, {
+	        key: 'hideAfterImage',
+	        value: function hideAfterImage(current, to) {
+	            var _this4 = this;
+	
+	            if (this.hideAfterTween) {
+	                this.hideAfterTween.stop();
+	            }
+	
+	            this.hideAfterimageIndex = 0;
+	
+	            var time = Number(this.config.time),
+	                easing = this.config.selectedEasing,
+	                vector = new _Vector2.default(minion.x, minion.y);
+	
+	            this.hideAfterTween = Be.to(vector, { x: to.x, y: to.y }, time, easing);
+	            this.hideAfterTween.onUpdate = this.hideAfterTween.onComplete = function () {
+	                minions[_this4.hideAfterimageIndex].visible = false;
+	                _this4.hideAfterimageIndex++;
+	            };
+	
+	            this.hideAfterTween.play();
+	        }
+	    }, {
+	        key: 'setAfterimage',
+	        value: function setAfterimage(index, props) {
+	            var image = this.getAfterimage(index);
+	            image.x = props.x;
+	            image.y = props.y;
+	            image.alpha = props.alpha;
+	            image.rotation = props.rotation;
+	            image.visible = true;
+	        }
+	    }, {
+	        key: 'clearAfterimage',
+	        value: function clearAfterimage() {
+	            var total = minions.length;
+	
+	            for (var i = 0; i < total; i++) {
+	                var minion = minions[i];
+	                minion.visible = false;
+	            }
+	        }
+	    }, {
+	        key: 'getAfterimage',
+	        value: function getAfterimage(index) {
+	            if (!minions[index]) {
+	                var afterimage = new _Image2.default(minionImage);
+	                afterimage.visible = false;
+	                this.setMinion(afterimage);
+	                this.afterimageLayer.addChild(afterimage);
+	                minions.push(afterimage);
+	            }
+	
+	            return minions[index];
+	        }
+	    }, {
+	        key: 'getRandomPosition',
+	        value: function getRandomPosition() {
+	            return new _Vector2.default().randomize({ x: this.minionHalfWidth, y: this.minionHalfHeight }, { x: _Size2.default.windowWidth - this.minionHalfWidth, y: _Size2.default.windowHeight - this.minionHalfHeight });
+	        }
+	    }, {
+	        key: 'bezier',
+	        value: function bezier() {
+	            this.current = _Vector2.default.fromObject(minion);
+	            this.to = this.getRandomPosition();
+	
+	            if (this.isBezierTween === false) {
+	                controlMinion.x = _Size2.default.windowCenterX;
+	                controlMinion.y = _Size2.default.windowCenterY;
+	            }
+	
+	            this.startBezier(this.current.clone(), this.to.clone());
+	            this.drawBezierAfterimage(this.current.clone(), this.to.clone());
+	            this.isBezierTween = true;
+	        }
+	    }, {
+	        key: 'startBezier',
+	        value: function startBezier(current, to) {
+	            if (this.bezierTween) {
+	                this.bezierTween.stop();
+	            }
+	
+	            var time = Number(this.config.time),
+	                easing = this.config.selectedEasing,
+	                direction = current.subtract(to);
+	
+	            to.rotation = direction.direction() + Math.PI / 2;
+	            this.bezierTween = Be.bezierTo(minion, to, { x: controlMinion.x, y: controlMinion.y }, time, easing);
+	            this.bezierTween.play();
+	        }
+	    }, {
+	        key: 'drawBezierAfterimage',
+	        value: function drawBezierAfterimage(current, to) {
+	            var _this5 = this;
+	
+	            this.clearAfterimage();
+	
+	            if (this.drawBezierAfterTween) {
+	                this.drawBezierAfterTween.stop();
+	            }
+	
+	            this.drawAfterimageIndex = 0;
+	
+	            var time = Number(this.config.time),
+	                easing = this.config.selectedEasing,
+	                direction = current.subtract(to),
+	                vector = _Vector2.default.fromObject(minion);
+	
+	            vector.alpha = 0.01;
+	            vector.rotation = minion.rotation;
+	
+	            this.drawBezierAfterTween = Be.bezierTo(vector, { x: to.x, y: to.y, alpha: 0.1, rotation: direction.direction() + Math.PI / 2 }, { x: controlMinion.x, y: controlMinion.y }, time, easing);
+	
+	            this.drawBezierAfterTween.onUpdate = function () {
+	                _this5.setAfterimage(_this5.drawAfterimageIndex, vector);
+	                _this5.drawAfterimageIndex++;
+	            };
+	
+	            this.drawBezierAfterTween.onComplete = function () {
+	                _this5.setAfterimage(_this5.drawAfterimageIndex, vector);
+	                _this5.drawAfterimageIndex++;
+	
+	                if (_this5.config.leaveAfterImage === false) {
+	                    _this5.hideAfterImage(_this5.current.clone(), _this5.to.clone());
+	                }
+	            };
+	
+	            this.drawBezierAfterTween.play();
+	        }
+	    }, {
+	        key: 'onControlDown',
+	        value: function onControlDown(event) {
+	            this.prevPoint = _Mouse2.default.global.clone();
+	
+	            controlMinion.off('mousedown', this.onControlDown);
+	            window.addEventListener('mousemove', this.onControlMove);
+	            window.addEventListener('mouseup', this.onControlUp);
+	        }
+	    }, {
+	        key: 'onControlMove',
+	        value: function onControlMove(event) {
+	            var dx = _Mouse2.default.global.x - this.prevPoint.x,
+	                dy = _Mouse2.default.global.y - this.prevPoint.y;
+	
+	            controlMinion.x += dx;
+	            controlMinion.y += dy;
+	
+	            this.prevPoint = _Mouse2.default.global.clone();
+	        }
+	    }, {
+	        key: 'onControlUp',
+	        value: function onControlUp(event) {
+	            controlMinion.on('mousedown', this.onControlDown);
+	            window.removeEventListener('mousemove', this.onControlMove);
+	            window.removeEventListener('mouseup', this.onControlUp);
+	        }
+	    }, {
+	        key: 'resize',
+	        value: function resize() {
+	            var height = _Size2.default.windowHeight;
+	            var width = _Size2.default.windowWidth;
+	
+	            this.canvas.width = width;
+	            this.canvas.height = height;
+	            this.canvas.style.width = width + 'px';
+	            this.canvas.style.height = height + 'px';
+	
+	            this.renderer.resize(width, height);
+	        }
+	    }, {
+	        key: 'isBezierTween',
+	        set: function set(value) {
+	            this._isBezierTween = value;
+	            controlMinion.visible = value;
+	        },
+	        get: function get() {
+	            return this._isBezierTween;
+	        }
+	    }]);
+	
+	    return Test;
+	}();
+	
+	exports.default = Test;
+
+/***/ })
+
+});
+//# sourceMappingURL=index.js.map

@@ -1,4 +1,9947 @@
-webpackJsonp([5],{0:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var o=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}();n(1);var a=n(348),s=r(a),u=n(328),l=r(u);!function(){window.onload=function(){new c}}();var c=function(){function e(){i(this,e),this.init(),this.addEvent(),this.onResize()}return o(e,[{key:"init",value:function(){this.test=new s.default}},{key:"addEvent",value:function(){window.onresize=this.onResize.bind(this),window.addEventListener("keyup",this.onKeyUp.bind(this))}},{key:"onResize",value:function(){}},{key:"onKeyUp",value:function(e){switch(e.keyCode){case l.default.BACKQUOTE:break;case l.default.ESCAPE:console.clear();break;case l.default.SPACE:break;case l.default.DOWN:break;case l.default.UP:break;case l.default.LEFT:break;case l.default.RIGHT:break;case l.default.BACKSPACE:}}}]),e}()},330:function(e,t,n){"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(n){var i={linear:function(e){return e},easeInQuad:function(e){return e*e},easeOutQuad:function(e){return-1*e*(e-2)},easeInOutQuad:function(e){return(e/=.5)<1?.5*e*e:-.5*(--e*(e-2)-1)},easeInCubic:function(e){return e*e*e},easeOutCubic:function(e){return 1*((e=e/1-1)*e*e+1)},easeInOutCubic:function(e){return(e/=.5)<1?.5*e*e*e:.5*((e-=2)*e*e+2)},easeInQuart:function(e){return e*e*e*e},easeOutQuart:function(e){return-1*((e=e/1-1)*e*e*e-1)},easeInOutQuart:function(e){return(e/=.5)<1?.5*e*e*e*e:-.5*((e-=2)*e*e*e-2)},easeInQuint:function(e){return 1*(e/=1)*e*e*e*e},easeOutQuint:function(e){return 1*((e=e/1-1)*e*e*e*e+1)},easeInOutQuint:function(e){return(e/=.5)<1?.5*e*e*e*e*e:.5*((e-=2)*e*e*e*e+2)},easeInSine:function(e){return-1*Math.cos(e/1*(Math.PI/2))+1},easeOutSine:function(e){return 1*Math.sin(e/1*(Math.PI/2))},easeInOutSine:function(e){return-.5*(Math.cos(Math.PI*e/1)-1)},easeInExpo:function(e){return 0===e?1:1*Math.pow(2,10*(e/1-1))},easeOutExpo:function(e){return 1===e?1:1*(-Math.pow(2,-10*e/1)+1)},easeInOutExpo:function(e){return 0===e?0:1===e?1:(e/=.5)<1?.5*Math.pow(2,10*(e-1)):.5*(-Math.pow(2,-10*--e)+2)},easeInCirc:function(e){return e>=1?e:-1*(Math.sqrt(1-(e/=1)*e)-1)},easeOutCirc:function(e){return 1*Math.sqrt(1-(e=e/1-1)*e)},easeInOutCirc:function(e){return(e/=.5)<1?-.5*(Math.sqrt(1-e*e)-1):.5*(Math.sqrt(1-(e-=2)*e)+1)},easeInElastic:function(e){var t=1.70158,n=0,r=1;return 0===e?0:1==(e/=1)?1:(n||(n=.3),r<Math.abs(1)?(r=1,t=n/4):t=n/(2*Math.PI)*Math.asin(1/r),-(r*Math.pow(2,10*(e-=1))*Math.sin((1*e-t)*(2*Math.PI)/n)))},easeOutElastic:function(e){var t=1.70158,n=0,r=1;return 0===e?0:1==(e/=1)?1:(n||(n=.3),r<Math.abs(1)?(r=1,t=n/4):t=n/(2*Math.PI)*Math.asin(1/r),r*Math.pow(2,-10*e)*Math.sin((1*e-t)*(2*Math.PI)/n)+1)},easeInOutElastic:function(e){var t=1.70158,n=0,r=1;return 0===e?0:2==(e/=.5)?1:(n||(n=1*(.3*1.5)),r<Math.abs(1)?(r=1,t=n/4):t=n/(2*Math.PI)*Math.asin(1/r),e<1?-.5*(r*Math.pow(2,10*(e-=1))*Math.sin((1*e-t)*(2*Math.PI)/n)):r*Math.pow(2,-10*(e-=1))*Math.sin((1*e-t)*(2*Math.PI)/n)*.5+1)},easeInBack:function(e){var t=1.70158;return 1*(e/=1)*e*((t+1)*e-t)},easeOutBack:function(e){var t=1.70158;return 1*((e=e/1-1)*e*((t+1)*e+t)+1)},easeInOutBack:function(e){var t=1.70158;return(e/=.5)<1?.5*(e*e*(((t*=1.525)+1)*e-t)):.5*((e-=2)*e*(((t*=1.525)+1)*e+t)+2)},easeInBounce:function(e){return 1-i.easeOutBounce(1-e)},easeOutBounce:function(e){return(e/=1)<1/2.75?1*(7.5625*e*e):e<2/2.75?1*(7.5625*(e-=1.5/2.75)*e+.75):e<2.5/2.75?1*(7.5625*(e-=2.25/2.75)*e+.9375):1*(7.5625*(e-=2.625/2.75)*e+.984375)},easeInOutBounce:function(e){return e<.5?.5*i.easeInBounce(2*e):.5*i.easeOutBounce(2*e-1)+.5}},o=function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(e){return window.setTimeout(e,16)}}(),a=function(){return window.cancelAnimationFrame||window.webkitCancelAnimationFrame||window.mozCancelAnimationFrame||window.oCancelAnimationFrame||window.msCancelAnimationFrame||function(e){return window.clearTimeout(e,16)}}(),s=function(e,t,n,r,a){if("function"!=typeof t)throw Error("onAnimation must be function");var s=0,u="string"==typeof r?i[r]||i.linear:r||i.linear,l=function r(){s++;var i=s/n,l=u(i);t.call(e,l,i,s),s<n?e?e.animationId=o(r):o(r):a&&a.apply(e)};o(l)};"object"===r(t)&&"undefined"!=typeof e?(e.exports.Easing=i,e.exports.requestAnimationFrame=o,e.exports.cancelAnimationFrame=a,e.exports.animation=s):(n.Easing=i,n.requestAnimationFrame=o,n.cancelAnimationFrame=a,n.animation=s)}(void 0)},348:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function o(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}function a(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var s=function e(t,n,r){null===t&&(t=Function.prototype);var i=Object.getOwnPropertyDescriptor(t,n);if(void 0===i){var o=Object.getPrototypeOf(t);return null===o?void 0:e(o,n,r)}if("value"in i)return i.value;var a=i.get;if(void 0!==a)return a.call(r)},u=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),l=n(330),c=n(349),f=(r(c),n(351)),h=(r(f),n(357)),p=r(h),_=n(362),d=r(_),y=n(364),v=r(y),g=n(361),b=(r(g),n(365)),w=(r(b),n(366)),O=(r(w),function(){function e(){a(this,e),this.app=new PIXI.Application(800,600,{backgroundColor:9159498}),document.body.appendChild(this.app.view),this.canvas=this.app.renderer.view,this.stage=this.app.stage,this.initialize(),this.initializeGUI(),this.render()}return u(e,[{key:"initialize",value:function(){this.testPixi(),this.testClass(),this.testBit(),this.testFilter(),this.testPoint(),this.testObject()}},{key:"createTicker",value:function(){console.log("ticker"),this.ticker=new d.default,this.ticker.add(function(e){console.log(e,getTimer())}),this.ticker.start()}},{key:"createSomething",value:function(){console.log("tickerListener");new v.default}},{key:"createTweener",value:function(){console.log("createTwenner");var e=p.default.tween({x:0,y:0},{x:100},{x:0},1);e.onUpdate=function(){console.log("onUpdate",obj.x,obj.y)},e.play()}},{key:"testPixi",value:function(){"undefined"==typeof PIXI||null===PIXI?console.log("PIXI Not Found"):console.log("PIXI Found")}},{key:"testClass",value:function(){console.log("testClass");var e=new P;e.sayHello(),console.log(e.getClass());var t=new k(25,8,"green");t.toString(),console.log(t instanceof k),console.log(t instanceof m),console.log(t.getClass().name),console.log(t.getSuper().name);var n=new m(10,10);console.log("******** Point.toString():",n.toString());var r=n.getClass(),i=n.getSuper(),o=new r;console.log("class instance -----------------------"),console.log(r.name),console.log(i.name),console.log(o instanceof m),console.log("class name -----------------------"),console.log(m.name),console.log(k.name),console.log("getPrototypeOf with instance -----------------------");var a=Object.getPrototypeOf(t),s=Object.getPrototypeOf(a),u=Object.getPrototypeOf(s),l=Object.getPrototypeOf(u);console.log(a.constructor.name),console.log(s.constructor.name),console.log(u.constructor.name),console.log(null===l),console.log("getPrototypeOf with class -----------------------");var a=Object.getPrototypeOf(k),s=Object.getPrototypeOf(a),u=Object.getPrototypeOf(s),l=Object.getPrototypeOf(u);console.log(a.constructor.name),console.log(s.constructor.name),console.log(u.constructor.name),console.log(null===l)}},{key:"testCollection",value:function(){console.log("testCollection");var e={},t=Object.create(null);for(var n in e)console.log(n+":"+e[n]);for(var n in t)console.log(n+":"+t[n])}},{key:"testBit",value:function(){console.log("testBit");var e=0;e|=32,console.log("-------------------"),console.log(28,28),console.log(448,448),console.log(3584,3584),console.log("-------------------"),console.log("-------------------"),console.log(12,12),console.log(224,224),console.log(768,768),console.log("-------------------")}},{key:"testFilter",value:function(){console.log("testFilter");var e=new PIXI.filters.BlurFilter;e.blur=0,console.log("blurFilter:",e);var t=new PIXI.Sprite.fromImage("./../assets/image/icon/github.png");this.stage.addChild(t),t.filters=[e];var n=p.default.tween(t,{x:400,_blurFilter:{blurX:4,blurY:0}});n.onUpdate=function(){console.log(t.x,t.filters[0].blurX)},n.play()}},{key:"testPoint",value:function(){console.log("testPoint");var e=new PIXI.Point,t=p.default.tween(e,{y:200});t.onUpdate=function(){console.log("point[%s, %s]",e.x,e.y)},t.play()}},{key:"testObject",value:function(){console.log("testObject");var e={scale:{x:100}};Object.assign(e,{x:10,y:20,scale:{x:10,y:20}}),console.log(e)}},{key:"initializeGUI",value:function(){this.gui=new dat.GUI,this.config={},this.config.animation=this.animation.bind(this),this.gui.add(this.config,"animation")}},{key:"update",value:function(e){this.app.render(this.stage)}},{key:"render",value:function(e){this.update(e),this.requestId=(0,l.requestAnimationFrame)(this.render.bind(this))}},{key:"animation",value:function(){(0,l.animation)(this,this.onAnimation,60,l.Easing.easeOutQuad)}},{key:"onAnimation",value:function(e,t,n){console.log("ease: %s, step: %s, currentStep: %s",e,t,n)}}]),e}());t.default=O;var m=function(){function e(t,n){a(this,e),this.x=t,this.y=n}return u(e,[{key:"getClass",value:function(){return this.constructor}},{key:"getSuper",value:function(){return s(e.prototype.__proto__||Object.getPrototypeOf(e.prototype),"constructor",this)}},{key:"toString",value:function(){return"("+this.x+", "+this.y+")"}}]),e}(),k=function(e){function t(e,n,r){a(this,t);var o=i(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e,n));return o.color=r,o}return o(t,e),u(t,[{key:"getClass",value:function(){return this.constructor}},{key:"getSuper",value:function(){return s(t.prototype.__proto__||Object.getPrototypeOf(t.prototype),"constructor",this)}},{key:"toString",value:function(){return s(t.prototype.__proto__||Object.getPrototypeOf(t.prototype),"toString",this).call(this)+" in "+this.color}}]),t}(m),P=function(e){function t(){return a(this,t),i(this,(t.__proto__||Object.getPrototypeOf(t)).apply(this,arguments))}return o(t,e),u(t,[{key:"sayHello",value:function(){console.log("say hello")}}]),t}(m)},349:function(e,t,n){"use strict";n(350)},350:function(e,t){(function(e){"use strict";if(!e.getTimer){var t=Date.now();e.getTimer=function(){return Date.now()-t}}}).call(t,function(){return this}())},351:function(e,t,n){"use strict";n(352),n(353),n(355),n(356)},352:function(e,t){"use strict";Array.isArray||(Array.isArray=function(e){return"[object Array]"===Object.prototype.toString.call(e)})},353:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}var i=n(354),o=r(i);Object.assign||(Object.assign=o.default)},354:function(e,t){"use strict";function n(e){if(null===e||void 0===e)throw new TypeError("Object.assign cannot be called with null or undefined");return Object(e)}function r(){try{if(!Object.assign)return!1;var e=new String("abc");if(e[5]="de","5"===Object.getOwnPropertyNames(e)[0])return!1;for(var t={},n=0;n<10;n++)t["_"+String.fromCharCode(n)]=n;var r=Object.getOwnPropertyNames(t).map(function(e){return t[e]});if("0123456789"!==r.join(""))return!1;var i={};return"abcdefghijklmnopqrst".split("").forEach(function(e){i[e]=e}),"abcdefghijklmnopqrst"===Object.keys(Object.assign({},i)).join("")}catch(e){return!1}}var i=Object.getOwnPropertySymbols,o=Object.prototype.hasOwnProperty,a=Object.prototype.propertyIsEnumerable;e.exports=r()?Object.assign:function(e,t){for(var r,s,u=n(e),l=1;l<arguments.length;l++){r=Object(arguments[l]);for(var c in r)o.call(r,c)&&(u[c]=r[c]);if(i){s=i(r);for(var f=0;f<s.length;f++)a.call(r,s[f])&&(u[s[f]]=r[s[f]])}}return u}},355:function(e,t){"use strict";var n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};"function"!=typeof Object.getPrototypeOf&&("object"===n("test".__proto__)?Object.getPrototypeOf=function(e){return e.__proto__}:Object.getPrototypeOf=function(e){return e.constructor.prototype})},356:function(e,t){(function(e){"use strict";var t=16;if(Date.now&&Date.prototype.getTime||(Date.now=function(){return(new Date).getTime()}),!e.performance||!e.performance.now){var n=Date.now();e.performance||(e.performance={}),e.performance.now=function(){return Date.now()-n}}for(var r=Date.now(),i=["ms","moz","webkit","o"],o=0;o<i.length&&!e.requestAnimationFrame;++o){var a=i[o];e.requestAnimationFrame=e[a+"RequestAnimationFrame"],e.cancelAnimationFrame=e[a+"CancelAnimationFrame"]||e[a+"CancelRequestAnimationFrame"]}e.requestAnimationFrame||(e.requestAnimationFrame=function(e){if("function"!=typeof e)throw new TypeError(e+"is not a function");var n=Date.now(),i=t+r-n;return i<0&&(i=0),r=n,setTimeout(function(){r=Date.now(),e(performance.now())},i)}),e.cancelAnimationFrame||(e.cancelAnimationFrame=function(e){return clearTimeout(e)})}).call(t,function(){return this}())},357:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var o=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),a=n(358),s=r(a),u=n(361),l=r(u),c=n(365),f=r(c),h=n(366),p=r(h),_=n(376),d=r(_),y=n(380),v=r(y),g=n(381),b=r(g),w=n(382),O=r(w),m=n(383),k=r(m),P=n(384),j=r(P),x=n(385),F=r(x),T=n(386),C=r(T),L=n(387),E=r(L),M=n(388),I=r(M),S=n(389),N=r(S),U=n(390),A=r(U),H=n(391),X=r(H),D=n(392),B=r(D),R=n(394),Y=r(R),q=n(395),V=r(q),z=!1,W=new l.default;W.start();var Q=new f.default,$=new p.default(Q);v.default.register(Q),b.default.register(Q),O.default.register(Q);var G=function(){function e(){i(this,e)}return o(e,null,[{key:"registUpdater",value:function(){z===!1&&(v.default.register(Q),b.default.register(Q),O.default.register(Q),z=!0)}},{key:"tween",value:function t(n,r){var i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null,o=arguments.length>3&&void 0!==arguments[3]?arguments[3]:1,a=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null;e.registUpdater();var t=new d.default(W);return t.updater=$.create(n,r,i),t.time=o,t.easing=a||s.default.easeNone,t}},{key:"to",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:1,i=arguments.length>3&&void 0!==arguments[3]?arguments[3]:null;e.registUpdater();var o=new d.default(W);return o.updater=$.create(t,n,null),o.time=r,o.easing=i||s.default.easeNone,o}},{key:"from",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:1,i=arguments.length>3&&void 0!==arguments[3]?arguments[3]:null;e.registUpdater();var o=new d.default(W);return o.updater=$.create(t,null,n),o.time=r,o.easing=i||s.default.easeNone,o}},{key:"apply",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null,i=arguments.length>3&&void 0!==arguments[3]?arguments[3]:1,o=arguments.length>4&&void 0!==arguments[4]?arguments[4]:1,a=arguments.length>5&&void 0!==arguments[5]?arguments[5]:null;e.registUpdater();var u=new d.default(W);u.updater=$.create(t,n,r),u.time=i,u.easing=a||s.default.easeNone,u.update(o)}},{key:"bezier",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null,i=arguments.length>3&&void 0!==arguments[3]?arguments[3]:null,o=arguments.length>4&&void 0!==arguments[4]?arguments[4]:1,a=arguments.length>5&&void 0!==arguments[5]?arguments[5]:null;e.registUpdater();var u=new d.default(W);return u.updater=$.createBezier(t,n,r,i),u.time=o,u.easing=a||s.default.easeNone,u}},{key:"bezierTo",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null,i=arguments.length>3&&void 0!==arguments[3]?arguments[3]:1,o=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null;e.registUpdater();var a=new d.default(W);return a.updater=$.createBezier(t,n,null,r),a.time=i,a.easing=o||s.default.easeNone,a}},{key:"bezierFrom",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null,i=arguments.length>3&&void 0!==arguments[3]?arguments[3]:1,o=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null;e.registUpdater();var a=new d.default(W);return a.updater=$.createBezier(t,null,n,r),a.time=i,a.easing=o||s.default.easeNone,a}},{key:"physical",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null,i=arguments.length>3&&void 0!==arguments[3]?arguments[3]:null;e.registUpdater();var o=new k.default(W);return o.updater=$.createPhysical(t,n,r,i||Physical.exponential()),o}},{key:"physicalTo",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null;e.registUpdater();var i=new k.default(W);return i.updater=$.createPhysical(t,n,null,r||Physical.exponential()),i}},{key:"physicalFrom",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null;e.registUpdater();var i=new k.default(W);return i.updater=$.createPhysical(t,null,n,r||Physical.exponential()),i}},{key:"physicalApply",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null,i=arguments.length>3&&void 0!==arguments[3]?arguments[3]:1,o=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null;e.registUpdater();var a=new k.default(W);a.updater=$.createPhysical(t,n,r,o||Physical.exponential()),a.update(i)}},{key:"parallel",value:function(){e.registUpdater();for(var t=arguments.length,n=Array(t),r=0;r<t;r++)n[r]=arguments[r];return e.parallelTweens(n)}},{key:"parallelTweens",value:function(t){return e.registUpdater(),new j.default(t,W,0)}},{key:"serial",value:function(){e.registUpdater();for(var t=arguments.length,n=Array(t),r=0;r<t;r++)n[r]=arguments[r];return e.serialTweens(n)}},{key:"serialTweens",value:function(t){return e.registUpdater(),new F.default(t,W,0)}},{key:"reverse",value:function(t){var n=!(arguments.length>1&&void 0!==arguments[1])||arguments[1];e.registUpdater();var r=n?t.duration-t.position:0;return t instanceof E.default?new C.default(t.baseTween,r):(t.constructor==C.default&&(t=t.baseTween),new E.default(t,r))}},{key:"repeat",value:function(t,n){return e.registUpdater(),new I.default(t,n)}},{key:"scale",value:function(t,n){return e.registUpdater(),new N.default(t,n)}},{key:"slice",value:function(t,n,r){var i=arguments.length>3&&void 0!==arguments[3]&&arguments[3];return e.registUpdater(),i===!0&&(n=t.duration*n,r=t.duration*r),n>r?new E.default(new A.default(t,r,n),0):new A.default(t,n,r)}},{key:"delay",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:0;return e.registUpdater(),new X.default(t,n,r)}},{key:"addChild",value:function(t,n){return e.registUpdater(),new B.default(W,t,n)}},{key:"removeFromParent",value:function(t){return e.registUpdater(),new Y.default(W,t)}},{key:"func",value:function(t){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null,r=arguments.length>2&&void 0!==arguments[2]&&arguments[2],i=arguments.length>3&&void 0!==arguments[3]?arguments[3]:null,o=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null;return e.registUpdater(),new V.default(W,t,n,r,i,o)}},{key:"VERSION",get:function(){return"0.9.4 (Beta)"}}]),e}();t.default=G},358:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var o=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),a=n(359),s=r(a),u=new s.default,l=function(){function e(){i(this,e)}return o(e,null,[{key:"linear",get:function(){return u}},{key:"easeNone",get:function(){return u}},{key:"easeIn",get:function(){return u}},{key:"easeOut",get:function(){return u}},{key:"easeInOut",get:function(){return u}},{key:"easeOutIn",get:function(){return u}}]),e}();t.default=l},359:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(360),l=r(u),c=function(e){function t(){return i(this,t),o(this,(t.__proto__||Object.getPrototypeOf(t)).apply(this,arguments))}return a(t,e),s(t,[{key:"calculate",value:function(e,t,n,r){return n*e/r+t}}]),t}(l.default);t.default=c},360:function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),i=function(){function e(){n(this,e)}return r(e,[{key:"calculate",value:function(e,t,n,r){}}]),e}();t.default=i},361:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var o=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),a=n(362),s=r(a),u=n(364),l=r(u),c=new s.default,f=function(){function e(){i(this,e),this._first=null,this._numListeners=0,this._tickerListenerPaddings=[],this._time=void 0;for(var t=null,n=0;n<10;++n){var r=new l.default;null!=t&&(t.nextListener=r,r.prevListener=t),t=r,this._tickerListenerPaddings[n]=r}c.add(this.update,this)}return o(e,[{key:"addTickerListener",value:function(e){null==e.nextListener&&null==e.prevListener&&(null!=this._first&&(null!=this._first.prevListener&&(this._first.prevListener.nextListener=e,e.prevListener=this._first.prevListener),e.nextListener=this._first,this._first.prevListener=e),this._first=e,++this._numListeners)}},{key:"removeTickerListener",value:function(e){for(var t=this._first;null!=t;)t==e&&(null!=t.prevListener?(t.prevListener.nextListener=t.nextListener,t.nextListener=null):this._first=t.nextListener,null!=t.nextListener&&(t.nextListener.prevListener=t.prevListener,t.prevListener=null),--this._numListeners),t=t.nextListener}},{key:"start",value:function(){this._time=getTimer()/1e3,c.start()}},{key:"stop",value:function(){c.stop()}},{key:"update",value:function(e){var t=this._time=getTimer()/1e3,n=8-this._numListeners%8,r=this._tickerListenerPaddings[0],i=this._tickerListenerPaddings[n],o=null;for(null!=(i.nextListener=this._first)&&(this._first.prevListener=i);null!=r.nextListener;)(r=r.nextListener).tick(t)&&(null!=r.prevListener&&(r.prevListener.nextListener=r.nextListener),null!=r.nextListener&&(r.nextListener.prevListener=r.prevListener),o=r.prevListener,r.nextListener=null,r.prevListener=null,r=o,--this._numListeners),(r=r.nextListener).tick(t)&&(null!=r.prevListener&&(r.prevListener.nextListener=r.nextListener),null!=r.nextListener&&(r.nextListener.prevListener=r.prevListener),o=r.prevListener,r.nextListener=null,r.prevListener=null,r=o,--this._numListeners),(r=r.nextListener).tick(t)&&(null!=r.prevListener&&(r.prevListener.nextListener=r.nextListener),null!=r.nextListener&&(r.nextListener.prevListener=r.prevListener),o=r.prevListener,r.nextListener=null,r.prevListener=null,r=o,--this._numListeners),(r=r.nextListener).tick(t)&&(null!=r.prevListener&&(r.prevListener.nextListener=r.nextListener),null!=r.nextListener&&(r.nextListener.prevListener=r.prevListener),o=r.prevListener,r.nextListener=null,r.prevListener=null,r=o,--this._numListeners),(r=r.nextListener).tick(t)&&(null!=r.prevListener&&(r.prevListener.nextListener=r.nextListener),null!=r.nextListener&&(r.nextListener.prevListener=r.prevListener),o=r.prevListener,r.nextListener=null,r.prevListener=null,r=o,--this._numListeners),(r=r.nextListener).tick(t)&&(null!=r.prevListener&&(r.prevListener.nextListener=r.nextListener),null!=r.nextListener&&(r.nextListener.prevListener=r.prevListener),o=r.prevListener,r.nextListener=null,r.prevListener=null,r=o,--this._numListeners),(r=r.nextListener).tick(t)&&(null!=r.prevListener&&(r.prevListener.nextListener=r.nextListener),null!=r.nextListener&&(r.nextListener.prevListener=r.prevListener),o=r.prevListener,r.nextListener=null,r.prevListener=null,r=o,--this._numListeners),(r=r.nextListener).tick(t)&&(null!=r.prevListener&&(r.prevListener.nextListener=r.nextListener),null!=r.nextListener&&(r.nextListener.prevListener=r.prevListener),o=r.prevListener,r.nextListener=null,r.prevListener=null,r=o,--this._numListeners);null!=(this._first=i.nextListener)&&(this._first.prevListener=null),i.nextListener=this._tickerListenerPaddings[n+1]}},{key:"time",get:function(){return this._time}}]),e}();t.default=f},362:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var o=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),a=n(363),s=r(a),u="tick",l=.06,c=function(){function e(){var t=this;i(this,e),this._emitter=new s.default,this._requestId=null,this._maxElapsedMS=100,this.autoStart=!1,this.deltaTime=1,this.elapsedMS=1/l,this.lastTime=0,this.speed=1,this.started=!1,this._tick=function(e){t._requestId=null,t.started&&(t.update(e),t.started&&null===t._requestId&&t._emitter.listeners(u,!0)&&(t._requestId=requestAnimationFrame(t._tick)))}}return o(e,[{key:"_requestIfNeeded",value:function(){null===this._requestId&&this._emitter.listeners(u,!0)&&(this.lastTime=performance.now(),this._requestId=requestAnimationFrame(this._tick))}},{key:"_cancelIfNeeded",value:function(){null!==this._requestId&&(cancelAnimationFrame(this._requestId),this._requestId=null)}},{key:"_startIfPossible",value:function(){this.started?this._requestIfNeeded():this.autoStart&&this.start()}},{key:"add",value:function(e,t){return this._emitter.on(u,e,t),this._startIfPossible(),this}},{key:"addOnce",value:function(e,t){return this._emitter.once(u,e,t),this._startIfPossible(),this}},{key:"remove",value:function(e,t){return this._emitter.off(u,e,t),this._emitter.listeners(u,!0)||this._cancelIfNeeded(),this}},{key:"start",value:function(){this.started||(this.started=!0,this._requestIfNeeded())}},{key:"stop",value:function(){this.started&&(this.started=!1,this._cancelIfNeeded())}},{key:"update",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:performance.now(),t=void 0;e>this.lastTime?(t=this.elapsedMS=e-this.lastTime,t>this._maxElapsedMS&&(t=this._maxElapsedMS),this.deltaTime=t*l*this.speed,this._emitter.emit(u,this.deltaTime)):this.deltaTime=this.elapsedMS=0,this.lastTime=e}},{key:"FPS",get:function(){return 1e3/this.elapsedMS}},{key:"minFPS",get:function(){return 1e3/this._maxElapsedMS},set:function(e){var t=Math.min(Math.max(0,e)/1e3,l);this._maxElapsedMS=1/t}}]),e}();t.default=c},363:function(e,t,n){"use strict";function r(){}function i(e,t,n){this.fn=e,this.context=t,this.once=n||!1}function o(){this._events=new r,this._eventsCount=0}var a=Object.prototype.hasOwnProperty,s="~";Object.create&&(r.prototype=Object.create(null),(new r).__proto__||(s=!1)),o.prototype.eventNames=function(){var e,t,n=[];if(0===this._eventsCount)return n;for(t in e=this._events)a.call(e,t)&&n.push(s?t.slice(1):t);return Object.getOwnPropertySymbols?n.concat(Object.getOwnPropertySymbols(e)):n},o.prototype.listeners=function(e,t){var n=s?s+e:e,r=this._events[n];if(t)return!!r;if(!r)return[];if(r.fn)return[r.fn];for(var i=0,o=r.length,a=new Array(o);i<o;i++)a[i]=r[i].fn;return a},o.prototype.emit=function(e,t,n,r,i,o){var a=s?s+e:e;if(!this._events[a])return!1;var u,l,c=this._events[a],f=arguments.length;if(c.fn){switch(c.once&&this.removeListener(e,c.fn,void 0,!0),f){case 1:return c.fn.call(c.context),!0;case 2:return c.fn.call(c.context,t),!0;case 3:return c.fn.call(c.context,t,n),!0;case 4:return c.fn.call(c.context,t,n,r),!0;case 5:return c.fn.call(c.context,t,n,r,i),!0;case 6:return c.fn.call(c.context,t,n,r,i,o),!0}for(l=1,u=new Array(f-1);l<f;l++)u[l-1]=arguments[l];c.fn.apply(c.context,u)}else{var h,p=c.length;for(l=0;l<p;l++)switch(c[l].once&&this.removeListener(e,c[l].fn,void 0,!0),f){case 1:c[l].fn.call(c[l].context);break;case 2:c[l].fn.call(c[l].context,t);break;case 3:c[l].fn.call(c[l].context,t,n);break;case 4:c[l].fn.call(c[l].context,t,n,r);break;default:if(!u)for(h=1,u=new Array(f-1);h<f;h++)u[h-1]=arguments[h];c[l].fn.apply(c[l].context,u)}}return!0},o.prototype.on=function(e,t,n){var r=new i(t,n||this),o=s?s+e:e;return this._events[o]?this._events[o].fn?this._events[o]=[this._events[o],r]:this._events[o].push(r):(this._events[o]=r,this._eventsCount++),this},o.prototype.once=function(e,t,n){var r=new i(t,n||this,!0),o=s?s+e:e;return this._events[o]?this._events[o].fn?this._events[o]=[this._events[o],r]:this._events[o].push(r):(this._events[o]=r,this._eventsCount++),this},o.prototype.removeListener=function(e,t,n,i){var o=s?s+e:e;if(!this._events[o])return this;if(!t)return 0===--this._eventsCount?this._events=new r:delete this._events[o],this;var a=this._events[o];if(a.fn)a.fn!==t||i&&!a.once||n&&a.context!==n||(0===--this._eventsCount?this._events=new r:delete this._events[o]);else{for(var u=0,l=[],c=a.length;u<c;u++)(a[u].fn!==t||i&&!a[u].once||n&&a[u].context!==n)&&l.push(a[u]);l.length?this._events[o]=1===l.length?l[0]:l:0===--this._eventsCount?this._events=new r:delete this._events[o]}return this},o.prototype.removeAllListeners=function(e){
-var t;return e?(t=s?s+e:e,this._events[t]&&(0===--this._eventsCount?this._events=new r:delete this._events[t])):(this._events=new r,this._eventsCount=0),this},o.prototype.off=o.prototype.removeListener,o.prototype.addListener=o.prototype.on,o.prototype.setMaxListeners=function(){return this},o.prefixed=s,o.EventEmitter=o,e.exports=o},364:function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),i=function(){function e(){n(this,e),this.prevListener=null,this.nextListener=null}return r(e,[{key:"tick",value:function(e){return!1}}]),e}();t.default=i},365:function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),i=function(){function e(){n(this,e),this._classes={},this._subclasses={}}return r(e,[{key:"registerClassWithTargetClassAndPropertyName",value:function(e,t,n){void 0==this._classes[t]&&this.buildCacheFor(t);var r=this._classes,i=r[t][n];r[t][n]=e;var o=this._subclasses[t];if(null!=o)for(var a=o.length,s=0;s<a;++s){var u=o[s];r[u][n]==i&&(r[u][n]=e)}}},{key:"registerClassWithTargetClassAndPropertyNames",value:function(e,t,n){for(var r=n.length,i=0;i<r;++i)this.registerClassWithTargetClassAndPropertyName(e,t,n[i])}},{key:"getClassByTargetClassAndPropertyName",value:function(e,t){var n,r=this._classes[e];return null==r?(this.buildCacheFor(e),this.getClassByTargetClassAndPropertyName(e,t)):null!=(n=r[t])?n:null!=(n=r["*"])?n:null}},{key:"buildCacheFor",value:function(e){for(var t=this._classes,n=this._subclasses,r={},i=this.getClassTree(e),o=i.length,a=o;--a>=0;){var s,u=i[a],l=t[u];if(null!=l){var c={};if(null!=r)for(s in r)c[s]=r[s],s in l||(l[s]=r[s]);for(s in l)c[s]=l[s];r=c}else{var f={};for(s in r)f[s]=r[s];t[u]=f}if(void 0!=n[u])for(var h=n[u],p=a-1;p>=0;--p){var _=i[p];h.indexOf(_)==-1&&h.push(_)}else n[u]=i.slice(0,a)}}},{key:"getClassTree",value:function(e){var t,n=e;try{t=e.prototype}catch(t){return[e,Object]}for(var r=[];null!=n;)if(r.push(n),t=Object.getPrototypeOf(t),null!=t)try{n=t.constructor}catch(e){n=Object}else n=null;return r}}]),e}();t.default=i},366:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var o=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),a=n(367),s=r(a),u=n(369),l=r(u),c=n(371),f=r(c),h=n(373),p=r(h),_=n(374),d=r(_),y=n(375),v=r(y),g=n(365),b=(r(g),function(){function e(t){i(this,e),this._registry=t,this._poolIndex=0,this._mapPool=[],this._listPool=[]}return o(e,[{key:"create",value:function(e,t,n){var r,i,o,a,u,l,c,f;if(this._poolIndex>0?(--this._poolIndex,r=this._mapPool[this._poolIndex],i=this._listPool[this._poolIndex]):(r=[],i=[]),null!=n)for(o in n)"number"==typeof(a=n[o])?((u=/^\$/.test(o))&&(o=o.substr(1)),this.getUpdaterFor(e,o,r,i).setSourceValue(o,Number(a),u)):(l=this.getUpdaterFor(e,o,r,i),c=this.create(l.getObject(o),null!=t?t[o]:null,a),i.push(new s.default(l,c,o)));if(null!=t)for(o in t)"number"==typeof(a=t[o])?((u=/^\$/.test(o))&&(o=o.substr(1)),this.getUpdaterFor(e,o,r,i).setDestinationValue(o,Number(a),u)):null!=n&&o in n||(l=this.getUpdaterFor(e,o,r,i),c=this.create(l.getObject(o),a,null!=n?n[o]:null),i.push(new s.default(l,c,o)));1==i.length?f=i[0]:i.length>1&&(f=new p.default(e,i));for(var h in r)delete r[h];return i.length=0,this._mapPool[this._poolIndex]=r,this._listPool[this._poolIndex]=i,++this._poolIndex,f}},{key:"getUpdaterFor",value:function(e,t,n,r){var i=this._registry.getClassByTargetClassAndPropertyName(e.constructor,t);if(null!=i){var o=n[i];return null==o&&(o=new i,o.target=e,n[i]=o,null!=r&&r.push(o)),o}return null}},{key:"createBezier",value:function(e,t,n,r){var i,o,a,u,c,f,h,_,d={},y=[],v=new l.default;if(v.target=e,y.push(v),null!=n)for(i in n)"number"==typeof(o=n[i])?((a=/^\$/.test(i))&&(i=i.substr(1)),v.setSourceValue(i,Number(o),a)):d[i]||(h=this.createBezier(v.getObject(i),null!=t?t[i]:null,o,null!=r?r[i]:null),y.push(new s.default(v,h,i)),d[i]=!0);if(null!=t)for(i in t)"number"==typeof(o=t[i])?((a=/^\$/.test(i))&&(i=i.substr(1)),v.setDestinationValue(i,Number(o),a)):d[i]||(h=this.createBezier(v.getObject(i),null,null!=n?n[i]:null,null!=r?r[i]:null),y.push(new s.default(v,h,i)),d[i]=!0);if(null!=r)for(i in r)if("number"==typeof(o=r[i])&&(o=[o]),Array.isArray(o))for((a=/^\$/.test(i))&&(i=i.substr(1)),u=o,c=u.length,f=0;f<c;++f)v.addControlPoint(i,u[f],a);else d[i]||(h=this.createBezier(v.getObject(i),null!=t?t[i]:null,null!=n?n[i]:null,o),y.push(new s.default(v,h,i)),d[i]=!0);return 1==y.length?_=y[0]:y.length>1&&(_=new p.default(e,y)),_}},{key:"createPhysical",value:function(e,t,n,r){var i,o,a,s,u,l={},c=[],h=new f.default;if(h.target=e,h.easing=r,c.push(h),null!=n)for(i in n)"number"==typeof(o=n[i])?((a=/^\$/.test(i))&&(i=i.substr(1)),h.setSourceValue(i,Number(o),a)):l[i]||(s=this.createPhysical(h.getObject(i),null!=t?t[i]:null,o,r),c.push(new d.default(h,s,i)),l[i]=!0);if(null!=t)for(i in t)"number"==typeof(o=t[i])?((a=/^\$/.test(i))&&(i=i.substr(1)),h.setDestinationValue(i,Number(o),a)):l[i]||(s=this.createPhysical(h.getObject(i),null,null!=n?n[i]:null,r),c.push(new d.default(h,s,i)),l[i]=!0);return 1==c.length?u=c[0]:c.length>1&&(u=new v.default(e,c)),u}}]),e}());t.default=b},367:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(368),l=r(u),c=function(e){function t(e,n,r){i(this,t);var a=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return a._parent=e,a._child=n,a._propertyName=r,a}return a(t,e),s(t,[{key:"update",value:function(e){this._child.update(e),this._parent.setObject(this._propertyName,this._child.target)}},{key:"clone",value:function(){return new t(this._parent,this._child,this._propertyName)}},{key:"parent",get:function(){return this._parent}},{key:"child",get:function(){return this._child}}]),t}(l.default);t.default=c},368:function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),i=function(){function e(){n(this,e)}return r(e,[{key:"setSourceValue",value:function(e,t){arguments.length>2&&void 0!==arguments[2]&&arguments[2]}},{key:"setDestinationValue",value:function(e,t){arguments.length>2&&void 0!==arguments[2]&&arguments[2]}},{key:"getObject",value:function(e){return null}},{key:"setObject",value:function(e,t){}},{key:"update",value:function(e){}},{key:"clone",value:function(){return null}},{key:"target",get:function(){return null},set:function(e){}}]),e}();t.default=i},369:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=function e(t,n,r){null===t&&(t=Function.prototype);var i=Object.getOwnPropertyDescriptor(t,n);if(void 0===i){var o=Object.getPrototypeOf(t);return null===o?void 0:e(o,n,r)}if("value"in i)return i.value;var a=i.get;if(void 0!==a)return a.call(r)},l=n(370),c=r(l),f=function(e){function t(){i(this,t);var e=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return e._target=null,e._source={},e._destination={},e._controlPoint={},e._relativeMap={},e}return a(t,e),s(t,[{key:"addControlPoint",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2],r=this._controlPoint[e];null==r&&(this._controlPoint[e]=r=[]),r.push(t),this._relativeMap["cp."+e+"."+r.length]=n}},{key:"setSourceValue",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];this._source[e]=t,this._relativeMap["source."+e]=n}},{key:"setDestinationValue",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];this._destination[e]=t,this._relativeMap["dest."+e]=n}},{key:"getObject",value:function(e){return this._target[e]}},{key:"setObject",value:function(e,t){this._target[e]=t}},{key:"resolveValues",value:function(){var e,t,n,r,i=this._target,o=this._source,a=this._destination,s=this._controlPoint,u=this._relativeMap;for(e in o)void 0==a[e]&&(a[e]=i[e]),u["source."+e]&&(o[e]+=i[e]);for(e in a)void 0==o[e]&&(o[e]=i[e]),u["dest."+e]&&(a[e]+=i[e]);for(e in s)for(t=s[e],n=t.length,r=0;r<n;++r)u["cp."+e+"."+r]&&(t[r]+=i[e])}},{key:"updateObject",value:function(e){var t,n,r,i,o,a,s,u,l=1-e,c=this._target,f=this._destination,h=this._source;this._controlPoint;for(u in f)t=h[u],1!=e&&null!=(n=this._controlPoint[u])?1==(r=n.length)?c[u]=t+e*(2*l*(n[0]-t)+e*(f[u]-t)):(i=e*r>>0,o=(e-i*(1/r))*r,0==i?(a=t,s=(n[0]+n[1])/2):i==r-1?(a=(n[i-1]+n[i])/2,s=f[u]):(a=(n[i-1]+n[i])/2,s=(n[i]+n[i+1])/2),c[u]=a+o*(2*(1-o)*(n[i]-a)+o*(s-a))):c[u]=t*l+f[u]*e}},{key:"newInstance",value:function(){return new t}},{key:"copyFrom",value:function(e){u(t.prototype.__proto__||Object.getPrototypeOf(t.prototype),"copyFrom",this).call(this,e);var n=e;this._target=n._target,this.copyObject(this._source,n._source),this.copyObject(this._destination,n._destination),this.copyObject(this._controlPoint,n._controlPoint),this.copyObject(this._relativeMap,n._relativeMap)}},{key:"copyObject",value:function(e,t){for(var n in t)e[n]=t[n]}},{key:"target",get:function(){return this._target},set:function(e){this._target=e}}]),t}(c.default);t.default=f},370:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(368),l=r(u),c=function(e){function t(){i(this,t);var e=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return e._isResolved=!1,e}return a(t,e),s(t,[{key:"setSourceValue",value:function(e,t){arguments.length>2&&void 0!==arguments[2]&&arguments[2]}},{key:"setDestinationValue",value:function(e,t){arguments.length>2&&void 0!==arguments[2]&&arguments[2]}},{key:"getObject",value:function(e){return null}},{key:"setObject",value:function(e,t){}},{key:"update",value:function(e){this._isResolved===!1&&(this.resolveValues(),this._isResolved=!0),this.updateObject(e)}},{key:"resolveValues",value:function(){}},{key:"updateObject",value:function(e){}},{key:"clone",value:function(){var e=this.newInstance();return null!=e&&e.copyFrom(this),e}},{key:"newInstance",value:function(){return null}},{key:"copyFrom",value:function(e){}},{key:"target",get:function(){return null},set:function(e){}}]),t}(l.default);t.default=c},371:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(372),l=r(u),c=function(e){function t(){i(this,t);var e=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return e._target=null,e._source={},e._destination={},e._relativeMap={},e._easing=null,e._duration={},e._maxDuration=0,e._isResolved=!1,e}return a(t,e),s(t,[{key:"setSourceValue",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];this._source[e]=t,this._relativeMap["source."+e]=n}},{key:"setDestinationValue",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];this._destination[e]=t,this._relativeMap["dest."+e]=n}},{key:"getObject",value:function(e){return this._target[e]}},{key:"setObject",value:function(e,t){this._target[e]=t}},{key:"resolveValues",value:function(){var e,t,n=this._target,r=this._source,i=this._destination,o=this._relativeMap,a=this._duration,s=0;for(e in r)void 0==i[e]&&(i[e]=n[e]),o["source."+e]&&(r[e]+=n[e]);for(e in i)void 0==r[e]&&(r[e]=n[e]),o["dest."+e]&&(i[e]+=n[e]),t=this._easing.getDuration(r[e],i[e]-r[e]),a[e]=t,s<t&&(s=t);this._maxDuration=s,this._isResolved=!0}},{key:"update",value:function(e){this._isResolved===!1&&this.resolveValues();var t,n,r=this._target,i=this._easing,o=this._destination,a=this._source,s=this._duration;for(n in o)e>=s[n]?r[n]=o[n]:(t=a[n],r[n]=i.calculate(e,t,o[n]-t))}},{key:"clone",value:function(){var e=this.newInstance();return null!=e&&e.copyFrom(this),e}},{key:"newInstance",value:function(){return new t}},{key:"copyFrom",value:function(e){var t=e;this._target=t._target,this._easing=t._easing,this.copyObject(this._source,t._source),this.copyObject(this._destination,t._destination),this.copyObject(this._relativeMap,t._relativeMap)}},{key:"copyObject",value:function(e,t){for(var n in t)e[n]=t[n]}},{key:"target",get:function(){return this._target},set:function(e){this._target=e}},{key:"easing",get:function(){return this._easing},set:function(e){this._easing=e}},{key:"duration",get:function(){return this._isResolved===!1&&this.resolveValues(),this._maxDuration}}]),t}(l.default);t.default=c},372:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(368),l=r(u),c=function(e){function t(){return i(this,t),o(this,(t.__proto__||Object.getPrototypeOf(t)).apply(this,arguments))}return a(t,e),s(t,[{key:"easing",get:function(){return null},set:function(e){}},{key:"duration",get:function(){return null}}]),t}(l.default);t.default=c},373:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(368),l=r(u),c=function(e){function t(e,n){i(this,t);var r=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));r._target=null,r._a=void 0,r._b=void 0,r._c=void 0,r._d=void 0,r._updaters=void 0,r._target=e;var a=n.length;if(a>=1&&(r._a=n[0],a>=2&&(r._b=n[1],a>=3&&(r._c=n[2],a>=4&&(r._d=n[3],a>=5))))){r._updaters=[];for(var s=4;s<a;++s)r._updaters[s-4]=n[s]}return r}return a(t,e),s(t,[{key:"getUpdaterAt",value:function(e){return 0==e?this._a:1==e?this._b:2==e?this._c:3==e?this._d:this._updaters[e-4]}},{key:"update",value:function(e){if(null!=this._a&&(this._a.update(e),null!=this._b&&(this._b.update(e),null!=this._c&&(this._c.update(e),null!=this._d&&(this._d.update(e),null!=this._updaters)))))for(var t=this._updaters,n=t.length,r=0;r<n;++r)t[r].update(e)}},{key:"clone",value:function(){var e=[];if(null!=this._a&&(e.push(this._a.clone()),null!=this._b&&(e.push(this._b.clone()),null!=this._c&&(e.push(this._c.clone()),null!=this._d&&(e.push(this._d.clone()),null!=this._updaters)))))for(var n=this._updaters,r=n.length,i=0;i<r;++i)e.push(n[i].clone());return new t(this._target,e)}},{key:"target",get:function(){return this._target},set:function(e){this._target=e}}]),t}(l.default);t.default=c},374:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(372),l=r(u),c=function(e){function t(e,n,r){i(this,t);var a=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return a._parent=e,a._child=n,a._propertyName=r,a._duration=n.duration,a}return a(t,e),s(t,[{key:"update",value:function(e){this._child.update(e),this._parent.setObject(this._propertyName,this._child.target)}},{key:"clone",value:function(){return new t(this._parent,this._child,this._propertyName)}},{key:"parent",get:function(){return this._parent}},{key:"child",get:function(){return this._child}},{key:"duration",get:function(){return this._duration}}]),t}(l.default);t.default=c},375:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(372),l=r(u),c=function(e){function t(e,n){i(this,t);var r=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));r._target=e,r._duration=0,r._a=void 0,r._b=void 0,r._c=void 0,r._d=void 0,r._updaters=void 0;var a=n.length;if(a>=1&&(r._a=n[0],r._duration<r._a.duration&&(r._duration=r._a.duration),a>=2&&(r._b=n[1],r._duration<r._b.duration&&(r._duration=r._b.duration),a>=3&&(r._c=n[2],r._duration<r._c.duration&&(r._duration=r._c.duration),a>=4&&(r._d=n[3],r._duration<r._d.duration&&(r._duration=r._d.duration),a>=5))))){r._updaters=[];for(var s=4;s<a;++s){var u=n[s];r._updaters[s-4]=u,r._duration<u.duration&&(r._duration=u.duration)}}return r}return a(t,e),s(t,[{key:"getUpdaterAt",value:function(e){return 0==e?this._a:1==e?this._b:2==e?this._c:3==e?this._d:this._updaters[e-4]}},{key:"update",value:function(e){if(null!=this._a&&(this._a.update(e),null!=this._b&&(this._b.update(e),null!=this._c&&(this._c.update(e),null!=this._d&&(this._d.update(e),null!=this._updaters)))))for(var t=this._updaters,n=t.length,r=0;r<n;++r)t[r].update(e)}},{key:"clone",value:function(){var e=[];if(null!=this._a&&(e.push(this._a.clone()),null!=this._b&&(e.push(this._b.clone()),null!=this._c&&(e.push(this._c.clone()),null!=this._d&&(e.push(this._d.clone()),null!=this._updaters)))))for(var n=this._updaters,r=n.length,i=0;i<r;++i)e.push(n[i].clone());return new t(this._target,e)}},{key:"target",get:function(){return this._target},set:function(e){this._target=e}},{key:"duration",get:function(){return this._duration}}]),t}(l.default);t.default=c},376:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=function e(t,n,r){null===t&&(t=Function.prototype);var i=Object.getOwnPropertyDescriptor(t,n);if(void 0===i){var o=Object.getPrototypeOf(t);return null===o?void 0:e(o,n,r)}if("value"in i)return i.value;var a=i.get;if(void 0!==a)return a.call(r)},l=n(377),c=r(l),f=function(e){function t(e){i(this,t);var n=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e,0));return n._easing=void 0,n._updater=void 0,n}return a(t,e),s(t,[{key:"internalUpdate",value:function(e){var t=0;e>0&&(t=e<this._duration?this._easing.calculate(e,0,1,this._duration):1),this._updater.update(t)}},{key:"newInstance",value:function(){return new t(this._ticker)}},{key:"copyFrom",value:function(e){u(t.prototype.__proto__||Object.getPrototypeOf(t.prototype),"copyFrom",this).call(this,e);var n=this.source;this._easing=n._easing,this._updater=n._updater.clone()}},{key:"time",get:function(){return this._duration},set:function(e){this._duration=e}},{key:"easing",get:function(){return this._easing},set:function(e){this._easing=e}},{key:"updater",get:function(){return this._updater},set:function(e){this._updater=e}},{key:"target",get:function(){return null!=this._updater?this._updater.target:null}}]),t}(c.default);t.default=f},377:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(378),l=r(u),c=n(364),f=r(c),h=n(379),p=r(h),_=function(e){function t(e){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0;i(this,t);var r=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return r._duration=0,r._startTime=void 0,r._isPlaying=!1,r._stopOnComplete=!0,r._dispatcher=void 0,r._willTriggerFlags=0,r._classicHandlers=void 0,r._ticker=e,r._position=n,r}return a(t,e),s(t,[{key:"getClassicHandlers",value:function(){return this._classicHandlers||(this._classicHandlers=new d)}},{key:"play",value:function(){if(!this._isPlaying){this._position>=this._duration&&(this._position=0);var e=this._ticker.time;this._startTime=e-this._position,this._isPlaying=!0,this._ticker.addTickerListener(this),0!=(1&this._willTriggerFlags)&&this._dispatcher.dispatchEvent(new l.default(l.default.PLAY)),null!=this._classicHandlers&&null!=this._classicHandlers.onPlay&&this._classicHandlers.onPlay.apply(null,this._classicHandlers.onPlayParams),this.tick(e)}}},{key:"firePlay",value:function(){0!=(1&this._willTriggerFlags)&&this._dispatcher.dispatchEvent(new l.default(l.default.PLAY)),null!=this._classicHandlers&&null!=this._classicHandlers.onPlay&&this._classicHandlers.onPlay.apply(null,this._classicHandlers.onPlayParams)}},{key:"stop",value:function(){this._isPlaying===!0&&(this._isPlaying=!1,0!=(2&this._willTriggerFlags)&&this._dispatcher.dispatchEvent(new l.default(l.default.STOP)),null!=this._classicHandlers&&null!=this._classicHandlers.onStop&&this._classicHandlers.onStop.apply(null,this._classicHandlers.onStopParams))}},{key:"fireStop",value:function(){0!=(2&this._willTriggerFlags)&&this._dispatcher.dispatchEvent(new l.default(l.default.STOP)),null!=this._classicHandlers&&null!=this._classicHandlers.onStop&&this._classicHandlers.onStop.apply(null,this._classicHandlers.onStopParams)}},{key:"togglePause",value:function(){this._isPlaying===!0?this.stop():this.play()}},{key:"gotoAndPlay",value:function(e){e<0&&(e=0),e>this._duration&&(e=this._duration),this._position=e,this.play()}},{key:"gotoAndStop",value:function(e){e<0&&(e=0),e>this._duration&&(e=this._duration),this._position=e,this.internalUpdate(e),0!=(4&this._willTriggerFlags)&&this._dispatcher.dispatchEvent(new l.default(l.default.UPDATE)),null!=this._classicHandlers&&null!=this._classicHandlers.onUpdate&&this._classicHandlers.onUpdate.apply(null,this._classicHandlers.onUpdateParams),this.stop()}},{key:"update",value:function(e){var t=!1;(this._position<this._duration&&this._duration<=e||0<this._position&&e<=0)&&(t=!0),this._position=e,this.internalUpdate(e),0!=(4&this._willTriggerFlags)&&this._dispatcher.dispatchEvent(new l.default(l.default.UPDATE)),null!=this._classicHandlers&&null!=this._classicHandlers.onUpdate&&this._classicHandlers.onUpdate.apply(null,this._classicHandlers.onUpdateParams),t&&(0!=(8&this._willTriggerFlags)&&this._dispatcher.dispatchEvent(new l.default(l.default.COMPLETE)),null!=this._classicHandlers&&null!=this._classicHandlers.onComplete&&this._classicHandlers.onComplete.apply(null,this._classicHandlers.onCompleteParams))}},{key:"tick",value:function(e){if(!this._isPlaying)return!0;var t=e-this._startTime;if(this._position=t,this.internalUpdate(t),0!=(4&this._willTriggerFlags)&&this._dispatcher.dispatchEvent(new l.default(l.default.UPDATE)),null!=this._classicHandlers&&null!=this._classicHandlers.onUpdate&&this._classicHandlers.onUpdate.apply(null,this._classicHandlers.onUpdateParams),this._isPlaying===!0){if(t>=this._duration){if(this._position=this._duration,this._stopOnComplete)return this._isPlaying=!1,0!=(8&this._willTriggerFlags)&&this._dispatcher.dispatchEvent(new l.default(l.default.COMPLETE)),null!=this._classicHandlers&&null!=this._classicHandlers.onComplete&&this._classicHandlers.onComplete.apply(null,this._classicHandlers.onCompleteParams),!0;0!=(8&this._willTriggerFlags)&&this._dispatcher.dispatchEvent(new l.default(l.default.COMPLETE)),null!=this._classicHandlers&&null!=this._classicHandlers.onComplete&&this._classicHandlers.onComplete.apply(null,this._classicHandlers.onCompleteParams),this._position=t-this._duration,this._startTime=e-this._position,this.tick(e)}return!1}return!0}},{key:"internalUpdate",value:function(e){}},{key:"clone",value:function(){var e=this.newInstance();return null!=e&&e.copyFrom(this),e}},{key:"newInstance",value:function(){return null}},{key:"copyFrom",value:function(e){this._ticker=e._ticker,this._duration=e._duration,this._stopOnComplete=e._stopOnComplete,null!=e._classicHandlers&&(this._classicHandlers=new d,this._classicHandlers.copyFrom(e._classicHandlers)),
-null!=e._dispatcher&&(this._dispatcher=new p.default(this),this._dispatcher.copyFrom(e._dispatcher)),this._willTriggerFlags=e._willTriggerFlags}},{key:"addEventListener",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2],r=arguments.length>3&&void 0!==arguments[3]?arguments[3]:0,i=arguments.length>4&&void 0!==arguments[4]&&arguments[4];null==this._dispatcher&&(this._dispatcher=new p.default(this)),this._dispatcher.addEventListener(e,t,n,r,i),this.updateWillTriggerFlags()}},{key:"dispatchEvent",value:function(e){return null!=this._dispatcher&&this._dispatcher.dispatchEvent(e)}},{key:"hasEventListener",value:function(e){return null!=this._dispatcher&&this._dispatcher.hasEventListener(e)}},{key:"removeEventListener",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];null!=this._dispatcher&&(this._dispatcher.removeEventListener(e,t,n),this.updateWillTriggerFlags())}},{key:"willTrigger",value:function(e){return null!=this._dispatcher&&this._dispatcher.willTrigger(e)}},{key:"updateWillTriggerFlags",value:function(){this._dispatcher.willTrigger(l.default.PLAY)?this._willTriggerFlags|=1:this._willTriggerFlags&=-2,this._dispatcher.willTrigger(l.default.STOP)?this._willTriggerFlags|=2:this._willTriggerFlags&=-3,this._dispatcher.willTrigger(l.default.UPDATE)?this._willTriggerFlags|=4:this._willTriggerFlags&=-5,this._dispatcher.willTrigger(l.default.COMPLETE)?this._willTriggerFlags|=8:this._willTriggerFlags&=-9}},{key:"ticker",get:function(){return this._ticker}},{key:"duration",get:function(){return this._duration}},{key:"position",get:function(){return this._position}},{key:"isPlaying",get:function(){return this._isPlaying}},{key:"stopOnComplete",get:function(){return this._stopOnComplete},set:function(e){this._stopOnComplete=e}},{key:"onPlay",get:function(){return null!=this._classicHandlers?this._classicHandlers.onPlay:null},set:function(e){this.getClassicHandlers().onPlay=e}},{key:"onPlayParams",get:function(){return null!=this._classicHandlers?this._classicHandlers.onPlayParams:null},set:function(e){this.getClassicHandlers().onPlayParams=e}},{key:"onStop",get:function(){return null!=this._classicHandlers?this._classicHandlers.onStop:null},set:function(e){this.getClassicHandlers().onStop=e}},{key:"onStopParams",get:function(){return null!=this._classicHandlers?this._classicHandlers.onStopParams:null},set:function(e){this.getClassicHandlers().onStopParams=e}},{key:"onUpdate",get:function(){return null!=this._classicHandlers?this._classicHandlers.onUpdate:null},set:function(e){this.getClassicHandlers().onUpdate=e}},{key:"onUpdateParams",get:function(){return null!=this._classicHandlers?this._classicHandlers.onUpdateParams:null},set:function(e){this.getClassicHandlers().onUpdateParams=e}},{key:"onComplete",get:function(){return null!=this._classicHandlers?this._classicHandlers.onComplete:null},set:function(e){this.getClassicHandlers().onComplete=e}},{key:"onCompleteParams",get:function(){return null!=this._classicHandlers?this._classicHandlers.onCompleteParams:null},set:function(e){this.getClassicHandlers().onCompleteParams=e}}]),t}(f.default);t.default=_;var d=function(){function e(){i(this,e),this.onPlay=void 0,this.onPlayParams=void 0,this.onStop=void 0,this.onStopParams=void 0,this.onUpdate=void 0,this.onUpdateParams=void 0,this.onComplete=void 0,this.onCompleteParams=void 0}return s(e,[{key:"copyFrom",value:function(e){this.onPlay=e.onPlay,this.onPlayParams=e.onPlayParams,this.onStop=e.onStop,this.onStopParams=e.onStopParams,this.onUpdate=e.onUpdate,this.onUpdateParams=e.onUpdateParams,this.onComplete=e.onComplete,this.onCompleteParams=e.onCompleteParams}}]),e}()},378:function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),i=function(){function e(t){var r=arguments.length>1&&void 0!==arguments[1]&&arguments[1],i=arguments.length>2&&void 0!==arguments[2]&&arguments[2];n(this,e),this.type=t,this.bubbles=r,this.cancelable=i}return r(e,null,[{key:"PLAY",get:function(){return"play"}},{key:"STOP",get:function(){return"stop"}},{key:"UPDATE",get:function(){return"update"}},{key:"COMPLETE",get:function(){return"complete"}}]),e}();t.default=i},379:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(363),l=r(u),c=function(e){function t(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:null;i(this,t);var n=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return n.target=e||n,n._listeners={},n}return a(t,e),s(t,[{key:"addEventListener",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2],r=arguments.length>3&&void 0!==arguments[3]?arguments[3]:0,i=arguments.length>4&&void 0!==arguments[4]&&arguments[4];this.on(e,t,this.target);var o=new f;o.listener=t,o.useCapture=n,o.priority=r,o.useWeakReference=i,(this._listeners[e]||(this._listeners[e]=[])).push(o)}},{key:"removeEventListener",value:function(e,t){arguments.length>2&&void 0!==arguments[2]&&arguments[2];this.off(e,t,this.target);var n=this._listeners[e];if(null!=n)for(var r=n.length,i=0;i<r;++i){var o=n[i];o.listener==t&&(n.splice(i,1),--i,--r)}}},{key:"hasEventListener",value:function(e){return null!=this._listeners[e]}},{key:"copyFrom",value:function(e){var t=e._listeners;for(var n in t)for(var r=t[n],i=r.length,o=0;o<i;++o){var a=r[o];this.addEventListener(n,a.listener,a.useCapture,a.priority,a.useWeakReference)}}}]),t}(l.default);t.default=c;var f=function e(){i(this,e),this.listener=void 0,this.useCapture=void 0,this.priority=void 0,this.useWeakReference=void 0}},380:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function e(t,n,r){null===t&&(t=Function.prototype);var i=Object.getOwnPropertyDescriptor(t,n);if(void 0===i){var o=Object.getPrototypeOf(t);return null===o?void 0:e(o,n,r)}if("value"in i)return i.value;var a=i.get;if(void 0!==a)return a.call(r)},u=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),l=n(370),c=r(l),f=function(e){function t(){i(this,t);var e=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return e._target=null,e._source={},e._destination={},e._relativeMap={},e}return a(t,e),u(t,null,[{key:"register",value:function(e){e.registerClassWithTargetClassAndPropertyName(t,Object,"*")}}]),u(t,[{key:"setSourceValue",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];this._source[e]=t,this._relativeMap["source."+e]=n}},{key:"setDestinationValue",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];this._destination[e]=t,this._relativeMap["dest."+e]=n}},{key:"getObject",value:function(e){return this._target[e]}},{key:"setObject",value:function(e,t){this._target[e]=t}},{key:"resolveValues",value:function(){var e,t=this._target,n=this._source,r=this._destination,i=this._relativeMap;for(e in n)void 0==r[e]&&(r[e]=t[e]),i["source."+e]&&(n[e]+=t[e]);for(e in r)void 0==n[e]&&(n[e]=t[e]),i["dest."+e]&&(r[e]+=t[e])}},{key:"updateObject",value:function(e){var t,n=1-e,r=this._target,i=this._destination,o=this._source;for(t in i)r[t]=o[t]*n+i[t]*e}},{key:"newInstance",value:function(){return new t}},{key:"copyFrom",value:function(e){s(t.prototype.__proto__||Object.getPrototypeOf(t.prototype),"copyFrom",this).call(this,e);var n=e;this._target=n._target,this.copyObject(this._source,n._source),this.copyObject(this._destination,n._destination),this.copyObject(this._relativeMap,n._relativeMap)}},{key:"copyObject",value:function(e,t){for(var n in t)e[n]=t[n]}},{key:"target",get:function(){return this._target},set:function(e){this._target=e}}]),t}(c.default);t.default=f},381:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function e(t,n,r){null===t&&(t=Function.prototype);var i=Object.getOwnPropertyDescriptor(t,n);if(void 0===i){var o=Object.getPrototypeOf(t);return null===o?void 0:e(o,n,r)}if("value"in i)return i.value;var a=i.get;if(void 0!==a)return a.call(r)},u=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),l=n(370),c=r(l),f=["x","y","scaleX","scaleY","rotation","alpha","width","height","skewX","skewY","_blurFilter","_blurXFilter","_blurYFilter","_colorMatrixFilter","_displacementMapFilter","_fxaaFilter","_noiseFilter","_voidFilter"],h=function(e){function t(){i(this,t);var e=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return e._target=null,e._source=new p,e._destination=new p,e._flags=0,e}return a(t,e),u(t,null,[{key:"register",value:function(e){e.registerClassWithTargetClassAndPropertyNames(t,_,f),"undefined"!=typeof PIXI&&e.registerClassWithTargetClassAndPropertyNames(t,PIXI.DisplayObject,f)}}]),u(t,[{key:"setSourceValue",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];"x"==e?(this._flags|=1,this._source.relativeFlags|=n?1:0,this._source.x=t):"y"==e?(this._flags|=2,this._source.relativeFlags|=n?2:0,this._source.y=t):"scaleX"==e?(this._flags|=4,this._source.relativeFlags|=n?8:0,this._source.scaleX=t):"scaleY"==e?(this._flags|=8,this._source.relativeFlags|=n?16:0,this._source.scaleY=t):"rotation"==e?(this._flags|=16,this._source.relativeFlags|=n?32:0,this._source.rotation=t):"alpha"==e?(this._flags|=32,this._source.relativeFlags|=n?64:0,this._source.alpha=t):"width"==e?(this._flags|=64,this._source.relativeFlags|=n?128:0,this._source.width=t):"height"==e?(this._flags|=128,this._source.relativeFlags|=n?256:0,this._source.height=t):"skewX"==e?(this._flags|=256,this._source.relativeFlags|=n?1024:0,this._source.skewX=t):"skewY"==e&&(this._flags|=512,this._source.relativeFlags|=n?2048:0,this._source.skewY=t)}},{key:"setDestinationValue",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];"x"==e?(this._flags|=1,this._destination.relativeFlags|=n?1:0,this._destination.x=t):"y"==e?(this._flags|=2,this._destination.relativeFlags|=n?2:0,this._destination.y=t):"scaleX"==e?(this._flags|=4,this._destination.relativeFlags|=n?8:0,this._destination.scaleX=t):"scaleY"==e?(this._flags|=8,this._destination.relativeFlags|=n?16:0,this._destination.scaleY=t):"rotation"==e?(this._flags|=16,this._destination.relativeFlags|=n?32:0,this._destination.rotation=t):"alpha"==e?(this._flags|=32,this._destination.relativeFlags|=n?64:0,this._destination.alpha=t):"width"==e?(this._flags|=64,this._destination.relativeFlags|=n?128:0,this._destination.width=t):"height"==e?(this._flags|=128,this._destination.relativeFlags|=n?256:0,this._destination.height=t):"skewX"==e?(this._flags|=256,this._destination.relativeFlags|=n?1024:0,this._destination.skewX=t):"skewY"==e&&(this._flags|=512,this._destination.relativeFlags|=n?2048:0,this._destination.skewY=t)}},{key:"getObject",value:function(e){return"_blurFilter"==e?this.getFilterByClass(PIXI.filters.BlurFilter):"_blurXFilter"==e?this.getFilterByClass(PIXI.filters.BlurFilter):"_blurYFilter"==e?this.getFilterByClass(PIXI.filters.BlurFilter):"_colorMatrixFilter"==e?this.getFilterByClass(new PIXI.filters.ColorMatrixFilter):"_displacementMapFilter"==e?this.getFilterByClass(new PIXI.filters.DisplacementFilter):"_fxaaFilter"==e?this.getFilterByClass(new PIXI.filters.FXAAFilter):"_noiseFilter"==e?this.getFilterByClass(new PIXI.filters.NoiseFilter):"_voidFilter"==e?this.getFilterByClass(new PIXI.filters.VoidFilter):null}},{key:"getFilterByClass",value:function(e){for(var t=null,n=this._target.filters?this._target.filters:this._target.filters=[],r=n.length,i=0;i<r;++i)if((t=n[i])instanceof e)return t;return t=new e,n.push(t),this._target.filters=n,t}},{key:"setObject",value:function(e,t){return"_blurFilter"==e?void this.setFilterByClass(t,PIXI.filters.BlurFilter):"_blurXFilter"==e?void this.setFilterByClass(t,PIXI.filters.BlurFilter):"_blurYFilter"==e?void this.setFilterByClass(t,PIXI.filters.BlurFilter):"_colorMatrixFilter"==e?void this.setFilterByClass(t,PIXI.filters.ColorMatrixFilter):"_displacementMapFilter"==e?void this.setFilterByClass(t,PIXI.filters.DisplacementFilter):"_fxaaFilter"==e?void this.setFilterByClass(t,PIXI.filters.FXAAFilter):"_noiseFilter"==e?void this.setFilterByClass(t,PIXI.filters.NoiseFilter):"_voidFilter"==e?void this.setFilterByClass(t,PIXI.filters.VoidFilter):void 0}},{key:"setFilterByClass",value:function(e,t){for(var n=this._target.filters,r=n.length,i=0;i<r;++i)if(n[i]instanceof t)return n[i]=e,void(this._target.filters=n);n.push(e),this._target.filters=n}},{key:"resolveValues",value:function(){var e=this._target,t=this._destination,n=this._source,r=this._flags;0!=(1&r)&&(isNaN(n.x)?n.x=e.x:0!=(1&n.relativeFlags)&&(n.x+=e.x),isNaN(t.x)?t.x=e.x:0!=(1&t.relativeFlags)&&(t.x+=e.x)),0!=(2&r)&&(isNaN(n.y)?n.y=e.y:0!=(2&n.relativeFlags)&&(n.y+=e.y),isNaN(t.y)?t.y=e.y:0!=(2&t.relativeFlags)&&(t.y+=e.y)),0!=(4&r)&&(isNaN(n.scaleX)?n.scaleX=e.scale.x:0!=(8&n.relativeFlags)&&(n.scaleX+=e.scale.x),isNaN(t.scaleX)?t.scaleX=e.scale.x:0!=(8&t.relativeFlags)&&(t.scaleX+=e.scale.x)),0!=(8&r)&&(isNaN(n.scaleY)?n.scaleY=e.scale.y:0!=(16&n.relativeFlags)&&(n.scaleY+=e.scale.y),isNaN(t.scaleY)?t.scaleY=e.scale.y:0!=(16&t.relativeFlags)&&(t.scaleY+=e.scale.y)),0!=(16&r)&&(isNaN(n.rotation)?n.rotation=e.rotation:0!=(32&n.relativeFlags)&&(n.rotation+=e.rotation),isNaN(t.rotation)?t.rotation=e.rotation:0!=(32&t.relativeFlags)&&(t.rotation+=e.rotation)),0!=(32&r)&&(isNaN(n.alpha)?n.alpha=e.alpha:0!=(64&n.relativeFlags)&&(n.alpha+=e.alpha),isNaN(t.alpha)?t.alpha=e.alpha:0!=(64&t.relativeFlags)&&(t.alpha+=e.alpha)),0!=(64&r)&&(isNaN(n.width)?n.width=e.width:0!=(128&n.relativeFlags)&&(n.width+=e.width),isNaN(t.width)?t.width=e.width:0!=(128&t.relativeFlags)&&(t.width+=e.width)),0!=(128&r)&&(isNaN(n.height)?n.height=e.height:0!=(256&n.relativeFlags)&&(n.height+=e.height),isNaN(t.height)?t.height=e.height:0!=(256&t.relativeFlags)&&(t.height+=e.height)),0!=(256&r)&&(isNaN(n.skewX)?n.skewX=e.skew.x:0!=(1024&n.relativeFlags)&&(n.skewX+=e.skew.x),isNaN(t.skewX)?t.skewX=e.skew.x:0!=(1024&t.relativeFlags)&&(t.skewX+=e.skew.x)),0!=(512&r)&&(isNaN(n.skewY)?n.skewY=e.skew.y:0!=(2048&n.relativeFlags)&&(n.skewY+=e.skew.y),isNaN(t.skewY)?t.skewY=e.skew.y:0!=(2048&t.relativeFlags)&&(t.skewY+=e.skew.y))}},{key:"updateObject",value:function(e){var t=this._target,n=this._destination,r=this._source,i=this._flags,o=1-e;0!=(1&i)&&(t.x=r.x*o+n.x*e),0!=(2&i)&&(t.y=r.y*o+n.y*e),0!=(12&i)&&(0!=(4&i)&&(t.scale.x=r.scaleX*o+n.scaleX*e),0!=(8&i)&&(t.scale.y=r.scaleY*o+n.scaleY*e)),0!=(16&i)&&(t.rotation=r.rotation*o+n.rotation*e),0!=(224&i)&&(0!=(32&i)&&(t.alpha=r.alpha*o+n.alpha*e),0!=(64&i)&&(t.width=r.width*o+n.width*e),0!=(128&i)&&(t.height=r.height*o+n.height*e)),0!=(768&i)&&(0!=(256&i)&&(t.skew.x=r.skewX*o+n.skewX*e),0!=(512&i)&&(t.skew.y=r.skewY*o+n.skewY*e))}},{key:"newInstance",value:function(){return new t}},{key:"copyFrom",value:function(e){s(t.prototype.__proto__||Object.getPrototypeOf(t.prototype),"copyFrom",this).call(this,e);var n=e;this._target=n._target,this._source.copyFrom(n._source),this._destination.copyFrom(n._destination),this._flags=n._flags}},{key:"target",get:function(){return this._target},set:function(e){this._target=e}}]),t}(c.default);t.default=h;var p=function(){function e(){i(this,e),this.relativeFlags=0,this.x=void 0,this.y=void 0,this.scaleX=void 0,this.scaleY=void 0,this.rotation=void 0,this.alpha=void 0,this.width=void 0,this.height=void 0,this.skewX=void 0,this.skewY=void 0}return u(e,[{key:"copyFrom",value:function(e){this.relativeFlags=e.relativeFlags,this.x=e.x,this.y=e.y,this.scaleX=e.scaleX,this.scaleY=e.scaleY,this.rotation=e.rotation,this.alpha=e.alpha,this.width=e.width,this.height=e.height,this.skewX=e.skewX,this.skeyY=e.skeyY}}]),e}(),_=function e(){i(this,e)}},382:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function e(t,n,r){null===t&&(t=Function.prototype);var i=Object.getOwnPropertyDescriptor(t,n);if(void 0===i){var o=Object.getPrototypeOf(t);return null===o?void 0:e(o,n,r)}if("value"in i)return i.value;var a=i.get;if(void 0!==a)return a.call(r)},u=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),l=n(370),c=r(l),f=["x","y"],h=function(e){function t(){i(this,t);var e=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return e._target=null,e._fx=!1,e._sx=void 0,e._dx=void 0,e._fy=!1,e._sy=void 0,e._dy=void 0,e._flags=0,e}return a(t,e),u(t,null,[{key:"register",value:function(e){e.registerClassWithTargetClassAndPropertyNames(t,p,f),e.registerClassWithTargetClassAndPropertyNames(t,_,f),"undefined"!=typeof PIXI&&e.registerClassWithTargetClassAndPropertyNames(t,PIXI.Point,f)}}]),u(t,[{key:"setSourceValue",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];"x"==e?(this._fx=!0,this._sx=t,this._flags|=n?1:0):"y"==e&&(this._fy=!0,this._sy=t,this._flags|=n?4:0)}},{key:"setDestinationValue",value:function(e,t){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];"x"==e?(this._fx=!0,this._dx=t,this._flags|=n?2:0):"y"==e&&(this._fy=!0,this._dy=t,this._flags|=n?8:0)}},{key:"resolveValues",value:function(){var e=this._target;this._fx&&(isNaN(this._sx)?this._sx=e.x:0!=(1&this._flags)&&(this._sx+=e.x),isNaN(this._dx)?this._dx=e.x:0!=(2&this._flags)&&(this._dx+=e.x)),this._fy&&(isNaN(this._sy)?this._sy=e.y:0!=(4&this._flags)&&(this._sy+=e.y),isNaN(this._dy)?this._dy=e.y:0!=(8&this._flags)&&(this._dy+=e.y))}},{key:"updateObject",value:function(e){var t=this._target,n=1-e;this._fx&&(t.x=this._sx*n+this._dx*e),this._fy&&(t.y=this._sy*n+this._dy*e)}},{key:"newInstance",value:function(){return new t}},{key:"copyFrom",value:function(e){s(t.prototype.__proto__||Object.getPrototypeOf(t.prototype),"copyFrom",this).call(this,e);var n=e;this._target=n._target,this._sx=n._sx,this._sy=n._sy,this._dx=n._dx,this._dy=n._dy,this._fx=n._fx,this._fy=n._fy,this._flags=n._flags}},{key:"target",get:function(){return this._target},set:function(e){this._target=e}}]),t}(c.default);t.default=h;var p=function e(){i(this,e)},_=function e(){i(this,e)}},383:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=function e(t,n,r){null===t&&(t=Function.prototype);var i=Object.getOwnPropertyDescriptor(t,n);if(void 0===i){var o=Object.getPrototypeOf(t);return null===o?void 0:e(o,n,r)}if("value"in i)return i.value;var a=i.get;if(void 0!==a)return a.call(r)},l=n(377),c=r(l),f=function(e){function t(e){i(this,t);var n=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e,0));return n._updater=void 0,n}return a(t,e),s(t,[{key:"internalUpdate",value:function(e){this._updater.update(e)}},{key:"newInstance",value:function(){return new t(this._ticker)}},{key:"copyFrom",value:function(e){u(t.prototype.__proto__||Object.getPrototypeOf(t.prototype),"copyFrom",this).call(this,e);var n=e;this._updater=n._updater.clone()}},{key:"updater",get:function(){return this._updater},set:function(e){this._updater=e,null!=this._updater&&(this._duration=this._updater.duration)}},{key:"target",get:function(){return null!=this._updater?this._updater.target:null}}]),t}(c.default);t.default=f},384:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(377),l=r(u),c=function(e){function t(e,n,r){i(this,t);var a=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,n,r));a._a=void 0,a._b=void 0,a._c=void 0,a._d=void 0,a._targets=void 0;var s=e.length;if(a._duration=0,s>0&&(a._a=e[0],a._duration=a._a.duration>a._duration?a._a.duration:a._duration,s>1&&(a._b=e[1],a._duration=a._b.duration>a._duration?a._b.duration:a._duration,s>2&&(a._c=e[2],a._duration=a._c.duration>a._duration?a._c.duration:a._duration,s>3&&(a._d=e[3],a._duration=a._d.duration>a._duration?a._d.duration:a._duration,s>4))))){a._targets=[];for(var u=4;u<s;++u){var l=e[u];a._targets[u-4]=l,a._duration=l.duration>a._duration?l.duration:a._duration}}return a}return a(t,e),s(t,[{key:"contains",value:function(e){return null!=e&&(this._a==e||(this._b==e||(this._c==e||(this._d==e||null!=this._targets&&this._targets.indexOf(e)!=-1))))}},{key:"getTweenAt",value:function(e){return e<0?null:0==e?this._a:1==e?this._b:2==e?this._c:3==e?this._d:null!=this._targets&&e-4<this._targets.length?this._targets[e-4]:null}},{key:"getTweenIndex",value:function(e){if(null==e)return-1;if(this._a==e)return 0;if(this._b==e)return 1;if(this._c==e)return 2;if(this._d==e)return 3;if(null!=this._targets){var t=this._targets.indexOf(e);if(t!=-1)return t+4}return-1}},{key:"internalUpdate",value:function(e){if(null!=this._a&&(this._a.update(e),null!=this._b&&(this._b.update(e),null!=this._c&&(this._c.update(e),null!=this._d&&(this._d.update(e),null!=this._targets)))))for(var t=this._targets,n=t.length,r=0;r<n;++r)t[r].update(e)}},{key:"newInstance",value:function(){var e=[];if(null!=this._a&&e.push(this._a.clone()),null!=this._b&&e.push(this._b.clone()),null!=this._c&&e.push(this._c.clone()),null!=this._d&&e.push(this._d.clone()),null!=this._targets)for(var n=this._targets,r=n.length,i=0;i<r;++i)e.push(n[i].clone());return new t(e,_ticker,0)}}]),t}(l.default);t.default=c},385:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(377),l=r(u),c=function(e){function t(e,n,r){i(this,t);var a=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,n,r));a._a=void 0,a._b=void 0,a._c=void 0,a._d=void 0,a._targets=void 0,a._lastTime=0;var s=e.length;if(a._duration=0,s>0&&(a._a=e[0],a._duration+=a._a.duration,s>1&&(a._b=e[1],a._duration+=a._b.duration,s>2&&(a._c=e[2],a._duration+=a._c.duration,s>3&&(a._d=e[3],a._duration+=a._d.duration,s>4))))){a._targets=[];for(var u=4;u<s;++u){var l=e[u];a._targets[u-4]=l,a._duration+=l.duration}}return a}return a(t,e),s(t,[{key:"contains",value:function(e){return null!=e&&(this._a==e||(this._b==e||(this._c==e||(this._d==e||null!=this._targets&&this._targets.indexOf(e)!=-1))))}},{key:"getTweenAt",value:function(e){return e<0?null:0==e?this._a:1==e?this._b:2==e?this._c:3==e?this._d:null!=this._targets&&e-4<this._targets.length?this._targets[e-4]:null}},{key:"getTweenIndex",value:function(e){if(null==e)return-1;if(this._a==e)return 0;if(this._b==e)return 1;if(this._c==e)return 2;if(this._d==e)return 3;if(null!=this._targets){var t=this._targets.indexOf(e);if(t!=-1)return t+4}return-1}},{key:"internalUpdate",value:function(e){var t,n,r,i=0,o=0,a=this._lastTime;if(e-a>=0){if(null!=this._a&&(a<=(i+=this._a.duration)&&o<=e&&this._a.update(e-o),o=i,null!=this._b&&(a<=(i+=this._b.duration)&&o<=e&&this._b.update(e-o),o=i,null!=this._c&&(a<=(i+=this._c.duration)&&o<=e&&this._c.update(e-o),o=i,null!=this._d&&(a<=(i+=this._d.duration)&&o<=e&&this._d.update(e-o),o=i,null!=this._targets)))))for(t=this._targets.length,n=0;n<t;++n)r=this._targets[n],a<=(i+=r.duration)&&o<=e&&r.update(e-o),o=i}else{if(i=this._duration,o=i,null!=this._targets)for(n=this._targets.length-1;n>=0;--n)r=this._targets[n],a>=(i-=r.duration)&&o>=e&&r.update(e-i),o=i;null!=this._d&&(a>=(i-=this._d.duration)&&o>=e&&this._d.update(e-i),o=i),null!=this._c&&(a>=(i-=this._c.duration)&&o>=e&&this._c.update(e-i),o=i),null!=this._b&&(a>=(i-=this._b.duration)&&o>=e&&this._b.update(e-i),o=i),null!=this._a&&(a>=(i-=this._a.duration)&&o>=e&&this._a.update(e-i),o=i)}this._lastTime=e}},{key:"newInstance",value:function(){var e=[];if(null!=this._a&&e.push(this._a.clone()),null!=this._b&&e.push(this._b.clone()),null!=this._c&&e.push(this._c.clone()),null!=this._d&&e.push(this._d.clone()),null!=this._targets)for(var n=this._targets,r=n.length,i=0;i<r;++i)e.push(n[i].clone());return new t(e,ticker,0)}}]),t}(l.default);t.default=c},386:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=function e(t,n,r){null===t&&(t=Function.prototype);var i=Object.getOwnPropertyDescriptor(t,n);if(void 0===i){var o=Object.getPrototypeOf(t);return null===o?void 0:e(o,n,r)}if("value"in i)return i.value;var a=i.get;if(void 0!==a)return a.call(r)},l=n(377),c=r(l),f=function(e){function t(e,n){i(this,t);var r=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e.ticker,n));return r._baseTween=e,r._duration=e.duration,r}return a(t,e),s(t,[{key:"play",value:function(){this._isPlaying||(this._baseTween.firePlay(),u(t.prototype.__proto__||Object.getPrototypeOf(t.prototype),"play",this).call(this))}},{key:"firePlay",value:function(){u(t.prototype.__proto__||Object.getPrototypeOf(t.prototype),"firePlay",this).call(this),this._baseTween.firePlay()}},{key:"stop",value:function(){this._isPlaying===!0&&(u(t.prototype.__proto__||Object.getPrototypeOf(t.prototype),"stop",this).call(this),this._baseTween.fireStop())}},{key:"fireStop",value:function(){u(t.prototype.__proto__||Object.getPrototypeOf(t.prototype),"fireStop",this).call(this),this._baseTween.fireStop()}},{key:"internalUpdate",value:function(e){this._baseTween.update(e)}},{key:"baseTween",get:function(){return this._baseTween}}]),t}(c.default);t.default=f},387:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function");
-}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(386),l=r(u),c=function(e){function t(e,n){i(this,t);var r=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e,n));return r._duration=e.duration,r}return a(t,e),s(t,[{key:"internalUpdate",value:function(e){this.baseTween.update(this._duration-e)}},{key:"newInstance",value:function(){return new t(this.baseTween.clone(),0)}}]),t}(l.default);t.default=c},388:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(386),l=r(u),c=function(e){function t(e,n){i(this,t);var r=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e,0));return r._baseDuration=e.duration,r._repeatCount=n,r._duration=r._baseDuration*n,r}return a(t,e),s(t,[{key:"internalUpdate",value:function(e){e>=0&&(e-=e<this._duration?this._baseDuration*parseInt(e/this._baseDuration):this._duration-this._baseDuration),this._baseTween.update(e)}},{key:"newInstance",value:function(){return new t(this._baseTween.clone(),this.repeatCount)}},{key:"repeatCount",get:function(){return this._repeatCount}}]),t}(l.default);t.default=c},389:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(386),l=r(u),c=function(e){function t(e,n){i(this,t);var r=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e,0));return r._duration=e.duration*n,r._scale=n,r}return a(t,e),s(t,[{key:"internalUpdate",value:function(e){this._baseTween.update(e/this.scale)}},{key:"newInstance",value:function(){return new t(this._baseTween.clone(),this._scale)}},{key:"scale",get:function(){return this._scale}}]),t}(l.default);t.default=c},390:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(386),l=r(u),c=function(e){function t(e,n,r){i(this,t);var a=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e,0));return a._duration=r-n,a._begin=n,a._end=r,a}return a(t,e),s(t,[{key:"internalUpdate",value:function(e){e>0?e<this._duration?this._baseTween.update(e+this._begin):this._baseTween.update(this._end):this._baseTween.update(this._begin)}},{key:"newInstance",value:function(){return new t(this._baseTween.clone(),this._begin,this._end)}},{key:"begin",get:function(){return this._begin}},{key:"end",get:function(){return this._end}}]),t}(l.default);t.default=c},391:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(386),l=r(u),c=function(e){function t(e,n,r){i(this,t);var a=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e,0));return a._duration=n+e.duration+r,a._preDelay=n,a._postDelay=r,a}return a(t,e),s(t,[{key:"internalUpdate",value:function(e){this._baseTween.update(e-this._preDelay)}},{key:"newInstance",value:function(){return new t(this._baseTween.clone(),this._preDelay,this._postDelay)}},{key:"preDelay",get:function(){return this._preDelay}},{key:"postDelay",get:function(){return this._postDelay}}]),t}(l.default);t.default=c},392:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(393),l=r(u),c=function(e){function t(e,n,r){i(this,t);var a=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return a._target=n,a._parent=r,a}return a(t,e),s(t,[{key:"action",value:function(){null!=this._target&&null!=this._parent&&this._target.parent!=this._parent&&this._parent.addChild(this._target)}},{key:"rollback",value:function(){null!=this._target&&null!=this._parent&&this._target.parent==this._parent&&this._parent.removeChild(this._target)}},{key:"target",get:function(){return this._target}},{key:"parent",get:function(){return this._parent}}]),t}(l.default);t.default=c},393:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(377),l=r(u),c=function(e){function t(e){i(this,t);var n=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e,0));return n._duration=.01,n._lastTime=-1,n}return a(t,e),s(t,[{key:"internalUpdate",value:function(e){this._lastTime<.01&&e>=.01?this.action():this._lastTime>0&&e<=0&&this.rollback(),this._lastTime=e}},{key:"action",value:function(){}},{key:"rollback",value:function(){}}]),t}(l.default);t.default=c},394:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(393),l=r(u),c=function(e){function t(e,n){i(this,t);var r=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return r._parent=null,r._target=n,r}return a(t,e),s(t,[{key:"action",value:function(){null!=this._target&&null!=this._target.parent&&(this._parent=this._target.parent,this._parent.removeChild(this._target))}},{key:"rollback",value:function(){null!=this._target&&null!=this._parent&&(this._parent.addChild(this._target),this._parent=null)}},{key:"target",get:function(){return this._target}}]),t}(l.default);t.default=c},395:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(393),l=r(u),c=function(e){function t(e,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:null,a=arguments.length>3&&void 0!==arguments[3]&&arguments[3],s=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null,u=arguments.length>5&&void 0!==arguments[5]?arguments[5]:null;i(this,t);var l=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return l._func=n,l._params=r,l._rollbackFunc=void 0,l._rollbackParams=void 0,a&&(null!=s?(l._rollbackFunc=s,l._rollbackParams=u):(l._rollbackFunc=n,l._rollbackParams=r)),l}return a(t,e),s(t,[{key:"action",value:function(){null!=this._func&&this._func.apply(null,this._params)}},{key:"rollback",value:function(){null!=this._rollbackFunc&&this._rollbackFunc.apply(null,this._rollbackParams)}}]),t}(l.default);t.default=c}});
+webpackJsonp([5],{
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	__webpack_require__(1);
+	
+	var _Test = __webpack_require__(348);
+	
+	var _Test2 = _interopRequireDefault(_Test);
+	
+	var _KeyCode = __webpack_require__(328);
+	
+	var _KeyCode2 = _interopRequireDefault(_KeyCode);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	(function () {
+	    window.onload = function () {
+	        var main = new Main();
+	    };
+	})();
+	
+	var Main = function () {
+	    function Main() {
+	        _classCallCheck(this, Main);
+	
+	        this.init();
+	        this.addEvent();
+	        this.onResize();
+	    }
+	
+	    _createClass(Main, [{
+	        key: 'init',
+	        value: function init() {
+	            this.test = new _Test2.default();
+	        }
+	    }, {
+	        key: 'addEvent',
+	        value: function addEvent() {
+	            window.onresize = this.onResize.bind(this);
+	            window.addEventListener('keyup', this.onKeyUp.bind(this));
+	        }
+	    }, {
+	        key: 'onResize',
+	        value: function onResize() {}
+	    }, {
+	        key: 'onKeyUp',
+	        value: function onKeyUp(e) {
+	            switch (e.keyCode) {
+	                case _KeyCode2.default.BACKQUOTE:
+	                    break;
+	
+	                case _KeyCode2.default.ESCAPE:
+	                    console.clear();
+	                    break;
+	
+	                case _KeyCode2.default.SPACE:
+	                    break;
+	
+	                case _KeyCode2.default.DOWN:
+	                    break;
+	
+	                case _KeyCode2.default.UP:
+	                    break;
+	
+	                case _KeyCode2.default.LEFT:
+	                    break;
+	
+	                case _KeyCode2.default.RIGHT:
+	                    break;
+	
+	                case _KeyCode2.default.BACKSPACE:
+	                    break;
+	            }
+	        }
+	    }]);
+
+	    return Main;
+	}();
+
+/***/ }),
+
+/***/ 330:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	(function (global) {
+	    //--Animation methods
+	    //Easing functions adapted from Robert Penner's easing equations
+	    //http://www.robertpenner.com/easing/
+	    var Easing = {
+	        linear: function linear(t) {
+	            return t;
+	        },
+	        easeInQuad: function easeInQuad(t) {
+	            return t * t;
+	        },
+	        easeOutQuad: function easeOutQuad(t) {
+	            return -1 * t * (t - 2);
+	        },
+	        easeInOutQuad: function easeInOutQuad(t) {
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * t * t;
+	            return -1 / 2 * (--t * (t - 2) - 1);
+	        },
+	        easeInCubic: function easeInCubic(t) {
+	            return t * t * t;
+	        },
+	        easeOutCubic: function easeOutCubic(t) {
+	            return 1 * ((t = t / 1 - 1) * t * t + 1);
+	        },
+	        easeInOutCubic: function easeInOutCubic(t) {
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * t * t * t;
+	            return 1 / 2 * ((t -= 2) * t * t + 2);
+	        },
+	        easeInQuart: function easeInQuart(t) {
+	            return t * t * t * t;
+	        },
+	        easeOutQuart: function easeOutQuart(t) {
+	            return -1 * ((t = t / 1 - 1) * t * t * t - 1);
+	        },
+	        easeInOutQuart: function easeInOutQuart(t) {
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * t * t * t * t;
+	            return -1 / 2 * ((t -= 2) * t * t * t - 2);
+	        },
+	        easeInQuint: function easeInQuint(t) {
+	            return 1 * (t /= 1) * t * t * t * t;
+	        },
+	        easeOutQuint: function easeOutQuint(t) {
+	            return 1 * ((t = t / 1 - 1) * t * t * t * t + 1);
+	        },
+	        easeInOutQuint: function easeInOutQuint(t) {
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * t * t * t * t * t;
+	            return 1 / 2 * ((t -= 2) * t * t * t * t + 2);
+	        },
+	        easeInSine: function easeInSine(t) {
+	            return -1 * Math.cos(t / 1 * (Math.PI / 2)) + 1;
+	        },
+	        easeOutSine: function easeOutSine(t) {
+	            return 1 * Math.sin(t / 1 * (Math.PI / 2));
+	        },
+	        easeInOutSine: function easeInOutSine(t) {
+	            return -1 / 2 * (Math.cos(Math.PI * t / 1) - 1);
+	        },
+	        easeInExpo: function easeInExpo(t) {
+	            return t === 0 ? 1 : 1 * Math.pow(2, 10 * (t / 1 - 1));
+	        },
+	        easeOutExpo: function easeOutExpo(t) {
+	            return t === 1 ? 1 : 1 * (-Math.pow(2, -10 * t / 1) + 1);
+	        },
+	        easeInOutExpo: function easeInOutExpo(t) {
+	            if (t === 0) return 0;
+	            if (t === 1) return 1;
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * Math.pow(2, 10 * (t - 1));
+	            return 1 / 2 * (-Math.pow(2, -10 * --t) + 2);
+	        },
+	        easeInCirc: function easeInCirc(t) {
+	            if (t >= 1) return t;
+	            return -1 * (Math.sqrt(1 - (t /= 1) * t) - 1);
+	        },
+	        easeOutCirc: function easeOutCirc(t) {
+	            return 1 * Math.sqrt(1 - (t = t / 1 - 1) * t);
+	        },
+	        easeInOutCirc: function easeInOutCirc(t) {
+	            if ((t /= 1 / 2) < 1) return -1 / 2 * (Math.sqrt(1 - t * t) - 1);
+	            return 1 / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1);
+	        },
+	        easeInElastic: function easeInElastic(t) {
+	            var s = 1.70158;
+	            var p = 0;
+	            var a = 1;
+	            if (t === 0) return 0;
+	            if ((t /= 1) == 1) return 1;
+	            if (!p) p = 1 * 0.3;
+	            if (a < Math.abs(1)) {
+	                a = 1;
+	                s = p / 4;
+	            } else s = p / (2 * Math.PI) * Math.asin(1 / a);
+	            return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * 1 - s) * (2 * Math.PI) / p));
+	        },
+	        easeOutElastic: function easeOutElastic(t) {
+	            var s = 1.70158;
+	            var p = 0;
+	            var a = 1;
+	            if (t === 0) return 0;
+	            if ((t /= 1) == 1) return 1;
+	            if (!p) p = 1 * 0.3;
+	            if (a < Math.abs(1)) {
+	                a = 1;
+	                s = p / 4;
+	            } else s = p / (2 * Math.PI) * Math.asin(1 / a);
+	            return a * Math.pow(2, -10 * t) * Math.sin((t * 1 - s) * (2 * Math.PI) / p) + 1;
+	        },
+	        easeInOutElastic: function easeInOutElastic(t) {
+	            var s = 1.70158;
+	            var p = 0;
+	            var a = 1;
+	            if (t === 0) return 0;
+	            if ((t /= 1 / 2) == 2) return 1;
+	            if (!p) p = 1 * (0.3 * 1.5);
+	            if (a < Math.abs(1)) {
+	                a = 1;
+	                s = p / 4;
+	            } else s = p / (2 * Math.PI) * Math.asin(1 / a);
+	            if (t < 1) return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * 1 - s) * (2 * Math.PI) / p));
+	            return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * 1 - s) * (2 * Math.PI) / p) * 0.5 + 1;
+	        },
+	        easeInBack: function easeInBack(t) {
+	            var s = 1.70158;
+	            return 1 * (t /= 1) * t * ((s + 1) * t - s);
+	        },
+	        easeOutBack: function easeOutBack(t) {
+	            var s = 1.70158;
+	            return 1 * ((t = t / 1 - 1) * t * ((s + 1) * t + s) + 1);
+	        },
+	        easeInOutBack: function easeInOutBack(t) {
+	            var s = 1.70158;
+	            if ((t /= 1 / 2) < 1) return 1 / 2 * (t * t * (((s *= 1.525) + 1) * t - s));
+	            return 1 / 2 * ((t -= 2) * t * (((s *= 1.525) + 1) * t + s) + 2);
+	        },
+	        easeInBounce: function easeInBounce(t) {
+	            return 1 - Easing.easeOutBounce(1 - t);
+	        },
+	        easeOutBounce: function easeOutBounce(t) {
+	            if ((t /= 1) < 1 / 2.75) {
+	                return 1 * (7.5625 * t * t);
+	            } else if (t < 2 / 2.75) {
+	                return 1 * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75);
+	            } else if (t < 2.5 / 2.75) {
+	                return 1 * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375);
+	            } else {
+	                return 1 * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375);
+	            }
+	        },
+	        easeInOutBounce: function easeInOutBounce(t) {
+	            if (t < 1 / 2) return Easing.easeInBounce(t * 2) * 0.5;
+	            return Easing.easeOutBounce(t * 2 - 1) * 0.5 + 1 * 0.5;
+	        }
+	    };
+	
+	    //Request animation polyfill - http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+	    var requestAnimationFrame = function () {
+	        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
+	            return window.setTimeout(callback, 16);
+	        };
+	    }();
+	
+	    var cancelAnimationFrame = function () {
+	        return window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.oCancelAnimationFrame || window.msCancelAnimationFrame || function (callback) {
+	            return window.clearTimeout(callback, 16);
+	        };
+	    }();
+	
+	    var animation = function animation(thisArg, onAnimation, totalStep, easing, onComplete) {
+	        if (typeof onAnimation !== 'function') throw Error('onAnimation must be function');
+	
+	        var currentStep = 0,
+	            easingFunction = typeof easing === 'string' ? Easing[easing] || Easing.linear : easing || Easing.linear;
+	
+	        var animationFrame = function animationFrame() {
+	            currentStep++;
+	
+	            var step = currentStep / totalStep,
+	                ease = easingFunction(step);
+	
+	            onAnimation.call(thisArg, ease, step, currentStep);
+	
+	            if (currentStep < totalStep) {
+	                if (!thisArg) {
+	                    requestAnimationFrame(animationFrame);
+	                } else {
+	                    thisArg.animationId = requestAnimationFrame(animationFrame);
+	                }
+	            } else {
+	                if (onComplete) {
+	                    onComplete.apply(thisArg);
+	                }
+	            }
+	        };
+	        requestAnimationFrame(animationFrame);
+	    };
+	
+	    if (( false ? 'undefined' : _typeof(exports)) === "object" && typeof module !== "undefined") {
+	        module.exports.Easing = Easing;
+	        module.exports.requestAnimationFrame = requestAnimationFrame;
+	        module.exports.cancelAnimationFrame = cancelAnimationFrame;
+	        module.exports.animation = animation;
+	    } else {
+	        global.Easing = Easing;
+	        global.requestAnimationFrame = requestAnimationFrame;
+	        global.cancelAnimationFrame = cancelAnimationFrame;
+	        global.animation = animation;
+	    }
+	})(undefined);
+
+/***/ }),
+
+/***/ 348:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _animation2 = __webpack_require__(330);
+	
+	var _global = __webpack_require__(349);
+	
+	var _global2 = _interopRequireDefault(_global);
+	
+	var _polyfill = __webpack_require__(351);
+	
+	var _polyfill2 = _interopRequireDefault(_polyfill);
+	
+	var _Be = __webpack_require__(357);
+	
+	var _Be2 = _interopRequireDefault(_Be);
+	
+	var _Ticker = __webpack_require__(362);
+	
+	var _Ticker2 = _interopRequireDefault(_Ticker);
+	
+	var _TickerListener = __webpack_require__(364);
+	
+	var _TickerListener2 = _interopRequireDefault(_TickerListener);
+	
+	var _EnterFrameTicker = __webpack_require__(361);
+	
+	var _EnterFrameTicker2 = _interopRequireDefault(_EnterFrameTicker);
+	
+	var _ClassRegistry = __webpack_require__(365);
+	
+	var _ClassRegistry2 = _interopRequireDefault(_ClassRegistry);
+	
+	var _UpdaterFactory = __webpack_require__(366);
+	
+	var _UpdaterFactory2 = _interopRequireDefault(_UpdaterFactory);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Test = function () {
+	    function Test() {
+	        _classCallCheck(this, Test);
+	
+	        this.app = new PIXI.Application(800, 600, { backgroundColor: 0x8BC34A });
+	        document.body.appendChild(this.app.view);
+	
+	        this.canvas = this.app.renderer.view;
+	        this.stage = this.app.stage;
+	
+	        this.initialize();
+	        this.initializeGUI();
+	        this.render();
+	    }
+	
+	    _createClass(Test, [{
+	        key: 'initialize',
+	        value: function initialize() {
+	            //this.createTicker();
+	            //this.createSomething();
+	            //this.createTweener();
+	
+	            this.testPixi();
+	            this.testClass();
+	            //this.testCollection();
+	            this.testBit();
+	            this.testFilter();
+	            this.testPoint();
+	            this.testObject();
+	        }
+	    }, {
+	        key: 'createTicker',
+	        value: function createTicker() {
+	            console.log('ticker');
+	            this.ticker = new _Ticker2.default();
+	            this.ticker.add(function (ms) {
+	                console.log(ms, getTimer());
+	            });
+	            this.ticker.start();
+	        }
+	    }, {
+	        key: 'createSomething',
+	        value: function createSomething() {
+	            console.log('tickerListener');
+	            var tickerLisneneter = new _TickerListener2.default();
+	        }
+	    }, {
+	        key: 'createTweener',
+	        value: function createTweener() {
+	            console.log('createTwenner');
+	            var tween = _Be2.default.tween({ x: 0, y: 0 }, { x: 100 }, { x: 0 }, 1);
+	            tween.onUpdate = function () {
+	                console.log('onUpdate', obj.x, obj.y);
+	            };
+	            tween.play();
+	        }
+	    }, {
+	        key: 'testPixi',
+	        value: function testPixi() {
+	            if (typeof PIXI === 'undefined' || PIXI === null) {
+	                console.log('PIXI Not Found');
+	            } else {
+	                console.log('PIXI Found');
+	            }
+	        }
+	    }, {
+	        key: 'testClass',
+	        value: function testClass() {
+	            console.log('testClass');
+	            var n = new NoContructor();
+	            n.sayHello();
+	            console.log(n.getClass());
+	
+	            var cp = new ColorPoint(25, 8, 'green');
+	            cp.toString();
+	            console.log(cp instanceof ColorPoint);
+	            console.log(cp instanceof Point);
+	            console.log(cp.getClass().name);
+	            console.log(cp.getSuper().name);
+	
+	            var p = new Point(10, 10);
+	            console.log('******** Point.toString():', p.toString());
+	
+	            var copyp = p.getClass();
+	            var copysuperp = p.getSuper();
+	            var insp = new copyp();
+	
+	            console.log('class instance -----------------------');
+	            console.log(copyp.name);
+	            console.log(copysuperp.name);
+	            console.log(insp instanceof Point);
+	            console.log('class name -----------------------');
+	            console.log(Point.name);
+	            console.log(ColorPoint.name);
+	            console.log('getPrototypeOf with instance -----------------------');
+	            var prototype = Object.getPrototypeOf(cp);
+	            var prototype1 = Object.getPrototypeOf(prototype);
+	            var prototype2 = Object.getPrototypeOf(prototype1);
+	            var prototype3 = Object.getPrototypeOf(prototype2);
+	            console.log(prototype.constructor.name);
+	            console.log(prototype1.constructor.name);
+	            console.log(prototype2.constructor.name);
+	            console.log(prototype3 === null);
+	            console.log('getPrototypeOf with class -----------------------');
+	            var prototype = Object.getPrototypeOf(ColorPoint);
+	            var prototype1 = Object.getPrototypeOf(prototype);
+	            var prototype2 = Object.getPrototypeOf(prototype1);
+	            var prototype3 = Object.getPrototypeOf(prototype2);
+	            console.log(prototype.constructor.name);
+	            console.log(prototype1.constructor.name);
+	            console.log(prototype2.constructor.name);
+	            console.log(prototype3 === null);
+	        }
+	    }, {
+	        key: 'testCollection',
+	        value: function testCollection() {
+	            console.log('testCollection');
+	            var dic = {};
+	            var col = Object.create(null);
+	            for (var prop in dic) {
+	                console.log(prop + ':' + dic[prop]);
+	            }
+	            for (var prop in col) {
+	                console.log(prop + ':' + col[prop]);
+	            }
+	        }
+	    }, {
+	        key: 'testBit',
+	        value: function testBit() {
+	            console.log('testBit');
+	            var f = 0;
+	            //f |= 0x0001;
+	            f |= 0x0020;
+	            //f |= 0x0040;
+	            console.log('-------------------');
+	            console.log(0x0004 + 0x0008 + 0x0010, 0x001c);
+	            console.log(0x0040 + 0x0080 + 0x0100, 0x01c0);
+	            console.log(0x0200 + 0x0400 + 0x0800, 0x0e00);
+	            console.log('-------------------');
+	
+	            console.log('-------------------');
+	            console.log(0x0004 + 0x0008, 0x000C);
+	            console.log(0x0020 + 0x0040 + 0x0080, 0x00E0);
+	            console.log(0x0100 + 0x0200, 0x0300);
+	            console.log('-------------------');
+	        }
+	    }, {
+	        key: 'testFilter',
+	        value: function testFilter() {
+	            console.log('testFilter');
+	            var blurFilter = new PIXI.filters.BlurFilter();
+	            blurFilter.blur = 0;
+	
+	            console.log('blurFilter:', blurFilter);
+	
+	            var icon = new PIXI.Sprite.fromImage('./../assets/image/icon/github.png');
+	            this.stage.addChild(icon);
+	
+	            icon.filters = [blurFilter];
+	
+	            var tween = _Be2.default.tween(icon, {
+	                x: 400,
+	                _blurFilter: {
+	                    blurX: 4, blurY: 0
+	                }
+	            });
+	            tween.onUpdate = function () {
+	                console.log(icon.x, icon.filters[0].blurX);
+	            };
+	            tween.play();
+	        }
+	    }, {
+	        key: 'testPoint',
+	        value: function testPoint() {
+	            console.log('testPoint');
+	            var point = new PIXI.Point();
+	
+	            var tween = _Be2.default.tween(point, { y: 200 });
+	            tween.onUpdate = function () {
+	                console.log('point[%s, %s]', point.x, point.y);
+	            };
+	            tween.play();
+	        }
+	    }, {
+	        key: 'testObject',
+	        value: function testObject() {
+	            console.log('testObject');
+	            var assign = { scale: { x: 100 } };
+	            Object.assign(assign, { x: 10, y: 20, scale: { x: 10, y: 20 } });
+	            console.log(assign);
+	        }
+	    }, {
+	        key: 'initializeGUI',
+	        value: function initializeGUI() {
+	            this.gui = new dat.GUI();
+	            this.config = {};
+	            this.config.animation = this.animation.bind(this);
+	            this.gui.add(this.config, 'animation');
+	        }
+	    }, {
+	        key: 'update',
+	        value: function update(ms) {
+	            this.app.render(this.stage);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render(ms) {
+	            this.update(ms);
+	            this.requestId = (0, _animation2.requestAnimationFrame)(this.render.bind(this));
+	        }
+	    }, {
+	        key: 'animation',
+	        value: function animation() {
+	            (0, _animation2.animation)(this, this.onAnimation, 60, _animation2.Easing.easeOutQuad);
+	            // animation(null, this.onAnimation.bind(this), 60, Easing.easeOutQuad);
+	        }
+	    }, {
+	        key: 'onAnimation',
+	        value: function onAnimation(ease, step, currentStep) {
+	            console.log('ease: %s, step: %s, currentStep: %s', ease, step, currentStep);
+	        }
+	    }]);
+	
+	    return Test;
+	}();
+	
+	/////////////////////////////////////////////////////////////////////////////
+	//
+	// Class
+	//
+	/////////////////////////////////////////////////////////////////////////////
+	
+	exports.default = Test;
+	
+	var Point = function () {
+	    function Point(x, y) {
+	        _classCallCheck(this, Point);
+	
+	        this.x = x;
+	        this.y = y;
+	    }
+	
+	    _createClass(Point, [{
+	        key: 'getClass',
+	        value: function getClass() {
+	            return this.constructor;
+	        }
+	    }, {
+	        key: 'getSuper',
+	        value: function getSuper() {
+	            return _get(Point.prototype.__proto__ || Object.getPrototypeOf(Point.prototype), 'constructor', this);
+	        }
+	    }, {
+	        key: 'toString',
+	        value: function toString() {
+	            return '(' + this.x + ', ' + this.y + ')';
+	        }
+	    }]);
+	
+	    return Point;
+	}();
+	
+	var ColorPoint = function (_Point) {
+	    _inherits(ColorPoint, _Point);
+	
+	    function ColorPoint(x, y, color) {
+	        _classCallCheck(this, ColorPoint);
+	
+	        var _this = _possibleConstructorReturn(this, (ColorPoint.__proto__ || Object.getPrototypeOf(ColorPoint)).call(this, x, y));
+	
+	        _this.color = color;
+	        return _this;
+	    }
+	
+	    _createClass(ColorPoint, [{
+	        key: 'getClass',
+	        value: function getClass() {
+	            return this.constructor;
+	        }
+	    }, {
+	        key: 'getSuper',
+	        value: function getSuper() {
+	            return _get(ColorPoint.prototype.__proto__ || Object.getPrototypeOf(ColorPoint.prototype), 'constructor', this);
+	        }
+	    }, {
+	        key: 'toString',
+	        value: function toString() {
+	            return _get(ColorPoint.prototype.__proto__ || Object.getPrototypeOf(ColorPoint.prototype), 'toString', this).call(this) + ' in ' + this.color;
+	        }
+	    }]);
+	
+	    return ColorPoint;
+	}(Point);
+	
+	var NoContructor = function (_Point2) {
+	    _inherits(NoContructor, _Point2);
+	
+	    function NoContructor() {
+	        _classCallCheck(this, NoContructor);
+	
+	        return _possibleConstructorReturn(this, (NoContructor.__proto__ || Object.getPrototypeOf(NoContructor)).apply(this, arguments));
+	    }
+	
+	    _createClass(NoContructor, [{
+	        key: 'sayHello',
+	        value: function sayHello() {
+	            console.log('say hello');
+	        }
+	    }]);
+	
+	    return NoContructor;
+	}(Point);
+
+/***/ }),
+
+/***/ 349:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	__webpack_require__(350);
+
+/***/ }),
+
+/***/ 350:
+/***/ (function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {"use strict";
+	
+	/*const startTime = Date.now();
+	export default function getTimer()
+	{
+	    return Date.now() - startTime;
+	}*/
+	
+	if (!global.getTimer) {
+	    var startTime = Date.now();
+	    global.getTimer = function () {
+	        return Date.now() - startTime;
+	    };
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ }),
+
+/***/ 351:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	__webpack_require__(352);
+	
+	__webpack_require__(353);
+	
+	__webpack_require__(355);
+	
+	__webpack_require__(356);
+
+/***/ }),
+
+/***/ 352:
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	if (!Array.isArray) {
+	    Array.isArray = function (arg) {
+	        return Object.prototype.toString.call(arg) === '[object Array]';
+	    };
+	}
+
+/***/ }),
+
+/***/ 353:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _objectAssign = __webpack_require__(354);
+	
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	if (!Object.assign) {
+	    Object.assign = _objectAssign2.default;
+	} // References:
+	// https://github.com/sindresorhus/object-assign
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+
+/***/ }),
+
+/***/ 354:
+/***/ (function(module, exports) {
+
+	/*
+	object-assign
+	(c) Sindre Sorhus
+	@license MIT
+	*/
+	
+	'use strict';
+	/* eslint-disable no-unused-vars */
+	var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+	
+	function toObject(val) {
+		if (val === null || val === undefined) {
+			throw new TypeError('Object.assign cannot be called with null or undefined');
+		}
+	
+		return Object(val);
+	}
+	
+	function shouldUseNative() {
+		try {
+			if (!Object.assign) {
+				return false;
+			}
+	
+			// Detect buggy property enumeration order in older V8 versions.
+	
+			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+			var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+			test1[5] = 'de';
+			if (Object.getOwnPropertyNames(test1)[0] === '5') {
+				return false;
+			}
+	
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test2 = {};
+			for (var i = 0; i < 10; i++) {
+				test2['_' + String.fromCharCode(i)] = i;
+			}
+			var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+				return test2[n];
+			});
+			if (order2.join('') !== '0123456789') {
+				return false;
+			}
+	
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test3 = {};
+			'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+				test3[letter] = letter;
+			});
+			if (Object.keys(Object.assign({}, test3)).join('') !==
+					'abcdefghijklmnopqrst') {
+				return false;
+			}
+	
+			return true;
+		} catch (err) {
+			// We don't expect any of the above to throw, but better to be safe.
+			return false;
+		}
+	}
+	
+	module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+		var from;
+		var to = toObject(target);
+		var symbols;
+	
+		for (var s = 1; s < arguments.length; s++) {
+			from = Object(arguments[s]);
+	
+			for (var key in from) {
+				if (hasOwnProperty.call(from, key)) {
+					to[key] = from[key];
+				}
+			}
+	
+			if (getOwnPropertySymbols) {
+				symbols = getOwnPropertySymbols(from);
+				for (var i = 0; i < symbols.length; i++) {
+					if (propIsEnumerable.call(from, symbols[i])) {
+						to[symbols[i]] = from[symbols[i]];
+					}
+				}
+			}
+		}
+	
+		return to;
+	};
+
+
+/***/ }),
+
+/***/ 355:
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	// http://ejohn.org/blog/objectgetprototypeof/
+	
+	if (typeof Object.getPrototypeOf !== "function") {
+	    if (_typeof("test".__proto__) === "object") {
+	        Object.getPrototypeOf = function (object) {
+	            return object.__proto__;
+	        };
+	    } else {
+	        Object.getPrototypeOf = function (object) {
+	            // May break if the constructor has been tampered with
+	            return object.constructor.prototype;
+	        };
+	    }
+	}
+
+/***/ }),
+
+/***/ 356:
+/***/ (function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+	
+	// References:
+	// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+	// https://gist.github.com/1579671
+	// http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision
+	// https://gist.github.com/timhall/4078614
+	// https://github.com/Financial-Times/polyfill-service/tree/master/polyfills/requestAnimationFrame
+	
+	// Expected to be used with Browserfiy
+	// Browserify automatically detects the use of `global` and passes the
+	// correct reference of `global`, `self`, and finally `window`
+	
+	var ONE_FRAME_TIME = 16;
+	
+	// Date.now
+	if (!(Date.now && Date.prototype.getTime)) {
+	    Date.now = function now() {
+	        return new Date().getTime();
+	    };
+	}
+	
+	// performance.now
+	if (!(global.performance && global.performance.now)) {
+	    var startTime = Date.now();
+	
+	    if (!global.performance) {
+	        global.performance = {};
+	    }
+	
+	    global.performance.now = function () {
+	        return Date.now() - startTime;
+	    };
+	}
+	
+	// requestAnimationFrame
+	var lastTime = Date.now();
+	var vendors = ['ms', 'moz', 'webkit', 'o'];
+	
+	for (var x = 0; x < vendors.length && !global.requestAnimationFrame; ++x) {
+	    var p = vendors[x];
+	    global.requestAnimationFrame = global[p + 'RequestAnimationFrame'];
+	    global.cancelAnimationFrame = global[p + 'CancelAnimationFrame'] || global[p + 'CancelRequestAnimationFrame'];
+	}
+	
+	if (!global.requestAnimationFrame) {
+	    global.requestAnimationFrame = function (callback) {
+	        if (typeof callback !== 'function') {
+	            throw new TypeError(callback + 'is not a function');
+	        }
+	
+	        var currentTime = Date.now();
+	        var delay = ONE_FRAME_TIME + lastTime - currentTime;
+	
+	        if (delay < 0) {
+	            delay = 0;
+	        }
+	
+	        lastTime = currentTime;
+	
+	        return setTimeout(function () {
+	            lastTime = Date.now();
+	            callback(performance.now());
+	        }, delay);
+	    };
+	}
+	
+	if (!global.cancelAnimationFrame) {
+	    global.cancelAnimationFrame = function (id) {
+	        return clearTimeout(id);
+	    };
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ }),
+
+/***/ 357:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+	
+	var _Linear = __webpack_require__(358);
+	
+	var _Linear2 = _interopRequireDefault(_Linear);
+	
+	var _EnterFrameTicker = __webpack_require__(361);
+	
+	var _EnterFrameTicker2 = _interopRequireDefault(_EnterFrameTicker);
+	
+	var _ClassRegistry = __webpack_require__(365);
+	
+	var _ClassRegistry2 = _interopRequireDefault(_ClassRegistry);
+	
+	var _UpdaterFactory = __webpack_require__(366);
+	
+	var _UpdaterFactory2 = _interopRequireDefault(_UpdaterFactory);
+	
+	var _ObjectTween = __webpack_require__(376);
+	
+	var _ObjectTween2 = _interopRequireDefault(_ObjectTween);
+	
+	var _ObjectUpdater = __webpack_require__(380);
+	
+	var _ObjectUpdater2 = _interopRequireDefault(_ObjectUpdater);
+	
+	var _DisplayObjectUpdater = __webpack_require__(381);
+	
+	var _DisplayObjectUpdater2 = _interopRequireDefault(_DisplayObjectUpdater);
+	
+	var _PointUpdater = __webpack_require__(382);
+	
+	var _PointUpdater2 = _interopRequireDefault(_PointUpdater);
+	
+	var _PhysicalTween = __webpack_require__(383);
+	
+	var _PhysicalTween2 = _interopRequireDefault(_PhysicalTween);
+	
+	var _ParallelTween = __webpack_require__(384);
+	
+	var _ParallelTween2 = _interopRequireDefault(_ParallelTween);
+	
+	var _SerialTween = __webpack_require__(385);
+	
+	var _SerialTween2 = _interopRequireDefault(_SerialTween);
+	
+	var _TweenDecorator = __webpack_require__(386);
+	
+	var _TweenDecorator2 = _interopRequireDefault(_TweenDecorator);
+	
+	var _ReversedTween = __webpack_require__(387);
+	
+	var _ReversedTween2 = _interopRequireDefault(_ReversedTween);
+	
+	var _RepeatedTween = __webpack_require__(388);
+	
+	var _RepeatedTween2 = _interopRequireDefault(_RepeatedTween);
+	
+	var _ScaledTween = __webpack_require__(389);
+	
+	var _ScaledTween2 = _interopRequireDefault(_ScaledTween);
+	
+	var _SlicedTween = __webpack_require__(390);
+	
+	var _SlicedTween2 = _interopRequireDefault(_SlicedTween);
+	
+	var _DelayedTween = __webpack_require__(391);
+	
+	var _DelayedTween2 = _interopRequireDefault(_DelayedTween);
+	
+	var _AddChildAction = __webpack_require__(392);
+	
+	var _AddChildAction2 = _interopRequireDefault(_AddChildAction);
+	
+	var _RemoveFromParentAction = __webpack_require__(394);
+	
+	var _RemoveFromParentAction2 = _interopRequireDefault(_RemoveFromParentAction);
+	
+	var _FunctionAction = __webpack_require__(395);
+	
+	var _FunctionAction2 = _interopRequireDefault(_FunctionAction);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	/**
+	 * 업데이터 등록 여부
+	 * @type {boolean}
+	 */
+	var isRegist = false;
+	
+	/**
+	 * @type {EnterFrameTicker}
+	 * @private
+	 */
+	var _ticker = new _EnterFrameTicker2.default();
+	_ticker.start();
+	
+	var _updaterClassRegistry = new _ClassRegistry2.default();
+	var _updaterFactory = new _UpdaterFactory2.default(_updaterClassRegistry);
+	
+	_ObjectUpdater2.default.register(_updaterClassRegistry);
+	_DisplayObjectUpdater2.default.register(_updaterClassRegistry);
+	_PointUpdater2.default.register(_updaterClassRegistry);
+	
+	var Be = function () {
+	    function Be() {
+	        _classCallCheck(this, Be);
+	    }
+	
+	    _createClass(Be, null, [{
+	        key: 'registUpdater',
+	
+	
+	        /**
+	         * 업데이터 등록
+	         * PIXI 라이브러리를 Be 라이브러리 보다 먼저 등록한 경우
+	         * DisplayObjecter 에서 PIXI.DisplayObject 를 못 찾는 경우를 위해서
+	         * Be static 함수에서 다시 한번 업데이터를 등록하도록 하였습니다.
+	         */
+	        value: function registUpdater() {
+	            if (isRegist === false) {
+	                _ObjectUpdater2.default.register(_updaterClassRegistry);
+	                _DisplayObjectUpdater2.default.register(_updaterClassRegistry);
+	                _PointUpdater2.default.register(_updaterClassRegistry);
+	                isRegist = true;
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @param target {Object}
+	         * @param to {Object}
+	         * @param from {Object}
+	         * @param time {number}
+	         * @param easing {IEasing}
+	         * @returns {IObjectTween}
+	         */
+	
+	    }, {
+	        key: 'tween',
+	        value: function tween(target, to) {
+	            var from = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+	            var time = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1.0;
+	            var easing = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+	
+	            Be.registUpdater();
+	
+	            var tween = new _ObjectTween2.default(_ticker);
+	            tween.updater = _updaterFactory.create(target, to, from);
+	            tween.time = time;
+	            tween.easing = easing || _Linear2.default.easeNone;
+	            return tween;
+	        }
+	
+	        /**
+	         *
+	         * @param target {Object}
+	         * @param to {Object}
+	         * @param time {number}
+	         * @param easing {IEasing}
+	         * @returns {IObjectTween}
+	         */
+	
+	    }, {
+	        key: 'to',
+	        value: function to(target, _to) {
+	            var time = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1.0;
+	            var easing = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+	
+	            Be.registUpdater();
+	
+	            var tween = new _ObjectTween2.default(_ticker);
+	            tween.updater = _updaterFactory.create(target, _to, null);
+	            tween.time = time;
+	            tween.easing = easing || _Linear2.default.easeNone;
+	            return tween;
+	        }
+	
+	        /**
+	         *
+	         * @param target  {Object}
+	         * @param from  {Object}
+	         * @param time {number}
+	         * @param easing {IEasing}
+	         * @returns {IObjectTween}
+	         */
+	
+	    }, {
+	        key: 'from',
+	        value: function from(target, _from) {
+	            var time = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1.0;
+	            var easing = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+	
+	            Be.registUpdater();
+	
+	            var tween = new _ObjectTween2.default(_ticker);
+	            tween.updater = _updaterFactory.create(target, null, _from);
+	            tween.time = time;
+	            tween.easing = easing || _Linear2.default.easeNone;
+	            return tween;
+	        }
+	
+	        /**
+	         * 트윈을 한번 적용합니다. 원하는 시간의 모션으로 한번 적용합니다.
+	         * @param target {Object}
+	         * @param to  {Object}
+	         * @param from  {Object}
+	         * @param time {number}
+	         * @param applyTime {number}
+	         * @param easing {IEasing}
+	         */
+	
+	    }, {
+	        key: 'apply',
+	        value: function apply(target, to) {
+	            var from = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+	            var time = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1.0;
+	            var applyTime = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1.0;
+	            var easing = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
+	
+	            Be.registUpdater();
+	
+	            var tween = new _ObjectTween2.default(_ticker);
+	            tween.updater = _updaterFactory.create(target, to, from);
+	            tween.time = time;
+	            tween.easing = easing || _Linear2.default.easeNone;
+	            tween.update(applyTime);
+	        }
+	
+	        /**
+	         *
+	         * @param target {Object}
+	         * @param to {Object}
+	         * @param from {Object}
+	         * @param controlPoint {Object}
+	         * @param time {number}
+	         * @param easing {IEasing}
+	         * @returns {IObjectTween}
+	         */
+	
+	    }, {
+	        key: 'bezier',
+	        value: function bezier(target, to) {
+	            var from = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+	            var controlPoint = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+	            var time = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1.0;
+	            var easing = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
+	
+	            Be.registUpdater();
+	
+	            var tween = new _ObjectTween2.default(_ticker);
+	            tween.updater = _updaterFactory.createBezier(target, to, from, controlPoint);
+	            tween.time = time;
+	            tween.easing = easing || _Linear2.default.easeNone;
+	            return tween;
+	        }
+	
+	        /**
+	         *
+	         * @param target {Object}
+	         * @param to {Object}
+	         * @param controlPoint {Object}
+	         * @param time {number}
+	         * @param easing {IEasing}
+	         * @returns {IObjectTween}
+	         */
+	
+	    }, {
+	        key: 'bezierTo',
+	        value: function bezierTo(target, to) {
+	            var controlPoint = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+	            var time = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1.0;
+	            var easing = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+	
+	            Be.registUpdater();
+	
+	            var tween = new _ObjectTween2.default(_ticker);
+	            tween.updater = _updaterFactory.createBezier(target, to, null, controlPoint);
+	            tween.time = time;
+	            tween.easing = easing || _Linear2.default.easeNone;
+	            return tween;
+	        }
+	
+	        /**
+	         *
+	         * @param target {Object}
+	         * @param from {Object}
+	         * @param controlPoint {Object}
+	         * @param time {number}
+	         * @param easing {IEasing}
+	         * @returns {IObjectTween}
+	         */
+	
+	    }, {
+	        key: 'bezierFrom',
+	        value: function bezierFrom(target, from) {
+	            var controlPoint = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+	            var time = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1.0;
+	            var easing = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+	
+	            Be.registUpdater();
+	
+	            var tween = new _ObjectTween2.default(_ticker);
+	            tween.updater = _updaterFactory.createBezier(target, null, from, controlPoint);
+	            tween.time = time;
+	            tween.easing = easing || _Linear2.default.easeNone;
+	            return tween;
+	        }
+	
+	        /**
+	         *
+	         * @param target {Object}
+	         * @param to {Object}
+	         * @param from {Object}
+	         * @param easing {IPhysicalEasing}
+	         * @returns {IObjectTween}
+	         */
+	
+	    }, {
+	        key: 'physical',
+	        value: function physical(target, to) {
+	            var from = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+	            var easing = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+	
+	            Be.registUpdater();
+	
+	            var tween = new _PhysicalTween2.default(_ticker);
+	            tween.updater = _updaterFactory.createPhysical(target, to, from, easing || Physical.exponential());
+	            return tween;
+	        }
+	
+	        /**
+	         *
+	         * @param target {Object}
+	         * @param to {Object}
+	         * @param easing {IPhysicalEasig}
+	         * @returns {IObjectTween}
+	         */
+	
+	    }, {
+	        key: 'physicalTo',
+	        value: function physicalTo(target, to) {
+	            var easing = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+	
+	            Be.registUpdater();
+	
+	            var tween = new _PhysicalTween2.default(_ticker);
+	            tween.updater = _updaterFactory.createPhysical(target, to, null, easing || Physical.exponential());
+	            return tween;
+	        }
+	
+	        /**
+	         *
+	         * @param target {Object}
+	         * @param from {Object}
+	         * @param easing {IPhysicalEasing}
+	         * @returns {IObjectTween}
+	         */
+	
+	    }, {
+	        key: 'physicalFrom',
+	        value: function physicalFrom(target, from) {
+	            var easing = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+	
+	            Be.registUpdater();
+	
+	            var tween = new _PhysicalTween2.default(_ticker);
+	            tween.updater = _updaterFactory.createPhysical(target, null, from, easing || Physical.exponential());
+	            return tween;
+	        }
+	
+	        /**
+	         *
+	         * @param target {Object}
+	         * @param to {Object}
+	         * @param from {Object}
+	         * @param applyTime {number}
+	         * @param easing {IPhysicalEasing}
+	         */
+	
+	    }, {
+	        key: 'physicalApply',
+	        value: function physicalApply(target, to) {
+	            var from = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+	            var applyTime = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1.0;
+	            var easing = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+	
+	            Be.registUpdater();
+	
+	            var tween = new _PhysicalTween2.default(_ticker);
+	            tween.updater = _updaterFactory.createPhysical(target, to, from, easing || Physical.exponential());
+	            tween.update(applyTime);
+	        }
+	
+	        /**
+	         *
+	         * @param tweens {Array}
+	         * @returns {ITweenGroup}
+	         */
+	
+	    }, {
+	        key: 'parallel',
+	        value: function parallel() {
+	            Be.registUpdater();
+	
+	            for (var _len = arguments.length, tweens = Array(_len), _key = 0; _key < _len; _key++) {
+	                tweens[_key] = arguments[_key];
+	            }
+	
+	            return Be.parallelTweens(tweens);
+	        }
+	
+	        /**
+	         *
+	         * @param tweens {Array}
+	         * @returns {ITweenGroup}
+	         */
+	
+	    }, {
+	        key: 'parallelTweens',
+	        value: function parallelTweens(tweens) {
+	            Be.registUpdater();
+	
+	            return new _ParallelTween2.default(tweens, _ticker, 0);
+	        }
+	
+	        /**
+	         *
+	         * @param tweens {Array}
+	         * @returns {ITweenGroup}
+	         */
+	
+	    }, {
+	        key: 'serial',
+	        value: function serial() {
+	            Be.registUpdater();
+	
+	            for (var _len2 = arguments.length, tweens = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                tweens[_key2] = arguments[_key2];
+	            }
+	
+	            return Be.serialTweens(tweens);
+	        }
+	
+	        /**
+	         *
+	         * @param tweens {Array}
+	         * @returns {ITweenGroup}
+	         */
+	
+	    }, {
+	        key: 'serialTweens',
+	        value: function serialTweens(tweens) {
+	            Be.registUpdater();
+	
+	            return new _SerialTween2.default(tweens, _ticker, 0);
+	        }
+	
+	        /**
+	         *
+	         * @param tween {ITween}
+	         * @param reversePosition {boolean}
+	         * @returns {ITween}
+	         */
+	
+	    }, {
+	        key: 'reverse',
+	        value: function reverse(tween) {
+	            var reversePosition = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+	
+	            Be.registUpdater();
+	
+	            var pos = reversePosition ? tween.duration - tween.position : 0.0;
+	            if (tween instanceof _ReversedTween2.default) {
+	                return new _TweenDecorator2.default(tween.baseTween, pos);
+	            }
+	            if (tween.constructor == _TweenDecorator2.default) {
+	                tween = tween.baseTween;
+	            }
+	            return new _ReversedTween2.default(tween, pos);
+	        }
+	
+	        /**
+	         *
+	         * @param tween {ITween}
+	         * @param repeatCount {uint}
+	         * @returns {ITween}
+	         */
+	
+	    }, {
+	        key: 'repeat',
+	        value: function repeat(tween, repeatCount) {
+	            Be.registUpdater();
+	
+	            return new _RepeatedTween2.default(tween, repeatCount);
+	        }
+	
+	        /**
+	         *
+	         * @param tween {ITween}
+	         * @param scale {number}
+	         * @returns {ITween}
+	         */
+	
+	    }, {
+	        key: 'scale',
+	        value: function scale(tween, _scale) {
+	            Be.registUpdater();
+	
+	            return new _ScaledTween2.default(tween, _scale);
+	        }
+	
+	        /**
+	         *
+	         * @param tween {ITween}
+	         * @param begin {number}
+	         * @param end {number}
+	         * @param isPercent {boolean}
+	         * @returns {ITween}
+	         */
+	
+	    }, {
+	        key: 'slice',
+	        value: function slice(tween, begin, end) {
+	            var isPercent = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+	
+	            Be.registUpdater();
+	
+	            if (isPercent === true) {
+	                begin = tween.duration * begin;
+	                end = tween.duration * end;
+	            }
+	            if (begin > end) {
+	                return new _ReversedTween2.default(new _SlicedTween2.default(tween, end, begin), 0);
+	            }
+	            return new _SlicedTween2.default(tween, begin, end);
+	        }
+	
+	        /**
+	         *
+	         * @param tween {ITween}
+	         * @param delay {number}
+	         * @param postDelay {number}
+	         * @returns {ITween}
+	         */
+	
+	    }, {
+	        key: 'delay',
+	        value: function delay(tween, _delay) {
+	            var postDelay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0.0;
+	
+	            Be.registUpdater();
+	
+	            return new _DelayedTween2.default(tween, _delay, postDelay);
+	        }
+	
+	        /**
+	         *
+	         * @param target {DisplayObject}
+	         * @param parent {DisplayObjectContainer}
+	         * @returns {ITween}
+	         */
+	
+	    }, {
+	        key: 'addChild',
+	        value: function addChild(target, parent) {
+	            Be.registUpdater();
+	
+	            return new _AddChildAction2.default(_ticker, target, parent);
+	        }
+	
+	        /**
+	         *
+	         * @param target {DisplayObject}
+	         * @returns {ITween}
+	         */
+	
+	    }, {
+	        key: 'removeFromParent',
+	        value: function removeFromParent(target) {
+	            Be.registUpdater();
+	
+	            return new _RemoveFromParentAction2.default(_ticker, target);
+	        }
+	
+	        /**
+	         *
+	         * @param func {Function}
+	         * @param params {Array}
+	         * @param useRollback {boolean}
+	         * @param rollbackFunc {Function}
+	         * @param rollbackParams {Array}
+	         * @returns {ITween}
+	         */
+	
+	    }, {
+	        key: 'func',
+	        value: function func(_func) {
+	            var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+	            var useRollback = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	            var rollbackFunc = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+	            var rollbackParams = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+	
+	            Be.registUpdater();
+	
+	            return new _FunctionAction2.default(_ticker, _func, params, useRollback, rollbackFunc, rollbackParams);
+	        }
+	    }, {
+	        key: 'VERSION',
+	        get: function get() {
+	            return '0.9.4 (Beta)';
+	        }
+	    }]);
+	
+	    return Be;
+	}();
+	
+	exports.default = Be;
+
+/***/ }),
+
+/***/ 358:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+	
+	var _EaseNone = __webpack_require__(359);
+	
+	var _EaseNone2 = _interopRequireDefault(_EaseNone);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var _linear = new _EaseNone2.default();
+	
+	var Linear = function () {
+	  function Linear() {
+	    _classCallCheck(this, Linear);
+	  }
+	
+	  _createClass(Linear, null, [{
+	    key: 'linear',
+	    get: function get() {
+	      return _linear;
+	    }
+	  }, {
+	    key: 'easeNone',
+	    get: function get() {
+	      return _linear;
+	    }
+	  }, {
+	    key: 'easeIn',
+	    get: function get() {
+	      return _linear;
+	    }
+	  }, {
+	    key: 'easeOut',
+	    get: function get() {
+	      return _linear;
+	    }
+	  }, {
+	    key: 'easeInOut',
+	    get: function get() {
+	      return _linear;
+	    }
+	  }, {
+	    key: 'easeOutIn',
+	    get: function get() {
+	      return _linear;
+	    }
+	  }]);
+	
+	  return Linear;
+	}();
+	
+	exports.default = Linear;
+
+/***/ }),
+
+/***/ 359:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _IEasing2 = __webpack_require__(360);
+	
+	var _IEasing3 = _interopRequireDefault(_IEasing2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var EaseNone = function (_IEasing) {
+	  _inherits(EaseNone, _IEasing);
+	
+	  function EaseNone() {
+	    _classCallCheck(this, EaseNone);
+	
+	    return _possibleConstructorReturn(this, (EaseNone.__proto__ || Object.getPrototypeOf(EaseNone)).apply(this, arguments));
+	  }
+	
+	  _createClass(EaseNone, [{
+	    key: 'calculate',
+	
+	    /**
+	     * @inheritDoc
+	     */
+	    value: function calculate(t, b, c, d) {
+	      return c * t / d + b;
+	    }
+	  }]);
+	
+	  return EaseNone;
+	}(_IEasing3.default);
+	
+	exports.default = EaseNone;
+
+/***/ }),
+
+/***/ 360:
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	/*
+	 * BetweenAS3
+	 * 
+	 * Licensed under the MIT License
+	 * 
+	 * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	 *                    Spark project  (www.libspark.org)
+	 * 
+	 * Permission is hereby granted, free of charge, to any person obtaining a copy
+	 * of this software and associated documentation files (the "Software"), to deal
+	 * in the Software without restriction, including without limitation the rights
+	 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 * copies of the Software, and to permit persons to whom the Software is
+	 * furnished to do so, subject to the following conditions:
+	 * 
+	 * The above copyright notice and this permission notice shall be included in
+	 * all copies or substantial portions of the Software.
+	 * 
+	 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	 * THE SOFTWARE.
+	 * 
+	 */
+	var IEasing = function () {
+	  function IEasing() {
+	    _classCallCheck(this, IEasing);
+	  }
+	
+	  _createClass(IEasing, [{
+	    key: "calculate",
+	
+	    /**
+	     *
+	     * @param t {number}
+	     * @param b {number}
+	     * @param c {number}
+	     * @param d {number}
+	     * @return {number}
+	     */
+	    value: function calculate(t, b, c, d) {}
+	  }]);
+	
+	  return IEasing;
+	}();
+	
+	exports.default = IEasing;
+
+/***/ }),
+
+/***/ 361:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+	
+	var _Ticker = __webpack_require__(362);
+	
+	var _Ticker2 = _interopRequireDefault(_Ticker);
+	
+	var _TickerListener = __webpack_require__(364);
+	
+	var _TickerListener2 = _interopRequireDefault(_TickerListener);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var _ticker = new _Ticker2.default();
+	
+	var EnterFrameTicker = function () {
+	    function EnterFrameTicker() {
+	        _classCallCheck(this, EnterFrameTicker);
+	
+	        /**
+	         * @type {TickerListener}
+	         * @private
+	         */
+	        this._first = null;
+	
+	        /**
+	         * @type {uint}
+	         * @private
+	         */
+	        this._numListeners = 0;
+	
+	        /**
+	         * AS3에서는 {Vector.<TickerListener>}
+	         * 10개만 생성합니다. new Vector.<TickerListener>(10, true)
+	         * @type {Array}
+	         * @private
+	         */
+	        this._tickerListenerPaddings = [];
+	
+	        /**
+	         * @type {number}
+	         */
+	        this._time = undefined;
+	
+	        var prevListener = null;
+	
+	        for (var i = 0; i < 10; ++i) {
+	            var listener = new _TickerListener2.default();
+	            if (prevListener != null) {
+	                prevListener.nextListener = listener;
+	                listener.prevListener = prevListener;
+	            }
+	            prevListener = listener;
+	            this._tickerListenerPaddings[i] = listener;
+	        }
+	
+	        _ticker.add(this.update, this);
+	    }
+	
+	    /**
+	     * @return {number}
+	     */
+	
+	
+	    _createClass(EnterFrameTicker, [{
+	        key: 'addTickerListener',
+	
+	
+	        /**
+	         * @param listener {TickerListener}
+	         */
+	        value: function addTickerListener(listener) {
+	            if (listener.nextListener != null || listener.prevListener != null) {
+	                return;
+	            }
+	
+	            if (this._first != null) {
+	                if (this._first.prevListener != null) {
+	                    this._first.prevListener.nextListener = listener;
+	                    listener.prevListener = this._first.prevListener;
+	                }
+	                listener.nextListener = this._first;
+	                this._first.prevListener = listener;
+	            }
+	
+	            this._first = listener;
+	
+	            ++this._numListeners;
+	        }
+	
+	        /**
+	         *
+	         * @param listener {TickerListener}
+	         */
+	
+	    }, {
+	        key: 'removeTickerListener',
+	        value: function removeTickerListener(listener) {
+	            var l = this._first;
+	
+	            while (l != null) {
+	
+	                if (l == listener) {
+	                    if (l.prevListener != null) {
+	                        l.prevListener.nextListener = l.nextListener;
+	                        l.nextListener = null;
+	                    } else {
+	                        this._first = l.nextListener;
+	                    }
+	                    if (l.nextListener != null) {
+	                        l.nextListener.prevListener = l.prevListener;
+	                        l.prevListener = null;
+	                    }
+	                    --this._numListeners;
+	                }
+	
+	                l = l.nextListener;
+	            }
+	        }
+	
+	        /**
+	         * @inheritDoc
+	         */
+	
+	    }, {
+	        key: 'start',
+	        value: function start() {
+	            this._time = getTimer() / 1000;
+	            _ticker.start();
+	        }
+	
+	        /**
+	         * @inheritDoc
+	         */
+	
+	    }, {
+	        key: 'stop',
+	        value: function stop() {
+	            _ticker.stop();
+	        }
+	
+	        /**
+	         * @private
+	         */
+	
+	    }, {
+	        key: 'update',
+	        value: function update(currentTime) {
+	            var t = this._time = getTimer() / 1000,
+	                n = 8 - this._numListeners % 8,
+	                listener = this._tickerListenerPaddings[0],
+	                l = this._tickerListenerPaddings[n],
+	                ll = null;
+	
+	            if ((l.nextListener = this._first) != null) {
+	                this._first.prevListener = l;
+	            }
+	
+	            while (listener.nextListener != null) {
+	                if ((listener = listener.nextListener).tick(t)) {
+	                    if (listener.prevListener != null) {
+	                        listener.prevListener.nextListener = listener.nextListener;
+	                    }
+	                    if (listener.nextListener != null) {
+	                        listener.nextListener.prevListener = listener.prevListener;
+	                    }
+	                    ll = listener.prevListener;
+	                    listener.nextListener = null;
+	                    listener.prevListener = null;
+	                    listener = ll;
+	                    --this._numListeners;
+	                }
+	                if ((listener = listener.nextListener).tick(t)) {
+	                    if (listener.prevListener != null) {
+	                        listener.prevListener.nextListener = listener.nextListener;
+	                    }
+	                    if (listener.nextListener != null) {
+	                        listener.nextListener.prevListener = listener.prevListener;
+	                    }
+	                    ll = listener.prevListener;
+	                    listener.nextListener = null;
+	                    listener.prevListener = null;
+	                    listener = ll;
+	                    --this._numListeners;
+	                }
+	                if ((listener = listener.nextListener).tick(t)) {
+	                    if (listener.prevListener != null) {
+	                        listener.prevListener.nextListener = listener.nextListener;
+	                    }
+	                    if (listener.nextListener != null) {
+	                        listener.nextListener.prevListener = listener.prevListener;
+	                    }
+	                    ll = listener.prevListener;
+	                    listener.nextListener = null;
+	                    listener.prevListener = null;
+	                    listener = ll;
+	                    --this._numListeners;
+	                }
+	                if ((listener = listener.nextListener).tick(t)) {
+	                    if (listener.prevListener != null) {
+	                        listener.prevListener.nextListener = listener.nextListener;
+	                    }
+	                    if (listener.nextListener != null) {
+	                        listener.nextListener.prevListener = listener.prevListener;
+	                    }
+	                    ll = listener.prevListener;
+	                    listener.nextListener = null;
+	                    listener.prevListener = null;
+	                    listener = ll;
+	                    --this._numListeners;
+	                }
+	                if ((listener = listener.nextListener).tick(t)) {
+	                    if (listener.prevListener != null) {
+	                        listener.prevListener.nextListener = listener.nextListener;
+	                    }
+	                    if (listener.nextListener != null) {
+	                        listener.nextListener.prevListener = listener.prevListener;
+	                    }
+	                    ll = listener.prevListener;
+	                    listener.nextListener = null;
+	                    listener.prevListener = null;
+	                    listener = ll;
+	                    --this._numListeners;
+	                }
+	                if ((listener = listener.nextListener).tick(t)) {
+	                    if (listener.prevListener != null) {
+	                        listener.prevListener.nextListener = listener.nextListener;
+	                    }
+	                    if (listener.nextListener != null) {
+	                        listener.nextListener.prevListener = listener.prevListener;
+	                    }
+	                    ll = listener.prevListener;
+	                    listener.nextListener = null;
+	                    listener.prevListener = null;
+	                    listener = ll;
+	                    --this._numListeners;
+	                }
+	                if ((listener = listener.nextListener).tick(t)) {
+	                    if (listener.prevListener != null) {
+	                        listener.prevListener.nextListener = listener.nextListener;
+	                    }
+	                    if (listener.nextListener != null) {
+	                        listener.nextListener.prevListener = listener.prevListener;
+	                    }
+	                    ll = listener.prevListener;
+	                    listener.nextListener = null;
+	                    listener.prevListener = null;
+	                    listener = ll;
+	                    --this._numListeners;
+	                }
+	                if ((listener = listener.nextListener).tick(t)) {
+	                    if (listener.prevListener != null) {
+	                        listener.prevListener.nextListener = listener.nextListener;
+	                    }
+	                    if (listener.nextListener != null) {
+	                        listener.nextListener.prevListener = listener.prevListener;
+	                    }
+	                    ll = listener.prevListener;
+	                    listener.nextListener = null;
+	                    listener.prevListener = null;
+	                    listener = ll;
+	                    --this._numListeners;
+	                }
+	            }
+	
+	            if ((this._first = l.nextListener) != null) {
+	                this._first.prevListener = null;
+	            }
+	            l.nextListener = this._tickerListenerPaddings[n + 1];
+	        }
+	    }, {
+	        key: 'time',
+	        get: function get() {
+	            return this._time;
+	        }
+	    }]);
+	
+	    return EnterFrameTicker;
+	}();
+	
+	exports.default = EnterFrameTicker;
+
+/***/ }),
+
+/***/ 362:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _eventemitter = __webpack_require__(363);
+	
+	var _eventemitter2 = _interopRequireDefault(_eventemitter);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	// Internal event used by composed emitter
+	var TICK = 'tick';
+	
+	/**
+	 *
+	 * Target frames per millisecond.
+	 * 60fps == 0.06 Frames per millisecond
+	 *
+	 * @static
+	 * @memberof PIXI.settings
+	 * @type {number}
+	 * @default 0.06
+	 */
+	var TARGET_FPMS = 0.06;
+	
+	/**
+	 * A Ticker class that runs an update loop that other objects listen to.
+	 * This class is composed around an EventEmitter object to add listeners
+	 * meant for execution on the next requested animation frame.
+	 * Animation frames are requested only when necessary,
+	 * e.g. When the ticker is started and the emitter has listeners.
+	 *
+	 * @class
+	 * @memberof PIXI.ticker
+	 */
+	
+	var Ticker = function () {
+	    /**
+	     *
+	     */
+	    function Ticker() {
+	        var _this = this;
+	
+	        _classCallCheck(this, Ticker);
+	
+	        /**
+	         * Internal emitter used to fire 'tick' event
+	         * @private
+	         */
+	        this._emitter = new _eventemitter2.default();
+	
+	        /**
+	         * Internal current frame request ID
+	         * @private
+	         */
+	        this._requestId = null;
+	
+	        /**
+	         * Internal value managed by minFPS property setter and getter.
+	         * This is the maximum allowed milliseconds between updates.
+	         * @private
+	         */
+	        this._maxElapsedMS = 100;
+	
+	        /**
+	         * Whether or not this ticker should invoke the method
+	         * {@link PIXI.ticker.Ticker#start} automatically
+	         * when a listener is added.
+	         *
+	         * @member {boolean}
+	         * @default false
+	         */
+	        this.autoStart = false;
+	
+	        /**
+	         * Scalar time value from last frame to this frame.
+	         * This value is capped by setting {@link PIXI.ticker.Ticker#minFPS}
+	         * and is scaled with {@link PIXI.ticker.Ticker#speed}.
+	         * **Note:** The cap may be exceeded by scaling.
+	         *
+	         * @member {number}
+	         * @default 1
+	         */
+	        this.deltaTime = 1;
+	
+	        /**
+	         * Time elapsed in milliseconds from last frame to this frame.
+	         * Opposed to what the scalar {@link PIXI.ticker.Ticker#deltaTime}
+	         * is based, this value is neither capped nor scaled.
+	         * If the platform supports DOMHighResTimeStamp,
+	         * this value will have a precision of 1 µs.
+	         * Defaults to target frame time
+	         *
+	         * @member {number}
+	         * @default 16.66
+	         */
+	        this.elapsedMS = 1 / TARGET_FPMS;
+	
+	        /**
+	         * The last time {@link PIXI.ticker.Ticker#update} was invoked.
+	         * This value is also reset internally outside of invoking
+	         * update, but only when a new animation frame is requested.
+	         * If the platform supports DOMHighResTimeStamp,
+	         * this value will have a precision of 1 µs.
+	         *
+	         * @member {number}
+	         * @default 0
+	         */
+	        this.lastTime = 0;
+	
+	        /**
+	         * Factor of current {@link PIXI.ticker.Ticker#deltaTime}.
+	         * @example
+	         * // Scales ticker.deltaTime to what would be
+	         * // the equivalent of approximately 120 FPS
+	         * ticker.speed = 2;
+	         *
+	         * @member {number}
+	         * @default 1
+	         */
+	        this.speed = 1;
+	
+	        /**
+	         * Whether or not this ticker has been started.
+	         * `true` if {@link PIXI.ticker.Ticker#start} has been called.
+	         * `false` if {@link PIXI.ticker.Ticker#stop} has been called.
+	         * While `false`, this value may change to `true` in the
+	         * event of {@link PIXI.ticker.Ticker#autoStart} being `true`
+	         * and a listener is added.
+	         *
+	         * @member {boolean}
+	         * @default false
+	         */
+	        this.started = false;
+	
+	        /**
+	         * Internal tick method bound to ticker instance.
+	         * This is because in early 2015, Function.bind
+	         * is still 60% slower in high performance scenarios.
+	         * Also separating frame requests from update method
+	         * so listeners may be called at any time and with
+	         * any animation API, just invoke ticker.update(time).
+	         *
+	         * @private
+	         * @param {number} time - Time since last tick.
+	         */
+	        this._tick = function (time) {
+	            _this._requestId = null;
+	
+	            if (_this.started) {
+	                // Invoke listeners now
+	                _this.update(time);
+	                // Listener side effects may have modified ticker state.
+	                if (_this.started && _this._requestId === null && _this._emitter.listeners(TICK, true)) {
+	                    _this._requestId = requestAnimationFrame(_this._tick);
+	                }
+	            }
+	        };
+	    }
+	
+	    /**
+	     * Conditionally requests a new animation frame.
+	     * If a frame has not already been requested, and if the internal
+	     * emitter has listeners, a new frame is requested.
+	     *
+	     * @private
+	     */
+	
+	
+	    _createClass(Ticker, [{
+	        key: '_requestIfNeeded',
+	        value: function _requestIfNeeded() {
+	            if (this._requestId === null && this._emitter.listeners(TICK, true)) {
+	                // ensure callbacks get correct delta
+	                this.lastTime = performance.now();
+	                this._requestId = requestAnimationFrame(this._tick);
+	            }
+	        }
+	
+	        /**
+	         * Conditionally cancels a pending animation frame.
+	         *
+	         * @private
+	         */
+	
+	    }, {
+	        key: '_cancelIfNeeded',
+	        value: function _cancelIfNeeded() {
+	            if (this._requestId !== null) {
+	                cancelAnimationFrame(this._requestId);
+	                this._requestId = null;
+	            }
+	        }
+	
+	        /**
+	         * Conditionally requests a new animation frame.
+	         * If the ticker has been started it checks if a frame has not already
+	         * been requested, and if the internal emitter has listeners. If these
+	         * conditions are met, a new frame is requested. If the ticker has not
+	         * been started, but autoStart is `true`, then the ticker starts now,
+	         * and continues with the previous conditions to request a new frame.
+	         *
+	         * @private
+	         */
+	
+	    }, {
+	        key: '_startIfPossible',
+	        value: function _startIfPossible() {
+	            if (this.started) {
+	                this._requestIfNeeded();
+	            } else if (this.autoStart) {
+	                this.start();
+	            }
+	        }
+	
+	        /**
+	         * Calls {@link module:eventemitter3.EventEmitter#on} internally for the
+	         * internal 'tick' event. It checks if the emitter has listeners,
+	         * and if so it requests a new animation frame at this point.
+	         *
+	         * @param {Function} fn - The listener function to be added for updates
+	         * @param {Function} [context] - The listener context
+	         * @returns {PIXI.ticker.Ticker} This instance of a ticker
+	         */
+	
+	    }, {
+	        key: 'add',
+	        value: function add(fn, context) {
+	            this._emitter.on(TICK, fn, context);
+	
+	            this._startIfPossible();
+	
+	            return this;
+	        }
+	
+	        /**
+	         * Calls {@link module:eventemitter3.EventEmitter#once} internally for the
+	         * internal 'tick' event. It checks if the emitter has listeners,
+	         * and if so it requests a new animation frame at this point.
+	         *
+	         * @param {Function} fn - The listener function to be added for one update
+	         * @param {Function} [context] - The listener context
+	         * @returns {PIXI.ticker.Ticker} This instance of a ticker
+	         */
+	
+	    }, {
+	        key: 'addOnce',
+	        value: function addOnce(fn, context) {
+	            this._emitter.once(TICK, fn, context);
+	
+	            this._startIfPossible();
+	
+	            return this;
+	        }
+	
+	        /**
+	         * Calls {@link module:eventemitter3.EventEmitter#off} internally for 'tick' event.
+	         * It checks if the emitter has listeners for 'tick' event.
+	         * If it does, then it cancels the animation frame.
+	         *
+	         * @param {Function} [fn] - The listener function to be removed
+	         * @param {Function} [context] - The listener context to be removed
+	         * @returns {PIXI.ticker.Ticker} This instance of a ticker
+	         */
+	
+	    }, {
+	        key: 'remove',
+	        value: function remove(fn, context) {
+	            this._emitter.off(TICK, fn, context);
+	
+	            if (!this._emitter.listeners(TICK, true)) {
+	                this._cancelIfNeeded();
+	            }
+	
+	            return this;
+	        }
+	
+	        /**
+	         * Starts the ticker. If the ticker has listeners
+	         * a new animation frame is requested at this point.
+	         */
+	
+	    }, {
+	        key: 'start',
+	        value: function start() {
+	            if (!this.started) {
+	                this.started = true;
+	                this._requestIfNeeded();
+	            }
+	        }
+	
+	        /**
+	         * Stops the ticker. If the ticker has requested
+	         * an animation frame it is canceled at this point.
+	         */
+	
+	    }, {
+	        key: 'stop',
+	        value: function stop() {
+	            if (this.started) {
+	                this.started = false;
+	                this._cancelIfNeeded();
+	            }
+	        }
+	
+	        /**
+	         * Triggers an update. An update entails setting the
+	         * current {@link PIXI.ticker.Ticker#elapsedMS},
+	         * the current {@link PIXI.ticker.Ticker#deltaTime},
+	         * invoking all listeners with current deltaTime,
+	         * and then finally setting {@link PIXI.ticker.Ticker#lastTime}
+	         * with the value of currentTime that was provided.
+	         * This method will be called automatically by animation
+	         * frame callbacks if the ticker instance has been started
+	         * and listeners are added.
+	         *
+	         * @param {number} [currentTime=performance.now()] - the current time of execution
+	         */
+	
+	    }, {
+	        key: 'update',
+	        value: function update() {
+	            var currentTime = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : performance.now();
+	
+	            var elapsedMS = void 0;
+	
+	            // If the difference in time is zero or negative, we ignore most of the work done here.
+	            // If there is no valid difference, then should be no reason to let anyone know about it.
+	            // A zero delta, is exactly that, nothing should update.
+	            //
+	            // The difference in time can be negative, and no this does not mean time traveling.
+	            // This can be the result of a race condition between when an animation frame is requested
+	            // on the current JavaScript engine event loop, and when the ticker's start method is invoked
+	            // (which invokes the internal _requestIfNeeded method). If a frame is requested before
+	            // _requestIfNeeded is invoked, then the callback for the animation frame the ticker requests,
+	            // can receive a time argument that can be less than the lastTime value that was set within
+	            // _requestIfNeeded. This difference is in microseconds, but this is enough to cause problems.
+	            //
+	            // This check covers this browser engine timing issue, as well as if consumers pass an invalid
+	            // currentTime value. This may happen if consumers opt-out of the autoStart, and update themselves.
+	
+	            if (currentTime > this.lastTime) {
+	                // Save uncapped elapsedMS for measurement
+	                elapsedMS = this.elapsedMS = currentTime - this.lastTime;
+	
+	                // cap the milliseconds elapsed used for deltaTime
+	                if (elapsedMS > this._maxElapsedMS) {
+	                    elapsedMS = this._maxElapsedMS;
+	                }
+	
+	                this.deltaTime = elapsedMS * TARGET_FPMS * this.speed;
+	
+	                // Invoke listeners added to internal emitter
+	                this._emitter.emit(TICK, this.deltaTime);
+	            } else {
+	                this.deltaTime = this.elapsedMS = 0;
+	            }
+	
+	            this.lastTime = currentTime;
+	        }
+	
+	        /**
+	         * The frames per second at which this ticker is running.
+	         * The default is approximately 60 in most modern browsers.
+	         * **Note:** This does not factor in the value of
+	         * {@link PIXI.ticker.Ticker#speed}, which is specific
+	         * to scaling {@link PIXI.ticker.Ticker#deltaTime}.
+	         *
+	         * @member {number}
+	         * @readonly
+	         */
+	
+	    }, {
+	        key: 'FPS',
+	        get: function get() {
+	            return 1000 / this.elapsedMS;
+	        }
+	
+	        /**
+	         * Manages the maximum amount of milliseconds allowed to
+	         * elapse between invoking {@link PIXI.ticker.Ticker#update}.
+	         * This value iws used to cap {@link PIXI.ticker.Ticker#deltaTime},
+	         * but does not effect the measured value of {@link PIXI.ticker.Ticker#FPS}.
+	         * When setting this property it is clamped to a value between
+	         * `0` and `PIXI.settings.TARGET_FPMS * 1000`.
+	         *
+	         * @member {number}
+	         * @default 10
+	         */
+	
+	    }, {
+	        key: 'minFPS',
+	        get: function get() {
+	            return 1000 / this._maxElapsedMS;
+	        },
+	        set: function set(fps) // eslint-disable-line require-jsdoc
+	        {
+	            // Clamp: 0 to TARGET_FPMS
+	            var minFPMS = Math.min(Math.max(0, fps) / 1000, TARGET_FPMS);
+	
+	            this._maxElapsedMS = 1 / minFPMS;
+	        }
+	    }]);
+	
+	    return Ticker;
+	}();
+	
+	exports.default = Ticker;
+
+/***/ }),
+
+/***/ 363:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var has = Object.prototype.hasOwnProperty
+	  , prefix = '~';
+	
+	/**
+	 * Constructor to create a storage for our `EE` objects.
+	 * An `Events` instance is a plain object whose properties are event names.
+	 *
+	 * @constructor
+	 * @api private
+	 */
+	function Events() {}
+	
+	//
+	// We try to not inherit from `Object.prototype`. In some engines creating an
+	// instance in this way is faster than calling `Object.create(null)` directly.
+	// If `Object.create(null)` is not supported we prefix the event names with a
+	// character to make sure that the built-in object properties are not
+	// overridden or used as an attack vector.
+	//
+	if (Object.create) {
+	  Events.prototype = Object.create(null);
+	
+	  //
+	  // This hack is needed because the `__proto__` property is still inherited in
+	  // some old browsers like Android 4, iPhone 5.1, Opera 11 and Safari 5.
+	  //
+	  if (!new Events().__proto__) prefix = false;
+	}
+	
+	/**
+	 * Representation of a single event listener.
+	 *
+	 * @param {Function} fn The listener function.
+	 * @param {Mixed} context The context to invoke the listener with.
+	 * @param {Boolean} [once=false] Specify if the listener is a one-time listener.
+	 * @constructor
+	 * @api private
+	 */
+	function EE(fn, context, once) {
+	  this.fn = fn;
+	  this.context = context;
+	  this.once = once || false;
+	}
+	
+	/**
+	 * Minimal `EventEmitter` interface that is molded against the Node.js
+	 * `EventEmitter` interface.
+	 *
+	 * @constructor
+	 * @api public
+	 */
+	function EventEmitter() {
+	  this._events = new Events();
+	  this._eventsCount = 0;
+	}
+	
+	/**
+	 * Return an array listing the events for which the emitter has registered
+	 * listeners.
+	 *
+	 * @returns {Array}
+	 * @api public
+	 */
+	EventEmitter.prototype.eventNames = function eventNames() {
+	  var names = []
+	    , events
+	    , name;
+	
+	  if (this._eventsCount === 0) return names;
+	
+	  for (name in (events = this._events)) {
+	    if (has.call(events, name)) names.push(prefix ? name.slice(1) : name);
+	  }
+	
+	  if (Object.getOwnPropertySymbols) {
+	    return names.concat(Object.getOwnPropertySymbols(events));
+	  }
+	
+	  return names;
+	};
+	
+	/**
+	 * Return the listeners registered for a given event.
+	 *
+	 * @param {String|Symbol} event The event name.
+	 * @param {Boolean} exists Only check if there are listeners.
+	 * @returns {Array|Boolean}
+	 * @api public
+	 */
+	EventEmitter.prototype.listeners = function listeners(event, exists) {
+	  var evt = prefix ? prefix + event : event
+	    , available = this._events[evt];
+	
+	  if (exists) return !!available;
+	  if (!available) return [];
+	  if (available.fn) return [available.fn];
+	
+	  for (var i = 0, l = available.length, ee = new Array(l); i < l; i++) {
+	    ee[i] = available[i].fn;
+	  }
+	
+	  return ee;
+	};
+	
+	/**
+	 * Calls each of the listeners registered for a given event.
+	 *
+	 * @param {String|Symbol} event The event name.
+	 * @returns {Boolean} `true` if the event had listeners, else `false`.
+	 * @api public
+	 */
+	EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
+	  var evt = prefix ? prefix + event : event;
+	
+	  if (!this._events[evt]) return false;
+	
+	  var listeners = this._events[evt]
+	    , len = arguments.length
+	    , args
+	    , i;
+	
+	  if (listeners.fn) {
+	    if (listeners.once) this.removeListener(event, listeners.fn, undefined, true);
+	
+	    switch (len) {
+	      case 1: return listeners.fn.call(listeners.context), true;
+	      case 2: return listeners.fn.call(listeners.context, a1), true;
+	      case 3: return listeners.fn.call(listeners.context, a1, a2), true;
+	      case 4: return listeners.fn.call(listeners.context, a1, a2, a3), true;
+	      case 5: return listeners.fn.call(listeners.context, a1, a2, a3, a4), true;
+	      case 6: return listeners.fn.call(listeners.context, a1, a2, a3, a4, a5), true;
+	    }
+	
+	    for (i = 1, args = new Array(len -1); i < len; i++) {
+	      args[i - 1] = arguments[i];
+	    }
+	
+	    listeners.fn.apply(listeners.context, args);
+	  } else {
+	    var length = listeners.length
+	      , j;
+	
+	    for (i = 0; i < length; i++) {
+	      if (listeners[i].once) this.removeListener(event, listeners[i].fn, undefined, true);
+	
+	      switch (len) {
+	        case 1: listeners[i].fn.call(listeners[i].context); break;
+	        case 2: listeners[i].fn.call(listeners[i].context, a1); break;
+	        case 3: listeners[i].fn.call(listeners[i].context, a1, a2); break;
+	        case 4: listeners[i].fn.call(listeners[i].context, a1, a2, a3); break;
+	        default:
+	          if (!args) for (j = 1, args = new Array(len -1); j < len; j++) {
+	            args[j - 1] = arguments[j];
+	          }
+	
+	          listeners[i].fn.apply(listeners[i].context, args);
+	      }
+	    }
+	  }
+	
+	  return true;
+	};
+	
+	/**
+	 * Add a listener for a given event.
+	 *
+	 * @param {String|Symbol} event The event name.
+	 * @param {Function} fn The listener function.
+	 * @param {Mixed} [context=this] The context to invoke the listener with.
+	 * @returns {EventEmitter} `this`.
+	 * @api public
+	 */
+	EventEmitter.prototype.on = function on(event, fn, context) {
+	  var listener = new EE(fn, context || this)
+	    , evt = prefix ? prefix + event : event;
+	
+	  if (!this._events[evt]) this._events[evt] = listener, this._eventsCount++;
+	  else if (!this._events[evt].fn) this._events[evt].push(listener);
+	  else this._events[evt] = [this._events[evt], listener];
+	
+	  return this;
+	};
+	
+	/**
+	 * Add a one-time listener for a given event.
+	 *
+	 * @param {String|Symbol} event The event name.
+	 * @param {Function} fn The listener function.
+	 * @param {Mixed} [context=this] The context to invoke the listener with.
+	 * @returns {EventEmitter} `this`.
+	 * @api public
+	 */
+	EventEmitter.prototype.once = function once(event, fn, context) {
+	  var listener = new EE(fn, context || this, true)
+	    , evt = prefix ? prefix + event : event;
+	
+	  if (!this._events[evt]) this._events[evt] = listener, this._eventsCount++;
+	  else if (!this._events[evt].fn) this._events[evt].push(listener);
+	  else this._events[evt] = [this._events[evt], listener];
+	
+	  return this;
+	};
+	
+	/**
+	 * Remove the listeners of a given event.
+	 *
+	 * @param {String|Symbol} event The event name.
+	 * @param {Function} fn Only remove the listeners that match this function.
+	 * @param {Mixed} context Only remove the listeners that have this context.
+	 * @param {Boolean} once Only remove one-time listeners.
+	 * @returns {EventEmitter} `this`.
+	 * @api public
+	 */
+	EventEmitter.prototype.removeListener = function removeListener(event, fn, context, once) {
+	  var evt = prefix ? prefix + event : event;
+	
+	  if (!this._events[evt]) return this;
+	  if (!fn) {
+	    if (--this._eventsCount === 0) this._events = new Events();
+	    else delete this._events[evt];
+	    return this;
+	  }
+	
+	  var listeners = this._events[evt];
+	
+	  if (listeners.fn) {
+	    if (
+	         listeners.fn === fn
+	      && (!once || listeners.once)
+	      && (!context || listeners.context === context)
+	    ) {
+	      if (--this._eventsCount === 0) this._events = new Events();
+	      else delete this._events[evt];
+	    }
+	  } else {
+	    for (var i = 0, events = [], length = listeners.length; i < length; i++) {
+	      if (
+	           listeners[i].fn !== fn
+	        || (once && !listeners[i].once)
+	        || (context && listeners[i].context !== context)
+	      ) {
+	        events.push(listeners[i]);
+	      }
+	    }
+	
+	    //
+	    // Reset the array, or remove it completely if we have no more listeners.
+	    //
+	    if (events.length) this._events[evt] = events.length === 1 ? events[0] : events;
+	    else if (--this._eventsCount === 0) this._events = new Events();
+	    else delete this._events[evt];
+	  }
+	
+	  return this;
+	};
+	
+	/**
+	 * Remove all listeners, or those of the specified event.
+	 *
+	 * @param {String|Symbol} [event] The event name.
+	 * @returns {EventEmitter} `this`.
+	 * @api public
+	 */
+	EventEmitter.prototype.removeAllListeners = function removeAllListeners(event) {
+	  var evt;
+	
+	  if (event) {
+	    evt = prefix ? prefix + event : event;
+	    if (this._events[evt]) {
+	      if (--this._eventsCount === 0) this._events = new Events();
+	      else delete this._events[evt];
+	    }
+	  } else {
+	    this._events = new Events();
+	    this._eventsCount = 0;
+	  }
+	
+	  return this;
+	};
+	
+	//
+	// Alias methods names because people roll like that.
+	//
+	EventEmitter.prototype.off = EventEmitter.prototype.removeListener;
+	EventEmitter.prototype.addListener = EventEmitter.prototype.on;
+	
+	//
+	// This function doesn't apply anymore.
+	//
+	EventEmitter.prototype.setMaxListeners = function setMaxListeners() {
+	  return this;
+	};
+	
+	//
+	// Expose the prefix.
+	//
+	EventEmitter.prefixed = prefix;
+	
+	//
+	// Allow `EventEmitter` to be imported as module namespace.
+	//
+	EventEmitter.EventEmitter = EventEmitter;
+	
+	//
+	// Expose the module.
+	//
+	if (true) {
+	  module.exports = EventEmitter;
+	}
+
+
+/***/ }),
+
+/***/ 364:
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	/*
+	 * BetweenAS3
+	 * 
+	 * Licensed under the MIT License
+	 * 
+	 * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	 *                    Spark project  (www.libspark.org)
+	 * 
+	 * Permission is hereby granted, free of charge, to any person obtaining a copy
+	 * of this software and associated documentation files (the "Software"), to deal
+	 * in the Software without restriction, including without limitation the rights
+	 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 * copies of the Software, and to permit persons to whom the Software is
+	 * furnished to do so, subject to the following conditions:
+	 * 
+	 * The above copyright notice and this permission notice shall be included in
+	 * all copies or substantial portions of the Software.
+	 * 
+	 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	 * THE SOFTWARE.
+	 * 
+	 */
+	
+	var TickerListener = function () {
+	  function TickerListener() {
+	    _classCallCheck(this, TickerListener);
+	
+	    /**
+	     *
+	     * @type {TickerListener}
+	           */
+	    this.prevListener = null;
+	
+	    /**
+	     *
+	     * @type {TickerListener}
+	           */
+	    this.nextListener = null;
+	  }
+	
+	  /**
+	   *
+	   * @param time {number}
+	   * @return {boolean}
+	   */
+	
+	
+	  _createClass(TickerListener, [{
+	    key: "tick",
+	    value: function tick(time) {
+	      return false;
+	    }
+	  }]);
+	
+	  return TickerListener;
+	}();
+	
+	exports.default = TickerListener;
+
+/***/ }),
+
+/***/ 365:
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	/*
+	 * BetweenAS3
+	 *
+	 * Licensed under the MIT License
+	 *
+	 * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	 *                    Spark project  (www.libspark.org)
+	 *
+	 * Permission is hereby granted, free of charge, to any person obtaining a copy
+	 * of this software and associated documentation files (the "Software"), to deal
+	 * in the Software without restriction, including without limitation the rights
+	 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 * copies of the Software, and to permit persons to whom the Software is
+	 * furnished to do so, subject to the following conditions:
+	 *
+	 * The above copyright notice and this permission notice shall be included in
+	 * all copies or substantial portions of the Software.
+	 *
+	 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	 * THE SOFTWARE.
+	 *
+	 */
+	
+	var ClassRegistry = function () {
+	    /**
+	     * classes 안에 클래스와 그 안에 속성이 저장되고 그에 맞는 업데이터가 등록됩니다.
+	     * classes[Object][x] = ObjectUpadter
+	     */
+	    function ClassRegistry() {
+	        _classCallCheck(this, ClassRegistry);
+	
+	        /**
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        this._classes = {};
+	
+	        /**
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        this._subclasses = {};
+	    }
+	
+	    /**
+	     * 타겟 클래스의 프로퍼티로 클래스 등록
+	     * @param klass {Class}
+	     * @param targetClass {Class}
+	     * @param propertyName {string}
+	     */
+	
+	
+	    _createClass(ClassRegistry, [{
+	        key: 'registerClassWithTargetClassAndPropertyName',
+	        value: function registerClassWithTargetClassAndPropertyName(klass, targetClass, propertyName) {
+	            if (this._classes[targetClass] == undefined) {
+	                this.buildCacheFor(targetClass);
+	            }
+	
+	            var classes = this._classes;
+	            var oldClass = classes[targetClass][propertyName];
+	
+	            classes[targetClass][propertyName] = klass;
+	
+	            /**
+	             * @type {Vector.<Class>}
+	             */
+	            var subclasses = this._subclasses[targetClass];
+	            if (subclasses != null) {
+	                var l = subclasses.length;
+	                for (var i = 0; i < l; ++i) {
+	                    var subclass = subclasses[i];
+	                    if (classes[subclass][propertyName] == oldClass) {
+	                        classes[subclass][propertyName] = klass;
+	                    }
+	                }
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @param klass {Class}
+	         * @param targetClass {Class}
+	         * @param propertyNames {Array<string>}
+	         */
+	
+	    }, {
+	        key: 'registerClassWithTargetClassAndPropertyNames',
+	        value: function registerClassWithTargetClassAndPropertyNames(klass, targetClass, propertyNames) {
+	            var l = propertyNames.length;
+	            for (var i = 0; i < l; ++i) {
+	                this.registerClassWithTargetClassAndPropertyName(klass, targetClass, propertyNames[i]);
+	            }
+	        }
+	
+	        /**
+	         * 클래스와 프로퍼티이름으로 Updater 반환
+	         * @param targetClass {Class}
+	         * @param propertyName {string}
+	         * @returns {Class}
+	         */
+	
+	    }, {
+	        key: 'getClassByTargetClassAndPropertyName',
+	        value: function getClassByTargetClassAndPropertyName(targetClass, propertyName) {
+	            var properties = this._classes[targetClass],
+	                c;
+	            if (properties != null) {
+	                if ((c = properties[propertyName]) != null) {
+	                    return c;
+	                }
+	                if ((c = properties['*']) != null) {
+	                    return c;
+	                }
+	            } else {
+	                this.buildCacheFor(targetClass);
+	                return this.getClassByTargetClassAndPropertyName(targetClass, propertyName);
+	            }
+	
+	            return null;
+	        }
+	
+	        /**
+	         * @param targetClass {Class}
+	         */
+	
+	    }, {
+	        key: 'buildCacheFor',
+	        value: function buildCacheFor(targetClass) {
+	            var classes = this._classes;
+	            var subclasses = this._subclasses;
+	
+	            /**
+	             * @type {Dictionary}
+	             */
+	            var dict = {};
+	
+	            /**
+	             * @type {Vector.<Class>}
+	             */
+	            var tree = this.getClassTree(targetClass);
+	            var l = tree.length;
+	            var i = l;
+	            while (--i >= 0) {
+	                var c = tree[i];
+	                var d = classes[c];
+	                var p;
+	                if (d != null) {
+	                    var newDict = {};
+	
+	                    if (dict != null) {
+	                        for (p in dict) {
+	                            newDict[p] = dict[p];
+	
+	                            if (!(p in d)) {
+	                                d[p] = dict[p];
+	                            }
+	                        }
+	                    }
+	
+	                    for (p in d) {
+	                        newDict[p] = d[p];
+	                    }
+	                    dict = newDict;
+	                } else {
+	                    var dictClone = {};
+	                    for (p in dict) {
+	                        dictClone[p] = dict[p];
+	                    }
+	                    classes[c] = dictClone;
+	                }
+	
+	                if (subclasses[c] != undefined) {
+	                    var sub = subclasses[c];
+	                    for (var j = i - 1; j >= 0; --j) {
+	                        var subC = tree[j];
+	                        if (sub.indexOf(subC) == -1) {
+	                            sub.push(subC);
+	                        }
+	                    }
+	                } else {
+	                    subclasses[c] = tree.slice(0, i);
+	                }
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @param klass {Class}
+	         * @returns {Vector.<Class>}
+	         */
+	
+	    }, {
+	        key: 'getClassTree',
+	        value: function getClassTree(klass) {
+	            var prototype;
+	            var c = klass;
+	
+	            try {
+	                prototype = klass.prototype;
+	            } catch (error) {
+	                return [klass, Object];
+	            }
+	
+	            var tree = [];
+	            while (c != null) {
+	                tree.push(c);
+	                prototype = Object.getPrototypeOf(prototype);
+	
+	                if (prototype != null) {
+	                    try {
+	                        c = prototype.constructor;
+	                    } catch (error) {
+	                        c = Object;
+	                    }
+	                } else {
+	                    c = null;
+	                }
+	            }
+	
+	            return tree;
+	        }
+	    }]);
+	
+	    return ClassRegistry;
+	}();
+	
+	exports.default = ClassRegistry;
+
+/***/ }),
+
+/***/ 366:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+	
+	var _UpdaterLadder = __webpack_require__(367);
+	
+	var _UpdaterLadder2 = _interopRequireDefault(_UpdaterLadder);
+	
+	var _BezierUpdater = __webpack_require__(369);
+	
+	var _BezierUpdater2 = _interopRequireDefault(_BezierUpdater);
+	
+	var _PhysicalUpdater = __webpack_require__(371);
+	
+	var _PhysicalUpdater2 = _interopRequireDefault(_PhysicalUpdater);
+	
+	var _CompositeUpdater = __webpack_require__(373);
+	
+	var _CompositeUpdater2 = _interopRequireDefault(_CompositeUpdater);
+	
+	var _PhysicalUpdaterLadder = __webpack_require__(374);
+	
+	var _PhysicalUpdaterLadder2 = _interopRequireDefault(_PhysicalUpdaterLadder);
+	
+	var _CompositePhysicalUpdater = __webpack_require__(375);
+	
+	var _CompositePhysicalUpdater2 = _interopRequireDefault(_CompositePhysicalUpdater);
+	
+	var _ClassRegistry = __webpack_require__(365);
+	
+	var _ClassRegistry2 = _interopRequireDefault(_ClassRegistry);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var UpdaterFactory = function () {
+	    /**
+	     * @param registry {ClassRegistry}
+	     */
+	    function UpdaterFactory(registry) {
+	        _classCallCheck(this, UpdaterFactory);
+	
+	        /**
+	         * @type {ClassRegistry}
+	         * @private
+	         */
+	        this._registry = registry;
+	
+	        /**
+	         * @type {uint}
+	         * @private
+	         */
+	        this._poolIndex = 0;
+	
+	        /**
+	         * @type {Vector.<Dictionary>}
+	         * @private
+	         */
+	        this._mapPool = [];
+	
+	        /**
+	         * @type {Vector.<Vector.<IUpdater>>}
+	         * @private
+	         */
+	        this._listPool = [];
+	    }
+	
+	    /**
+	     * updaterFactory.create(target, to, from);
+	     * @param target {Object}
+	     * @param dest {Object}
+	     * @param source {Object}
+	     * @returns {IUpdater}
+	     */
+	
+	
+	    _createClass(UpdaterFactory, [{
+	        key: 'create',
+	        value: function create(target, dest, source) {
+	            /**
+	             * map @type {Dictionary}
+	             * updaters @type {Vector.<IUpdater>}
+	             * name @type {string}
+	             * isRelative $이름이 붙은 변수인지 여부 @type {boolean}
+	             * parent @type {IUpdater}
+	             * child @type {IUpdater}
+	             * updater @type {IUpdate}
+	             */
+	            var map, updaters, name, value, isRelative, parent, child, updater;
+	
+	            if (this._poolIndex > 0) {
+	                --this._poolIndex;
+	                map = this._mapPool[this._poolIndex];
+	                updaters = this._listPool[this._poolIndex];
+	            } else {
+	                map = [];
+	                updaters = [];
+	            }
+	
+	            if (source != null) {
+	                for (name in source) {
+	                    if (typeof (value = source[name]) === 'number') {
+	                        // $로 시작하는 변수의 경우
+	                        if (isRelative = /^\$/.test(name)) {
+	                            name = name.substr(1);
+	                        }
+	                        // source value 를 적용하기 위해서 업데이터를 얻어와 설정
+	                        this.getUpdaterFor(target, name, map, updaters).setSourceValue(name, Number(value), isRelative);
+	                    } else {
+	                        parent = this.getUpdaterFor(target, name, map, updaters);
+	                        child = this.create(parent.getObject(name), dest != null ? dest[name] : null, value);
+	                        updaters.push(new _UpdaterLadder2.default(parent, child, name));
+	                    }
+	                }
+	            }
+	            if (dest != null) {
+	                for (name in dest) {
+	                    if (typeof (value = dest[name]) === 'number') {
+	                        if (isRelative = /^\$/.test(name)) {
+	                            name = name.substr(1);
+	                        }
+	                        this.getUpdaterFor(target, name, map, updaters).setDestinationValue(name, Number(value), isRelative);
+	                    } else {
+	                        if (!(source != null && name in source)) {
+	                            parent = this.getUpdaterFor(target, name, map, updaters);
+	                            child = this.create(parent.getObject(name), value, source != null ? source[name] : null);
+	                            updaters.push(new _UpdaterLadder2.default(parent, child, name));
+	                        }
+	                    }
+	                }
+	            }
+	
+	            if (updaters.length == 1) {
+	                updater = updaters[0];
+	            } else if (updaters.length > 1) {
+	                updater = new _CompositeUpdater2.default(target, updaters);
+	            }
+	
+	            for (var p in map) {
+	                delete map[p];
+	            }
+	            updaters.length = 0;
+	
+	            this._mapPool[this._poolIndex] = map;
+	            this._listPool[this._poolIndex] = updaters;
+	            ++this._poolIndex;
+	
+	            return updater;
+	        }
+	
+	        /**
+	         *
+	         * 업데이터 반환전에 Value 설정에 사용합니다.
+	         * @param target {Object}
+	         * @param propertyName {string}
+	         * @param map {Dictionary}
+	         * @param list {Vector.<IUpdater>}
+	         * @returns {IUpdater}
+	         */
+	
+	    }, {
+	        key: 'getUpdaterFor',
+	        value: function getUpdaterFor(target, propertyName, map, list) {
+	            var updaterClass = this._registry.getClassByTargetClassAndPropertyName(target.constructor, propertyName);
+	
+	            if (updaterClass != null) {
+	                var updater = map[updaterClass];
+	
+	                if (updater == null) {
+	                    updater = new updaterClass();
+	                    updater.target = target;
+	                    map[updaterClass] = updater;
+	                    if (list != null) {
+	                        list.push(updater);
+	                    }
+	                }
+	                return updater;
+	            }
+	            return null;
+	        }
+	
+	        /**
+	         *
+	         * @param target {Object}
+	         * @param dest {Object}
+	         * @param source {Object}
+	         * @param controlPoint {Object}
+	         * @returns {IUpdater}
+	         */
+	
+	    }, {
+	        key: 'createBezier',
+	        value: function createBezier(target, dest, source, controlPoint) {
+	            /**
+	             * map @type {Dictionary}
+	             * updaters @type {Vector.<IUpdater>}
+	             * bezierUpdater @type {BezierUpdater}
+	             * name @type {string}
+	             * value @type {Object}
+	             * isRelative @type {boolean}
+	             * cp @type {Array}
+	             * l @type {uint}
+	             * i @type {uint}
+	             * child @type {IUpdater}
+	             * updater @type {IUpdater}
+	             */
+	            var map = {},
+	                updaters = [],
+	                bezierUpdater = new _BezierUpdater2.default(),
+	                name,
+	                value,
+	                isRelative,
+	                cp,
+	                l,
+	                i,
+	                child,
+	                updater;
+	
+	            bezierUpdater.target = target;
+	
+	            updaters.push(bezierUpdater);
+	
+	            if (source != null) {
+	                for (name in source) {
+	                    if (typeof (value = source[name]) === 'number') {
+	                        if (isRelative = /^\$/.test(name)) {
+	                            name = name.substr(1);
+	                        }
+	                        bezierUpdater.setSourceValue(name, Number(value), isRelative);
+	                    } else {
+	                        if (!map[name]) {
+	                            child = this.createBezier(bezierUpdater.getObject(name), dest != null ? dest[name] : null, value, controlPoint != null ? controlPoint[name] : null);
+	                            updaters.push(new _UpdaterLadder2.default(bezierUpdater, child, name));
+	                            map[name] = true;
+	                        }
+	                    }
+	                }
+	            }
+	            if (dest != null) {
+	                for (name in dest) {
+	                    if (typeof (value = dest[name]) === 'number') {
+	                        if (isRelative = /^\$/.test(name)) {
+	                            name = name.substr(1);
+	                        }
+	                        bezierUpdater.setDestinationValue(name, Number(value), isRelative);
+	                    } else {
+	                        if (!map[name]) {
+	                            child = this.createBezier(bezierUpdater.getObject(name), null, source != null ? source[name] : null, controlPoint != null ? controlPoint[name] : null);
+	                            updaters.push(new _UpdaterLadder2.default(bezierUpdater, child, name));
+	                            map[name] = true;
+	                        }
+	                    }
+	                }
+	            }
+	            if (controlPoint != null) {
+	                for (name in controlPoint) {
+	                    if (typeof (value = controlPoint[name]) === 'number') {
+	                        value = [value];
+	                    }
+	                    if (Array.isArray(value)) {
+	                        if (isRelative = /^\$/.test(name)) {
+	                            name = name.substr(1);
+	                        }
+	                        cp = value;
+	                        l = cp.length;
+	                        for (i = 0; i < l; ++i) {
+	                            bezierUpdater.addControlPoint(name, cp[i], isRelative);
+	                        }
+	                    } else {
+	                        if (!map[name]) {
+	                            child = this.createBezier(bezierUpdater.getObject(name), dest != null ? dest[name] : null, source != null ? source[name] : null, value);
+	                            updaters.push(new _UpdaterLadder2.default(bezierUpdater, child, name));
+	                            map[name] = true;
+	                        }
+	                    }
+	                }
+	            }
+	
+	            if (updaters.length == 1) {
+	                updater = updaters[0];
+	            } else if (updaters.length > 1) {
+	                updater = new _CompositeUpdater2.default(target, updaters);
+	            }
+	
+	            return updater;
+	        }
+	
+	        /**
+	         *
+	         * @param target {Object}
+	         * @param dest {Object}
+	         * @param source {Object}
+	         * @param easing {IPhysicalEasing}
+	         * @returns {IPhysicalUpdater}
+	         */
+	
+	    }, {
+	        key: 'createPhysical',
+	        value: function createPhysical(target, dest, source, easing) {
+	            /**
+	             * map @type {Ditionary}
+	             * updaters @type {Vector.<IPhysicalUpdater>}
+	             * physicalUpdater @type PhysicalUpdater
+	             * name @type {string}
+	             * value @type {Object}
+	             * isRelative @type {boolean}
+	             * child @type {IPhysicalUpdater}
+	             * updater @type {IPhysicalUpdater}
+	             */
+	            var map = {},
+	                updaters = [],
+	                physicalUpdater = new _PhysicalUpdater2.default(),
+	                name,
+	                value,
+	                isRelative,
+	                child,
+	                updater;
+	
+	            physicalUpdater.target = target;
+	            physicalUpdater.easing = easing;
+	
+	            updaters.push(physicalUpdater);
+	
+	            if (source != null) {
+	                for (name in source) {
+	                    if (typeof (value = source[name]) === 'number') {
+	                        if (isRelative = /^\$/.test(name)) {
+	                            name = name.substr(1);
+	                        }
+	                        physicalUpdater.setSourceValue(name, Number(value), isRelative);
+	                    } else {
+	                        if (!map[name]) {
+	                            child = this.createPhysical(physicalUpdater.getObject(name), dest != null ? dest[name] : null, value, easing);
+	                            updaters.push(new _PhysicalUpdaterLadder2.default(physicalUpdater, child, name));
+	                            map[name] = true;
+	                        }
+	                    }
+	                }
+	            }
+	            if (dest != null) {
+	                for (name in dest) {
+	                    if (typeof (value = dest[name]) === 'number') {
+	                        if (isRelative = /^\$/.test(name)) {
+	                            name = name.substr(1);
+	                        }
+	                        physicalUpdater.setDestinationValue(name, Number(value), isRelative);
+	                    } else {
+	                        if (!map[name]) {
+	                            child = this.createPhysical(physicalUpdater.getObject(name), null, source != null ? source[name] : null, easing);
+	                            updaters.push(new _PhysicalUpdaterLadder2.default(physicalUpdater, child, name));
+	                            map[name] = true;
+	                        }
+	                    }
+	                }
+	            }
+	
+	            if (updaters.length == 1) {
+	                updater = updaters[0];
+	            } else if (updaters.length > 1) {
+	                updater = new _CompositePhysicalUpdater2.default(target, updaters);
+	            }
+	
+	            return updater;
+	        }
+	    }]);
+	
+	    return UpdaterFactory;
+	}();
+	
+	exports.default = UpdaterFactory;
+
+/***/ }),
+
+/***/ 367:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _IUpdater2 = __webpack_require__(368);
+	
+	var _IUpdater3 = _interopRequireDefault(_IUpdater2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var UpdaterLadder = function (_IUpdater) {
+	  _inherits(UpdaterLadder, _IUpdater);
+	
+	  /**
+	   * @param parent {IUpdater}
+	   * @param child {IUpdater}
+	   * @param propertyName {string}
+	   */
+	  function UpdaterLadder(parent, child, propertyName) {
+	    _classCallCheck(this, UpdaterLadder);
+	
+	    var _this = _possibleConstructorReturn(this, (UpdaterLadder.__proto__ || Object.getPrototypeOf(UpdaterLadder)).call(this));
+	
+	    _this._parent = parent;
+	    _this._child = child;
+	    _this._propertyName = propertyName;
+	    return _this;
+	  }
+	
+	  /**
+	   * @returns {IUpdater}
+	   */
+	
+	
+	  _createClass(UpdaterLadder, [{
+	    key: 'update',
+	
+	
+	    /**
+	     * @param factor {number}
+	     */
+	    value: function update(factor) {
+	      this._child.update(factor);
+	      this._parent.setObject(this._propertyName, this._child.target);
+	    }
+	
+	    /**
+	     * @returns {IUpdater}
+	     */
+	
+	  }, {
+	    key: 'clone',
+	    value: function clone() {
+	      return new UpdaterLadder(this._parent, this._child, this._propertyName);
+	    }
+	  }, {
+	    key: 'parent',
+	    get: function get() {
+	      return this._parent;
+	    }
+	
+	    /**
+	     * @returns {IUpdater}
+	     */
+	
+	  }, {
+	    key: 'child',
+	    get: function get() {
+	      return this._child;
+	    }
+	  }]);
+	
+	  return UpdaterLadder;
+	}(_IUpdater3.default);
+	
+	exports.default = UpdaterLadder;
+
+/***/ }),
+
+/***/ 368:
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	/*
+	 * BetweenAS3
+	 *
+	 * Licensed under the MIT License
+	 *
+	 * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	 *                    Spark project  (www.libspark.org)
+	 *
+	 * Permission is hereby granted, free of charge, to any person obtaining a copy
+	 * of this software and associated documentation files (the "Software"), to deal
+	 * in the Software without restriction, including without limitation the rights
+	 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 * copies of the Software, and to permit persons to whom the Software is
+	 * furnished to do so, subject to the following conditions:
+	 *
+	 * The above copyright notice and this permission notice shall be included in
+	 * all copies or substantial portions of the Software.
+	 *
+	 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	 * THE SOFTWARE.
+	 *
+	 */
+	
+	var IUpdater = function () {
+	  function IUpdater() {
+	    _classCallCheck(this, IUpdater);
+	  }
+	
+	  _createClass(IUpdater, [{
+	    key: "setSourceValue",
+	
+	
+	    /**
+	     * @param propertyName {string}
+	     * @param value {number}
+	     * @param isRelative {boolean}
+	     */
+	    value: function setSourceValue(propertyName, value) {
+	      var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	    }
+	
+	    /**
+	     * @param propertyName {string}
+	     * @param value {number}
+	     * @param isRelative {boolean}
+	     */
+	
+	  }, {
+	    key: "setDestinationValue",
+	    value: function setDestinationValue(propertyName, value) {
+	      var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	    }
+	
+	    /**
+	     * @param propertyName {string}
+	     * @return {Object}
+	     */
+	
+	  }, {
+	    key: "getObject",
+	    value: function getObject(propertyName) {
+	      return null;
+	    }
+	
+	    /**
+	     * @param propertyName {string}
+	     * @param value {Object}
+	     */
+	
+	  }, {
+	    key: "setObject",
+	    value: function setObject(propertyName, value) {}
+	
+	    /**
+	     * @param factor {number}
+	     */
+	
+	  }, {
+	    key: "update",
+	    value: function update(factor) {}
+	
+	    /**
+	     * @return {IUpdater}
+	     */
+	
+	  }, {
+	    key: "clone",
+	    value: function clone() {
+	      return null;
+	    }
+	  }, {
+	    key: "target",
+	
+	    /**
+	     * @return {Object}
+	     */
+	    get: function get() {
+	      return null;
+	    }
+	
+	    /**
+	     * @param value {Object}
+	     */
+	    ,
+	    set: function set(value) {}
+	  }]);
+	
+	  return IUpdater;
+	}();
+	
+	exports.default = IUpdater;
+
+/***/ }),
+
+/***/ 369:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _AbstractUpdater2 = __webpack_require__(370);
+	
+	var _AbstractUpdater3 = _interopRequireDefault(_AbstractUpdater2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var BezierUpdater = function (_AbstractUpdater) {
+	    _inherits(BezierUpdater, _AbstractUpdater);
+	
+	    function BezierUpdater() {
+	        _classCallCheck(this, BezierUpdater);
+	
+	        /**
+	         * @type {Object}
+	         * @private
+	         */
+	        var _this = _possibleConstructorReturn(this, (BezierUpdater.__proto__ || Object.getPrototypeOf(BezierUpdater)).call(this));
+	
+	        _this._target = null;
+	
+	        /**
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        _this._source = {};
+	
+	        /**
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        _this._destination = {};
+	
+	        /**
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        _this._controlPoint = {};
+	
+	        /**
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        _this._relativeMap = {};
+	        return _this;
+	    }
+	
+	    /**
+	     * @returns {Object}
+	     */
+	
+	
+	    _createClass(BezierUpdater, [{
+	        key: 'addControlPoint',
+	
+	
+	        /**
+	         * @param propertyName {string}
+	         * @param value {number}
+	         * @param isRelative {boolena}
+	         */
+	        value: function addControlPoint(propertyName, value) {
+	            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            var controlPoint = this._controlPoint[propertyName];
+	            if (controlPoint == null) {
+	                this._controlPoint[propertyName] = controlPoint = [];
+	            }
+	            controlPoint.push(value);
+	            this._relativeMap['cp.' + propertyName + '.' + controlPoint.length] = isRelative;
+	        }
+	
+	        /**
+	         * @param propertyName {string}
+	         * @param value {number}
+	         * @param isRelative {boolean}
+	         */
+	
+	    }, {
+	        key: 'setSourceValue',
+	        value: function setSourceValue(propertyName, value) {
+	            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            this._source[propertyName] = value;
+	            this._relativeMap['source.' + propertyName] = isRelative;
+	        }
+	
+	        /**
+	         * @param propertyName {string}
+	         * @param value {number}
+	         * @param isRelative {boolean}
+	         */
+	
+	    }, {
+	        key: 'setDestinationValue',
+	        value: function setDestinationValue(propertyName, value) {
+	            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            this._destination[propertyName] = value;
+	            this._relativeMap['dest.' + propertyName] = isRelative;
+	        }
+	
+	        /**
+	         * @param propertyName {string}
+	         * @returns {Object}
+	         */
+	
+	    }, {
+	        key: 'getObject',
+	        value: function getObject(propertyName) {
+	            return this._target[propertyName];
+	        }
+	
+	        /**
+	         * @param propertyName {string}
+	         * @param value {Object}
+	         */
+	
+	    }, {
+	        key: 'setObject',
+	        value: function setObject(propertyName, value) {
+	            this._target[propertyName] = value;
+	        }
+	    }, {
+	        key: 'resolveValues',
+	        value: function resolveValues() {
+	            /**
+	             * key @type {string}
+	             * target @type {Objecct}
+	             * source @type {Dictionary}
+	             * dest @type {Dictionary}
+	             * controlPoint @type {Dictionary}
+	             * cpVec @type {Vector.<Number>}
+	             * l @type {uint}
+	             * i @type {uint}
+	             * rMap @type {Dictionary}
+	             */
+	            var key,
+	                target = this._target,
+	                source = this._source,
+	                dest = this._destination,
+	                controlPoint = this._controlPoint,
+	                cpVec,
+	                l,
+	                i,
+	                rMap = this._relativeMap;
+	
+	            for (key in source) {
+	                if (dest[key] == undefined) {
+	                    dest[key] = target[key];
+	                }
+	                if (rMap['source.' + key]) {
+	                    source[key] += target[key];
+	                }
+	            }
+	            for (key in dest) {
+	                if (source[key] == undefined) {
+	                    source[key] = target[key];
+	                }
+	                if (rMap['dest.' + key]) {
+	                    dest[key] += target[key];
+	                }
+	            }
+	            for (key in controlPoint) {
+	                cpVec = controlPoint[key];
+	                l = cpVec.length;
+	                for (i = 0; i < l; ++i) {
+	                    if (rMap['cp.' + key + '.' + i]) {
+	                        cpVec[i] += target[key];
+	                    }
+	                }
+	            }
+	        }
+	
+	        /**
+	         * @param factor {number}
+	         */
+	
+	    }, {
+	        key: 'updateObject',
+	        value: function updateObject(factor) {
+	            /**
+	             * invert @type {number}
+	             * t @type {Object}
+	             * d @type {Dictionary}
+	             * s @type {Dictionary}
+	             * b @type {number}
+	             * cp @type {Dictionary}
+	             * cpVec @type {Vector.<Number>}
+	             * l @type {uint}
+	             * ip @type {uint}
+	             * it @type {number}
+	             * p1 @type {number}
+	             * p2 @type {number}
+	             * name @type {string}
+	             */
+	            var invert = 1.0 - factor,
+	                t = this._target,
+	                d = this._destination,
+	                s = this._source,
+	                b,
+	                cp = this._controlPoint,
+	                cpVec,
+	                l,
+	                ip,
+	                it,
+	                p1,
+	                p2,
+	                name;
+	
+	            // Thank you, Tweener & Robert Penner!
+	
+	            for (name in d) {
+	
+	                b = s[name];
+	
+	                if (factor != 1.0 && (cpVec = this._controlPoint[name]) != null) {
+	                    if ((l = cpVec.length) == 1) {
+	                        t[name] = b + factor * (2 * invert * (cpVec[0] - b) + factor * (d[name] - b));
+	                    } else {
+	                        ip = factor * l >> 0;
+	                        it = (factor - ip * (1 / l)) * l;
+	                        if (ip == 0) {
+	                            p1 = b;
+	                            p2 = (cpVec[0] + cpVec[1]) / 2;
+	                        } else if (ip == l - 1) {
+	                            p1 = (cpVec[ip - 1] + cpVec[ip]) / 2;
+	                            p2 = d[name];
+	                        } else {
+	                            p1 = (cpVec[ip - 1] + cpVec[ip]) / 2;
+	                            p2 = (cpVec[ip] + cpVec[ip + 1]) / 2;
+	                        }
+	                        t[name] = p1 + it * (2 * (1 - it) * (cpVec[ip] - p1) + it * (p2 - p1));
+	                    }
+	                } else {
+	                    t[name] = b * invert + d[name] * factor;
+	                }
+	            }
+	        }
+	
+	        /**
+	         * @returns {AbstractUpdater}
+	         */
+	
+	    }, {
+	        key: 'newInstance',
+	        value: function newInstance() {
+	            return new BezierUpdater();
+	        }
+	
+	        /**
+	         * @param source {AbstractUpdater}
+	         */
+	
+	    }, {
+	        key: 'copyFrom',
+	        value: function copyFrom(source) {
+	            _get(BezierUpdater.prototype.__proto__ || Object.getPrototypeOf(BezierUpdater.prototype), 'copyFrom', this).call(this, source);
+	
+	            var obj = source;
+	
+	            this._target = obj._target;
+	            this.copyObject(this._source, obj._source);
+	            this.copyObject(this._destination, obj._destination);
+	            this.copyObject(this._controlPoint, obj._controlPoint);
+	            this.copyObject(this._relativeMap, obj._relativeMap);
+	        }
+	
+	        /**
+	         * @param to {Object}
+	         * @param from {Object}
+	         */
+	
+	    }, {
+	        key: 'copyObject',
+	        value: function copyObject(to, from) {
+	            for (var name in from) {
+	                to[name] = from[name];
+	            }
+	        }
+	    }, {
+	        key: 'target',
+	        get: function get() {
+	            return this._target;
+	        }
+	
+	        /**
+	         * @param value {Object}
+	         */
+	        ,
+	        set: function set(value) {
+	            this._target = value;
+	        }
+	    }]);
+	
+	    return BezierUpdater;
+	}(_AbstractUpdater3.default);
+	
+	exports.default = BezierUpdater;
+
+/***/ }),
+
+/***/ 370:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _IUpdater2 = __webpack_require__(368);
+	
+	var _IUpdater3 = _interopRequireDefault(_IUpdater2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var AbstractUpdater = function (_IUpdater) {
+	  _inherits(AbstractUpdater, _IUpdater);
+	
+	  function AbstractUpdater() {
+	    _classCallCheck(this, AbstractUpdater);
+	
+	    /**
+	     * @type {boolean}
+	     * @private
+	     */
+	    var _this = _possibleConstructorReturn(this, (AbstractUpdater.__proto__ || Object.getPrototypeOf(AbstractUpdater)).call(this));
+	
+	    _this._isResolved = false;
+	    return _this;
+	  }
+	
+	  /**
+	   *
+	   * @returns {Object}
+	   */
+	
+	
+	  _createClass(AbstractUpdater, [{
+	    key: 'setSourceValue',
+	
+	
+	    /**
+	     *
+	     * @param propertyName {string}
+	     * @param value {number}
+	     * @param isRelative {boolean}
+	     */
+	    value: function setSourceValue(propertyName, value) {
+	      var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	    }
+	
+	    /**
+	     *
+	     * @param propertyName {string}
+	     * @param value {number}
+	     * @param isRelative {boolean}
+	     */
+	
+	  }, {
+	    key: 'setDestinationValue',
+	    value: function setDestinationValue(propertyName, value) {
+	      var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	    }
+	
+	    /**
+	     *
+	     * @param propertyName {string}
+	     * @returns {Object}
+	     */
+	
+	  }, {
+	    key: 'getObject',
+	    value: function getObject(propertyName) {
+	      return null;
+	    }
+	
+	    /**
+	     *
+	     * @param propertyName {string}
+	     * @param value {Object}
+	     */
+	
+	  }, {
+	    key: 'setObject',
+	    value: function setObject(propertyName, value) {}
+	
+	    /**
+	     * @param factor {number}
+	     */
+	
+	  }, {
+	    key: 'update',
+	    value: function update(factor) {
+	      if (this._isResolved === false) {
+	        this.resolveValues();
+	        this._isResolved = true;
+	      }
+	      this.updateObject(factor);
+	    }
+	  }, {
+	    key: 'resolveValues',
+	    value: function resolveValues() {}
+	
+	    /**
+	     * @param factor {number}
+	     */
+	
+	  }, {
+	    key: 'updateObject',
+	    value: function updateObject(factor) {}
+	
+	    /**
+	     * @returns {IUpdater}
+	     */
+	
+	  }, {
+	    key: 'clone',
+	    value: function clone() {
+	      var instance = this.newInstance();
+	      if (instance != null) {
+	        instance.copyFrom(this);
+	      }
+	      return instance;
+	    }
+	
+	    /**
+	     * @return {AbstractUpdater}
+	     */
+	
+	  }, {
+	    key: 'newInstance',
+	    value: function newInstance() {
+	      return null;
+	    }
+	
+	    /**
+	     * @param source {AbstractUpdater}
+	     */
+	
+	  }, {
+	    key: 'copyFrom',
+	    value: function copyFrom(source) {
+	      // Do NOT copy _isResolved property.
+	    }
+	  }, {
+	    key: 'target',
+	    get: function get() {
+	      return null;
+	    }
+	
+	    /**
+	     *
+	     * @param value {Object}
+	     */
+	    ,
+	    set: function set(value) {}
+	  }]);
+	
+	  return AbstractUpdater;
+	}(_IUpdater3.default);
+	
+	exports.default = AbstractUpdater;
+
+/***/ }),
+
+/***/ 371:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _IPhysicalUpdater2 = __webpack_require__(372);
+	
+	var _IPhysicalUpdater3 = _interopRequireDefault(_IPhysicalUpdater2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var PhysicalUpdater = function (_IPhysicalUpdater) {
+	    _inherits(PhysicalUpdater, _IPhysicalUpdater);
+	
+	    function PhysicalUpdater() {
+	        _classCallCheck(this, PhysicalUpdater);
+	
+	        /**
+	         *
+	         * @type {Object}
+	         * @private
+	         */
+	        var _this = _possibleConstructorReturn(this, (PhysicalUpdater.__proto__ || Object.getPrototypeOf(PhysicalUpdater)).call(this));
+	
+	        _this._target = null;
+	
+	        /**
+	         *
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        _this._source = {};
+	
+	        /**
+	         *
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        _this._destination = {};
+	
+	        /**
+	         *
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        _this._relativeMap = {};
+	
+	        /**
+	         *
+	         * @type {IPhysicalEasing}
+	         * @private
+	         */
+	        _this._easing = null;
+	
+	        /**
+	         *
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        _this._duration = {};
+	
+	        /**
+	         *
+	         * @type {number}
+	         * @private
+	         */
+	        _this._maxDuration = 0.0;
+	
+	        /**
+	         *
+	         * @type {boolean}
+	         * @private
+	         */
+	        _this._isResolved = false;
+	        return _this;
+	    }
+	
+	    /**
+	     *
+	     * @returns {Object}
+	     */
+	
+	
+	    _createClass(PhysicalUpdater, [{
+	        key: 'setSourceValue',
+	
+	
+	        /**
+	         *
+	         * @param propertyName {string}
+	         * @param value {number}
+	         * @param isRelative {boolean}
+	         */
+	        value: function setSourceValue(propertyName, value) {
+	            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            this._source[propertyName] = value;
+	            this._relativeMap['source.' + propertyName] = isRelative;
+	        }
+	
+	        /**
+	         *
+	         * @param propertyName {string}
+	         * @param value {number}
+	         * @param isRelative {boolean}
+	         */
+	
+	    }, {
+	        key: 'setDestinationValue',
+	        value: function setDestinationValue(propertyName, value) {
+	            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            this._destination[propertyName] = value;
+	            this._relativeMap['dest.' + propertyName] = isRelative;
+	        }
+	
+	        /**
+	         *
+	         * @param propertyName {string}
+	         * @returns {Object}
+	         */
+	
+	    }, {
+	        key: 'getObject',
+	        value: function getObject(propertyName) {
+	            return this._target[propertyName];
+	        }
+	
+	        /**
+	         *
+	         * @param propertyName {string}
+	         * @param value {Object}
+	         */
+	
+	    }, {
+	        key: 'setObject',
+	        value: function setObject(propertyName, value) {
+	            this._target[propertyName] = value;
+	        }
+	    }, {
+	        key: 'resolveValues',
+	        value: function resolveValues() {
+	            /**
+	             * key @type {string}
+	             * target @type {Object}
+	             * source @type {Dictionary}
+	             * dest @type {Dictionary}
+	             * rMap @type {Dicitonary}
+	             * d @type {Dictionary}
+	             * duration @type {number}
+	             * maxDuration @type {number}
+	             */
+	            var key,
+	                target = this._target,
+	                source = this._source,
+	                dest = this._destination,
+	                rMap = this._relativeMap,
+	                d = this._duration,
+	                duration,
+	                maxDuration = 0.0;
+	
+	            for (key in source) {
+	                if (dest[key] == undefined) {
+	                    dest[key] = target[key];
+	                }
+	                if (rMap['source.' + key]) {
+	                    source[key] += target[key];
+	                }
+	            }
+	            for (key in dest) {
+	                if (source[key] == undefined) {
+	                    source[key] = target[key];
+	                }
+	                if (rMap['dest.' + key]) {
+	                    dest[key] += target[key];
+	                }
+	                duration = this._easing.getDuration(source[key], dest[key] - source[key]);
+	                d[key] = duration;
+	                if (maxDuration < duration) {
+	                    maxDuration = duration;
+	                }
+	            }
+	
+	            this._maxDuration = maxDuration;
+	
+	            this._isResolved = true;
+	        }
+	
+	        /**
+	         *
+	         * @param time {number}
+	         */
+	
+	    }, {
+	        key: 'update',
+	        value: function update(time) {
+	            if (this._isResolved === false) {
+	                this.resolveValues();
+	            }
+	
+	            var factor;
+	            var t = this._target;
+	            var e = this._easing;
+	            var dest = this._destination;
+	            var src = this._source;
+	            var s;
+	            var d = this._duration;
+	            var name;
+	
+	            for (name in dest) {
+	                if (time >= d[name]) {
+	                    t[name] = dest[name];
+	                } else {
+	                    s = src[name];
+	                    t[name] = e.calculate(time, s, dest[name] - s);
+	                }
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @returns {IUpdater}
+	         */
+	
+	    }, {
+	        key: 'clone',
+	        value: function clone() {
+	            var instance = this.newInstance();
+	            if (instance != null) {
+	                instance.copyFrom(this);
+	            }
+	            return instance;
+	        }
+	
+	        /**
+	         *
+	         * @returns {PhysicalUpdater}
+	         */
+	
+	    }, {
+	        key: 'newInstance',
+	        value: function newInstance() {
+	            return new PhysicalUpdater();
+	        }
+	
+	        /**
+	         *
+	         * @param source {PhysicalUpdater}
+	         */
+	
+	    }, {
+	        key: 'copyFrom',
+	        value: function copyFrom(source) {
+	            var obj = source;
+	
+	            this._target = obj._target;
+	            this._easing = obj._easing;
+	            this.copyObject(this._source, obj._source);
+	            this.copyObject(this._destination, obj._destination);
+	            this.copyObject(this._relativeMap, obj._relativeMap);
+	        }
+	
+	        /**
+	         *
+	         * @param to {Object}
+	         * @param from {Object}
+	         */
+	
+	    }, {
+	        key: 'copyObject',
+	        value: function copyObject(to, from) {
+	            for (var name in from) {
+	                to[name] = from[name];
+	            }
+	        }
+	    }, {
+	        key: 'target',
+	        get: function get() {
+	            return this._target;
+	        }
+	
+	        /**
+	         *
+	         * @param value {Object}
+	         */
+	        ,
+	        set: function set(value) {
+	            this._target = value;
+	        }
+	
+	        /**
+	         *
+	         * @returns {IPhysicalEasing}
+	         */
+	
+	    }, {
+	        key: 'easing',
+	        get: function get() {
+	            return this._easing;
+	        }
+	
+	        /**
+	         *
+	         * @param value {IPhysicalEasing}
+	         */
+	        ,
+	        set: function set(value) {
+	            this._easing = value;
+	        }
+	
+	        /**
+	         *
+	         * @returns {number}
+	         */
+	
+	    }, {
+	        key: 'duration',
+	        get: function get() {
+	            if (this._isResolved === false) {
+	                this.resolveValues();
+	            }
+	            return this._maxDuration;
+	        }
+	    }]);
+	
+	    return PhysicalUpdater;
+	}(_IPhysicalUpdater3.default);
+	
+	exports.default = PhysicalUpdater;
+
+/***/ }),
+
+/***/ 372:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _IUpdater2 = __webpack_require__(368);
+	
+	var _IUpdater3 = _interopRequireDefault(_IUpdater2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var IPhysicalUpdater = function (_IUpdater) {
+	  _inherits(IPhysicalUpdater, _IUpdater);
+	
+	  function IPhysicalUpdater() {
+	    _classCallCheck(this, IPhysicalUpdater);
+	
+	    return _possibleConstructorReturn(this, (IPhysicalUpdater.__proto__ || Object.getPrototypeOf(IPhysicalUpdater)).apply(this, arguments));
+	  }
+	
+	  _createClass(IPhysicalUpdater, [{
+	    key: 'easing',
+	
+	    /**
+	     * @return {IPhysicalEasing}
+	     */
+	    get: function get() {
+	      return null;
+	    }
+	
+	    /**
+	     * @param value {IPhysicalEasing}
+	     */
+	    ,
+	    set: function set(value) {}
+	
+	    /**
+	     * @returns {number}
+	     */
+	
+	  }, {
+	    key: 'duration',
+	    get: function get() {
+	      return null;
+	    }
+	  }]);
+	
+	  return IPhysicalUpdater;
+	}(_IUpdater3.default);
+	
+	exports.default = IPhysicalUpdater;
+
+/***/ }),
+
+/***/ 373:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _IUpdater2 = __webpack_require__(368);
+	
+	var _IUpdater3 = _interopRequireDefault(_IUpdater2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var CompositeUpdater = function (_IUpdater) {
+	    _inherits(CompositeUpdater, _IUpdater);
+	
+	    /**
+	     *
+	     * @param target {Object}
+	     * @param updaters {Vector.<IUpdater>}
+	     */
+	    function CompositeUpdater(target, updaters) {
+	        _classCallCheck(this, CompositeUpdater);
+	
+	        /**
+	         * @type {Object}
+	         */
+	        var _this = _possibleConstructorReturn(this, (CompositeUpdater.__proto__ || Object.getPrototypeOf(CompositeUpdater)).call(this));
+	
+	        _this._target = null;
+	
+	        /**
+	         * @type {IUpdater}
+	         */
+	        _this._a = undefined;
+	
+	        /**
+	         * @type {IUpdater}
+	         */
+	        _this._b = undefined;
+	
+	        /**
+	         * @type {IUpdater}
+	         */
+	        _this._c = undefined;
+	
+	        /**
+	         * @type {IUpdater}
+	         */
+	        _this._d = undefined;
+	
+	        /**
+	         * @type {Vector.<IUpdater>}
+	         */
+	        _this._updaters = undefined;
+	
+	        _this._target = target;
+	
+	        var l = updaters.length;
+	
+	        if (l >= 1) {
+	            _this._a = updaters[0];
+	            if (l >= 2) {
+	                _this._b = updaters[1];
+	                if (l >= 3) {
+	                    _this._c = updaters[2];
+	                    if (l >= 4) {
+	                        _this._d = updaters[3];
+	                        if (l >= 5) {
+	                            _this._updaters = [];
+	                            for (var i = 4; i < l; ++i) {
+	                                _this._updaters[i - 4] = updaters[i];
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	        return _this;
+	    }
+	
+	    /**
+	     * @param index {uint}
+	     * @returns {IUpdater}
+	     */
+	
+	
+	    _createClass(CompositeUpdater, [{
+	        key: 'getUpdaterAt',
+	        value: function getUpdaterAt(index) {
+	            if (index == 0) {
+	                return this._a;
+	            }
+	            if (index == 1) {
+	                return this._b;
+	            }
+	            if (index == 2) {
+	                return this._c;
+	            }
+	            if (index == 3) {
+	                return this._d;
+	            }
+	            return this._updaters[index - 4];
+	        }
+	
+	        /**
+	         * @returns {Object}
+	         */
+	
+	    }, {
+	        key: 'update',
+	
+	
+	        /**
+	         * @param factor {number}
+	         */
+	        value: function update(factor) {
+	            if (this._a != null) {
+	                this._a.update(factor);
+	                if (this._b != null) {
+	                    this._b.update(factor);
+	                    if (this._c != null) {
+	                        this._c.update(factor);
+	                        if (this._d != null) {
+	                            this._d.update(factor);
+	                            if (this._updaters != null) {
+	                                var updaters = this._updaters;
+	                                var l = updaters.length;
+	                                for (var i = 0; i < l; ++i) {
+	                                    updaters[i].update(factor);
+	                                }
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	
+	        /**
+	         * @returns {IUpdater}
+	         */
+	
+	    }, {
+	        key: 'clone',
+	        value: function clone() {
+	            var updaters = [];
+	
+	            if (this._a != null) {
+	                updaters.push(this._a.clone());
+	                if (this._b != null) {
+	                    updaters.push(this._b.clone());
+	                    if (this._c != null) {
+	                        updaters.push(this._c.clone());
+	                        if (this._d != null) {
+	                            updaters.push(this._d.clone());
+	                            if (this._updaters != null) {
+	                                var u = this._updaters;
+	                                var l = u.length;
+	                                for (var i = 0; i < l; ++i) {
+	                                    updaters.push(u[i].clone());
+	                                }
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	
+	            return new CompositeUpdater(this._target, updaters);
+	        }
+	    }, {
+	        key: 'target',
+	        get: function get() {
+	            return this._target;
+	        }
+	
+	        /**
+	         * @param value {Object}
+	         */
+	        ,
+	        set: function set(value) {
+	            this._target = value;
+	        }
+	    }]);
+	
+	    return CompositeUpdater;
+	}(_IUpdater3.default);
+	
+	exports.default = CompositeUpdater;
+
+/***/ }),
+
+/***/ 374:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _IPhysicalUpdater2 = __webpack_require__(372);
+	
+	var _IPhysicalUpdater3 = _interopRequireDefault(_IPhysicalUpdater2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var PhysicalUpdaterLadder = function (_IPhysicalUpdater) {
+	  _inherits(PhysicalUpdaterLadder, _IPhysicalUpdater);
+	
+	  /**
+	   *
+	   * @param parent {IPhysicalUpdater}
+	   * @param child {IPhysicalUpdater}
+	   * @param propertyName {String}
+	   */
+	  function PhysicalUpdaterLadder(parent, child, propertyName) {
+	    _classCallCheck(this, PhysicalUpdaterLadder);
+	
+	    /**
+	     * @type {IPhysicalUpdater}
+	     */
+	    var _this = _possibleConstructorReturn(this, (PhysicalUpdaterLadder.__proto__ || Object.getPrototypeOf(PhysicalUpdaterLadder)).call(this));
+	
+	    _this._parent = parent;
+	
+	    /**
+	     * @type {IPhysicalUpdater}
+	     */
+	    _this._child = child;
+	
+	    /**
+	     * @type {string}
+	     */
+	    _this._propertyName = propertyName;
+	
+	    /**
+	     * @type {number}
+	     */
+	    _this._duration = child.duration;
+	    return _this;
+	  }
+	
+	  /**
+	   *
+	   * @returns {IPhysicalUpdater}
+	   */
+	
+	
+	  _createClass(PhysicalUpdaterLadder, [{
+	    key: 'update',
+	
+	
+	    /**
+	     *
+	     * @param factor {number}
+	     */
+	    value: function update(factor) {
+	      this._child.update(factor);
+	      this._parent.setObject(this._propertyName, this._child.target);
+	    }
+	
+	    /**
+	     *
+	     * @returns {IUpdater}
+	     */
+	
+	  }, {
+	    key: 'clone',
+	    value: function clone() {
+	      return new PhysicalUpdaterLadder(this._parent, this._child, this._propertyName);
+	    }
+	  }, {
+	    key: 'parent',
+	    get: function get() {
+	      return this._parent;
+	    }
+	
+	    /**
+	     *
+	     * @returns {IPhysicalUpdater}
+	     */
+	
+	  }, {
+	    key: 'child',
+	    get: function get() {
+	      return this._child;
+	    }
+	
+	    /**
+	     *
+	     * @returns {number}
+	     */
+	
+	  }, {
+	    key: 'duration',
+	    get: function get() {
+	      return this._duration;
+	    }
+	  }]);
+	
+	  return PhysicalUpdaterLadder;
+	}(_IPhysicalUpdater3.default);
+	
+	exports.default = PhysicalUpdaterLadder;
+
+/***/ }),
+
+/***/ 375:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _IPhysicalUpdater2 = __webpack_require__(372);
+	
+	var _IPhysicalUpdater3 = _interopRequireDefault(_IPhysicalUpdater2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var CompositePhysicalUpdater = function (_IPhysicalUpdater) {
+	    _inherits(CompositePhysicalUpdater, _IPhysicalUpdater);
+	
+	    /**
+	     *
+	     * @param target {Object}
+	     * @param updaters {Vector.<IPhysicalUpdater>}
+	     */
+	    function CompositePhysicalUpdater(target, updaters) {
+	        _classCallCheck(this, CompositePhysicalUpdater);
+	
+	        /**
+	         *
+	         * @type {Object}
+	         * @private
+	         */
+	        var _this = _possibleConstructorReturn(this, (CompositePhysicalUpdater.__proto__ || Object.getPrototypeOf(CompositePhysicalUpdater)).call(this));
+	
+	        _this._target = target;
+	
+	        /**
+	         *
+	         * @type {number}
+	         * @private
+	         */
+	        _this._duration = 0.0;
+	
+	        /**
+	         *
+	         * @type {IPhysicalUpdater}
+	         * @private
+	         */
+	        _this._a = undefined;
+	
+	        /**
+	         *
+	         * @type {IPhysicalUpdater}
+	         * @private
+	         */
+	        _this._b = undefined;
+	
+	        /**
+	         *
+	         * @type {IPhysicalUpdater}
+	         * @private
+	         */
+	        _this._c = undefined;
+	
+	        /**
+	         *
+	         * @type {IPhysicalUpdater}
+	         * @private
+	         */
+	        _this._d = undefined;
+	
+	        /**
+	         *
+	         * @type {Vector.<IPhysicalUpdater>}
+	         * @private
+	         */
+	        _this._updaters = undefined;
+	
+	        var l = updaters.length;
+	
+	        if (l >= 1) {
+	            _this._a = updaters[0];
+	            if (_this._duration < _this._a.duration) {
+	                _this._duration = _this._a.duration;
+	            }
+	            if (l >= 2) {
+	                _this._b = updaters[1];
+	                if (_this._duration < _this._b.duration) {
+	                    _this._duration = _this._b.duration;
+	                }
+	                if (l >= 3) {
+	                    _this._c = updaters[2];
+	                    if (_this._duration < _this._c.duration) {
+	                        _this._duration = _this._c.duration;
+	                    }
+	                    if (l >= 4) {
+	                        _this._d = updaters[3];
+	                        if (_this._duration < _this._d.duration) {
+	                            _this._duration = _this._d.duration;
+	                        }
+	                        if (l >= 5) {
+	                            _this._updaters = [];
+	                            for (var i = 4; i < l; ++i) {
+	                                var updater = updaters[i];
+	                                _this._updaters[i - 4] = updater;
+	                                if (_this._duration < updater.duration) {
+	                                    _this._duration = updater.duration;
+	                                }
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	        return _this;
+	    }
+	
+	    /**
+	     *
+	     * @param index {uint}
+	     * @returns {IPhysicalUpdater}
+	     */
+	
+	
+	    _createClass(CompositePhysicalUpdater, [{
+	        key: 'getUpdaterAt',
+	        value: function getUpdaterAt(index) {
+	            if (index == 0) {
+	                return this._a;
+	            }
+	            if (index == 1) {
+	                return this._b;
+	            }
+	            if (index == 2) {
+	                return this._c;
+	            }
+	            if (index == 3) {
+	                return this._d;
+	            }
+	            return this._updaters[index - 4];
+	        }
+	
+	        /**
+	         *
+	         * @returns {Object}
+	         */
+	
+	    }, {
+	        key: 'update',
+	
+	
+	        /**
+	         *
+	         * @param factor {number}
+	         */
+	        value: function update(factor) {
+	            if (this._a != null) {
+	                this._a.update(factor);
+	                if (this._b != null) {
+	                    this._b.update(factor);
+	                    if (this._c != null) {
+	                        this._c.update(factor);
+	                        if (this._d != null) {
+	                            this._d.update(factor);
+	                            if (this._updaters != null) {
+	                                var updaters = this._updaters;
+	                                var l = updaters.length;
+	                                for (var i = 0; i < l; ++i) {
+	                                    updaters[i].update(factor);
+	                                }
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @returns {IUpdater}
+	         */
+	
+	    }, {
+	        key: 'clone',
+	        value: function clone() {
+	            var updaters = [];
+	
+	            if (this._a != null) {
+	                updaters.push(this._a.clone());
+	                if (this._b != null) {
+	                    updaters.push(this._b.clone());
+	                    if (this._c != null) {
+	                        updaters.push(this._c.clone());
+	                        if (this._d != null) {
+	                            updaters.push(this._d.clone());
+	                            if (this._updaters != null) {
+	                                var u = this._updaters;
+	                                var l = u.length;
+	                                for (var i = 0; i < l; ++i) {
+	                                    updaters.push(u[i].clone());
+	                                }
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	
+	            return new CompositePhysicalUpdater(this._target, updaters);
+	        }
+	    }, {
+	        key: 'target',
+	        get: function get() {
+	            return this._target;
+	        }
+	
+	        /**
+	         *
+	         * @param value {Object}
+	         */
+	        ,
+	        set: function set(value) {
+	            this._target = value;
+	        }
+	
+	        /**
+	         * @returns {number}
+	         */
+	
+	    }, {
+	        key: 'duration',
+	        get: function get() {
+	            return this._duration;
+	        }
+	    }]);
+	
+	    return CompositePhysicalUpdater;
+	}(_IPhysicalUpdater3.default);
+	
+	exports.default = CompositePhysicalUpdater;
+
+/***/ }),
+
+/***/ 376:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _AbstractTween2 = __webpack_require__(377);
+	
+	var _AbstractTween3 = _interopRequireDefault(_AbstractTween2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var ObjectTween = function (_AbstractTween) {
+	    _inherits(ObjectTween, _AbstractTween);
+	
+	    /**
+	     *
+	     * @param ticker {ITicker}
+	     */
+	    function ObjectTween(ticker) {
+	        _classCallCheck(this, ObjectTween);
+	
+	        /**
+	         *
+	         * @type {IEasing}
+	         * @private
+	         */
+	        var _this = _possibleConstructorReturn(this, (ObjectTween.__proto__ || Object.getPrototypeOf(ObjectTween)).call(this, ticker, 0));
+	
+	        _this._easing = undefined;
+	
+	        /**
+	         *
+	         * @type {IUpdater}
+	         * @private
+	         */
+	        _this._updater = undefined;
+	        return _this;
+	    }
+	
+	    /**
+	     * @returns {number}
+	     */
+	
+	
+	    _createClass(ObjectTween, [{
+	        key: 'internalUpdate',
+	
+	
+	        /**
+	         * @param time {number}
+	         */
+	        value: function internalUpdate(time) {
+	            var factor = 0.0;
+	
+	            if (time > 0.0) {
+	                if (time < this._duration) {
+	                    factor = this._easing.calculate(time, 0.0, 1.0, this._duration);
+	                } else {
+	                    factor = 1.0;
+	                }
+	            }
+	
+	            this._updater.update(factor);
+	        }
+	
+	        /**
+	         * @returns {AbstractTween}
+	         */
+	
+	    }, {
+	        key: 'newInstance',
+	        value: function newInstance() {
+	            return new ObjectTween(this._ticker);
+	        }
+	
+	        /**
+	         * @param source {AbstractTween}
+	         */
+	
+	    }, {
+	        key: 'copyFrom',
+	        value: function copyFrom(source) {
+	            _get(ObjectTween.prototype.__proto__ || Object.getPrototypeOf(ObjectTween.prototype), 'copyFrom', this).call(this, source);
+	
+	            var obj = this.source;
+	
+	            this._easing = obj._easing;
+	            this._updater = obj._updater.clone();
+	        }
+	    }, {
+	        key: 'time',
+	        get: function get() {
+	            return this._duration;
+	        }
+	
+	        /**
+	         * @param value {number}
+	         */
+	        ,
+	        set: function set(value) {
+	            this._duration = value;
+	        }
+	
+	        /**
+	         * @returns {IEasing}
+	         */
+	
+	    }, {
+	        key: 'easing',
+	        get: function get() {
+	            return this._easing;
+	        }
+	
+	        /**
+	         * @param value {IEasing}
+	         */
+	        ,
+	        set: function set(value) {
+	            this._easing = value;
+	        }
+	
+	        /**
+	         * @returns {IUpdater}
+	         */
+	
+	    }, {
+	        key: 'updater',
+	        get: function get() {
+	            return this._updater;
+	        }
+	
+	        /**
+	         * @param value {IUpdater}
+	         */
+	        ,
+	        set: function set(value) {
+	            this._updater = value;
+	        }
+	
+	        /**
+	         * @returns {Object}
+	         */
+	
+	    }, {
+	        key: 'target',
+	        get: function get() {
+	            return this._updater != null ? this._updater.target : null;
+	        }
+	    }]);
+	
+	    return ObjectTween;
+	}(_AbstractTween3.default);
+	
+	exports.default = ObjectTween;
+
+/***/ }),
+
+/***/ 377:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _TweenEvent = __webpack_require__(378);
+	
+	var _TweenEvent2 = _interopRequireDefault(_TweenEvent);
+	
+	var _TickerListener2 = __webpack_require__(364);
+	
+	var _TickerListener3 = _interopRequireDefault(_TickerListener2);
+	
+	var _ClonableEventDispatcher = __webpack_require__(379);
+	
+	var _ClonableEventDispatcher2 = _interopRequireDefault(_ClonableEventDispatcher);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var AbstractTween = function (_TickerListener) {
+	    _inherits(AbstractTween, _TickerListener);
+	
+	    /**
+	     *
+	     * @param ticker {Ticker}
+	     * @param position {number}
+	     */
+	    function AbstractTween(ticker) {
+	        var position = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+	
+	        _classCallCheck(this, AbstractTween);
+	
+	        /**
+	         * @type {number}
+	         * @private
+	         */
+	        var _this = _possibleConstructorReturn(this, (AbstractTween.__proto__ || Object.getPrototypeOf(AbstractTween)).call(this));
+	
+	        _this._duration = 0;
+	
+	        /**
+	         * @type {number}
+	         * @private
+	         */
+	        _this._startTime = undefined;
+	
+	        /**
+	         * @type {boolean}
+	         * @private
+	         */
+	        _this._isPlaying = false;
+	
+	        /**
+	         * @type {boolean}
+	         * @private
+	         */
+	        _this._stopOnComplete = true;
+	
+	        /**
+	         * @type {ClonableEventDispatcher}
+	         * @private
+	         */
+	        _this._dispatcher = undefined;
+	
+	        /**
+	         * @type {number}
+	         * @private
+	         */
+	        _this._willTriggerFlags = 0;
+	
+	        /**
+	         * @type {ClassicHandlers}
+	         * @private
+	         */
+	        _this._classicHandlers = undefined;
+	
+	        /**
+	         * @type {Ticker}
+	         * @private
+	         */
+	        _this._ticker = ticker;
+	
+	        /**
+	         * @type {number}
+	         * @private
+	         */
+	        _this._position = position;
+	        return _this;
+	    }
+	
+	    /**
+	     * @return {Ticker}
+	     */
+	
+	
+	    _createClass(AbstractTween, [{
+	        key: 'getClassicHandlers',
+	
+	
+	        /**
+	         *
+	         * @returns {ClassicHandlers|*}
+	         */
+	        value: function getClassicHandlers() {
+	            return this._classicHandlers || (this._classicHandlers = new ClassicHandlers());
+	        }
+	    }, {
+	        key: 'play',
+	        value: function play() {
+	            if (!this._isPlaying) {
+	                if (this._position >= this._duration) {
+	                    this._position = 0;
+	                }
+	                var t = this._ticker.time;
+	                this._startTime = t - this._position;
+	                this._isPlaying = true;
+	                this._ticker.addTickerListener(this);
+	                if ((this._willTriggerFlags & 0x01) != 0) {
+	                    this._dispatcher.dispatchEvent(new _TweenEvent2.default(_TweenEvent2.default.PLAY));
+	                }
+	                if (this._classicHandlers != null && this._classicHandlers.onPlay != null) {
+	                    this._classicHandlers.onPlay.apply(null, this._classicHandlers.onPlayParams);
+	                }
+	                this.tick(t);
+	            }
+	        }
+	    }, {
+	        key: 'firePlay',
+	        value: function firePlay() {
+	            if ((this._willTriggerFlags & 0x01) != 0) {
+	                this._dispatcher.dispatchEvent(new _TweenEvent2.default(_TweenEvent2.default.PLAY));
+	            }
+	            if (this._classicHandlers != null && this._classicHandlers.onPlay != null) {
+	                this._classicHandlers.onPlay.apply(null, this._classicHandlers.onPlayParams);
+	            }
+	        }
+	    }, {
+	        key: 'stop',
+	        value: function stop() {
+	            if (this._isPlaying === true) {
+	                this._isPlaying = false;
+	                if ((this._willTriggerFlags & 0x02) != 0) {
+	                    this._dispatcher.dispatchEvent(new _TweenEvent2.default(_TweenEvent2.default.STOP));
+	                }
+	                if (this._classicHandlers != null && this._classicHandlers.onStop != null) {
+	                    this._classicHandlers.onStop.apply(null, this._classicHandlers.onStopParams);
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'fireStop',
+	        value: function fireStop() {
+	            if ((this._willTriggerFlags & 0x02) != 0) {
+	                this._dispatcher.dispatchEvent(new _TweenEvent2.default(_TweenEvent2.default.STOP));
+	            }
+	            if (this._classicHandlers != null && this._classicHandlers.onStop != null) {
+	                this._classicHandlers.onStop.apply(null, this._classicHandlers.onStopParams);
+	            }
+	        }
+	    }, {
+	        key: 'togglePause',
+	        value: function togglePause() {
+	            if (this._isPlaying === true) {
+	                this.stop();
+	            } else {
+	                this.play();
+	            }
+	        }
+	
+	        /**
+	         * @param position
+	         */
+	
+	    }, {
+	        key: 'gotoAndPlay',
+	        value: function gotoAndPlay(position) {
+	            if (position < 0) {
+	                position = 0;
+	            }
+	            if (position > this._duration) {
+	                position = this._duration;
+	            }
+	            this._position = position;
+	            this.play();
+	        }
+	
+	        /**
+	         * @param position
+	         */
+	
+	    }, {
+	        key: 'gotoAndStop',
+	        value: function gotoAndStop(position) {
+	            if (position < 0) {
+	                position = 0;
+	            }
+	            if (position > this._duration) {
+	                position = this._duration;
+	            }
+	            this._position = position;
+	            this.internalUpdate(position);
+	            if ((this._willTriggerFlags & 0x04) != 0) {
+	                this._dispatcher.dispatchEvent(new _TweenEvent2.default(_TweenEvent2.default.UPDATE));
+	            }
+	            if (this._classicHandlers != null && this._classicHandlers.onUpdate != null) {
+	                this._classicHandlers.onUpdate.apply(null, this._classicHandlers.onUpdateParams);
+	            }
+	            this.stop();
+	        }
+	
+	        /**
+	         * @param time {number}
+	         */
+	
+	    }, {
+	        key: 'update',
+	        value: function update(time) {
+	            var isComplete = false;
+	
+	            if (this._position < this._duration && this._duration <= time || 0 < this._position && time <= 0) {
+	                isComplete = true;
+	            }
+	
+	            this._position = time;
+	            this.internalUpdate(time);
+	
+	            if ((this._willTriggerFlags & 0x04) != 0) {
+	                this._dispatcher.dispatchEvent(new _TweenEvent2.default(_TweenEvent2.default.UPDATE));
+	            }
+	            if (this._classicHandlers != null && this._classicHandlers.onUpdate != null) {
+	                this._classicHandlers.onUpdate.apply(null, this._classicHandlers.onUpdateParams);
+	            }
+	
+	            if (isComplete) {
+	                if ((this._willTriggerFlags & 0x08) != 0) {
+	                    this._dispatcher.dispatchEvent(new _TweenEvent2.default(_TweenEvent2.default.COMPLETE));
+	                }
+	                if (this._classicHandlers != null && this._classicHandlers.onComplete != null) {
+	                    this._classicHandlers.onComplete.apply(null, this._classicHandlers.onCompleteParams);
+	                }
+	            }
+	        }
+	
+	        /**
+	         * @param time {number}
+	         * @returns {boolean}
+	         */
+	
+	    }, {
+	        key: 'tick',
+	        value: function tick(time) {
+	            if (!this._isPlaying) {
+	                return true;
+	            }
+	
+	            var t = time - this._startTime;
+	
+	            this._position = t;
+	            this.internalUpdate(t);
+	
+	            if ((this._willTriggerFlags & 0x04) != 0) {
+	                this._dispatcher.dispatchEvent(new _TweenEvent2.default(_TweenEvent2.default.UPDATE));
+	            }
+	            if (this._classicHandlers != null && this._classicHandlers.onUpdate != null) {
+	                this._classicHandlers.onUpdate.apply(null, this._classicHandlers.onUpdateParams);
+	            }
+	
+	            if (this._isPlaying === true) {
+	                if (t >= this._duration) {
+	                    this._position = this._duration;
+	                    if (this._stopOnComplete) {
+	                        this._isPlaying = false;
+	                        if ((this._willTriggerFlags & 0x08) != 0) {
+	                            this._dispatcher.dispatchEvent(new _TweenEvent2.default(_TweenEvent2.default.COMPLETE));
+	                        }
+	                        if (this._classicHandlers != null && this._classicHandlers.onComplete != null) {
+	                            this._classicHandlers.onComplete.apply(null, this._classicHandlers.onCompleteParams);
+	                        }
+	                        return true;
+	                    } else {
+	                        if ((this._willTriggerFlags & 0x08) != 0) {
+	                            this._dispatcher.dispatchEvent(new _TweenEvent2.default(_TweenEvent2.default.COMPLETE));
+	                        }
+	                        if (this._classicHandlers != null && this._classicHandlers.onComplete != null) {
+	                            this._classicHandlers.onComplete.apply(null, this._classicHandlers.onCompleteParams);
+	                        }
+	                        this._position = t - this._duration;
+	                        this._startTime = time - this._position;
+	                        this.tick(time);
+	                    }
+	                }
+	                return false;
+	            }
+	
+	            return true;
+	        }
+	
+	        /**
+	         * @param time {number}
+	         */
+	
+	    }, {
+	        key: 'internalUpdate',
+	        value: function internalUpdate(time) {}
+	        //
+	
+	
+	        /**
+	         * @returns {AbstractTween | ITween}
+	         */
+	
+	    }, {
+	        key: 'clone',
+	        value: function clone() {
+	            var instance = this.newInstance();
+	            if (instance != null) {
+	                instance.copyFrom(this);
+	            }
+	            return instance;
+	        }
+	
+	        /**
+	         * @return {AbstractTween}
+	         */
+	
+	    }, {
+	        key: 'newInstance',
+	        value: function newInstance() {
+	            return null;
+	        }
+	
+	        /**
+	         * @param source {AbstractTween}
+	         */
+	
+	    }, {
+	        key: 'copyFrom',
+	        value: function copyFrom(source) {
+	            this._ticker = source._ticker;
+	            this._duration = source._duration;
+	            this._stopOnComplete = source._stopOnComplete;
+	            if (source._classicHandlers != null) {
+	                this._classicHandlers = new ClassicHandlers();
+	                this._classicHandlers.copyFrom(source._classicHandlers);
+	            }
+	            if (source._dispatcher != null) {
+	                this._dispatcher = new _ClonableEventDispatcher2.default(this);
+	                this._dispatcher.copyFrom(source._dispatcher);
+	            }
+	            this._willTriggerFlags = source._willTriggerFlags;
+	        }
+	
+	        /**
+	         * @param type {string}
+	         * @param listener {Function}
+	         * @param useCapture {boolean}
+	         * @param priority {int}
+	         * @param useWeakReference {boolean}
+	         */
+	
+	    }, {
+	        key: 'addEventListener',
+	        value: function addEventListener(type, listener) {
+	            var useCapture = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	            var priority = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+	            var useWeakReference = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+	
+	            if (this._dispatcher == null) {
+	                this._dispatcher = new _ClonableEventDispatcher2.default(this);
+	            }
+	            this._dispatcher.addEventListener(type, listener, useCapture, priority, useWeakReference);
+	            this.updateWillTriggerFlags();
+	        }
+	
+	        /**
+	         * @param event {Event}
+	         * @returns {boolean}
+	         */
+	
+	    }, {
+	        key: 'dispatchEvent',
+	        value: function dispatchEvent(event) {
+	            if (this._dispatcher != null) {
+	                return this._dispatcher.dispatchEvent(event);
+	            }
+	            return false;
+	        }
+	
+	        /**
+	         * @param type {string}
+	         * @return {boolean}
+	         */
+	
+	    }, {
+	        key: 'hasEventListener',
+	        value: function hasEventListener(type) {
+	            if (this._dispatcher != null) {
+	                return this._dispatcher.hasEventListener(type);
+	            }
+	            return false;
+	        }
+	
+	        /**
+	         * @param type {string}
+	         * @param listener {Function}
+	         * @param useCapture {boolean}
+	         */
+	
+	    }, {
+	        key: 'removeEventListener',
+	        value: function removeEventListener(type, listener) {
+	            var useCapture = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            if (this._dispatcher != null) {
+	                this._dispatcher.removeEventListener(type, listener, useCapture);
+	                this.updateWillTriggerFlags();
+	            }
+	        }
+	
+	        /**
+	         * @param type {string}
+	         * @returns {boolean}
+	         */
+	
+	    }, {
+	        key: 'willTrigger',
+	        value: function willTrigger(type) {
+	            if (this._dispatcher != null) {
+	                return this._dispatcher.willTrigger(type);
+	            }
+	            return false;
+	        }
+	    }, {
+	        key: 'updateWillTriggerFlags',
+	        value: function updateWillTriggerFlags() {
+	            if (this._dispatcher.willTrigger(_TweenEvent2.default.PLAY)) {
+	                this._willTriggerFlags |= 0x01;
+	            } else {
+	                this._willTriggerFlags &= ~0x01;
+	            }
+	            if (this._dispatcher.willTrigger(_TweenEvent2.default.STOP)) {
+	                this._willTriggerFlags |= 0x02;
+	            } else {
+	                this._willTriggerFlags &= ~0x02;
+	            }
+	            if (this._dispatcher.willTrigger(_TweenEvent2.default.UPDATE)) {
+	                this._willTriggerFlags |= 0x04;
+	            } else {
+	                this._willTriggerFlags &= ~0x04;
+	            }
+	            if (this._dispatcher.willTrigger(_TweenEvent2.default.COMPLETE)) {
+	                this._willTriggerFlags |= 0x08;
+	            } else {
+	                this._willTriggerFlags &= ~0x08;
+	            }
+	        }
+	    }, {
+	        key: 'ticker',
+	        get: function get() {
+	            return this._ticker;
+	        }
+	
+	        /**
+	         * @return {number}
+	         */
+	
+	    }, {
+	        key: 'duration',
+	        get: function get() {
+	            return this._duration;
+	        }
+	
+	        /**
+	         * @return {number}
+	         */
+	
+	    }, {
+	        key: 'position',
+	        get: function get() {
+	            return this._position;
+	        }
+	
+	        /**
+	         * @return {boolean}
+	         */
+	
+	    }, {
+	        key: 'isPlaying',
+	        get: function get() {
+	            return this._isPlaying;
+	        }
+	
+	        /**
+	         * @return {boolean}
+	         */
+	
+	    }, {
+	        key: 'stopOnComplete',
+	        get: function get() {
+	            return this._stopOnComplete;
+	        }
+	
+	        /**
+	         * @param value {boolean}
+	         */
+	        ,
+	        set: function set(value) {
+	            this._stopOnComplete = value;
+	        }
+	
+	        /**
+	         *
+	         * @returns {Function}
+	         */
+	
+	    }, {
+	        key: 'onPlay',
+	        get: function get() {
+	            return this._classicHandlers != null ? this._classicHandlers.onPlay : null;
+	        }
+	
+	        /**
+	         * @param value {Function}
+	         */
+	        ,
+	        set: function set(value) {
+	            this.getClassicHandlers().onPlay = value;
+	        }
+	
+	        /**
+	         * @returns {Array}
+	         */
+	
+	    }, {
+	        key: 'onPlayParams',
+	        get: function get() {
+	            return this._classicHandlers != null ? this._classicHandlers.onPlayParams : null;
+	        }
+	
+	        /**
+	         * @param value {Array}
+	         */
+	        ,
+	        set: function set(value) {
+	            this.getClassicHandlers().onPlayParams = value;
+	        }
+	
+	        /**
+	         * @returns {Function}
+	         */
+	
+	    }, {
+	        key: 'onStop',
+	        get: function get() {
+	            return this._classicHandlers != null ? this._classicHandlers.onStop : null;
+	        }
+	
+	        /**
+	         * @param value {Function}
+	         */
+	        ,
+	        set: function set(value) {
+	            this.getClassicHandlers().onStop = value;
+	        }
+	
+	        /**
+	         * @returns {Array}
+	         */
+	
+	    }, {
+	        key: 'onStopParams',
+	        get: function get() {
+	            return this._classicHandlers != null ? this._classicHandlers.onStopParams : null;
+	        }
+	
+	        /**
+	         * @param value {Array}
+	         */
+	        ,
+	        set: function set(value) {
+	            this.getClassicHandlers().onStopParams = value;
+	        }
+	
+	        /**
+	         * @returns {Function}
+	         */
+	
+	    }, {
+	        key: 'onUpdate',
+	        get: function get() {
+	            return this._classicHandlers != null ? this._classicHandlers.onUpdate : null;
+	        }
+	
+	        /**
+	         * @param value {Function}
+	         */
+	        ,
+	        set: function set(value) {
+	            this.getClassicHandlers().onUpdate = value;
+	        }
+	
+	        /**
+	         * @returns {Array}
+	         */
+	
+	    }, {
+	        key: 'onUpdateParams',
+	        get: function get() {
+	            return this._classicHandlers != null ? this._classicHandlers.onUpdateParams : null;
+	        }
+	
+	        /**
+	         * @param value {Array}
+	         */
+	        ,
+	        set: function set(value) {
+	            this.getClassicHandlers().onUpdateParams = value;
+	        }
+	
+	        /**
+	         * @returns {Function}
+	         */
+	
+	    }, {
+	        key: 'onComplete',
+	        get: function get() {
+	            return this._classicHandlers != null ? this._classicHandlers.onComplete : null;
+	        }
+	
+	        /**
+	         * @param value {Function}
+	         */
+	        ,
+	        set: function set(value) {
+	            this.getClassicHandlers().onComplete = value;
+	        }
+	
+	        /**
+	         * @returns {Array}
+	         */
+	
+	    }, {
+	        key: 'onCompleteParams',
+	        get: function get() {
+	            return this._classicHandlers != null ? this._classicHandlers.onCompleteParams : null;
+	        }
+	
+	        /**
+	         * @param value {Array}
+	         */
+	        ,
+	        set: function set(value) {
+	            this.getClassicHandlers().onCompleteParams = value;
+	        }
+	    }]);
+	
+	    return AbstractTween;
+	}(_TickerListener3.default);
+	
+	exports.default = AbstractTween;
+	
+	var ClassicHandlers = function () {
+	    function ClassicHandlers() {
+	        _classCallCheck(this, ClassicHandlers);
+	
+	        /**
+	         * @type {Function}
+	         */
+	        this.onPlay = undefined;
+	
+	        /**
+	         * @type {Array}
+	         */
+	        this.onPlayParams = undefined;
+	
+	        /**
+	         * @type {Function}
+	         */
+	        this.onStop = undefined;
+	
+	        /**
+	         * @type {Array}
+	         */
+	        this.onStopParams = undefined;
+	
+	        /**
+	         * @type {Function}
+	         */
+	        this.onUpdate = undefined;
+	
+	        /**
+	         * @type {Array}
+	         */
+	        this.onUpdateParams = undefined;
+	
+	        /**
+	         * @type {Function}
+	         */
+	        this.onComplete = undefined;
+	
+	        /**
+	         * @type {Array}
+	         */
+	        this.onCompleteParams = undefined;
+	    }
+	
+	    _createClass(ClassicHandlers, [{
+	        key: 'copyFrom',
+	        value: function copyFrom(source) {
+	            this.onPlay = source.onPlay;
+	            this.onPlayParams = source.onPlayParams;
+	            this.onStop = source.onStop;
+	            this.onStopParams = source.onStopParams;
+	            this.onUpdate = source.onUpdate;
+	            this.onUpdateParams = source.onUpdateParams;
+	            this.onComplete = source.onComplete;
+	            this.onCompleteParams = source.onCompleteParams;
+	        }
+	    }]);
+
+	    return ClassicHandlers;
+	}();
+
+/***/ }),
+
+/***/ 378:
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	/*
+	 * BetweenAS3
+	 *
+	 * Licensed under the MIT License
+	 *
+	 * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	 *                    Spark project  (www.libspark.org)
+	 *
+	 * Permission is hereby granted, free of charge, to any person obtaining a copy
+	 * of this software and associated documentation files (the "Software"), to deal
+	 * in the Software without restriction, including without limitation the rights
+	 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 * copies of the Software, and to permit persons to whom the Software is
+	 * furnished to do so, subject to the following conditions:
+	 *
+	 * The above copyright notice and this permission notice shall be included in
+	 * all copies or substantial portions of the Software.
+	 *
+	 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	 * THE SOFTWARE.
+	 *
+	 */
+	
+	var TweenEvent = function () {
+	  _createClass(TweenEvent, null, [{
+	    key: 'PLAY',
+	    get: function get() {
+	      return 'play';
+	    }
+	  }, {
+	    key: 'STOP',
+	    get: function get() {
+	      return 'stop';
+	    }
+	  }, {
+	    key: 'UPDATE',
+	    get: function get() {
+	      return 'update';
+	    }
+	  }, {
+	    key: 'COMPLETE',
+	    get: function get() {
+	      return 'complete';
+	    }
+	
+	    /**
+	     * @param type {string}
+	     * @param bubbles {boolean}
+	     * @param cancelable {boolean}
+	     */
+	
+	  }]);
+	
+	  function TweenEvent(type) {
+	    var bubbles = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+	    var cancelable = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	    _classCallCheck(this, TweenEvent);
+	
+	    this.type = type;
+	    this.bubbles = bubbles;
+	    this.cancelable = cancelable;
+	  }
+	
+	  return TweenEvent;
+	}();
+	
+	exports.default = TweenEvent;
+
+/***/ }),
+
+/***/ 379:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _eventemitter = __webpack_require__(363);
+	
+	var _eventemitter2 = _interopRequireDefault(_eventemitter);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var ClonableEventDispatcher = function (_EventEmitter) {
+	    _inherits(ClonableEventDispatcher, _EventEmitter);
+	
+	    /**
+	     *
+	     * @param target {EventEmitter}
+	     */
+	    function ClonableEventDispatcher() {
+	        var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+	
+	        _classCallCheck(this, ClonableEventDispatcher);
+	
+	        var _this = _possibleConstructorReturn(this, (ClonableEventDispatcher.__proto__ || Object.getPrototypeOf(ClonableEventDispatcher)).call(this));
+	
+	        _this.target = target || _this;
+	
+	        /**
+	         * Dictionary 에 Vector.<ListenerData> 형태
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        _this._listeners = {};
+	        return _this;
+	    }
+	
+	    /**
+	     * @param type {string}
+	     * @param listener {Function}
+	     * @param useCapture {boolean}
+	     * @param priority {int}
+	     * @param useWeakReference {boolean}
+	     */
+	
+	
+	    _createClass(ClonableEventDispatcher, [{
+	        key: 'addEventListener',
+	        value: function addEventListener(type, listener) {
+	            var useCapture = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	            var priority = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+	            var useWeakReference = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+	
+	            this.on(type, listener, this.target);
+	
+	            var data = new ListenerData();
+	            data.listener = listener;
+	            data.useCapture = useCapture;
+	            data.priority = priority;
+	            data.useWeakReference = useWeakReference;
+	
+	            (this._listeners[type] || (this._listeners[type] = [])).push(data);
+	        }
+	
+	        /**
+	         * @param type {string}
+	         * @param listener {Function}
+	         * @param useCapture {boolean}
+	         */
+	
+	    }, {
+	        key: 'removeEventListener',
+	        value: function removeEventListener(type, listener) {
+	            var useCapture = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            this.off(type, listener, this.target);
+	
+	            var listeners = this._listeners[type];
+	            if (listeners != null) {
+	                var l = listeners.length;
+	                for (var i = 0; i < l; ++i) {
+	                    var data = listeners[i];
+	                    if (data.listener == listener) {
+	                        listeners.splice(i, 1);
+	                        --i;
+	                        --l;
+	                    }
+	                }
+	            }
+	        }
+	
+	        /**
+	         * TODO hasEventListener 체크
+	         * @param type {string}
+	         * @return {boolean}
+	         */
+	
+	    }, {
+	        key: 'hasEventListener',
+	        value: function hasEventListener(type) {
+	            return this._listeners[type] != null;
+	        }
+	
+	        /**
+	         * @param source {ClonableEventDispatcher}
+	         */
+	
+	    }, {
+	        key: 'copyFrom',
+	        value: function copyFrom(source) {
+	            var listeners = source._listeners;
+	            for (var type in listeners) {
+	                var list = listeners[type];
+	                var l = list.length;
+	                for (var i = 0; i < l; ++i) {
+	                    var data = list[i];
+	                    this.addEventListener(type, data.listener, data.useCapture, data.priority, data.useWeakReference);
+	                }
+	            }
+	        }
+	    }]);
+	
+	    return ClonableEventDispatcher;
+	}(_eventemitter2.default);
+	
+	exports.default = ClonableEventDispatcher;
+	
+	var ListenerData = function ListenerData() {
+	    _classCallCheck(this, ListenerData);
+	
+	    /**
+	     * @type {Function}
+	     */
+	    this.listener = undefined;
+	
+	    /**
+	     * @type {boolena}
+	     */
+	    this.useCapture = undefined;
+	
+	    /**
+	     * @type {number}
+	     */
+	    this.priority = undefined;
+	
+	    /**
+	     * @type {boolean}
+	     */
+	    this.useWeakReference = undefined;
+	};
+
+/***/ }),
+
+/***/ 380:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _AbstractUpdater2 = __webpack_require__(370);
+	
+	var _AbstractUpdater3 = _interopRequireDefault(_AbstractUpdater2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var ObjectUpdater = function (_AbstractUpdater) {
+	    _inherits(ObjectUpdater, _AbstractUpdater);
+	
+	    _createClass(ObjectUpdater, null, [{
+	        key: 'register',
+	        value: function register(registry) {
+	            registry.registerClassWithTargetClassAndPropertyName(ObjectUpdater, Object, '*');
+	        }
+	
+	        /**
+	         *
+	         * @param registry {ClassRegistry}
+	         */
+	
+	    }]);
+	
+	    function ObjectUpdater() {
+	        _classCallCheck(this, ObjectUpdater);
+	
+	        /**
+	         *
+	         * @type {Object}
+	         * @private
+	         */
+	        var _this = _possibleConstructorReturn(this, (ObjectUpdater.__proto__ || Object.getPrototypeOf(ObjectUpdater)).call(this));
+	
+	        _this._target = null;
+	
+	        /**
+	         *
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        _this._source = {};
+	
+	        /**
+	         *
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        _this._destination = {};
+	
+	        /**
+	         *
+	         * @type {Dictionary}
+	         * @private
+	         */
+	        _this._relativeMap = {};
+	        return _this;
+	    }
+	
+	    /**
+	     * 
+	     * @returns {Object}
+	     */
+	
+	
+	    _createClass(ObjectUpdater, [{
+	        key: 'setSourceValue',
+	
+	
+	        /**
+	         * 
+	         * @param propertyName {string}
+	         * @param value {number}
+	         * @param isRelative {boolean}
+	         */
+	        value: function setSourceValue(propertyName, value) {
+	            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            this._source[propertyName] = value;
+	            this._relativeMap['source.' + propertyName] = isRelative;
+	        }
+	
+	        /**
+	         *
+	         * @param propertyName {string}
+	         * @param value {number}
+	         * @param isRelative {boolean}
+	         */
+	
+	    }, {
+	        key: 'setDestinationValue',
+	        value: function setDestinationValue(propertyName, value) {
+	            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            this._destination[propertyName] = value;
+	            this._relativeMap['dest.' + propertyName] = isRelative;
+	        }
+	
+	        /**
+	         *
+	         * @param propertyName {string}
+	         * @returns {Object}
+	         */
+	
+	    }, {
+	        key: 'getObject',
+	        value: function getObject(propertyName) {
+	            return this._target[propertyName];
+	        }
+	
+	        /**
+	         *
+	         * @param propertyName {string}
+	         * @param value {Object}
+	         */
+	
+	    }, {
+	        key: 'setObject',
+	        value: function setObject(propertyName, value) {
+	            this._target[propertyName] = value;
+	        }
+	    }, {
+	        key: 'resolveValues',
+	        value: function resolveValues() {
+	            /**
+	             * key @type {string}
+	             * target @type {Object}
+	             * source @type {Dictionary}
+	             * dest @type {Dictionary}
+	             * rMpa @type {Dictionary}
+	             */
+	            var key,
+	                target = this._target,
+	                source = this._source,
+	                dest = this._destination,
+	                rMap = this._relativeMap;
+	
+	            for (key in source) {
+	                if (dest[key] == undefined) {
+	                    dest[key] = target[key];
+	                }
+	                if (rMap['source.' + key]) {
+	                    source[key] += target[key];
+	                }
+	            }
+	            for (key in dest) {
+	                if (source[key] == undefined) {
+	                    source[key] = target[key];
+	                }
+	                if (rMap['dest.' + key]) {
+	                    dest[key] += target[key];
+	                }
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @param factor {number}
+	         */
+	
+	    }, {
+	        key: 'updateObject',
+	        value: function updateObject(factor) {
+	            var invert = 1.0 - factor;
+	            var t = this._target;
+	            var d = this._destination;
+	            var s = this._source;
+	            var name;
+	
+	            for (name in d) {
+	                t[name] = s[name] * invert + d[name] * factor;
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @returns {AbstractUpdater}
+	         */
+	
+	    }, {
+	        key: 'newInstance',
+	        value: function newInstance() {
+	            return new ObjectUpdater();
+	        }
+	
+	        /**
+	         *
+	         * @param source {AbstractUpdater}
+	         */
+	
+	    }, {
+	        key: 'copyFrom',
+	        value: function copyFrom(source) {
+	            _get(ObjectUpdater.prototype.__proto__ || Object.getPrototypeOf(ObjectUpdater.prototype), 'copyFrom', this).call(this, source);
+	
+	            var obj = source;
+	
+	            this._target = obj._target;
+	            this.copyObject(this._source, obj._source);
+	            this.copyObject(this._destination, obj._destination);
+	            this.copyObject(this._relativeMap, obj._relativeMap);
+	        }
+	
+	        /**
+	         *
+	         * @param to {Object}
+	         * @param from {Object}
+	         */
+	
+	    }, {
+	        key: 'copyObject',
+	        value: function copyObject(to, from) {
+	            for (var name in from) {
+	                to[name] = from[name];
+	            }
+	        }
+	    }, {
+	        key: 'target',
+	        get: function get() {
+	            return this._target;
+	        }
+	
+	        /**
+	         * 
+	         * @param value {Object}
+	         */
+	        ,
+	        set: function set(value) {
+	            this._target = value;
+	        }
+	    }]);
+	
+	    return ObjectUpdater;
+	}(_AbstractUpdater3.default);
+	
+	exports.default = ObjectUpdater;
+
+/***/ }),
+
+/***/ 381:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _AbstractUpdater2 = __webpack_require__(370);
+	
+	var _AbstractUpdater3 = _interopRequireDefault(_AbstractUpdater2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var TARGET_PROPERTIES = ['x', 'y', 'scaleX', 'scaleY', 'rotation', 'alpha', 'width', 'height', 'skewX', 'skewY', '_blurFilter', '_blurXFilter', '_blurYFilter', '_colorMatrixFilter', '_displacementMapFilter', '_fxaaFilter', '_noiseFilter', '_voidFilter'];
+	
+	var DisplayObjectUpdater = function (_AbstractUpdater) {
+	    _inherits(DisplayObjectUpdater, _AbstractUpdater);
+	
+	    _createClass(DisplayObjectUpdater, null, [{
+	        key: 'register',
+	
+	        /**
+	         *
+	         * @param registry {ClassRegistry}
+	         */
+	        value: function register(registry) {
+	            registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, DisplayObject, TARGET_PROPERTIES);
+	
+	            if (typeof PIXI !== 'undefined') {
+	                registry.registerClassWithTargetClassAndPropertyNames(DisplayObjectUpdater, PIXI.DisplayObject, TARGET_PROPERTIES);
+	            }
+	        }
+	    }]);
+	
+	    function DisplayObjectUpdater() {
+	        _classCallCheck(this, DisplayObjectUpdater);
+	
+	        /**
+	         *
+	         * @type {Object}
+	         * @private
+	         */
+	        var _this = _possibleConstructorReturn(this, (DisplayObjectUpdater.__proto__ || Object.getPrototypeOf(DisplayObjectUpdater)).call(this));
+	
+	        _this._target = null;
+	
+	        /**
+	         *
+	         * @type {DisplayObjectParameter}
+	         * @private
+	         */
+	        _this._source = new DisplayObjectParameter();
+	
+	        /**
+	         *
+	         * @type {DisplayObjectParameter}
+	         * @private
+	         */
+	        _this._destination = new DisplayObjectParameter();
+	
+	        /**
+	         *
+	         * @type {number}
+	         * @private
+	         */
+	        _this._flags = 0;
+	        return _this;
+	    }
+	
+	    /**
+	     *
+	     * @returns {Object}
+	     */
+	
+	
+	    _createClass(DisplayObjectUpdater, [{
+	        key: 'setSourceValue',
+	
+	
+	        /**
+	         * 변수 앞에 $가 붙으면 자신의 위치 기준으로(상대경로) 값을 계산해주도록 옵션을 제공합니다.
+	         * $를 붙히면 자신의 위치 + value 로 처리합니다.
+	         * isRelative 가 $ 옵션 여부입니다.
+	         * @param propertyName {string}
+	         * @param value {number}
+	         * @param isRelative {boolean} $ 옵션인지 여부
+	         */
+	        value: function setSourceValue(propertyName, value) {
+	            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            if (propertyName == 'x') {
+	                this._flags |= 0x0001;
+	                this._source.relativeFlags |= isRelative ? 0x0001 : 0;
+	                this._source.x = value;
+	            } else if (propertyName == 'y') {
+	                this._flags |= 0x0002;
+	                this._source.relativeFlags |= isRelative ? 0x0002 : 0;
+	                this._source.y = value;
+	            } else if (propertyName == 'scaleX') {
+	                this._flags |= 0x0004;
+	                this._source.relativeFlags |= isRelative ? 0x0008 : 0;
+	                this._source.scaleX = value;
+	            } else if (propertyName == 'scaleY') {
+	                this._flags |= 0x0008;
+	                this._source.relativeFlags |= isRelative ? 0x0010 : 0;
+	                this._source.scaleY = value;
+	            } else if (propertyName == 'rotation') {
+	                this._flags |= 0x0010;
+	                this._source.relativeFlags |= isRelative ? 0x0020 : 0;
+	                this._source.rotation = value;
+	            } else if (propertyName == 'alpha') {
+	                this._flags |= 0x0020;
+	                this._source.relativeFlags |= isRelative ? 0x0040 : 0;
+	                this._source.alpha = value;
+	            } else if (propertyName == 'width') {
+	                this._flags |= 0x0040;
+	                this._source.relativeFlags |= isRelative ? 0x0080 : 0;
+	                this._source.width = value;
+	            } else if (propertyName == 'height') {
+	                this._flags |= 0x0080;
+	                this._source.relativeFlags |= isRelative ? 0x0100 : 0;
+	                this._source.height = value;
+	            } else if (propertyName == 'skewX') {
+	                this._flags |= 0x0100;
+	                this._source.relativeFlags |= isRelative ? 0x0400 : 0;
+	                this._source.skewX = value;
+	            } else if (propertyName == 'skewY') {
+	                this._flags |= 0x0200;
+	                this._source.relativeFlags |= isRelative ? 0x0800 : 0;
+	                this._source.skewY = value;
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @param propertyName {string}
+	         * @param value {number}
+	         * @param isRelative {boolean}
+	         */
+	
+	    }, {
+	        key: 'setDestinationValue',
+	        value: function setDestinationValue(propertyName, value) {
+	            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            if (propertyName == 'x') {
+	                this._flags |= 0x0001;
+	                this._destination.relativeFlags |= isRelative ? 0x0001 : 0;
+	                this._destination.x = value;
+	            } else if (propertyName == 'y') {
+	                this._flags |= 0x0002;
+	                this._destination.relativeFlags |= isRelative ? 0x0002 : 0;
+	                this._destination.y = value;
+	            } else if (propertyName == 'scaleX') {
+	                this._flags |= 0x0004;
+	                this._destination.relativeFlags |= isRelative ? 0x0008 : 0;
+	                this._destination.scaleX = value;
+	            } else if (propertyName == 'scaleY') {
+	                this._flags |= 0x0008;
+	                this._destination.relativeFlags |= isRelative ? 0x0010 : 0;
+	                this._destination.scaleY = value;
+	            } else if (propertyName == 'rotation') {
+	                this._flags |= 0x0010;
+	                this._destination.relativeFlags |= isRelative ? 0x0020 : 0;
+	                this._destination.rotation = value;
+	            } else if (propertyName == 'alpha') {
+	                this._flags |= 0x0020;
+	                this._destination.relativeFlags |= isRelative ? 0x0040 : 0;
+	                this._destination.alpha = value;
+	            } else if (propertyName == 'width') {
+	                this._flags |= 0x0040;
+	                this._destination.relativeFlags |= isRelative ? 0x0080 : 0;
+	                this._destination.width = value;
+	            } else if (propertyName == 'height') {
+	                this._flags |= 0x0080;
+	                this._destination.relativeFlags |= isRelative ? 0x0100 : 0;
+	                this._destination.height = value;
+	            } else if (propertyName == 'skewX') {
+	                this._flags |= 0x0100;
+	                this._destination.relativeFlags |= isRelative ? 0x0400 : 0;
+	                this._destination.skewX = value;
+	            } else if (propertyName == 'skewY') {
+	                this._flags |= 0x0200;
+	                this._destination.relativeFlags |= isRelative ? 0x0800 : 0;
+	                this._destination.skewY = value;
+	            }
+	        }
+	
+	        /**
+	         * TODO 필터 전체 테스트가 필요합니다.
+	         * @param propertyName {string}
+	         * @returns {Object}
+	         */
+	
+	    }, {
+	        key: 'getObject',
+	        value: function getObject(propertyName) {
+	            if (propertyName == '_blurFilter') {
+	                return this.getFilterByClass(PIXI.filters.BlurFilter);
+	            }
+	            if (propertyName == '_blurXFilter') {
+	                return this.getFilterByClass(PIXI.filters.BlurFilter);
+	            }
+	            if (propertyName == '_blurYFilter') {
+	                return this.getFilterByClass(PIXI.filters.BlurFilter);
+	            }
+	            if (propertyName == '_colorMatrixFilter') {
+	                return this.getFilterByClass(new PIXI.filters.ColorMatrixFilter());
+	            }
+	            if (propertyName == '_displacementMapFilter') {
+	                return this.getFilterByClass(new PIXI.filters.DisplacementFilter());
+	            }
+	            if (propertyName == '_fxaaFilter') {
+	                return this.getFilterByClass(new PIXI.filters.FXAAFilter());
+	            }
+	            if (propertyName == '_noiseFilter') {
+	                return this.getFilterByClass(new PIXI.filters.NoiseFilter());
+	            }
+	            if (propertyName == '_voidFilter') {
+	                return this.getFilterByClass(new PIXI.filters.VoidFilter());
+	            }
+	            return null;
+	        }
+	
+	        /**
+	         * TODO 필터 전체 테스트가 필요합니다.
+	         * @param klass {Class}
+	         * @returns {BitmapFilter}
+	         */
+	
+	    }, {
+	        key: 'getFilterByClass',
+	        value: function getFilterByClass(klass) {
+	            var filter = null;
+	            var filters = this._target.filters ? this._target.filters : this._target.filters = [];
+	
+	            var l = filters.length;
+	            for (var i = 0; i < l; ++i) {
+	                if ((filter = filters[i]) instanceof klass) {
+	                    return filter;
+	                }
+	            }
+	            filter = new klass();
+	            filters.push(filter);
+	            this._target.filters = filters;
+	            return filter;
+	        }
+	
+	        /**
+	         * TODO 필터 전체 테스트가 필요합니다.
+	         * @param propertyName {string}
+	         * @param value {Object}
+	         */
+	
+	    }, {
+	        key: 'setObject',
+	        value: function setObject(propertyName, value) {
+	            if (propertyName == '_blurFilter') {
+	                this.setFilterByClass(value, PIXI.filters.BlurFilter);
+	                return;
+	            }
+	            if (propertyName == '_blurXFilter') {
+	                this.setFilterByClass(value, PIXI.filters.BlurFilter);
+	                return;
+	            }
+	            if (propertyName == '_blurYFilter') {
+	                this.setFilterByClass(value, PIXI.filters.BlurFilter);
+	                return;
+	            }
+	            if (propertyName == '_colorMatrixFilter') {
+	                this.setFilterByClass(value, PIXI.filters.ColorMatrixFilter);
+	                return;
+	            }
+	            if (propertyName == '_displacementMapFilter') {
+	                this.setFilterByClass(value, PIXI.filters.DisplacementFilter);
+	                return;
+	            }
+	            if (propertyName == '_fxaaFilter') {
+	                this.setFilterByClass(value, PIXI.filters.FXAAFilter);
+	                return;
+	            }
+	            if (propertyName == '_noiseFilter') {
+	                this.setFilterByClass(value, PIXI.filters.NoiseFilter);
+	                return;
+	            }
+	            if (propertyName == '_voidFilter') {
+	                this.setFilterByClass(value, PIXI.filters.VoidFilter);
+	                return;
+	            }
+	        }
+	
+	        /**
+	         * TODO 필터 전체 테스트가 필요합니다.
+	         * @param filter {BitmapFilter}
+	         * @param klass {Class}
+	         */
+	
+	    }, {
+	        key: 'setFilterByClass',
+	        value: function setFilterByClass(filter, klass) {
+	            var filters = this._target.filters;
+	            var l = filters.length;
+	            for (var i = 0; i < l; ++i) {
+	                if (filters[i] instanceof klass) {
+	                    filters[i] = filter;
+	                    this._target.filters = filters;
+	                    return;
+	                }
+	            }
+	            filters.push(filter);
+	            this._target.filters = filters;
+	        }
+	    }, {
+	        key: 'resolveValues',
+	        value: function resolveValues() {
+	            var t = this._target,
+	                d = this._destination,
+	                s = this._source,
+	                f = this._flags;
+	
+	            if ((f & 0x0001) != 0) {
+	                if (isNaN(s.x)) {
+	                    s.x = t.x;
+	                } else if ((s.relativeFlags & 0x0001) != 0) {
+	                    s.x += t.x;
+	                }
+	                if (isNaN(d.x)) {
+	                    d.x = t.x;
+	                } else if ((d.relativeFlags & 0x0001) != 0) {
+	                    d.x += t.x;
+	                }
+	            }
+	            if ((f & 0x0002) != 0) {
+	                if (isNaN(s.y)) {
+	                    s.y = t.y;
+	                } else if ((s.relativeFlags & 0x0002) != 0) {
+	                    s.y += t.y;
+	                }
+	                if (isNaN(d.y)) {
+	                    d.y = t.y;
+	                } else if ((d.relativeFlags & 0x0002) != 0) {
+	                    d.y += t.y;
+	                }
+	            }
+	            if ((f & 0x0004) != 0) {
+	                if (isNaN(s.scaleX)) {
+	                    s.scaleX = t.scale.x;
+	                } else if ((s.relativeFlags & 0x0008) != 0) {
+	                    s.scaleX += t.scale.x;
+	                }
+	                if (isNaN(d.scaleX)) {
+	                    d.scaleX = t.scale.x;
+	                } else if ((d.relativeFlags & 0x0008) != 0) {
+	                    d.scaleX += t.scale.x;
+	                }
+	            }
+	            if ((f & 0x0008) != 0) {
+	                if (isNaN(s.scaleY)) {
+	                    s.scaleY = t.scale.y;
+	                } else if ((s.relativeFlags & 0x0010) != 0) {
+	                    s.scaleY += t.scale.y;
+	                }
+	                if (isNaN(d.scaleY)) {
+	                    d.scaleY = t.scale.y;
+	                } else if ((d.relativeFlags & 0x0010) != 0) {
+	                    d.scaleY += t.scale.y;
+	                }
+	            }
+	            if ((f & 0x0010) != 0) {
+	                if (isNaN(s.rotation)) {
+	                    s.rotation = t.rotation;
+	                } else if ((s.relativeFlags & 0x0020) != 0) {
+	                    s.rotation += t.rotation;
+	                }
+	                if (isNaN(d.rotation)) {
+	                    d.rotation = t.rotation;
+	                } else if ((d.relativeFlags & 0x0020) != 0) {
+	                    d.rotation += t.rotation;
+	                }
+	            }
+	            if ((f & 0x0020) != 0) {
+	                if (isNaN(s.alpha)) {
+	                    s.alpha = t.alpha;
+	                } else if ((s.relativeFlags & 0x0040) != 0) {
+	                    s.alpha += t.alpha;
+	                }
+	                if (isNaN(d.alpha)) {
+	                    d.alpha = t.alpha;
+	                } else if ((d.relativeFlags & 0x0040) != 0) {
+	                    d.alpha += t.alpha;
+	                }
+	            }
+	            if ((f & 0x0040) != 0) {
+	                if (isNaN(s.width)) {
+	                    s.width = t.width;
+	                } else if ((s.relativeFlags & 0x0080) != 0) {
+	                    s.width += t.width;
+	                }
+	                if (isNaN(d.width)) {
+	                    d.width = t.width;
+	                } else if ((d.relativeFlags & 0x0080) != 0) {
+	                    d.width += t.width;
+	                }
+	            }
+	            if ((f & 0x0080) != 0) {
+	                if (isNaN(s.height)) {
+	                    s.height = t.height;
+	                } else if ((s.relativeFlags & 0x0100) != 0) {
+	                    s.height += t.height;
+	                }
+	                if (isNaN(d.height)) {
+	                    d.height = t.height;
+	                } else if ((d.relativeFlags & 0x0100) != 0) {
+	                    d.height += t.height;
+	                }
+	            }
+	            if ((f & 0x0100) != 0) {
+	                if (isNaN(s.skewX)) {
+	                    s.skewX = t.skew.x;
+	                } else if ((s.relativeFlags & 0x0400) != 0) {
+	                    s.skewX += t.skew.x;
+	                }
+	                if (isNaN(d.skewX)) {
+	                    d.skewX = t.skew.x;
+	                } else if ((d.relativeFlags & 0x0400) != 0) {
+	                    d.skewX += t.skew.x;
+	                }
+	            }
+	            if ((f & 0x0200) != 0) {
+	                if (isNaN(s.skewY)) {
+	                    s.skewY = t.skew.y;
+	                } else if ((s.relativeFlags & 0x0800) != 0) {
+	                    s.skewY += t.skew.y;
+	                }
+	                if (isNaN(d.skewY)) {
+	                    d.skewY = t.skew.y;
+	                } else if ((d.relativeFlags & 0x0800) != 0) {
+	                    d.skewY += t.skew.y;
+	                }
+	            }
+	        }
+	
+	        /**
+	         * 
+	         * @param factor {number}
+	         */
+	
+	    }, {
+	        key: 'updateObject',
+	        value: function updateObject(factor) {
+	            var t = this._target,
+	                d = this._destination,
+	                s = this._source,
+	                f = this._flags;
+	
+	            var invert = 1.0 - factor;
+	
+	            if ((f & 0x0001) != 0) {
+	                t.x = s.x * invert + d.x * factor;
+	            }
+	            if ((f & 0x0002) != 0) {
+	                t.y = s.y * invert + d.y * factor;
+	            }
+	            if ((f & 0x000C) != 0) {
+	                if ((f & 0x0004) != 0) {
+	                    t.scale.x = s.scaleX * invert + d.scaleX * factor;
+	                }
+	                if ((f & 0x0008) != 0) {
+	                    t.scale.y = s.scaleY * invert + d.scaleY * factor;
+	                }
+	            }
+	            if ((f & 0x0010) != 0) {
+	                t.rotation = s.rotation * invert + d.rotation * factor;
+	            }
+	            if ((f & 0x00E0) != 0) {
+	                if ((f & 0x0020) != 0) {
+	                    t.alpha = s.alpha * invert + d.alpha * factor;
+	                }
+	                if ((f & 0x0040) != 0) {
+	                    t.width = s.width * invert + d.width * factor;
+	                }
+	                if ((f & 0x0080) != 0) {
+	                    t.height = s.height * invert + d.height * factor;
+	                }
+	            }
+	            if ((f & 0x0300) != 0) {
+	                if ((f & 0x0100) != 0) {
+	                    t.skew.x = s.skewX * invert + d.skewX * factor;
+	                }
+	                if ((f & 0x0200) != 0) {
+	                    t.skew.y = s.skewY * invert + d.skewY * factor;
+	                }
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @returns {AbstractUpdater}
+	         */
+	
+	    }, {
+	        key: 'newInstance',
+	        value: function newInstance() {
+	            return new DisplayObjectUpdater();
+	        }
+	
+	        /**
+	         *
+	         * @param source {AbstractUpdater}
+	         */
+	
+	    }, {
+	        key: 'copyFrom',
+	        value: function copyFrom(source) {
+	            _get(DisplayObjectUpdater.prototype.__proto__ || Object.getPrototypeOf(DisplayObjectUpdater.prototype), 'copyFrom', this).call(this, source);
+	
+	            var obj = source;
+	
+	            this._target = obj._target;
+	            this._source.copyFrom(obj._source);
+	            this._destination.copyFrom(obj._destination);
+	            this._flags = obj._flags;
+	        }
+	    }, {
+	        key: 'target',
+	        get: function get() {
+	            return this._target;
+	        }
+	
+	        /**
+	         *
+	         * @param value {Object}
+	         */
+	        ,
+	        set: function set(value) {
+	            this._target = value;
+	        }
+	    }]);
+	
+	    return DisplayObjectUpdater;
+	}(_AbstractUpdater3.default);
+	
+	exports.default = DisplayObjectUpdater;
+	
+	var DisplayObjectParameter = function () {
+	    function DisplayObjectParameter() {
+	        _classCallCheck(this, DisplayObjectParameter);
+	
+	        /**
+	         * $ 옵션 비트 플래그
+	         * @type {uint}
+	         */
+	        this.relativeFlags = 0;
+	        this.x = undefined;
+	        this.y = undefined;
+	        this.scaleX = undefined;
+	        this.scaleY = undefined;
+	        this.rotation = undefined;
+	        this.alpha = undefined;
+	        this.width = undefined;
+	        this.height = undefined;
+	        this.skewX = undefined;
+	        this.skewY = undefined;
+	    }
+	
+	    /**
+	     *
+	     * @param obj {DisplayObjectParameter}
+	     */
+	
+	
+	    _createClass(DisplayObjectParameter, [{
+	        key: 'copyFrom',
+	        value: function copyFrom(obj) {
+	            this.relativeFlags = obj.relativeFlags;
+	            this.x = obj.x;
+	            this.y = obj.y;
+	            this.scaleX = obj.scaleX;
+	            this.scaleY = obj.scaleY;
+	            this.rotation = obj.rotation;
+	            this.alpha = obj.alpha;
+	            this.width = obj.width;
+	            this.height = obj.height;
+	            this.skewX = obj.skewX;
+	            this.skeyY = obj.skeyY;
+	        }
+	    }]);
+	
+	    return DisplayObjectParameter;
+	}();
+	
+	var DisplayObject = function DisplayObject() {
+	    _classCallCheck(this, DisplayObject);
+	};
+
+/***/ }),
+
+/***/ 382:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _AbstractUpdater2 = __webpack_require__(370);
+	
+	var _AbstractUpdater3 = _interopRequireDefault(_AbstractUpdater2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var TARGET_PROPERTIES = ['x', 'y'];
+	
+	var PointUpdater = function (_AbstractUpdater) {
+	    _inherits(PointUpdater, _AbstractUpdater);
+	
+	    _createClass(PointUpdater, null, [{
+	        key: 'register',
+	
+	        /**
+	         *
+	         * @param registry {ClassRegistry}
+	         */
+	        value: function register(registry) {
+	            registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, Point, TARGET_PROPERTIES);
+	            registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, Vector, TARGET_PROPERTIES);
+	
+	            if (typeof PIXI !== 'undefined') {
+	                registry.registerClassWithTargetClassAndPropertyNames(PointUpdater, PIXI.Point, TARGET_PROPERTIES);
+	            }
+	        }
+	    }]);
+	
+	    function PointUpdater() {
+	        _classCallCheck(this, PointUpdater);
+	
+	        /**
+	         *
+	         * @type {Ponit}
+	         * @private
+	         */
+	        var _this = _possibleConstructorReturn(this, (PointUpdater.__proto__ || Object.getPrototypeOf(PointUpdater)).call(this));
+	
+	        _this._target = null;
+	
+	        /**
+	         *
+	         * @type {boolean}
+	         * @private
+	         */
+	        _this._fx = false;
+	
+	        /**
+	         *
+	         * @type {number}
+	         * @private
+	         */
+	        _this._sx = undefined;
+	
+	        /**
+	         *
+	         * @type {number}
+	         * @private
+	         */
+	        _this._dx = undefined;
+	
+	        /**
+	         *
+	         * @type {boolean}
+	         * @private
+	         */
+	        _this._fy = false;
+	
+	        /**
+	         *
+	         * @type {number}
+	         * @private
+	         */
+	        _this._sy = undefined;
+	
+	        /**
+	         *
+	         * @type {number}
+	         * @private
+	         */
+	        _this._dy = undefined;
+	
+	        /**
+	         *
+	         * @type {uint}
+	         * @private
+	         */
+	        _this._flags = 0;
+	        return _this;
+	    }
+	
+	    /**
+	     * @return {Object}
+	     */
+	
+	
+	    _createClass(PointUpdater, [{
+	        key: 'setSourceValue',
+	
+	
+	        /**
+	         * 변수 앞에 $가 붙으면 자신의 위치 기준으로(상대경로) 값을 계산해주도록 옵션을 제공합니다.
+	         * $를 붙히면 자신의 위치 + value 로 처리합니다.
+	         * isRelative 가 $ 옵션 여부입니다.
+	         * @param propertyName {string}
+	         * @param value {number}
+	         * @param isRelative {boolean}
+	         */
+	        value: function setSourceValue(propertyName, value) {
+	            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            if (propertyName == 'x') {
+	                this._fx = true;
+	                this._sx = value;
+	                this._flags |= isRelative ? 0x001 : 0;
+	            } else if (propertyName == 'y') {
+	                this._fy = true;
+	                this._sy = value;
+	                this._flags |= isRelative ? 0x004 : 0;
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @param propertyName {string}
+	         * @param value {number}
+	         * @param isRelative {boolean}
+	         */
+	
+	    }, {
+	        key: 'setDestinationValue',
+	        value: function setDestinationValue(propertyName, value) {
+	            var isRelative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	
+	            if (propertyName == 'x') {
+	                this._fx = true;
+	                this._dx = value;
+	                this._flags |= isRelative ? 0x002 : 0;
+	            } else if (propertyName == 'y') {
+	                this._fy = true;
+	                this._dy = value;
+	                this._flags |= isRelative ? 0x008 : 0;
+	            }
+	        }
+	    }, {
+	        key: 'resolveValues',
+	        value: function resolveValues() {
+	            var t = this._target;
+	
+	            if (this._fx) {
+	                if (isNaN(this._sx)) {
+	                    this._sx = t.x;
+	                } else if ((this._flags & 0x001) != 0) {
+	                    this._sx += t.x;
+	                }
+	                if (isNaN(this._dx)) {
+	                    this._dx = t.x;
+	                } else if ((this._flags & 0x002) != 0) {
+	                    this._dx += t.x;
+	                }
+	            }
+	            if (this._fy) {
+	                if (isNaN(this._sy)) {
+	                    this._sy = t.y;
+	                } else if ((this._flags & 0x004) != 0) {
+	                    this._sy += t.y;
+	                }
+	                if (isNaN(this._dy)) {
+	                    this._dy = t.y;
+	                } else if ((this._flags & 0x008) != 0) {
+	                    this._dy += t.y;
+	                }
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @param factor {number}
+	         */
+	
+	    }, {
+	        key: 'updateObject',
+	        value: function updateObject(factor) {
+	            var t = this._target;
+	
+	            var invert = 1.0 - factor;
+	
+	            if (this._fx) {
+	                t.x = this._sx * invert + this._dx * factor;
+	            }
+	            if (this._fy) {
+	                t.y = this._sy * invert + this._dy * factor;
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @returns {AbstractUpdater}
+	         */
+	
+	    }, {
+	        key: 'newInstance',
+	        value: function newInstance() {
+	            return new PointUpdater();
+	        }
+	
+	        /**
+	         * 
+	         * @param source {AbstractUpdater}
+	         */
+	
+	    }, {
+	        key: 'copyFrom',
+	        value: function copyFrom(source) {
+	            _get(PointUpdater.prototype.__proto__ || Object.getPrototypeOf(PointUpdater.prototype), 'copyFrom', this).call(this, source);
+	
+	            var obj = source;
+	
+	            this._target = obj._target;
+	            this._sx = obj._sx;
+	            this._sy = obj._sy;
+	            this._dx = obj._dx;
+	            this._dy = obj._dy;
+	            this._fx = obj._fx;
+	            this._fy = obj._fy;
+	            this._flags = obj._flags;
+	        }
+	    }, {
+	        key: 'target',
+	        get: function get() {
+	            return this._target;
+	        }
+	
+	        /**
+	         * @param value {Object}
+	         */
+	        ,
+	        set: function set(value) {
+	            this._target = value;
+	        }
+	    }]);
+	
+	    return PointUpdater;
+	}(_AbstractUpdater3.default);
+	
+	exports.default = PointUpdater;
+	
+	var Point = function Point() {
+	    _classCallCheck(this, Point);
+	};
+	
+	var Vector = function Vector() {
+	    _classCallCheck(this, Vector);
+	};
+
+/***/ }),
+
+/***/ 383:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _AbstractTween2 = __webpack_require__(377);
+	
+	var _AbstractTween3 = _interopRequireDefault(_AbstractTween2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var PhysicalTween = function (_AbstractTween) {
+	  _inherits(PhysicalTween, _AbstractTween);
+	
+	  /**
+	   *
+	   * @param ticker {ITicker}
+	   */
+	  function PhysicalTween(ticker) {
+	    _classCallCheck(this, PhysicalTween);
+	
+	    /**
+	     *
+	     * @type {IPhysicalUpdater}
+	     * @private
+	     */
+	    var _this = _possibleConstructorReturn(this, (PhysicalTween.__proto__ || Object.getPrototypeOf(PhysicalTween)).call(this, ticker, 0));
+	
+	    _this._updater = undefined;
+	    return _this;
+	  }
+	
+	  /**
+	   *
+	   * @returns {IPhysicalUpdater}
+	   */
+	
+	
+	  _createClass(PhysicalTween, [{
+	    key: 'internalUpdate',
+	
+	
+	    /**
+	     *
+	     * @param time {number}
+	     */
+	    value: function internalUpdate(time) {
+	      this._updater.update(time);
+	    }
+	
+	    /**
+	     *
+	     * @returns {AbstractTween}
+	     */
+	
+	  }, {
+	    key: 'newInstance',
+	    value: function newInstance() {
+	      return new PhysicalTween(this._ticker);
+	    }
+	
+	    /**
+	     *
+	     * @param source {AbstractTween}
+	     */
+	
+	  }, {
+	    key: 'copyFrom',
+	    value: function copyFrom(source) {
+	      _get(PhysicalTween.prototype.__proto__ || Object.getPrototypeOf(PhysicalTween.prototype), 'copyFrom', this).call(this, source);
+	
+	      var obj = source;
+	
+	      this._updater = obj._updater.clone();
+	    }
+	  }, {
+	    key: 'updater',
+	    get: function get() {
+	      return this._updater;
+	    }
+	
+	    /**
+	     *
+	     * @param value {IPhysicalUpdater}
+	     */
+	    ,
+	    set: function set(value) {
+	      this._updater = value;
+	
+	      if (this._updater != null) {
+	        this._duration = this._updater.duration;
+	      }
+	    }
+	
+	    /**
+	     *
+	     * @returns {Object}
+	     */
+	
+	  }, {
+	    key: 'target',
+	    get: function get() {
+	      return this._updater != null ? this._updater.target : null;
+	    }
+	  }]);
+	
+	  return PhysicalTween;
+	}(_AbstractTween3.default);
+	
+	exports.default = PhysicalTween;
+
+/***/ }),
+
+/***/ 384:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _AbstractTween2 = __webpack_require__(377);
+	
+	var _AbstractTween3 = _interopRequireDefault(_AbstractTween2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var ParallelTween = function (_AbstractTween) {
+	    _inherits(ParallelTween, _AbstractTween);
+	
+	    /**
+	     *
+	     * @param targets {Array}
+	     * @param ticker {ITicker}
+	     * @param position {number}
+	     */
+	    function ParallelTween(targets, ticker, position) {
+	        _classCallCheck(this, ParallelTween);
+	
+	        /**
+	         *
+	         * @type {IITween}
+	         * @private
+	         */
+	        var _this = _possibleConstructorReturn(this, (ParallelTween.__proto__ || Object.getPrototypeOf(ParallelTween)).call(this, ticker, position));
+	
+	        _this._a = undefined;
+	
+	        /**
+	         *
+	         * @type {IITween}
+	         * @private
+	         */
+	        _this._b = undefined;
+	
+	        /**
+	         *
+	         * @type {IITween}
+	         * @private
+	         */
+	        _this._c = undefined;
+	
+	        /**
+	         *
+	         * @type {IITween}
+	         * @private
+	         */
+	        _this._d = undefined;
+	
+	        /**
+	         *
+	         * @type {Vector.<IITween>}
+	         * @private
+	         */
+	        _this._targets = undefined;
+	
+	        var l = targets.length;
+	
+	        _this._duration = 0;
+	
+	        if (l > 0) {
+	            _this._a = targets[0];
+	            _this._duration = _this._a.duration > _this._duration ? _this._a.duration : _this._duration;
+	            if (l > 1) {
+	                _this._b = targets[1];
+	                _this._duration = _this._b.duration > _this._duration ? _this._b.duration : _this._duration;
+	                if (l > 2) {
+	                    _this._c = targets[2];
+	                    _this._duration = _this._c.duration > _this._duration ? _this._c.duration : _this._duration;
+	                    if (l > 3) {
+	                        _this._d = targets[3];
+	                        _this._duration = _this._d.duration > _this._duration ? _this._d.duration : _this._duration;
+	                        if (l > 4) {
+	                            _this._targets = [];
+	                            for (var i = 4; i < l; ++i) {
+	                                var t = targets[i];
+	                                _this._targets[i - 4] = t;
+	                                _this._duration = t.duration > _this._duration ? t.duration : _this._duration;
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	        return _this;
+	    }
+	
+	    /**
+	     *
+	     * @param tween {ITween}
+	     * @returns {boolean}
+	     */
+	
+	
+	    _createClass(ParallelTween, [{
+	        key: 'contains',
+	        value: function contains(tween) {
+	            if (tween == null) {
+	                return false;
+	            }
+	            if (this._a == tween) {
+	                return true;
+	            }
+	            if (this._b == tween) {
+	                return true;
+	            }
+	            if (this._c == tween) {
+	                return true;
+	            }
+	            if (this._d == tween) {
+	                return true;
+	            }
+	            if (this._targets != null) {
+	                return this._targets.indexOf(tween) != -1;
+	            }
+	            return false;
+	        }
+	
+	        /**
+	         *
+	         * @param index {int}
+	         * @returns {ITween}
+	         */
+	
+	    }, {
+	        key: 'getTweenAt',
+	        value: function getTweenAt(index) {
+	            if (index < 0) {
+	                return null;
+	            }
+	            if (index == 0) {
+	                return this._a;
+	            }
+	            if (index == 1) {
+	                return this._b;
+	            }
+	            if (index == 2) {
+	                return this._c;
+	            }
+	            if (index == 3) {
+	                return this._d;
+	            }
+	            if (this._targets != null) {
+	                if (index - 4 < this._targets.length) {
+	                    return this._targets[index - 4];
+	                }
+	            }
+	            return null;
+	        }
+	
+	        /**
+	         *
+	         * @param tween {ITween}
+	         * @returns {int}
+	         */
+	
+	    }, {
+	        key: 'getTweenIndex',
+	        value: function getTweenIndex(tween) {
+	            if (tween == null) {
+	                return -1;
+	            }
+	            if (this._a == tween) {
+	                return 0;
+	            }
+	            if (this._b == tween) {
+	                return 1;
+	            }
+	            if (this._c == tween) {
+	                return 2;
+	            }
+	            if (this._d == tween) {
+	                return 3;
+	            }
+	            if (this._targets != null) {
+	                var i = this._targets.indexOf(tween);
+	                if (i != -1) {
+	                    return i + 4;
+	                }
+	            }
+	            return -1;
+	        }
+	
+	        /**
+	         *
+	         * @param time {number}
+	         */
+	
+	    }, {
+	        key: 'internalUpdate',
+	        value: function internalUpdate(time) {
+	            if (this._a != null) {
+	                this._a.update(time);
+	                if (this._b != null) {
+	                    this._b.update(time);
+	                    if (this._c != null) {
+	                        this._c.update(time);
+	                        if (this._d != null) {
+	                            this._d.update(time);
+	                            if (this._targets != null) {
+	                                var targets = this._targets;
+	                                var l = targets.length;
+	                                for (var i = 0; i < l; ++i) {
+	                                    targets[i].update(time);
+	                                }
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @returns {AbstractTween}
+	         */
+	
+	    }, {
+	        key: 'newInstance',
+	        value: function newInstance() {
+	            var targets = [];
+	            if (this._a != null) {
+	                targets.push(this._a.clone());
+	            }
+	            if (this._b != null) {
+	                targets.push(this._b.clone());
+	            }
+	            if (this._c != null) {
+	                targets.push(this._c.clone());
+	            }
+	            if (this._d != null) {
+	                targets.push(this._d.clone());
+	            }
+	            if (this._targets != null) {
+	                var t = this._targets;
+	                var l = t.length;
+	                for (var i = 0; i < l; ++i) {
+	                    targets.push(t[i].clone());
+	                }
+	            }
+	            return new ParallelTween(targets, _ticker, 0);
+	        }
+	    }]);
+	
+	    return ParallelTween;
+	}(_AbstractTween3.default);
+	
+	exports.default = ParallelTween;
+
+/***/ }),
+
+/***/ 385:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _AbstractTween2 = __webpack_require__(377);
+	
+	var _AbstractTween3 = _interopRequireDefault(_AbstractTween2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var SerialTween = function (_AbstractTween) {
+	    _inherits(SerialTween, _AbstractTween);
+	
+	    /**
+	     *
+	     * @param targets {Array}
+	     * @param ticker {ITicker}
+	     * @param position {number}
+	     */
+	    function SerialTween(targets, ticker, position) {
+	        _classCallCheck(this, SerialTween);
+	
+	        /**
+	         *
+	         * @type {IITween}
+	         * @private
+	         */
+	        var _this = _possibleConstructorReturn(this, (SerialTween.__proto__ || Object.getPrototypeOf(SerialTween)).call(this, ticker, position));
+	
+	        _this._a = undefined;
+	
+	        /**
+	         *
+	         * @type {IITween}
+	         * @private
+	         */
+	        _this._b = undefined;
+	
+	        /**
+	         *
+	         * @type {IITween}
+	         * @private
+	         */
+	        _this._c = undefined;
+	
+	        /**
+	         *
+	         * @type {IITween}
+	         * @private
+	         */
+	        _this._d = undefined;
+	
+	        /**
+	         *
+	         * @type {Vector.<IITween>}
+	         * @private
+	         */
+	        _this._targets = undefined;
+	
+	        /**
+	         *
+	         * @type {number}
+	         * @private
+	         */
+	        _this._lastTime = 0;
+	
+	        var l = targets.length;
+	
+	        _this._duration = 0;
+	
+	        if (l > 0) {
+	            _this._a = targets[0];
+	            _this._duration += _this._a.duration;
+	            if (l > 1) {
+	                _this._b = targets[1];
+	                _this._duration += _this._b.duration;
+	                if (l > 2) {
+	                    _this._c = targets[2];
+	                    _this._duration += _this._c.duration;
+	                    if (l > 3) {
+	                        _this._d = targets[3];
+	                        _this._duration += _this._d.duration;
+	                        if (l > 4) {
+	                            _this._targets = [];
+	                            for (var i = 4; i < l; ++i) {
+	                                var t = targets[i];
+	                                _this._targets[i - 4] = t;
+	                                _this._duration += t.duration;
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	        return _this;
+	    }
+	
+	    /**
+	     *
+	     * @param tween {ITween}
+	     * @returns {boolean}
+	     */
+	
+	
+	    _createClass(SerialTween, [{
+	        key: 'contains',
+	        value: function contains(tween) {
+	            if (tween == null) {
+	                return false;
+	            }
+	            if (this._a == tween) {
+	                return true;
+	            }
+	            if (this._b == tween) {
+	                return true;
+	            }
+	            if (this._c == tween) {
+	                return true;
+	            }
+	            if (this._d == tween) {
+	                return true;
+	            }
+	            if (this._targets != null) {
+	                return this._targets.indexOf(tween) != -1;
+	            }
+	            return false;
+	        }
+	
+	        /**
+	         *
+	         * @param index {int}
+	         * @returns {ITween}
+	         */
+	
+	    }, {
+	        key: 'getTweenAt',
+	        value: function getTweenAt(index) {
+	            if (index < 0) {
+	                return null;
+	            }
+	            if (index == 0) {
+	                return this._a;
+	            }
+	            if (index == 1) {
+	                return this._b;
+	            }
+	            if (index == 2) {
+	                return this._c;
+	            }
+	            if (index == 3) {
+	                return this._d;
+	            }
+	            if (this._targets != null) {
+	                if (index - 4 < this._targets.length) {
+	                    return this._targets[index - 4];
+	                }
+	            }
+	            return null;
+	        }
+	
+	        /**
+	         *
+	         * @param tween {ITween}
+	         * @returns {int}
+	         */
+	
+	    }, {
+	        key: 'getTweenIndex',
+	        value: function getTweenIndex(tween) {
+	            if (tween == null) {
+	                return -1;
+	            }
+	            if (this._a == tween) {
+	                return 0;
+	            }
+	            if (this._b == tween) {
+	                return 1;
+	            }
+	            if (this._c == tween) {
+	                return 2;
+	            }
+	            if (this._d == tween) {
+	                return 3;
+	            }
+	            if (this._targets != null) {
+	                var i = this._targets.indexOf(tween);
+	                if (i != -1) {
+	                    return i + 4;
+	                }
+	            }
+	            return -1;
+	        }
+	
+	        /**
+	         *
+	         * @param time {number}
+	         */
+	
+	    }, {
+	        key: 'internalUpdate',
+	        value: function internalUpdate(time) {
+	            var d = 0,
+	                ld = 0,
+	                lt = this._lastTime,
+	                l,
+	                i,
+	                t;
+	
+	            if (time - lt >= 0) {
+	                if (this._a != null) {
+	                    if (lt <= (d += this._a.duration) && ld <= time) {
+	                        this._a.update(time - ld);
+	                    }
+	                    ld = d;
+	                    if (this._b != null) {
+	                        if (lt <= (d += this._b.duration) && ld <= time) {
+	                            this._b.update(time - ld);
+	                        }
+	                        ld = d;
+	                        if (this._c != null) {
+	                            if (lt <= (d += this._c.duration) && ld <= time) {
+	                                this._c.update(time - ld);
+	                            }
+	                            ld = d;
+	                            if (this._d != null) {
+	                                if (lt <= (d += this._d.duration) && ld <= time) {
+	                                    this._d.update(time - ld);
+	                                }
+	                                ld = d;
+	                                if (this._targets != null) {
+	                                    l = this._targets.length;
+	                                    for (i = 0; i < l; ++i) {
+	                                        t = this._targets[i];
+	                                        if (lt <= (d += t.duration) && ld <= time) {
+	                                            t.update(time - ld);
+	                                        }
+	                                        ld = d;
+	                                    }
+	                                }
+	                            }
+	                        }
+	                    }
+	                }
+	            } else {
+	                d = this._duration;
+	                ld = d;
+	                if (this._targets != null) {
+	                    for (i = this._targets.length - 1; i >= 0; --i) {
+	                        t = this._targets[i];
+	                        if (lt >= (d -= t.duration) && ld >= time) {
+	                            t.update(time - d);
+	                        }
+	                        ld = d;
+	                    }
+	                }
+	                if (this._d != null) {
+	                    if (lt >= (d -= this._d.duration) && ld >= time) {
+	                        this._d.update(time - d);
+	                    }
+	                    ld = d;
+	                }
+	                if (this._c != null) {
+	                    if (lt >= (d -= this._c.duration) && ld >= time) {
+	                        this._c.update(time - d);
+	                    }
+	                    ld = d;
+	                }
+	                if (this._b != null) {
+	                    if (lt >= (d -= this._b.duration) && ld >= time) {
+	                        this._b.update(time - d);
+	                    }
+	                    ld = d;
+	                }
+	                if (this._a != null) {
+	                    if (lt >= (d -= this._a.duration) && ld >= time) {
+	                        this._a.update(time - d);
+	                    }
+	                    ld = d;
+	                }
+	            }
+	            this._lastTime = time;
+	        }
+	
+	        /**
+	         *
+	         * @returns {AbstractTween}
+	         */
+	
+	    }, {
+	        key: 'newInstance',
+	        value: function newInstance() {
+	            var targets = [];
+	            if (this._a != null) {
+	                targets.push(this._a.clone());
+	            }
+	            if (this._b != null) {
+	                targets.push(this._b.clone());
+	            }
+	            if (this._c != null) {
+	                targets.push(this._c.clone());
+	            }
+	            if (this._d != null) {
+	                targets.push(this._d.clone());
+	            }
+	            if (this._targets != null) {
+	                var t = this._targets;
+	                var l = t.length;
+	                for (var i = 0; i < l; ++i) {
+	                    targets.push(t[i].clone());
+	                }
+	            }
+	            return new SerialTween(targets, ticker, 0);
+	        }
+	    }]);
+	
+	    return SerialTween;
+	}(_AbstractTween3.default);
+	
+	exports.default = SerialTween;
+
+/***/ }),
+
+/***/ 386:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _AbstractTween2 = __webpack_require__(377);
+	
+	var _AbstractTween3 = _interopRequireDefault(_AbstractTween2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var TweenDecorator = function (_AbstractTween) {
+	    _inherits(TweenDecorator, _AbstractTween);
+	
+	    /**
+	     *
+	     * @param baseTween {IITween}
+	     * @param position {number}
+	     */
+	    function TweenDecorator(baseTween, position) {
+	        _classCallCheck(this, TweenDecorator);
+	
+	        /**
+	         *
+	         * @type {IITween}
+	         * @private
+	         */
+	        var _this = _possibleConstructorReturn(this, (TweenDecorator.__proto__ || Object.getPrototypeOf(TweenDecorator)).call(this, baseTween.ticker, position));
+	
+	        _this._baseTween = baseTween;
+	
+	        /**
+	         *
+	         * @type {number}
+	         * @private
+	         */
+	        _this._duration = baseTween.duration;
+	        return _this;
+	    }
+	
+	    /**
+	     * 
+	     * @returns {IITween}
+	     */
+	
+	
+	    _createClass(TweenDecorator, [{
+	        key: 'play',
+	        value: function play() {
+	            if (!this._isPlaying) {
+	                this._baseTween.firePlay();
+	                _get(TweenDecorator.prototype.__proto__ || Object.getPrototypeOf(TweenDecorator.prototype), 'play', this).call(this);
+	            }
+	        }
+	    }, {
+	        key: 'firePlay',
+	        value: function firePlay() {
+	            _get(TweenDecorator.prototype.__proto__ || Object.getPrototypeOf(TweenDecorator.prototype), 'firePlay', this).call(this);
+	            this._baseTween.firePlay();
+	        }
+	    }, {
+	        key: 'stop',
+	        value: function stop() {
+	            if (this._isPlaying === true) {
+	                _get(TweenDecorator.prototype.__proto__ || Object.getPrototypeOf(TweenDecorator.prototype), 'stop', this).call(this);
+	                this._baseTween.fireStop();
+	            }
+	        }
+	    }, {
+	        key: 'fireStop',
+	        value: function fireStop() {
+	            _get(TweenDecorator.prototype.__proto__ || Object.getPrototypeOf(TweenDecorator.prototype), 'fireStop', this).call(this);
+	            this._baseTween.fireStop();
+	        }
+	
+	        /**
+	         * 
+	         * @param time {number}
+	         */
+	
+	    }, {
+	        key: 'internalUpdate',
+	        value: function internalUpdate(time) {
+	            this._baseTween.update(time);
+	        }
+	    }, {
+	        key: 'baseTween',
+	        get: function get() {
+	            return this._baseTween;
+	        }
+	    }]);
+	
+	    return TweenDecorator;
+	}(_AbstractTween3.default);
+	
+	exports.default = TweenDecorator;
+
+/***/ }),
+
+/***/ 387:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _TweenDecorator2 = __webpack_require__(386);
+	
+	var _TweenDecorator3 = _interopRequireDefault(_TweenDecorator2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var ReversedTween = function (_TweenDecorator) {
+	  _inherits(ReversedTween, _TweenDecorator);
+	
+	  /**
+	   *
+	   * @param baseTween {IITween}
+	   * @param position {number}
+	   */
+	  function ReversedTween(baseTween, position) {
+	    _classCallCheck(this, ReversedTween);
+	
+	    var _this = _possibleConstructorReturn(this, (ReversedTween.__proto__ || Object.getPrototypeOf(ReversedTween)).call(this, baseTween, position));
+	
+	    _this._duration = baseTween.duration;
+	    return _this;
+	  }
+	
+	  /**
+	   *
+	   * @param time {number}
+	   */
+	
+	
+	  _createClass(ReversedTween, [{
+	    key: 'internalUpdate',
+	    value: function internalUpdate(time) {
+	      this.baseTween.update(this._duration - time);
+	    }
+	
+	    /**
+	     *
+	     * @returns {AbstractTween}
+	     */
+	
+	  }, {
+	    key: 'newInstance',
+	    value: function newInstance() {
+	      return new ReversedTween(this.baseTween.clone(), 0);
+	    }
+	  }]);
+	
+	  return ReversedTween;
+	}(_TweenDecorator3.default);
+	
+	exports.default = ReversedTween;
+
+/***/ }),
+
+/***/ 388:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _TweenDecorator2 = __webpack_require__(386);
+	
+	var _TweenDecorator3 = _interopRequireDefault(_TweenDecorator2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var RepeatedTween = function (_TweenDecorator) {
+	    _inherits(RepeatedTween, _TweenDecorator);
+	
+	    /**
+	     *
+	     * @param baseTween {IITween}
+	     * @param repeatCount {uint}
+	     */
+	    function RepeatedTween(baseTween, repeatCount) {
+	        _classCallCheck(this, RepeatedTween);
+	
+	        var _this = _possibleConstructorReturn(this, (RepeatedTween.__proto__ || Object.getPrototypeOf(RepeatedTween)).call(this, baseTween, 0));
+	
+	        _this._baseDuration = baseTween.duration;
+	        _this._repeatCount = repeatCount;
+	        _this._duration = _this._baseDuration * repeatCount;
+	        return _this;
+	    }
+	
+	    /**
+	     *
+	     * @returns {uint}
+	     */
+	
+	
+	    _createClass(RepeatedTween, [{
+	        key: 'internalUpdate',
+	
+	
+	        /**
+	         * 0 ~ duration 까지 되도록 time을 빼줍니다.
+	         * @param time {number}
+	         */
+	        value: function internalUpdate(time) {
+	            if (time >= 0) {
+	                time -= time < this._duration ? this._baseDuration * parseInt(time / this._baseDuration) : this._duration - this._baseDuration;
+	            }
+	            this._baseTween.update(time);
+	        }
+	
+	        /**
+	         *
+	         * @returns {AbstractTween}
+	         */
+	
+	    }, {
+	        key: 'newInstance',
+	        value: function newInstance() {
+	            return new RepeatedTween(this._baseTween.clone(), this.repeatCount);
+	        }
+	    }, {
+	        key: 'repeatCount',
+	        get: function get() {
+	            return this._repeatCount;
+	        }
+	    }]);
+	
+	    return RepeatedTween;
+	}(_TweenDecorator3.default);
+	
+	exports.default = RepeatedTween;
+
+/***/ }),
+
+/***/ 389:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _TweenDecorator2 = __webpack_require__(386);
+	
+	var _TweenDecorator3 = _interopRequireDefault(_TweenDecorator2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var ScaledTween = function (_TweenDecorator) {
+	  _inherits(ScaledTween, _TweenDecorator);
+	
+	  /**
+	   *
+	   * @param baseTween {IITween}
+	   * @param scale {number}
+	   */
+	  function ScaledTween(baseTween, scale) {
+	    _classCallCheck(this, ScaledTween);
+	
+	    var _this = _possibleConstructorReturn(this, (ScaledTween.__proto__ || Object.getPrototypeOf(ScaledTween)).call(this, baseTween, 0));
+	
+	    _this._duration = baseTween.duration * scale;
+	    _this._scale = scale;
+	    return _this;
+	  }
+	
+	  /**
+	   *
+	   * @returns {number}
+	   */
+	
+	
+	  _createClass(ScaledTween, [{
+	    key: 'internalUpdate',
+	
+	
+	    /**
+	     *
+	     * @param time {number}
+	     */
+	    value: function internalUpdate(time) {
+	      this._baseTween.update(time / this.scale);
+	    }
+	
+	    /**
+	     *
+	     * @returns {AbstractTween}
+	     */
+	
+	  }, {
+	    key: 'newInstance',
+	    value: function newInstance() {
+	      return new ScaledTween(this._baseTween.clone(), this._scale);
+	    }
+	  }, {
+	    key: 'scale',
+	    get: function get() {
+	      return this._scale;
+	    }
+	  }]);
+	
+	  return ScaledTween;
+	}(_TweenDecorator3.default);
+	
+	exports.default = ScaledTween;
+
+/***/ }),
+
+/***/ 390:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _TweenDecorator2 = __webpack_require__(386);
+	
+	var _TweenDecorator3 = _interopRequireDefault(_TweenDecorator2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var SlicedTween = function (_TweenDecorator) {
+	    _inherits(SlicedTween, _TweenDecorator);
+	
+	    /**
+	     *
+	     * @param baseTween {IITween}
+	     * @param begin {number}
+	     * @param end {number}
+	     */
+	    function SlicedTween(baseTween, begin, end) {
+	        _classCallCheck(this, SlicedTween);
+	
+	        var _this = _possibleConstructorReturn(this, (SlicedTween.__proto__ || Object.getPrototypeOf(SlicedTween)).call(this, baseTween, 0));
+	
+	        _this._duration = end - begin;
+	        _this._begin = begin;
+	        _this._end = end;
+	        return _this;
+	    }
+	
+	    /**
+	     *
+	     * @returns {number}
+	     */
+	
+	
+	    _createClass(SlicedTween, [{
+	        key: 'internalUpdate',
+	
+	
+	        /**
+	         *
+	         * @param time {number}
+	         */
+	        value: function internalUpdate(time) {
+	            if (time > 0) {
+	                if (time < this._duration) {
+	                    this._baseTween.update(time + this._begin);
+	                } else {
+	                    this._baseTween.update(this._end);
+	                }
+	            } else {
+	                this._baseTween.update(this._begin);
+	            }
+	        }
+	
+	        /**
+	         *
+	         * @returns {AbstractTween}
+	         */
+	
+	    }, {
+	        key: 'newInstance',
+	        value: function newInstance() {
+	            return new SlicedTween(this._baseTween.clone(), this._begin, this._end);
+	        }
+	    }, {
+	        key: 'begin',
+	        get: function get() {
+	            return this._begin;
+	        }
+	
+	        /**
+	         *
+	         * @returns {number}
+	         */
+	
+	    }, {
+	        key: 'end',
+	        get: function get() {
+	            return this._end;
+	        }
+	    }]);
+	
+	    return SlicedTween;
+	}(_TweenDecorator3.default);
+	
+	exports.default = SlicedTween;
+
+/***/ }),
+
+/***/ 391:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _TweenDecorator2 = __webpack_require__(386);
+	
+	var _TweenDecorator3 = _interopRequireDefault(_TweenDecorator2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var DelayedTween = function (_TweenDecorator) {
+	  _inherits(DelayedTween, _TweenDecorator);
+	
+	  /**
+	   *
+	   * @param baseTween {IITween}
+	   * @param preDelay {number}
+	   * @param postDelay {number}
+	   */
+	  function DelayedTween(baseTween, preDelay, postDelay) {
+	    _classCallCheck(this, DelayedTween);
+	
+	    var _this = _possibleConstructorReturn(this, (DelayedTween.__proto__ || Object.getPrototypeOf(DelayedTween)).call(this, baseTween, 0));
+	
+	    _this._duration = preDelay + baseTween.duration + postDelay;
+	    _this._preDelay = preDelay;
+	    _this._postDelay = postDelay;
+	    return _this;
+	  }
+	
+	  /**
+	   *
+	   * @returns {number}
+	   */
+	
+	
+	  _createClass(DelayedTween, [{
+	    key: 'internalUpdate',
+	
+	
+	    /**
+	     *
+	     * @param time {number}
+	     */
+	    value: function internalUpdate(time) {
+	      this._baseTween.update(time - this._preDelay);
+	    }
+	
+	    /**
+	     *
+	     * @returns {AbstractTween}
+	     */
+	
+	  }, {
+	    key: 'newInstance',
+	    value: function newInstance() {
+	      return new DelayedTween(this._baseTween.clone(), this._preDelay, this._postDelay);
+	    }
+	  }, {
+	    key: 'preDelay',
+	    get: function get() {
+	      return this._preDelay;
+	    }
+	
+	    /**
+	     *
+	     * @returns {number}
+	     */
+	
+	  }, {
+	    key: 'postDelay',
+	    get: function get() {
+	      return this._postDelay;
+	    }
+	  }]);
+	
+	  return DelayedTween;
+	}(_TweenDecorator3.default);
+	
+	exports.default = DelayedTween;
+
+/***/ }),
+
+/***/ 392:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _AbstractActionTween2 = __webpack_require__(393);
+	
+	var _AbstractActionTween3 = _interopRequireDefault(_AbstractActionTween2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var AddChildAction = function (_AbstractActionTween) {
+	    _inherits(AddChildAction, _AbstractActionTween);
+	
+	    /**
+	     * TODO parent 가 없어서 바로 사용이 힘듭니다.
+	     * @param ticker {ITicker}
+	     * @param target {DisplayObject}
+	     * @param parent {DisplayObjectContainer}
+	     */
+	    function AddChildAction(ticker, target, parent) {
+	        _classCallCheck(this, AddChildAction);
+	
+	        var _this = _possibleConstructorReturn(this, (AddChildAction.__proto__ || Object.getPrototypeOf(AddChildAction)).call(this, ticker));
+	
+	        _this._target = target;
+	        _this._parent = parent;
+	        return _this;
+	    }
+	
+	    /**
+	     *
+	     * @returns {DisplayObject}
+	     */
+	
+	
+	    _createClass(AddChildAction, [{
+	        key: 'action',
+	        value: function action() {
+	            if (this._target != null && this._parent != null && this._target.parent != this._parent) {
+	                this._parent.addChild(this._target);
+	            }
+	        }
+	    }, {
+	        key: 'rollback',
+	        value: function rollback() {
+	            if (this._target != null && this._parent != null && this._target.parent == this._parent) {
+	                this._parent.removeChild(this._target);
+	            }
+	        }
+	    }, {
+	        key: 'target',
+	        get: function get() {
+	            return this._target;
+	        }
+	
+	        /**
+	         *
+	         * @returns {DisplayObjectContainer}
+	         */
+	
+	    }, {
+	        key: 'parent',
+	        get: function get() {
+	            return this._parent;
+	        }
+	    }]);
+	
+	    return AddChildAction;
+	}(_AbstractActionTween3.default);
+	
+	exports.default = AddChildAction;
+
+/***/ }),
+
+/***/ 393:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _AbstractTween2 = __webpack_require__(377);
+	
+	var _AbstractTween3 = _interopRequireDefault(_AbstractTween2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var AbstractActionTween = function (_AbstractTween) {
+	    _inherits(AbstractActionTween, _AbstractTween);
+	
+	    /**
+	     *
+	     * @param ticker {ITicker}
+	     */
+	    function AbstractActionTween(ticker) {
+	        _classCallCheck(this, AbstractActionTween);
+	
+	        var _this = _possibleConstructorReturn(this, (AbstractActionTween.__proto__ || Object.getPrototypeOf(AbstractActionTween)).call(this, ticker, 0));
+	
+	        _this._duration = 0.01;
+	        _this._lastTime = -1;
+	        return _this;
+	    }
+	
+	    /**
+	     * 
+	     * @param time {number}
+	     */
+	
+	
+	    _createClass(AbstractActionTween, [{
+	        key: 'internalUpdate',
+	        value: function internalUpdate(time) {
+	            if (this._lastTime < 0.01 && time >= 0.01) {
+	                this.action();
+	            } else if (this._lastTime > 0 && time <= 0) {
+	                this.rollback();
+	            }
+	            this._lastTime = time;
+	        }
+	    }, {
+	        key: 'action',
+	        value: function action() {}
+	    }, {
+	        key: 'rollback',
+	        value: function rollback() {}
+	    }]);
+	
+	    return AbstractActionTween;
+	}(_AbstractTween3.default);
+	
+	exports.default = AbstractActionTween;
+
+/***/ }),
+
+/***/ 394:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _AbstractActionTween2 = __webpack_require__(393);
+	
+	var _AbstractActionTween3 = _interopRequireDefault(_AbstractActionTween2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var RemoveFromParentAction = function (_AbstractActionTween) {
+	    _inherits(RemoveFromParentAction, _AbstractActionTween);
+	
+	    /**
+	     *
+	     * @param ticker {ITicker}
+	     * @param target {DisplayObject}
+	     */
+	    function RemoveFromParentAction(ticker, target) {
+	        _classCallCheck(this, RemoveFromParentAction);
+	
+	        var _this = _possibleConstructorReturn(this, (RemoveFromParentAction.__proto__ || Object.getPrototypeOf(RemoveFromParentAction)).call(this, ticker));
+	
+	        _this._parent = null;
+	        _this._target = target;
+	        return _this;
+	    }
+	
+	    /**
+	     * 
+	     * @returns {DisplayObject}
+	     */
+	
+	
+	    _createClass(RemoveFromParentAction, [{
+	        key: 'action',
+	        value: function action() {
+	            if (this._target != null && this._target.parent != null) {
+	                this._parent = this._target.parent;
+	                this._parent.removeChild(this._target);
+	            }
+	        }
+	    }, {
+	        key: 'rollback',
+	        value: function rollback() {
+	            if (this._target != null && this._parent != null) {
+	                this._parent.addChild(this._target);
+	                this._parent = null;
+	            }
+	        }
+	    }, {
+	        key: 'target',
+	        get: function get() {
+	            return this._target;
+	        }
+	    }]);
+	
+	    return RemoveFromParentAction;
+	}(_AbstractActionTween3.default);
+	
+	exports.default = RemoveFromParentAction;
+
+/***/ }),
+
+/***/ 395:
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _AbstractActionTween2 = __webpack_require__(393);
+	
+	var _AbstractActionTween3 = _interopRequireDefault(_AbstractActionTween2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * BetweenAS3
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Licensed under the MIT License
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c) 2009 BeInteractive! (www.be-interactive.org) and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                    Spark project  (www.libspark.org)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var FunctionAction = function (_AbstractActionTween) {
+	    _inherits(FunctionAction, _AbstractActionTween);
+	
+	    /**
+	     *
+	     * @param ticker {ITicker}
+	     * @param func {Function}
+	     * @param params {Array}
+	     * @param useRollback {boolean}
+	     * @param rollbackFunc {Function}
+	     * @param rollbackParams {Array}
+	     */
+	    function FunctionAction(ticker, func) {
+	        var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+	        var useRollback = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+	        var rollbackFunc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+	        var rollbackParams = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
+	
+	        _classCallCheck(this, FunctionAction);
+	
+	        var _this = _possibleConstructorReturn(this, (FunctionAction.__proto__ || Object.getPrototypeOf(FunctionAction)).call(this, ticker));
+	
+	        _this._func = func;
+	        _this._params = params;
+	        _this._rollbackFunc = undefined;
+	        _this._rollbackParams = undefined;
+	
+	        if (useRollback) {
+	            if (rollbackFunc != null) {
+	                _this._rollbackFunc = rollbackFunc;
+	                _this._rollbackParams = rollbackParams;
+	            } else {
+	                _this._rollbackFunc = func;
+	                _this._rollbackParams = params;
+	            }
+	        }
+	        return _this;
+	    }
+	
+	    _createClass(FunctionAction, [{
+	        key: 'action',
+	        value: function action() {
+	            if (this._func != null) {
+	                this._func.apply(null, this._params);
+	            }
+	        }
+	    }, {
+	        key: 'rollback',
+	        value: function rollback() {
+	            if (this._rollbackFunc != null) {
+	                this._rollbackFunc.apply(null, this._rollbackParams);
+	            }
+	        }
+	    }]);
+	
+	    return FunctionAction;
+	}(_AbstractActionTween3.default);
+	
+	exports.default = FunctionAction;
+
+/***/ })
+
+});
+//# sourceMappingURL=index.js.map
